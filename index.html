@@ -226,6 +226,36 @@ mark{background:#ffe27a;color:#1a1b2e;border-radius:3px;padding:0 1px}
 .res p{margin:6px 0 0;font-size:14px}
 .res a{font-weight:600;cursor:pointer}
 html.lg body{zoom:1.14}
+/* readable guideline diagram */
+.nm{font-weight:700;color:var(--ink);background:color-mix(in srgb,var(--acc) 10%,transparent);border-radius:5px;padding:0 4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.gnode.rx li,.gnode.warn li,.gnode.step li{padding:6px 0 6px 20px}
+main{overflow-x:hidden}
+.gnode h3{flex-wrap:wrap}
+.node.rx .nm{background:var(--rxsoft);color:var(--rx)}
+.node.warn .nm{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}
+.br .nm{background:rgba(255,255,255,.55)}
+[data-theme="dark"] .br .nm{background:rgba(0,0,0,.25)}
+.secrow{display:flex;align-items:center;gap:12px;margin:30px 0 14px;flex-wrap:wrap}
+.vtog{margin-left:auto;display:flex;background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:3px}
+.vtog button{border:0;background:none;padding:7px 12px;border-radius:8px;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--muted);display:flex;gap:6px;align-items:center}
+.vtog button.on{background:var(--accsoft);color:var(--acc)}
+.gflow{max-width:760px}
+.gnode{padding:14px 18px 14px 18px}
+.gnode h3{font-size:16px;line-height:1.35;padding-right:34px}
+.gnode h3:has(.k:only-child){margin-bottom:4px}
+.gidx{position:absolute;top:12px;right:14px;width:26px;height:26px;border-radius:50%;background:var(--surface2);border:1px solid var(--line);display:grid;place-items:center;font-size:12.5px;font-weight:700;color:var(--muted)}
+.gnode ul{list-style:none;padding:0;margin:4px 0 0}
+.gnode li{position:relative;padding:6px 0 6px 20px;border-top:1px dashed var(--line);font-size:15px;line-height:1.55}
+.gnode li:first-child{border-top:0}
+.gnode li:before{content:"";position:absolute;left:4px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--acc)}
+.gnode.rx li:before{background:var(--rx)}
+.gnode.warn li:before{background:var(--warn)}
+.gp{margin:4px 0 0;font-size:15px;line-height:1.6}
+.node ul li{line-height:1.6}
+.br b.bl{font-size:15px}
+.br li{margin:5px 0}
+.flow .conn{height:26px}
+@media (max-width:900px){.gnode li,.gp{font-size:15.5px}.vtog{margin-left:0}}
 /* ask */
 .ask{max-width:860px}
 .askbox{position:sticky;bottom:12px;display:flex;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 10px 30px rgba(26,27,46,.12);margin-top:16px;z-index:5}
@@ -1071,8 +1101,22 @@ const norm=s=>(s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().repl
 const esc0=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const bn=h=>h.replace(/⟪/g,'<span class="bn">(').replace(/⟫/g,")</span>");
 const esc=s=>bn(esc0(s));
+const NUMRE=/((?:≥|≤|&lt;|&gt;|~|×)\s?)?\d+(?:[.,]\d+)*(?:\+\d)?(?:\s?[–-]\s?\d+(?:[.,]\d+)*(?:\+\d)?)?(\s?(?:mg\/kg|mg\/dl|g\/dl|g\/l|mU\/min|IU\/kg|mg|mcg|μg|IU|mU|ml|kg|cm|mm|g|εβδομάδες|εβδομάδα|εβδ\.?|ώρες|ώρα|ημέρες|ημέρα|λεπτά|μήνες|έτη|δόσεις|%|\/μl))(?![\p{L}])/gu;
+const GARE=/(?<![\d\p{L}])(\d{2}\+\d(?:\s?[–-]\s?\d{2}\+\d)?)(?![\d])/gu;
+function hlNums(h){return h.replace(NUMRE,m=>`<b class="nm">${m}</b>`).replace(GARE,(m,a,off,str)=>{const pre=str.slice(Math.max(0,off-16),off);return /class="nm">[^<]*$/.test(pre)?m:`<b class="nm">${m}</b>`})}
+const fmt=s=>bn(hlNums(esc0(s)));
+const WARNRE=/(δεν συστήν|δεν συνιστ|όχι ως ρουτίνα|όχι ρουτίνα|αντενδείκν|αποφυγή|απαγορεύ|δεν πρέπει|δεν χρησιμοποιούνται|δεν αποτελ)/i;
+function recNode(b,i){
+  let title="",body=b;const ci=b.indexOf(":");
+  if(ci>0&&ci<70&&!/\d$/.test(b.slice(0,ci))){title=b.slice(0,ci);body=b.slice(ci+1).trim()}
+  const kind=DOSE.test(b)?"rx":WARNRE.test(b)?"warn":"step";
+  const parts=body.split(/·\s+|(?<=[^\d]\.)\s+(?=[Α-ΩΆΈΉΊΌΎΏA-Z])|;\s+/).map(x=>x.trim().replace(/\.$/,"")).filter(Boolean);
+  const KK={rx:"Δοσολογία",warn:"Προσοχή",step:"Σύσταση"};
+  return `<div class="node ${kind} gnode"><div class="gidx">${i+1}</div><h3><span class="k">${KK[kind]}</span>${title?fmt(title):""}</h3>${parts.length>1?`<ul>${parts.map(p=>`<li>${fmt(p)}</li>`).join("")}</ul>`:`<p class="gp">${fmt(parts[0]||body)}</p>`}</div>`;
+}
 const slug=n=>n.replace("α","a").replace("β","b").replace("γ","c");
 const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let gView=store.get("mg-gview","flow");
 let favs=new Set(store.get("mg-favs",[])), recent=store.get("mg-recent",[]);
 const byN=Object.fromEntries(G.map(g=>[g.n,g])), bySlug=Object.fromEntries(G.map(g=>[slug(g.n),g])), byF=Object.fromEntries(F.map(f=>[f.id,f]));
 G.forEach(g=>{const s=S[g.n];if(s&&!g.y){const m=(s.d||"").match(/\d{4}/);if(m)g.y=m[0]}
@@ -1179,7 +1223,8 @@ function vGuide(g){
     <div class="acts">${g.p?`<a class="btn pri" href="${B+g.p}" target="_blank" rel="noopener">${svg("ext",16)} Επίσημο PDF</a>`:`<span class="btn" style="opacity:.6">Χωρίς διαθέσιμο PDF</span>`}
       ${g.flows.map(id=>`<button class="btn tl" data-go="f-${id}">${svg("flow",16)} ${esc(byF[id].t)}</button>`).join("")}
       <button class="btn" data-fav="${esc(g.n)}">${favs.has(g.n)?"★ Στις αγαπημένες":"☆ Αγαπημένη"}</button><button class="btn" data-share>${svg("share",16)} Κοινοποίηση</button></div></div></div>
-  ${s?`<h2 class="sec">Βασικές συστάσεις</h2><div class="recs">${s.b.map(b=>`<div class="rec">${esc(b)}</div>`).join("")}</div>
+  ${s?`<div class="secrow"><h2 class="sec" style="margin:0">Βασικές συστάσεις</h2><div class="vtog"><button class="${gView==="flow"?"on":""}" data-gview="flow">${svg("flow",15)} Διάγραμμα</button><button class="${gView==="list"?"on":""}" data-gview="list">${svg("list",15)} Λίστα</button></div></div>
+  ${gView==="flow"?`<div class="flow gflow">${s.b.map(recNode).join('<div class="conn"></div>')}</div>`:`<div class="recs">${s.b.map(b=>`<div class="rec">${fmt(b)}</div>`).join("")}</div>`}
   <p class="verify">${svg("info",16)}<span>Σύνοψη με δικά μας λόγια από το επίσημο κείμενο. Πριν από κλινική απόφαση επαληθεύστε στο PDF. Οι εμπορικές ονομασίες σε παρένθεση είναι ενδεικτικές, από τον <a href="https://www.galinos.gr" target="_blank" rel="noopener">Γαληνό</a>.</span></p>`:`<p class="verify">Δεν υπάρχει σύνοψη για αυτή την οδηγία.</p>`}`;
 }
 function vFlows(){
@@ -1194,8 +1239,8 @@ function vFlow(f){
   const refl=r=>`<a data-go="g-${slug(r)}">Νο ${esc(r)}</a>`;
   const nodes=f.n.map(x=>{
     let body="";
-    if(x.k==="dec") body=`<div class="branches">${x.b.map(b=>`<div class="br${b.tone?" "+b.tone:""}" data-pick role="button" tabindex="0"><b>${esc(b.l)}</b><ul>${b.x.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`).join("")}</div>`;
-    else body=`<ul>${x.x.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`;
+    if(x.k==="dec") body=`<div class="branches">${x.b.map(b=>`<div class="br${b.tone?" "+b.tone:""}" data-pick role="button" tabindex="0"><b class="bl">${esc(b.l)}</b><ul>${b.x.map(t=>`<li>${fmt(t)}</li>`).join("")}</ul></div>`).join("")}</div>`;
+    else body=`<ul>${x.x.map(t=>`<li>${fmt(t)}</li>`).join("")}</ul>`;
     const extra=x.k==="rx"?`<button class="cpy" data-copy>Αντιγραφή</button>`:"";
     return `<div class="node ${x.k}"><h3><span class="k">${KL[x.k]}</span>${esc(x.h)}${extra}</h3>${x.k==="dec"?`<span class="tapnote">Πατήστε την περίπτωση της ασθενούς σας</span>`:""}${body}${x.ref?`<div class="nref">Πηγή: ${refl(x.ref)}</div>`:""}</div>`;
   }).join('<div class="conn"></div>');
@@ -1293,12 +1338,12 @@ function mdLite(s){
   h=h.replace(/\(?Νο\s?(\d+[αβγ]?)\)?/g,(m,n)=>byN[n]?`<a class="gl" data-go="g-${slug(n)}">${m}</a>`:m);
   const lines=h.split(/\n/);let out="",inl=false;
   lines.forEach(l=>{const m=l.match(/^\s*[-•*]\s+(.*)/);if(m){if(!inl){out+="<ul>";inl=true}out+=`<li>${m[1]}</li>`}else{if(inl){out+="</ul>";inl=false}if(l.trim())out+=`<p>${l}</p>`}});
-  if(inl)out+="</ul>";return bn(out);
+  if(inl)out+="</ul>";return bn(hlNums(out));
 }
 function srcHTML(r){const items=[...r.fs.map(({f})=>`<a data-go="f-${f.id}">⟶ ${esc0(f.t)}</a>`),...r.gs.slice(0,5).map(({g})=>`<a data-go="g-${slug(g.n)}">Νο ${esc0(g.n)}</a>`)];return items.length?`<div class="src">Πηγές:${items.join("")}</div>`:""}
 function localAnswer(q,r){
   if(!r.gs.length&&!r.fs.length) return `<p>Δεν βρήκα σχετική σύσταση στις οδηγίες της ΕΜΓΕ για «${esc0(q)}». Δοκιμάστε άλλες λέξεις (π.χ. όνομα φαρμάκου ή πάθησης).</p>`;
-  let h=`<p><b>Οι πιο σχετικές συστάσεις από τις οδηγίες:</b></p><ul>${r.bul.map(x=>`<li>${esc(x.b)} <a class="gl" data-go="g-${slug(x.g.n)}">(Νο ${esc0(x.g.n)})</a></li>`).join("")}</ul>`;
+  let h=`<p><b>Οι πιο σχετικές συστάσεις από τις οδηγίες:</b></p><ul>${r.bul.map(x=>`<li>${fmt(x.b)} <a class="gl" data-go="g-${slug(x.g.n)}">(Νο ${esc0(x.g.n)})</a></li>`).join("")}</ul>`;
   if(r.fs.length) h+=`<p>Δείτε και τον αλγόριθμο: ${r.fs.map(({f})=>`<a class="gl" data-go="f-${f.id}">${esc0(f.t)}</a>`).join(", ")}.</p>`;
   return h;
 }
@@ -1386,6 +1431,7 @@ document.addEventListener("click",e=>{
   const pk=e.target.closest("[data-pick]"); if(pk&&!e.target.closest("a")){const dec=pk.closest(".dec");const was=pk.classList.contains("pick");dec.querySelectorAll(".br").forEach(x=>x.classList.remove("pick"));if(was)dec.classList.remove("picked");else{pk.classList.add("pick");dec.classList.add("picked")}return}
   const cp=e.target.closest("[data-copy]"); if(cp){const n=cp.closest(".node");const txt=n.querySelector("h3").childNodes[1].textContent+"\n"+[...n.querySelectorAll("li")].map(l=>"• "+l.textContent).join("\n");const done=()=>{cp.textContent="Αντιγράφηκε ✓";setTimeout(()=>cp.textContent="Αντιγραφή",1500)};try{navigator.clipboard.writeText(txt).then(done,()=>{cp.textContent="Μη διαθέσιμο"})}catch(_){cp.textContent="Μη διαθέσιμο"}return}
   const sh=e.target.closest("[data-share]"); if(sh){const url=location.href,title=document.title;if(navigator.share){navigator.share({title,url}).catch(()=>{})}else{try{navigator.clipboard.writeText(url).then(()=>{sh.lastChild.textContent=" Ο σύνδεσμος αντιγράφηκε"})}catch(_){}}return}
+  const gv=e.target.closest("[data-gview]"); if(gv){gView=gv.dataset.gview;store.set("mg-gview",gView);render();return}
   const ak=e.target.closest("[data-ask]"); if(ak){ask(ak.dataset.ask);return}
   const nc=e.target.closest("[data-newchat]"); if(nc){chat=[];render();setTimeout(()=>$("#askq")&&$("#askq").focus(),30);return}
   const hw=e.target.closest("[data-howto]"); if(hw){store.set("mg-howto",false);render();return}
