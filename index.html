@@ -50,6 +50,15 @@ main{min-width:0;padding:0 0 100px}
 .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:14px 32px;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent}
 .topbar.scrolled{border-bottom-color:var(--line)}
 .sbtn{flex:1;max-width:620px;display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:text;font-size:15px;box-shadow:var(--sh);text-align:left}
+.num.sm{font-size:12px;letter-spacing:-.2px}
+.dhead .num.sm{font-size:15px}
+.tag.intl{background:#e8f0fb;color:#1d4f91}
+[data-theme=dark] .tag.intl{background:#1d2c44;color:#9cc0f2}
+.srcsw{margin:0 0 12px}.srcsw .n{opacity:.65;font-weight:600;margin-left:4px}
+.askbox .mic{flex:0 0 auto;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--acc);display:grid;place-items:center;cursor:pointer;align-self:flex-end}
+.askbox .mic.on{background:#d33;color:#fff;border-color:#d33;animation:micp 1.2s infinite}
+@keyframes micp{0%{box-shadow:0 0 0 0 rgba(221,51,51,.5)}100%{box-shadow:0 0 0 12px rgba(221,51,51,0)}}
+.michint{font-size:13px;color:#d33;margin:6px 4px 0;text-align:center}
 .sbtn kbd{margin-left:auto}
 .sbtn span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 kbd{font-family:inherit;font-size:11.5px;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 6px;color:var(--muted);background:var(--surface2)}
@@ -304,6 +313,71 @@ main{overflow-x:hidden}
   .howto{grid-template-columns:1fr}
   .tools-grid{grid-template-columns:1fr}
 }
+
+/* ===== v9 modern ===== */
+#askq::placeholder{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#askq{min-width:0}
+.exq{display:flex;flex-wrap:wrap;gap:8px}.exq button{border-radius:999px!important}
+@media (max-width:900px){body[data-r=home] .sbtn{visibility:hidden}body[data-r=home] .topbar{padding-bottom:0}.row .meta .tag:nth-of-type(n+3){display:none}}
+:root{--r:18px;--sh:0 1px 2px rgba(26,27,46,.04),0 10px 30px -12px rgba(26,27,46,.14)}
+#view.enter{animation:vin .28s cubic-bezier(.2,.7,.2,1)}
+@keyframes vin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+button{-webkit-tap-highlight-color:transparent}
+.row,.ftile,.stat,.hx-sc,.hx-emt,.hx-fc,.hx-ai{transition:transform .15s ease,box-shadow .2s ease,border-color .2s}
+.row:active,.hx-sc:active,.hx-emt:active,.hx-fc:active,.hx-ai:active{transform:scale(.98)}
+.hx{max-width:1080px}
+.hx-top{padding:18px 2px 6px}
+.hx-hi{margin:0;color:var(--muted);font-weight:500}
+.hx-h{margin:2px 0 14px;font-size:32px;letter-spacing:-.02em;line-height:1.1}
+.hx-search{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 18px;box-shadow:var(--sh);max-width:680px}
+.hx-search>svg{width:20px;height:20px;color:var(--muted);flex:0 0 auto}
+.hx-search input{flex:1;min-width:0;border:0;outline:0;background:none;font:inherit;font-size:16.5px;color:var(--ink);padding:10px 0}
+.hx-mic{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--acc),#b23a6c);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 16px -6px var(--acc)}
+.hx-ai{display:flex;align-items:center;gap:14px;width:100%;max-width:680px;margin:16px 0 4px;padding:16px 18px;border:0;border-radius:22px;cursor:pointer;text-align:left;color:#fff;background:linear-gradient(120deg,#7a1d45 0%,#a33468 50%,#5b2a86 100%);box-shadow:0 14px 30px -14px #7a1d45;position:relative;overflow:hidden}
+.hx-ai:after{content:"";position:absolute;right:-40px;top:-50px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.09)}
+.hx-ai-ic{width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.16);display:grid;place-items:center;flex:0 0 auto}
+.hx-ai-t{flex:1;min-width:0}.hx-ai-t b{display:block;font-size:18px}.hx-ai-t small{opacity:.85;font-size:13.5px}
+.hx-go{opacity:.8}
+.hx-sec{display:flex;align-items:baseline;justify-content:space-between;font-size:18px;margin:26px 2px 12px;letter-spacing:-.01em}
+.hx-sec a{font-size:14px;font-weight:600}
+.hx-em{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.hx-emt{display:flex;align-items:center;gap:12px;padding:14px;border-radius:18px;border:1px solid color-mix(in srgb,var(--c) 22%,var(--line));background:color-mix(in srgb,var(--c) 7%,var(--surface));cursor:pointer;text-align:left;font-weight:600;font-size:15px;color:var(--ink);min-height:70px}
+.hx-emi{width:42px;height:42px;border-radius:13px;background:var(--c);color:#fff;display:grid;place-items:center;flex:0 0 auto}
+[data-theme=dark] .hx-emt{background:color-mix(in srgb,var(--c) 16%,var(--surface))}
+.hx-row,.hx-car{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 10px;margin:0 -2px;scrollbar-width:none}
+.hx-row::-webkit-scrollbar,.hx-car::-webkit-scrollbar{display:none}
+.hx-chip{flex:0 0 auto;display:flex;align-items:center;gap:8px;max-width:260px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:14px;scroll-snap-align:start}
+.hx-chip b{color:var(--acc);font-size:12.5px}.hx-chip svg{color:var(--teal);flex:0 0 auto}
+.hx-chip span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hx-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.hx-sc{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:14px;border-radius:18px;border:1px solid var(--line);background:var(--surface);cursor:pointer;text-align:left;box-shadow:var(--sh)}
+.hx-sc b{font-size:14.5px;line-height:1.2}.hx-sc small{color:var(--muted);font-size:12.5px;font-weight:600}
+.hx-sci{width:40px;height:40px;border-radius:12px;background:var(--accsoft);color:var(--acc);display:grid;place-items:center;margin-bottom:4px}
+.hx-sc:nth-child(1) .hx-sci{background:var(--tealsoft);color:var(--teal)}
+.hx-sc:nth-child(3) .hx-sci{background:#e8f0fb;color:#1d4f91}
+.hx-sc:nth-child(4) .hx-sci{background:var(--rxsoft);color:var(--rx)}
+.hx-sc:nth-child(5) .hx-sci{background:var(--warnsoft);color:var(--warn)}
+[data-theme=dark] .hx-sc:nth-child(3) .hx-sci{background:#1d2c44;color:#9cc0f2}
+.hx-fc{flex:0 0 230px;display:flex;flex-direction:column;gap:6px;padding:16px;border-radius:18px;border:1px solid var(--line);background:var(--surface);cursor:pointer;text-align:left;box-shadow:var(--sh);scroll-snap-align:start}
+.hx-fc b{font-size:15.5px;line-height:1.25}.hx-fc small{color:var(--muted);font-size:13px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hx-fci{width:38px;height:38px;border-radius:12px;background:var(--tealsoft);color:var(--teal);display:grid;place-items:center}
+.hx-disc{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(--muted);margin:28px 2px 0;line-height:1.5}.hx-disc svg{flex:0 0 auto;margin-top:2px}
+.fab{display:none}
+@media (hover:hover){.hx-sc:hover,.hx-fc:hover,.hx-emt:hover{transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(26,27,46,.25)}}
+@media (max-width:900px){
+  .hx-h{font-size:27px}
+  .hx-em{grid-template-columns:repeat(2,1fr)}
+  .hx-emt{font-size:14px;padding:12px;min-height:64px;gap:10px}
+  .hx-emi{width:38px;height:38px}
+  .hx-grid{grid-template-columns:repeat(3,1fr)}
+  .hx-sc{padding:12px;align-items:center;text-align:center}
+  .hx-sc .hx-sci{margin:0 auto 2px}
+  .hx-sc b{font-size:13px}
+  .tabbar{padding-top:8px}
+  .tabbar button{position:relative}
+  .tabbar button.on svg{background:var(--accsoft);border-radius:999px;padding:3px 14px;width:52px;height:30px}
+  .tabbar button svg{padding:3px 14px;width:52px;height:30px;box-sizing:border-box}
+  .fab{display:grid;place-items:center;width:56px;height:56px;position:fixed;right:16px;bottom:calc(80px + env(safe-area-inset-bottom));z-index:31;border:0;border-radius:50%;padding:0;color:#fff;font-weight:700;font-size:15px;background:linear-gradient(135deg,#7a1d45,#5b2a86);box-shadow:0 12px 28px -10px rgba(91,42,134,.7);cursor:pointer}
+}
 </style>
 </head>
 <body>
@@ -324,6 +398,7 @@ main{overflow-x:hidden}
     <div class="wrap" id="view"></div>
   </main>
 </div>
+<button class="fab" id="fab" data-homemic aria-label="Ερώτηση με φωνή"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
 <nav class="tabbar" id="tabbar"></nav>
 
 <div class="pal" id="pal" role="dialog" aria-modal="true" aria-label="Αναζήτηση">
@@ -878,6 +953,215 @@ const G=[
  {n:"56",s:56,y:"2021",old:1,t:"Σύνδρομο υπερδιέγερσης ωοθηκών",c:"rep",by:"84",k:"OHSS"},
  {n:"60",s:60,y:"2021",old:1,t:"Προγεννητικός έλεγχος: παρακολούθηση ομαλά εξελισσόμενης, ανεπίπλεκτης κύησης",c:"preg",by:"87"}
 ];
+const NU="https://www.nice.org.uk/guidance/";
+const GX=[
+ {src:"nice",n:"NG201",s:2001,t:"Προγεννητική φροντίδα (Antenatal care)",c:"preg",u:NU+"ng201",k:"antenatal care booking scan anti-D fetal movements"},
+ {src:"nice",n:"NG235",s:2002,t:"Φροντίδα κατά τον τοκετό (Intrapartum care)",c:"labour",u:NU+"ng235",k:"intrapartum labour stages delay second stage epidural remifentanil"},
+ {src:"nice",n:"NG229",s:2003,t:"Παρακολούθηση εμβρύου στον τοκετό (Fetal monitoring in labour)",c:"labour",u:NU+"ng229",k:"CTG καρδιοτοκογράφημα intermittent auscultation"},
+ {src:"nice",n:"NG194",s:2004,t:"Φροντίδα λοχείας (Postnatal care)",c:"labour",u:NU+"ng194",k:"postnatal λοχεία"},
+ {src:"nice",n:"NG133",s:2005,t:"Υπέρταση στην κύηση (Hypertension in pregnancy)",c:"preg",u:NU+"ng133",k:"προεκλαμψία pre-eclampsia λαμπεταλόλη νιφεδιπίνη μαγνήσιο υπέρταση"},
+ {src:"nice",n:"NG3",s:2006,t:"Διαβήτης στην κύηση (Diabetes in pregnancy)",c:"preg",u:NU+"ng3",k:"ΣΔΚ GDM OGTT μετφορμίνη ινσουλίνη διαβήτης"},
+ {src:"nice",n:"NG25",s:2007,t:"Πρόωρος τοκετός (Preterm labour and birth)",c:"labour",u:NU+"ng25",k:"preterm PPROM ερυθρομυκίνη cerclage προγεστερόνη"},
+ {src:"nice",n:"NG207",s:2008,t:"Πρόκληση τοκετού (Inducing labour)",c:"labour",u:NU+"ng207",k:"induction Bishop δινοπροστόνη μισοπροστόλη"},
+ {src:"nice",n:"NG192",s:2009,t:"Καισαρική τομή (Caesarean birth)",c:"labour",u:NU+"ng192",k:"caesarean καισαρική"},
+ {src:"nice",n:"NG137",s:2010,t:"Δίδυμη και τρίδυμη κύηση (Twin and triplet pregnancy)",c:"preg",u:NU+"ng137",k:"twins δίδυμα TTTS χοριονικότητα"},
+ {src:"nice",n:"NG126",s:2011,t:"Έκτοπη κύηση και αποβολή (Ectopic pregnancy and miscarriage)",c:"gyn",u:NU+"ng126",k:"ectopic εξωμήτριος miscarriage αποβολή μεθοτρεξάτη hCG PUL"},
+ {src:"nice",n:"NG121",s:2012,t:"Τοκετός σε γυναίκες με νοσήματα ή επιπλοκές (Intrapartum care: existing conditions)",c:"labour",u:NU+"ng121",k:"heart disease asthma breech SGA previous caesarean"},
+ {src:"nice",n:"NG255",s:2013,t:"Σήψη στην κύηση και τη λοχεία (Suspected sepsis in pregnancy)",c:"inf",u:NU+"ng255",k:"sepsis σήψη λοχειακή"},
+ {src:"nice",n:"NG140",s:2014,t:"Διακοπή κύησης (Abortion care)",c:"gyn",u:NU+"ng140",k:"abortion άμβλωση μιφεπριστόνη μισοπροστόλη"},
+ {src:"nice",n:"NG73",s:2015,t:"Ενδομητρίωση (Endometriosis)",c:"gyn",u:NU+"ng73",k:"endometriosis ενδομητρίωση"},
+ {src:"nice",n:"NG88",s:2016,t:"Βαριά εμμηνορρυσία (Heavy menstrual bleeding)",c:"gyn",u:NU+"ng88",k:"HMB μηνορραγία ινομυώματα fibroids LNG-IUS τρανεξαμικό"},
+ {src:"nice",n:"NG23",s:2017,t:"Εμμηνόπαυση (Menopause)",c:"gyn",u:NU+"ng23",k:"menopause HRT ΟΘΠ POI fezolinetant"},
+ {src:"nice",n:"NG257",s:2018,t:"Υπογονιμότητα (Fertility problems)",c:"rep",u:NU+"ng257",k:"fertility IVF IUI σπερμοδιάγραμμα υπογονιμότητα"},
+ {src:"nice",n:"NG123",s:2019,t:"Ακράτεια ούρων και πρόπτωση (Urinary incontinence and pelvic organ prolapse)",c:"gyn",u:NU+"ng123",k:"incontinence ακράτεια πρόπτωση pessary πεσσός"},
+ {src:"nice",n:"CG192",s:2020,t:"Ψυχική υγεία στην κύηση και τη λοχεία (Antenatal and postnatal mental health)",c:"preg",u:NU+"cg192",k:"depression κατάθλιψη ψύχωση λίθιο SSRI EPDS"},
+ {src:"asccp",n:"ASCCP",s:3001,t:"Μη φυσιολογικός έλεγχος τραχήλου: διαχείριση βάσει κινδύνου (ASCCP 2019 και Enduring Guidelines 2024–2025)",c:"onc",u:"https://www.asccp.org/management-guidelines",k:"HPV colposcopy κολποσκόπηση CIN genotyping dual stain p16 Ki67 self-collection αυτολήψη"}
+];
+const SX={
+"NG201":{d:"2021, ενημ. 2025",b:[
+"Πρώτη (booking) επίσκεψη έως τις 10+0 εβδομάδες· αν η γυναίκα έρθει μετά τις 9+0, εντός 2 εβδομάδων.",
+"Υπερηχογράφημα στις 11+2–14+1 εβδομάδες και ανατομικό στις 18+0–20+6 εβδομάδες.",
+"Anti-D προφύλαξη στις 28 εβδομάδες σε Rh αρνητικές μη ευαισθητοποιημένες· anti-D και σε κολπική αιμορραγία μετά τις 13 εβδομάδες.",
+"Σοβαρή υπέρταση (≥ 160/110 mmHg): παραπομπή την ίδια ημέρα.",
+"Εκτίμηση κινδύνου ενδομήτριας καθυστέρησης ανάπτυξης στην πρώτη επίσκεψη και ξανά στο 2ο τρίμηνο.",
+"Όχι ρουτίνα υπερηχογραφήματα μετά τις 28 εβδομάδες σε ανεπίπλεκτη μονήρη κύηση.",
+"Μειωμένες κινήσεις μετά τις 24+0 εβδομάδες: επικοινωνία με το μαιευτήριο οποιαδήποτε ώρα. Μετά τις 28 εβδομάδες αποφυγή ύπνου σε ύπτια θέση."]},
+"NG235":{d:"2023, ενημ. 2025",b:[
+"Λανθάνουσα φάση: συσπάσεις με τραχηλικές αλλαγές έως 4 cm. Εγκατεστημένη φάση: τακτικές συσπάσεις και προοδευτική διαστολή από 4 cm.",
+"Υποψία καθυστέρησης στο 1ο στάδιο: διαστολή < 2 cm σε 4 ώρες (πρωτοτόκες), ή < 2 cm σε 4 ώρες ή επιβράδυνση (πολυτόκες).",
+"2ο στάδιο: ο τοκετός αναμένεται εντός 3 ωρών από την έναρξη του ενεργού 2ου σταδίου στις πρωτοτόκες και εντός 2 ωρών στις πολυτόκες.",
+"Με επισκληρίδιο: η ώθηση μπορεί να καθυστερήσει έως 1 ώρα (πολυτόκες) ή έως 2 ώρες (πρωτοτόκες) μετά την πλήρη διαστολή. Όχι ρουτίνα ωκυτοκίνη στο 2ο στάδιο με επισκληρίδιο.",
+"Ωκυτοκίνη στο 2ο στάδιο: αυξήσεις όχι συχνότερα από κάθε 30 λεπτά.",
+"Επισκληρίδιος: χαμηλής συγκέντρωσης τοπικό αναισθητικό με οπιοειδές (0,0625–0,1% βουπιβακαΐνη με φεντανύλη 2 μg/ml)· όχι ρουτίνα ≥ 0,25%. ΑΠ κάθε 5 λεπτά για 15 λεπτά μετά από bolus ≥ 10 ml, και συνεχές ΚΤΓ για ≥ 30 λεπτά.",
+"Ρεμιφεντανίλη PCA 40 μg ανά bolus με lockout 2 λεπτών, μόνο σε μαιευτική μονάδα.",
+"Ρήξη υμένων στο τελειόμηνο: αναμονή έως 24 ώρες ή πρόκληση· αν δεν αρχίσει τοκετός σε 24 ώρες, τοκετός με πρόσβαση σε νεογνολογική μονάδα και παραμονή ≥ 12 ώρες μετά.",
+"Κριτήρια μεταφοράς σε μαιευτική μονάδα: σφύξεις > 120/λεπτό, ΑΠ ≥ 140/90 mmHg σε 2 μετρήσεις με διαφορά 15–30 λεπτά, ρήξη υμένων > 24 ώρες, μειωμένες κινήσεις κ.ά."]},
+"NG229":{d:"2022, ενημ. 2025",b:[
+"Εκτίμηση κινδύνου στην έναρξη του τοκετού για επιλογή διαλείπουσας ακρόασης ή ΚΤΓ· επανεκτίμηση σε όλη τη διάρκεια.",
+"Διαλείπουσα ακρόαση 1ο στάδιο: αμέσως μετά από συστολή, για ≥ 1 λεπτό, τουλάχιστον κάθε 15 λεπτά.",
+"Διαλείπουσα ακρόαση 2ο στάδιο: τουλάχιστον κάθε 5 λεπτά, με ψηλάφηση του μητρικού σφυγμού.",
+"Συνεχές ΚΤΓ σε προγεννητικούς ή ενδοτοκετικούς παράγοντες κινδύνου (π.χ. πυρετός, επισκληρίδιος, ωκυτοκίνη, παρατεταμένος τοκετός).",
+"Καθησυχαστικά: βασική γραμμή 110–160 bpm και μεταβλητότητα 5–25 bpm.",
+"Ταξινόμηση ΚΤΓ: φυσιολογικό, ύποπτο ή παθολογικό· στο παθολογικό άμεση εκτίμηση, αποκλεισμός οξέων συμβαμάτων και συντηρητικά μέτρα.",
+"Ερεθισμός κεφαλής εμβρύου σε ύποπτο ΚΤΓ· απουσία επιτάχυνσης είναι ανησυχητική.",
+"Δειγματοληψία αίματος εμβρύου: καμία σύσταση λόγω ανεπαρκών δεδομένων."]},
+"NG194":{d:"2021, ενημ. 2026",b:[
+"Πρώτη επίσκεψη μαίας εντός 36 ωρών από το εξιτήριο ή τον κατ' οίκον τοκετό.",
+"Σε κάθε επαφή: λοίμωξη, πόνος, κολπική αιμορραγία, ούρηση και κένωση, μαστοί, θρομβοεμβολή, αναιμία, προεκλαμψία, ψυχική υγεία.",
+"Ενημέρωση για σημεία που χρειάζονται άμεση βοήθεια: έντονη αιμορραγία, πυρετός, σημεία ΦΘΕ, θωρακικό άλγος, επίμονη κεφαλαλγία, φλεγμονή μαστού > 24 ωρών.",
+"Δευτερογενής αιμορραγία: εκτίμηση βαρύτητας· προσοχή σε αναιμία και βάρος < 50 kg.",
+"Σήψη: ακολουθείται η οδηγία NICE για σήψη (Νο NG255)· εξέταση και του νεογνού.",
+"Εκτίμηση κινδύνου ΦΘΕ και πρόληψη σύμφωνα με NICE και RCOG.",
+"Έλεγχος 6–8 εβδομάδων από γενικό ιατρό, με συνολική αξιολόγηση."]},
+"NG133":{d:"2019, ενημ. 2023",b:[
+"Ασπιρίνη 75–150 mg ημερησίως από τις 12 εβδομάδες έως τον τοκετό σε 1 παράγοντα υψηλού κινδύνου (υπερτασική νόσος σε προηγούμενη κύηση, ΧΝΝ, αυτοάνοσο, ΣΔ τύπου 1/2, χρόνια υπέρταση).",
+"Το ίδιο σε > 1 μέτριο παράγοντα: πρώτη κύηση, ηλικία ≥ 40, μεσοδιάστημα > 10 ετών, ΔΜΣ ≥ 35 kg/m², οικογενειακό ιστορικό, πολύδυμη κύηση.",
+"Έναρξη αγωγής σε επίμονη ΑΠ ≥ 140/90 mmHg· στόχος 135/85 mmHg. Μείωση ή διακοπή αν < 110/70 mmHg.",
+"Φάρμακα: λαμπεταλόλη πρώτη επιλογή, μετά νιφεδιπίνη, μετά μεθυλντόπα.",
+"Σοβαρή υπέρταση: λαμπεταλόλη (po ή IV), νιφεδιπίνη po ή υδραλαζίνη IV.",
+"Θειικό μαγνήσιο σε εκλαμψία ή σοβαρή προεκλαμψία: 4 g IV σε 5–15 λεπτά, μετά 1 g/ώρα για 24 ώρες· νέοι σπασμοί 2–4 g IV.",
+"Χρόνια ή κυησιακή υπέρταση: όχι τοκετός πριν τις 37 εβδομάδες αν ΑΠ < 160/110 mmHg χωρίς άλλη ένδειξη.",
+"Προεκλαμψία: < 37 εβδομάδες παρακολούθηση εκτός ενδείξεων· από 37 εβδομάδες τοκετός εντός 24–48 ωρών."]},
+"NG3":{d:"2015, ενημ. 2020",b:[
+"Πριν τη σύλληψη: στόχος HbA1c < 48 mmol/mol (6,5%)· αποφυγή κύησης αν HbA1c > 86 mmol/mol (10%). Φυλλικό οξύ 5 mg ημερησίως έως τις 12 εβδομάδες.",
+"Έλεγχος ΣΔΚ μόνο με OGTT 75 g, 2 ωρών· όχι γλυκόζη νηστείας, HbA1c ή γενική ούρων για εκτίμηση κινδύνου.",
+"Προηγούμενος ΣΔΚ: OGTT (ή αυτοέλεγχος) το συντομότερο μετά την πρώτη επίσκεψη και ξανά στις 24–28 εβδομάδες. Άλλοι παράγοντες κινδύνου: OGTT στις 24–28 εβδομάδες.",
+"Διάγνωση ΣΔΚ: γλυκόζη νηστείας ≥ 5,6 mmol/l ή 2ωρη ≥ 7,8 mmol/l.",
+"Στόχοι: 1 ώρα μετά το γεύμα 7,8 mmol/l ή 2 ώρες 6,4 mmol/l· με ινσουλίνη πάνω από 4 mmol/l.",
+"ΣΔΚ με νηστεία < 7 mmol/l: δίαιτα-άσκηση· αν δεν επιτευχθούν στόχοι σε 1–2 εβδομάδες, μετφορμίνη, και μετά ινσουλίνη.",
+"ΣΔΚ με νηστεία ≥ 7,0 mmol/l: ινσουλίνη από τη διάγνωση.",
+"HbA1c στη διάγνωση ΣΔΚ για αναγνώριση προϋπάρχοντος ΣΔ τύπου 2· όχι ρουτίνα HbA1c στο 2ο–3ο τρίμηνο για έλεγχο ρύθμισης."]},
+"NG25":{d:"2015, ενημ. 2022",b:[
+"Ιστορικό πρόωρου τοκετού ≤ 34+0 ή απώλειας από 16+0 και τράχηλος ≤ 25 mm (16+0–24+0): επιλογή κολπικής προγεστερόνης ή προφυλακτικής περίδεσης· προγεστερόνη έως τουλάχιστον 34 εβδομάδες.",
+"PPROM: ερυθρομυκίνη 250 mg po 4 φορές ημερησίως έως 10 ημέρες ή έως τον τοκετό· αν δεν γίνεται ανεκτή, πενικιλλίνη po. Όχι αμοξικιλλίνη-κλαβουλανικό.",
+"Διάγνωση PPROM: όχι νιτραζίνη· θετικό IGFBP-1 ή PAMG-1 μόνο του δεν αρκεί.",
+"Ύποπτος πρόωρος τοκετός από 30+0: τράχηλος > 15 mm σημαίνει μάλλον όχι πρόωρο τοκετό. Fetal fibronectin θετικό > 50 ng/ml· τα δύο δεν συνδυάζονται.",
+"Τοκόλυση: νιφεδιπίνη στις 26+0–33+6 (εξέταση στις 24+0–25+6)· αν αντενδείκνυται, ανταγωνιστής ωκυτοκίνης. Όχι β-μιμητικά.",
+"Κορτικοστεροειδή στις 24+0–33+6 (εξέταση στις 34+0–35+6)· έως 2 σχήματα, επανάληψη αν > 7 ημέρες από το προηγούμενο.",
+"Θειικό μαγνήσιο για νευροπροστασία στις 24+0–29+6 (εξέταση στις 30+0–33+6): 4 g IV σε 15 λεπτά, μετά 1 g/ώρα έως τον τοκετό ή 24 ώρες.",
+"Επείγουσα περίδεση 16+0–27+6 με διαστολή και εκτεθειμένους υμένες, χωρίς λοίμωξη, αιμορραγία ή συσπάσεις. Καθυστερημένη απολίνωση λώρου ≥ 60 δευτερόλεπτα."]},
+"NG207":{d:"2021",b:[
+"Από 41+0 εβδομάδες συζήτηση πρόκλησης· σε άρνηση, πρόσθετη παρακολούθηση από τις 42 εβδομάδες.",
+"Αποκόλληση υμένων (membrane sweep) σε επισκέψεις μετά τις 39+0 εβδομάδες, με συναίνεση.",
+"PPROM: όχι πρόκληση πριν τις 34+0 χωρίς άλλη ένδειξη· αναμονή έως 37+0. Στις 34+0–37+0 συζήτηση αναμονής ή πρόκλησης.",
+"PROM στο τελειόμηνο: αναμονή έως 24 ώρες ή πρόκληση.",
+"Bishop ≤ 6: δινοπροστόνη κολπικά (δισκίο, γέλη ή σύστημα ελεγχόμενης αποδέσμευσης) ή μισοπροστόλη χαμηλής δόσης 25 μg po. Εξέταση μηχανικής μεθόδου (μπαλόνι ή οσμωτικός διαστολέας).",
+"Bishop > 6: αμνιορρηξία και ωκυτοκίνη IV.",
+"Οι μηχανικές μέθοδοι προκαλούν λιγότερη υπερδιέγερση από τις φαρμακευτικές.",
+"Εξωνοσοκομειακή πρόκληση με δινοπροστόνη ή μηχανικά μέσα σε γυναίκες χωρίς επιπλοκές."]},
+"NG192":{d:"2021, ενημ. 2024",b:[
+"Προγραμματισμένη καισαρική όχι ρουτίνα πριν τις 39 εβδομάδες.",
+"Αίτημα χωρίς ιατρική ένδειξη: συζήτηση, ενημέρωση, καταγραφή, και σεβασμός της απόφασης.",
+"Επείγουσες: κατηγορία 1 εντός 30 λεπτών από την απόφαση, κατηγορία 2 εντός 75 λεπτών στις περισσότερες περιπτώσεις.",
+"Αντιβιοτικά πριν την τομή του δέρματος· όχι αμοξικιλλίνη-κλαβουλανικό.",
+"Θρομβοπροφύλαξη σε όλες, με μέθοδο ανάλογα με τον κίνδυνο.",
+"Τεχνική: χαμηλή εγκάρσια τομή, όχι ρουτίνα εξωτερίκευση της μήτρας, μονή ή διπλή στιβάδα, χωρίς συρραφή περιτοναίου.",
+"Εξωτερική μεταστροφή σε ανεπίπλεκτη ισχιακή προβολή από 36+0 εβδομάδες.",
+"VBAC: συνεχές ΚΤΓ και τοκετός σε μονάδα με άμεση δυνατότητα καισαρικής και μετάγγισης."]},
+"NG137":{d:"2019, ενημ. 2024",b:[
+"Χοριονικότητα με υπερηχογράφημα (αριθμός πλακούντων, μεμβράνες, σημείο λάμδα ή T)· αν αβέβαιη, θεωρείται μονοχοριακή.",
+"Επισκέψεις: τουλάχιστον 8 (DCDA) ή 11 (MCDA)· τρίδυμες 9 ή 11.",
+"MC κυήσεις: υπερηχογράφημα για TTTS κάθε 14 ημέρες από τις 16 εβδομάδες. Διαφορά βάθους υγρού ≥ 4 cm → εβδομαδιαίος έλεγχος με Doppler ομφαλικής.",
+"TTTS: βαθύτερη δεξαμενή < 2 cm στο ένα και > 8 cm (πριν 20+0) ή > 10 cm (μετά) στο άλλο → παραπομπή σε τριτοβάθμιο κέντρο.",
+"Τοκετός: DCDA στις 37 εβδομάδες, MCDA στις 36 εβδομάδες (με εξέταση στεροειδών).",
+"MCMA: τοκετός στις 32+0–33+6 εβδομάδες. Τρίδυμες TCTA ή DCTA στις 35 εβδομάδες."]},
+"NG126":{d:"2019, ενημ. 2023",b:[
+"Παραπομπή σε μονάδα πρώιμης κύησης σε αιμορραγία με πόνο, κύηση ≥ 6 εβδομάδων ή αβέβαιη ηλικία κύησης.",
+"Διακολπικό: CRL < 7,0 mm χωρίς καρδιακή λειτουργία → επανάληψη σε ≥ 7 ημέρες· CRL ≥ 7,0 mm → δεύτερη γνώμη ή επανάληψη σε 7 ημέρες.",
+"MSD < 25,0 mm χωρίς έμβρυο → επανάληψη σε 7 ημέρες· ≥ 25,0 mm → δεύτερη γνώμη ή επανάληψη.",
+"Κύηση άγνωστης εντόπισης: αύξηση hCG > 63% σε 48 ώρες → υπερηχογράφημα σε 7–14 ημέρες· πτώση > 50% → τεστ ούρων σε 14 ημέρες· αλλιώς εκτίμηση εντός 24 ωρών.",
+"Αποβολή: αναμονή 7–14 ημέρες πρώτη επιλογή. Παλίνδρομη: μιφεπριστόνη 200 mg po και μετά 48 ώρες μισοπροστόλη 800 μg. Ατελής: μισοπροστόλη 600 μg (ή 800 μg).",
+"Έκτοπη, μεθοτρεξάτη: χωρίς σημαντικό πόνο, άρρηκτη, μάζα < 35 mm χωρίς καρδιακή λειτουργία, hCG < 1.500 IU/l. Χειρουργείο αν μάζα ≥ 35 mm, καρδιακή λειτουργία ή hCG ≥ 5.000 IU/l.",
+"Αναμονή στην έκτοπη: σταθερή, χωρίς πόνο, μάζα < 35 mm, hCG ≤ 1.000 IU/l (εξέταση έως 1.500 IU/l).",
+"Anti-D 250 IU σε Rh αρνητικές μόνο σε χειρουργική αντιμετώπιση έκτοπης ή αποβολής.",
+"Απειλούμενη αποβολή με προηγούμενη αποβολή: κολπική μικρονοποιημένη προγεστερόνη 400 mg × 2 έως τις 16 εβδομάδες."]},
+"NG121":{d:"2019",b:[
+"Καρδιοπάθεια: εκτίμηση από ομάδα με καρδιολόγο· σε μηχανική βαλβίδα προγραμματισμένος τοκετός και εξατομικευμένη αντιπηκτική αγωγή.",
+"Υψηλού κινδύνου αορτοπάθεια, πνευμονική υπέρταση ή NYHA III–IV: εξέταση προγραμματισμένης καισαρικής.",
+"Υποψία καρδιακής ανεπάρκειας: ΗΚΓ, ακτινογραφία θώρακα, NT-proBNP.",
+"Άσθμα: όχι καρβοπρόστη λόγω βρογχόσπασμου.",
+"Προηγούμενη καισαρική: η ωκυτοκίνη για καθυστέρηση αυξάνει τον κίνδυνο ρήξης· όχι ρουτίνα αμνιορρηξία.",
+"Σήψη: αντιβιοτικά πριν την περιοχική αναισθησία· επιτάχυνση τοκετού αν η πηγή είναι το γεννητικό σύστημα.",
+"SGA έμβρυο: συνεχές ΚΤΓ μετά από συζήτηση.",
+"Ισχιακή προβολή στον τοκετό: συζήτηση κολπικού τοκετού ή καισαρικής και απόφαση από τη γυναίκα."]},
+"NG255":{d:"Νοέμβριος 2025",b:[
+"Υψηλός κίνδυνος (ενδεικτικά): αναπνοές ≥ 25/λεπτό, ανάγκη O₂ ≥ 40% για SpO₂ > 92%, ΣΑΠ ≤ 90 mmHg ή > 40 mmHg κάτω από τη συνήθη, σφύξεις > 130/λεπτό, χωρίς ούρηση 18 ώρες.",
+"Μέτριος–υψηλός κίνδυνος: αναπνοές 21–24, ΣΑΠ 91–100 mmHg, σφύξεις 100–130 ή νέα αρρυθμία, χωρίς ούρηση 12–18 ώρες.",
+"Υψηλός κίνδυνος: άμεση εκτίμηση από έμπειρο ιατρό, αέρια με γαλακτικό, καλλιέργειες, γενική, CRP, πήξη.",
+"IV αντιβιοτικά εντός 1 ώρας σε κριτήριο υψηλού κινδύνου, κατά το τοπικό πρωτόκολλο.",
+"Γαλακτικό > 4 mmol/l ή ΣΑΠ < 90 mmHg: bolus κρυσταλλοειδούς εντός 1 ώρας και παραπομπή σε ΜΕΘ.",
+"Bolus 500 ml κρυσταλλοειδούς (Na 130–154 mmol/l) σε < 15 λεπτά· επανεκτίμηση και δεύτερο bolus αν δεν βελτιωθεί, μετά ειδοποίηση συμβούλου.",
+"Εκτός νοσοκομείου: άμεση μεταφορά σε κριτήριο υψηλού κινδύνου· αν η μεταφορά > 1 ώρα, αντιβιοτικά προνοσοκομειακά."]},
+"NG140":{d:"2019",b:[
+"Επιλογή φαρμακευτικής ή χειρουργικής μεθόδου έως 23+6 εβδομάδες.",
+"Έως 10+0 εβδομάδες: μεσοδιάστημα 24–48 ωρών μιφεπριστόνης–μισοπροστόλης· κατ' οίκον αποβολή έως 9+6.",
+"10+1–23+6: μιφεπριστόνη 200 mg, μετά μισοπροστόλη 800 μg κολπικά ή 600 μg υπογλώσσια, και 400 μg κάθε 3 ώρες.",
+"Μετά τις 23+6 μισοπροστόλη ανά ηλικία: 400 μg/3 ώρες (24+0–25+0), 200 μg/4 ώρες (25+1–28+0), 100 μg/6 ώρες (> 28+0).",
+"Προετοιμασία τραχήλου έως 13+6: μισοπροστόλη 400 μg υπογλώσσια 1 ώρα πριν ή κολπικά 3 ώρες πριν, ή μιφεπριστόνη 200 mg 24–48 ώρες πριν.",
+"Αντιβιοτική προφύλαξη στη χειρουργική (π.χ. δοξυκυκλίνη 100 mg × 2 για 3 ημέρες)· όχι ρουτίνα στη φαρμακευτική.",
+"Anti-D σε Rh αρνητικές μετά τις 10+0· όχι στη φαρμακευτική έως 10+0."]},
+"NG73":{d:"2017, ενημ. 2024",b:[
+"Υποψία σε χρόνιο πυελικό πόνο, δυσμηνόρροια που επηρεάζει την καθημερινότητα, εν τω βάθει δυσπαρευνία, κυκλικά γαστρεντερικά ή ουρολογικά συμπτώματα, υπογονιμότητα.",
+"Φυσιολογικό υπερηχογράφημα ή MRI δεν αποκλείει ενδομητρίωση. Όχι CA-125 για διάγνωση.",
+"Αναλγησία πρώτης γραμμής: δοκιμή π.χ. 3 μηνών με παρακεταμόλη ή ΜΣΑΦ.",
+"Ορμονική θεραπεία (συνδυασμένο αντισυλληπτικό ή προγεσταγόνο) χωρίς αρνητική επίδραση στη μελλοντική γονιμότητα.",
+"Χειρουργείο λαπαροσκοπικά· σε εν τω βάθει νόσο εντέρου, κύστης ή ουρητήρα εξέταση GnRH αγωνιστή για 3 μήνες πριν.",
+"Παρακολούθηση σε εν τω βάθει νόσο ή ενδομητρίωμα > 3 cm.",
+"Υπογονιμότητα: εκτομή ή καταστροφή εστιών με λύση συμφύσεων· όχι ορμονική θεραπεία σε όσες προσπαθούν να συλλάβουν."]},
+"NG88":{d:"2018, ενημ. 2021",b:[
+"Χωρίς άλλα συμπτώματα: φαρμακευτική αγωγή χωρίς κλινική εξέταση (εκτός από LNG-IUS)· κλινική εξέταση πριν από κάθε διερεύνηση ή τοποθέτηση LNG-IUS.",
+"Υστεροσκόπηση ή υπερηχογράφημα ως πρώτη διερεύνηση ανάλογα με το ιστορικό· βιοψία ενδομητρίου μόνο κατά την υστεροσκόπηση, όχι «τυφλή».",
+"Ινομυώματα < 3 cm χωρίς παραμόρφωση κοιλότητας ή αδενομύωση: LNG-IUS πρώτη επιλογή· εναλλακτικά τρανεξαμικό, ΜΣΑΦ, συνδυασμένη αντισύλληψη, κυκλικά προγεσταγόνα.",
+"Υποβλεννογόνια ινομυώματα: υστεροσκοπική αφαίρεση.",
+"Ινομυώματα ≥ 3 cm: παραπομπή και επιλογή ανάλογα με μέγεθος, θέση, αριθμό και συμπτώματα (φαρμακευτικά, εμβολισμός, μυομεκτομή, υστερεκτομή).",
+"Ουλιπριστάλη 5 mg (έως 4 κύκλοι) μόνο σε προεμμηνοπαυσιακές με ινομυώματα ≥ 3 cm, όταν χειρουργείο και εμβολισμός είναι ακατάλληλα, με έλεγχο ηπατικής λειτουργίας.",
+"Μετά από κατάλυση ενδομητρίου: αποφυγή κύησης και αποτελεσματική αντισύλληψη."]},
+"NG23":{d:"2015, ενημ. 2024",b:[
+"Ηλικία ≥ 45 με συμπτώματα: διάγνωση περι- ή εμμηνόπαυσης χωρίς εργαστηριακές εξετάσεις (όχι FSH).",
+"FSH μπορεί να βοηθήσει στις 40–45 ετών με συμπτώματα και αλλαγή κύκλου, και κάτω των 40 σε υποψία πρόωρης ωοθηκικής ανεπάρκειας.",
+"ΟΘ (HRT) για αγγειοκινητικά συμπτώματα· η fezolinetant είναι επιλογή όταν η ΟΘ είναι ακατάλληλη.",
+"Κολπικά οιστρογόνα για ουρογεννητικά συμπτώματα, και μαζί με συστηματική ΟΘ· σε ιστορικό καρκίνου μαστού πρώτα μη ορμονικά λιπαντικά.",
+"Γνωσιακή συμπεριφορική θεραπεία ως επιλογή για αγγειοκινητικά συμπτώματα, διαταραχές ύπνου και διάθεσης.",
+"Διαδερμική αντί για από του στόματος ΟΘ σε αυξημένο κίνδυνο ΦΘΕ, π.χ. ΔΜΣ > 30 kg/m².",
+"Τεστοστερόνη σε μειωμένη libido αν η ΟΘ δεν αρκεί.",
+"Πρώιμη εμμηνόπαυση (40–44 ετών): ψυχολογική υποστήριξη."]},
+"NG257":{d:"2026 (αντικατέστησε τη CG156)",b:[
+"Σπερμοδιάγραμμα (όρια WHO): όγκος ≥ 1,4 ml, συγκέντρωση ≥ 16 εκατ./ml, συνολικός αριθμός ≥ 39 εκατ., κινητικότητα ≥ 42%, προωθητική ≥ 30%, μορφολογία ≥ 4%.",
+"Παθολογικό σπερμοδιάγραμμα: επανάληψη ιδανικά σε 3 μήνες (άμεσα σε αζωοσπερμία). Όχι έλεγχος κατακερματισμού DNA σπέρματος.",
+"Υπογοναδοτροπικός υπογοναδισμός: γοναδοτροπίνες με δράση LH ή GnRH. Υπερπρολακτιναιμία: καβεργολίνη.",
+"Υδροσάλπιγγες πριν την εξωσωματική: λαπαροσκοπική σαλπιγγεκτομή ή απόφραξη σάλπιγγας.",
+"Ανεξήγητη υπογονιμότητα: προσπάθεια για 2 έτη· μετά έως 4 κύκλοι IUI με γοναδοτροπίνες ή εξωσωματική. Όχι διέγερση ωοθηκών μόνη της.",
+"Εξωσωματική σε < 42 ετών μετά από 2 έτη ή 12 κύκλους σπερματέγχυσης· < 40 ετών 3 πλήρεις κύκλοι (έως 3 ακόμη).",
+"Όχι endometrial scratch, υστεροσκόπηση ρουτίνας, έλεγχος υποδεκτικότητας ενδομητρίου ή ανοσολογικοί παράγοντες ως «add-ons».",
+"Για διέγερση ωοθηκών, trigger, ωχρινική φάση και πρόληψη OHSS η NICE παραπέμπει στην οδηγία ESHRE 2025."]},
+"NG123":{d:"2019",b:[
+"Ημερολόγιο ούρησης τουλάχιστον 3 ημερών (εργάσιμες και αργίες).",
+"Ακράτεια προσπάθειας ή μικτή: επιβλεπόμενη άσκηση πυελικού εδάφους για τουλάχιστον 3 μήνες.",
+"Επιτακτική ή μικτή: εκπαίδευση κύστης για τουλάχιστον 6 εβδομάδες.",
+"Αντιμουσκαρινικό με το χαμηλότερο κόστος, επανεκτίμηση σε 4 εβδομάδες.",
+"Βοτουλινική τοξίνη Α μετά από MDT: 100 μονάδες, επανεκτίμηση εντός 12 εβδομάδων, 200 μονάδες αν ανεπαρκής.",
+"Πλέγματα: άγνωστη μακροχρόνια επίπτωση, η πλήρης αφαίρεση μπορεί να μην είναι εφικτή· απόφαση σε περιφερειακή MDT.",
+"Πεσσός για συμπτωματική πρόπτωση, με αφαίρεση τουλάχιστον κάθε 6 μήνες."]},
+"CG192":{d:"2014, ενημ. 2020",b:[
+"Παρακολούθηση με EPDS, PHQ-9 ή GAD-7· ερωτήσεις GAD-2 για άγχος τις τελευταίες 2 εβδομάδες.",
+"Όχι βαλπροϊκό και όχι καρβαμαζεπίνη για ψυχιατρικά νοσήματα σε γυναίκες που σχεδιάζουν κύηση, κυοφορούν ή θηλάζουν.",
+"Λίθιο όχι εκτός αν τα αντιψυχωσικά απέτυχαν· αν συνεχιστεί, επίπεδα κάθε 4 εβδομάδες, εβδομαδιαία από την 36η, διακοπή στον τοκετό και επίπεδα 12 ώρες μετά.",
+"Βενζοδιαζεπίνες μόνο βραχυχρόνια για σοβαρό άγχος ή διέγερση.",
+"Ενημέρωση για σύνδρομο στέρησης και νεογνική προσαρμογή με SSRI, SNRI και τρικυκλικά, ιδίως παροξετίνη και βενλαφαξίνη.",
+"Ιστορικό σοβαρής ψυχικής νόσου ή οικογενειακό ιστορικό: επαγρύπνηση για λοχειακή ψύχωση τις πρώτες 2 εβδομάδες.",
+"Αιφνίδια συμπτώματα λοχειακής ψύχωσης: παραπομπή για εκτίμηση εντός 4 ωρών."]},
+"ASCCP":{d:"2019, ενημ. 2023· Enduring 2024–2025 (ΗΠΑ)",b:[
+"Αρχή «ίσος κίνδυνος, ίση διαχείριση»: απόφαση βάσει του άμεσου και του 5ετούς κινδύνου CIN3+ (εργαλείο app.asccp.org).",
+"Άμεσος κίνδυνος CIN3+ ≥ 60%: προτιμάται άμεση θεραπεία (expedited) χωρίς βιοψία σε μη έγκυες ≥ 25 ετών· 25–59%: θεραπεία ή κολποσκόπηση.",
+"Άμεσος κίνδυνος ≥ 4%: κολποσκόπηση με βιοψίες.",
+"Κίνδυνος < 4%, επανέλεγχος με βάση τον 5ετή κίνδυνο: ≥ 0,55% σε 1 έτος, 0,15–0,54% σε 3 έτη, < 0,15% σε 5 έτη.",
+"HPV 16 ή 18 θετικό: κολποσκόπηση ανεξαρτήτως κυτταρολογίας.",
+"Εκτεταμένη γονοτύπηση (2025): HPV 45, 33/58, 31, 52, 35/39/68 ή 51 → διαλογή με κυτταρολογία ή dual stain. HPV 56/59/66 μόνο → επανάληψη HPV σε 1 έτος.",
+"Dual stain p16/Ki67 (2024): θετικό → κολποσκόπηση· αρνητικό → επανέλεγχος με HPV σε 1 έτος (εκτός HPV 16/18 ή υψηλόβαθμης κυτταρολογίας).",
+"Αυτολήψη κολπικού δείγματος (2025): αποδεκτή για πρωτογενή HPV έλεγχο σε μέσο κίνδυνο· αν αρνητικό, επανάληψη σε 3 έτη (όχι 5). Θετικό για 16/18 → κολποσκόπηση.",
+"Μετά τη θεραπεία CIN2+: HPV-based έλεγχος στους 6 μήνες, μετά ετήσια έως 3 αρνητικά, μετά ανά 3 έτη για τουλάχιστον 25 έτη."]}
+};
+G.push(...GX);Object.assign(S,SX);
 
 const F=[
 {id:"pprom",t:"ΠΠΡΕΥ (PPROM)",sub:"Διάγνωση, αντιβίωση, στεροειδή, μαγνήσιο, χρονισμός τοκετού",c:"labour",refs:["77","52","53"],n:[
@@ -968,18 +1252,29 @@ const F=[
  {k:"warn",h:"Ορισμοί",x:["Ταχυσυστολία: > 5 συστολές/10 λεπτά (μέσος όρος 30 λεπτών).","Αποτυχία: χωρίς ρυθμικές συστολές και τραχηλικές αλλαγές μετά 12–18 ώρες ωκυτοκίνης με ρήξη υμένων, ή ≥ 24 ώρες χωρίς ρήξη."]},
  {k:"end",h:"Προηγούμενη καισαρική (VBAC)",x:["Ωκυτοκίνη αν Bishop > 6 (ρήξη ~0,63%).","Η μισοπροστόλη δεν συστήνεται."],ref:"44"}
 ]},
-{id:"cervix",t:"Προσυμπτωματικός έλεγχος τραχήλου",sub:"Ηλικίες, HPV, Παπανικολάου, CIN",c:"onc",refs:["81","48"],n:[
- {k:"dec",h:"Ηλικία",b:[
+{id:"cervix",t:"Προσυμπτωματικός έλεγχος τραχήλου & HPV",sub:"ΕΜΓΕ + ASCCP: ηλικίες, HPV γονοτύπηση, dual stain, κίνδυνος CIN3+",c:"onc",refs:["81","48","ASCCP"],n:[
+ {k:"dec",h:"Ηλικία (ΕΜΓΕ)",ref:"81",b:[
    {l:"< 21",x:["Χωρίς έλεγχο."]},
    {l:"21–29",x:["Τεστ Παπανικολάου κάθε 3 χρόνια."]},
    {l:"30–65",tone:"ok",x:["Πρωτογενές HPV DNA τεστ κάθε 5 χρόνια.","Κυτταρολογία ως reflex μόνο αν το HPV είναι θετικό.","Αυτολήψη HPV για όσες δεν προσέρχονται."]},
    {l:"> 65",x:["Διακοπή αν ≥ 3 αρνητικές εξετάσεις την τελευταία δεκαετία, η τελευταία εντός 5ετίας."]}]},
- {k:"step",h:"Ειδικές ομάδες",x:["Ολική υστερεκτομή χωρίς ιστορικό CIN2+: διακοπή.","Ιστορικό CIN2+: κολπική κυτταρολογία έως 20 έτη.","Εμβολιασμένες: ίδιο πρόγραμμα."]},
- {k:"dec",h:"Ιστολογία (Νο 48)",b:[
+ {k:"step",h:"Ειδικές ομάδες (ΕΜΓΕ)",ref:"81",x:["Ολική υστερεκτομή χωρίς ιστορικό CIN2+: διακοπή.","Ιστορικό CIN2+: κολπική κυτταρολογία έως 20 έτη.","Εμβολιασμένες: ίδιο πρόγραμμα."]},
+ {k:"dec",h:"HPV θετικό: διαλογή με γονοτύπηση (ASCCP)",ref:"ASCCP",b:[
+   {l:"HPV 16 ή 18",tone:"bad",x:["Κολποσκόπηση ανεξαρτήτως κυτταρολογίας.","HPV 16 με HSIL: προτιμάται άμεση θεραπεία (κίνδυνος CIN3+ ≥ 60%)."]},
+   {l:"HPV 45, 33/58, 31, 52, 35/39/68 ή 51",x:["Διαλογή με κυτταρολογία ή dual stain p16/Ki67.","Κυτταρολογία ≥ ASC-US ή dual stain θετικό → κολποσκόπηση.","NILM ή dual stain αρνητικό → HPV σε 1 έτος."]},
+   {l:"Μόνο HPV 56, 59 ή 66",tone:"ok",x:["Χαμηλός κίνδυνος: επανάληψη HPV σε 1 έτος."]}]},
+ {k:"dec",h:"Απόφαση βάσει κινδύνου CIN3+ (ASCCP)",ref:"ASCCP",b:[
+   {l:"Άμεσος κίνδυνος ≥ 60%",tone:"bad",x:["Άμεση θεραπεία με εκτομή (LEEP) χωρίς βιοψία, σε μη έγκυες ≥ 25 ετών.","25–59%: θεραπεία ή κολποσκόπηση."]},
+   {l:"Άμεσος κίνδυνος ≥ 4%",x:["Κολποσκόπηση με βιοψίες."]},
+   {l:"< 4%, 5ετής ≥ 0,55%",x:["Επανέλεγχος σε 1 έτος."]},
+   {l:"5ετής 0,15–0,54%",x:["Επανέλεγχος σε 3 έτη."]},
+   {l:"5ετής < 0,15%",tone:"ok",x:["Επανέλεγχος σε 5 έτη."]}]},
+ {k:"step",h:"Αυτολήψη κολπικού δείγματος (ASCCP 2025)",ref:"ASCCP",x:["Αποδεκτή για πρωτογενή HPV έλεγχο σε μέσο κίνδυνο· προτιμάται η λήψη από ιατρό.","Αρνητική: επανάληψη σε 3 έτη (όχι 5).","HPV 16/18: κολποσκόπηση. Άλλοι τύποι: δείγμα από ιατρό για κυτταρολογία ή dual stain."]},
+ {k:"dec",h:"Ιστολογία (ΕΜΓΕ Νο 48)",ref:"48",b:[
    {l:"CIN1",x:["Συνήθως παρακολούθηση· θεραπεία αν επιμένει ≥ 2 έτη.","< 25 ετών: κυτταρολογία σε 1 έτος."]},
    {l:"CIN2",x:["Θεραπεία.","Νέες που επιθυμούν τεκνοποίηση: παρακολούθηση έως 2 έτη με co-testing ανά 6 μήνες."]},
    {l:"CIN3 / AIS",tone:"bad",x:["Θεραπεία· προτιμώνται οι εκτομές."]}]},
- {k:"end",h:"Μετά τη θεραπεία",x:["Co-testing στους 6 μήνες· αν αρνητικό, ετήσια για 3 έτη και μετά ανά 3 έτη για ≥ 25 έτη."]}
+ {k:"end",h:"Μετά τη θεραπεία",x:["ΕΜΓΕ: co-testing στους 6 μήνες· αν αρνητικό, ετήσια για 3 έτη και μετά ανά 3 έτη για ≥ 25 έτη.","ASCCP: HPV-based έλεγχος στους 6 μήνες, ετήσια έως 3 αρνητικά, μετά ανά 3 έτη για ≥ 25 έτη."]}
 ]},
 {id:"cmv",t:"CMV στην κύηση",sub:"Έλεγχος, avidity, βαλακυκλοβίρη, αμνιοπαρακέντηση",c:"inf",refs:["71","87"],n:[
  {k:"step",h:"Πρόληψη",x:["Συμβουλές υγιεινής σε όλες: αποφυγή σάλιου και ούρων μικρών παιδιών, πλύσιμο χεριών."]},
@@ -1093,6 +1388,14 @@ const IC={
  calc:'<rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18.5h2M14 18.5h2"/>',
  share:'<circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.4M8.2 13.2l7.6 4.4"/>',
  spark:'<path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
+ globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+ mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>',
+ drop:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>',
+ bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+ thermo:'<path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z"/>',
+ gauge:'<path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4-5"/>',
+ shield:'<path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/>',
  info:'<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/>'
 };
 const svg=(k,w=20)=>`<svg width="${w}" height="${w}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</svg>`;
@@ -1114,6 +1417,8 @@ function recNode(b,i){
   const KK={rx:"Δοσολογία",warn:"Προσοχή",step:"Σύσταση"};
   return `<div class="node ${kind} gnode"><div class="gidx">${i+1}</div><h3><span class="k">${KK[kind]}</span>${title?fmt(title):""}</h3>${parts.length>1?`<ul>${parts.map(p=>`<li>${fmt(p)}</li>`).join("")}</ul>`:`<p class="gp">${fmt(parts[0]||body)}</p>`}</div>`;
 }
+const lab=n=>/^\d/.test(n)?"Νο "+n:n==="ASCCP"?"ASCCP":"NICE "+n;
+const SRCN={nice:"NICE (Ην. Βασίλειο)",asccp:"ASCCP (ΗΠΑ)"};
 const slug=n=>n.replace("α","a").replace("β","b").replace("γ","c");
 const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 let gView=store.get("mg-gview","flow");
@@ -1125,7 +1430,7 @@ G.forEach(g=>{const s=S[g.n];if(s&&!g.y){const m=(s.d||"").match(/\d{4}/);if(m)g
 F.forEach(f=>{f.idx=norm([f.t,f.sub,f.refs.join(" "),f.n.map(x=>[x.h,(x.x||[]).join(" "),(x.b||[]).map(b=>b.l+" "+b.x.join(" ")).join(" ")].join(" ")).join(" ")].join(" "))});
 const DOSE=/\d[\d.,–-]*\s?(mg|g\b|g\/|IU|μg|mcg|mU|ml\/|mg\/kg|εκ\. μονάδες|kcal)/i;
 const doses=G.filter(g=>!g.old&&S[g.n]).map(g=>({g,l:S[g.n].b.filter(b=>DOSE.test(b))})).filter(x=>x.l.length);
-const CUR=G.filter(g=>!g.old);
+const CUR=G.filter(g=>!g.old&&!g.src), INTL=G.filter(g=>g.src);
 
 function hl(text,terms){
   if(!terms||!terms.length) return esc(text);
@@ -1147,12 +1452,12 @@ $("#theme").onclick=()=>applyTheme(document.documentElement.dataset.theme==="dar
 if(store.get("mg-lg",false))document.documentElement.classList.add("lg");
 $("#fsz").onclick=()=>{const on=document.documentElement.classList.toggle("lg");store.set("mg-lg",on)};
 /* nav */
-const NAV=[["home","Αρχική","home"],["rotiste","Ρωτήστε","spark"],["algorithmoi","Αλγόριθμοι","flow"],["odigies","Οδηγίες","list"],["doseis","Δόσεις","pill"],["ergaleia","Εργαλεία","calc"],["agapimena","Αγαπημένες","star"]];
+const NAV=[["home","Αρχική","home"],["rotiste","Ρωτήστε","spark"],["algorithmoi","Αλγόριθμοι","flow"],["odigies","Οδηγίες","list"],["diethneis","NICE · ASCCP","globe"],["doseis","Δόσεις","pill"],["ergaleia","Εργαλεία","calc"],["agapimena","Αγαπημένες","star"]];
 let state={cat:"all",q:"",old:false,sort:"desc"};
 function route(){const h=location.hash.replace("#","")||"home";return h}
 function go(h){if(location.hash.replace("#","")===h)render();else location.hash=h;}
-function navHTML(cur,cls){return NAV.filter(n=>cls==="nl"||!["agapimena","doseis"].includes(n[0])).map(([k,l,i])=>{const on=cur===k||(k==="odigies"&&cur.startsWith("g-"))||(k==="algorithmoi"&&cur.startsWith("f-"));
-  const ct=k==="odigies"?CUR.length:k==="algorithmoi"?F.length:k==="agapimena"?favs.size:"";
+function navHTML(cur,cls){return NAV.filter(n=>cls==="nl"||!["agapimena","doseis","diethneis"].includes(n[0])).map(([k,l,i])=>{const on=cur===k||(k==="odigies"&&((cur.startsWith("g-")&&!(bySlug[cur.slice(2)]||{}).src)||(cls!=="nl"&&cur==="diethneis")))||(k==="diethneis"&&cur.startsWith("g-")&&(bySlug[cur.slice(2)]||{}).src)||(k==="algorithmoi"&&cur.startsWith("f-"));
+  const ct=k==="odigies"?CUR.length:k==="diethneis"?INTL.length:k==="algorithmoi"?F.length:k==="agapimena"?favs.size:"";
   return `<button class="${cls}${on?" on":""}" data-go="${k}">${svg(i)}<span>${l}</span>${cls==="nl"&&ct!==""?`<span class="ct">${ct}</span>`:""}</button>`}).join("")}
 function renderNav(cur){
   $("#sidenav").innerHTML=navHTML(cur,"nl");
@@ -1164,68 +1469,73 @@ function renderNav(cur){
 function row(g,ts){
   const fl=g.flows.length?`<span class="tag alg">Αλγόριθμος</span>`:"";
   return `<div class="row${g.old?" old":""}" data-go="g-${slug(g.n)}" role="link" tabindex="0">
-    <div class="num">${esc(g.n)}</div>
+    <div class="num${g.n.length>3?" sm":""}">${esc(g.n)}</div>
     <div class="rmain"><div class="rt">${hl(g.t,ts)}</div>
-      <div class="meta">${g.old?`<span class="tag sup">${g.arch?"Αρχειοθετημένη":"Αντικαταστάθηκε από Νο "+esc(g.by)}</span>`:`<span class="tag cur">Σε ισχύ</span>`}<span class="tag">${esc(CATS[g.c])}</span>${g.y?`<span class="tag">${g.y}</span>`:""}${fl}</div></div>
+      <div class="meta">${g.old?`<span class="tag sup">${g.arch?"Αρχειοθετημένη":"Αντικαταστάθηκε από Νο "+esc(g.by)}</span>`:""}${g.src?`<span class="tag intl">${SRCN[g.src]}</span>`:""}<span class="tag">${esc(CATS[g.c])}</span>${g.y?`<span class="tag">${g.y}</span>`:""}${fl}</div></div>
     <button class="star${favs.has(g.n)?" on":""}" data-fav="${esc(g.n)}" aria-label="Αγαπημένη"><svg width="20" height="20" viewBox="0 0 24 24" fill="${favs.has(g.n)?"currentColor":"none"}" stroke="currentColor" stroke-width="1.8">${IC.star}</svg></button>
     <span class="chev">${svg("chev",18)}</span></div>`;
 }
-function ftile(f){return `<button class="ftile" data-go="f-${f.id}"><div class="ico">${svg("flow")}</div><b>${esc(f.t)}</b><span>${esc(f.sub)}</span><span class="nref" style="margin:0">Νο ${f.refs.join(", ")}</span></button>`}
+function ftile(f){return `<button class="ftile" data-go="f-${f.id}"><div class="ico">${svg("flow")}</div><b>${esc(f.t)}</b><span>${esc(f.sub)}</span><span class="nref" style="margin:0">${f.refs.map(lab).join(", ")}</span></button>`}
 
 /* views */
 function vHome(){
-  const latest=CUR.slice().sort((a,b)=>b.s-a.s).slice(0,6);
+  const latest=CUR.slice().sort((a,b)=>b.s-a.s).slice(0,5);
   const rec=recent.map(k=>k.startsWith("f-")?["f",byF[k.slice(2)]]:["g",bySlug[k.slice(2)]]).filter(x=>x[1]);
-  return `<div class="notice">${svg("info",18)}<span>Ανεξάρτητο εργαλείο, όχι επίσημος ιστότοπος της ΕΜΓΕ. Οι συνόψεις είναι δικές μας· πριν από κλινική απόφαση επαληθεύστε στο επίσημο PDF στο <a href="https://hsog.gr/katefthyntiries-odigies/" target="_blank" rel="noopener">hsog.gr</a>.</span></div>
-  ${store.get("mg-howto",true)?`<div class="howto"><button class="x" data-howto aria-label="Κλείσιμο">×</button>
-    <div><span class="st">1</span><span><b>Γράψτε ό,τι ψάχνετε</b>Πάθηση, φάρμακο ή αριθμό οδηγίας, π.χ. «PPROM» ή «76».</span></div>
-    <div><span class="st">2</span><span><b>Ανοίξτε τον αλγόριθμο</b>Πατήστε την περίπτωση του ασθενή σας και τα υπόλοιπα σβήνουν.</span></div>
-    <div><span class="st">3</span><span><b>Βάλτε το στο κινητό</b>«Προσθήκη στην αρχική οθόνη»: ανοίγει και χωρίς σήμα.</span></div></div>`:""}
-  <section class="hero"><h1>Η απάντηση, σε δευτερόλεπτα.</h1><p>Όλες οι κατευθυντήριες οδηγίες της ΕΜΓΕ, με βασικές συστάσεις, αλγορίθμους και δόσεις. Γράψτε πάθηση, φάρμακο ή αριθμό οδηγίας.</p>
-    <div class="hsearch">${svg("list").replace('<svg','<svg style="display:none"')}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="hq" placeholder="π.χ. PPROM, βηταμεθαζόνη, ΣΔΚ, 76" autocomplete="off"></div>
-    <div class="quick"><button class="qc" data-go="rotiste" style="background:#fff;color:#7a1d45;border-color:#fff;font-weight:700">✦ Κάντε ερώτηση στην ΑΙ</button>${[["PPROM","f-pprom"],["Αιμορραγία μετά τον τοκετό","f-pph"],["ΣΔΚ","f-gdm"],["Θρομβοπροφύλαξη","f-vte"],["Πρόκληση τοκετού","f-iol"],["CTG","g-58"],["Κορτικοστεροειδή","g-52"],["Τεστ ΠΑΠ / HPV","f-cervix"]].map(([l,h])=>`<button class="qc" data-go="${h}">${l}</button>`).join("")}</div></section>
-  <div class="stats">
-    <div class="stat" data-go="odigies"><b>${CUR.length}</b><span>οδηγίες σε ισχύ</span></div>
-    <div class="stat" data-go="algorithmoi"><b>${F.length}</b><span>κλινικοί αλγόριθμοι</span></div>
-    <div class="stat" data-go="doseis"><b>${doses.reduce((a,x)=>a+x.l.length,0)}</b><span>γραμμές δοσολογίας</span></div>
-    <div class="stat" data-go="ergaleia"><b>3</b><span>εργαλεία υπολογισμού</span></div></div>
-  ${favs.size?`<h2 class="sec">Αγαπημένες <a data-go="agapimena" href="#agapimena">Όλες →</a></h2><div class="list">${[...favs].map(n=>byN[n]).filter(Boolean).slice(0,5).map(g=>row(g,[])).join("")}</div>`:""}
-  ${rec.length?`<h2 class="sec">Πρόσφατα</h2><div class="list">${rec.slice(0,4).map(([t,x])=>t==="g"?row(x,[]):`<div class="row" data-go="f-${x.id}"><div class="num" style="background:var(--tealsoft);color:var(--teal)">${svg("flow")}</div><div class="rmain"><div class="rt">${esc(x.t)}</div><div class="meta"><span class="tag alg">Αλγόριθμος</span></div></div><span class="chev">${svg("chev",18)}</span></div>`).join("")}</div>`:""}
-  <h2 class="sec">Αλγόριθμοι γρήγορης απόφασης <a data-go="algorithmoi" href="#algorithmoi">Όλοι →</a></h2>
-  <div class="fgrid">${F.slice(0,6).map(ftile).join("")}</div>
-  <h2 class="sec">Πιο πρόσφατες οδηγίες <a data-go="odigies" href="#odigies">Όλες →</a></h2>
-  <div class="list">${latest.map(g=>row(g,[])).join("")}</div>`;
+  const hr=new Date().getHours(),greet=hr<12?"Καλημέρα":hr<18?"Καλησπέρα":"Καλό βράδυ";
+  const EM=[["f-pph","Αιμορραγία μετά τον τοκετό","drop","#c0262d"],["f-pprom","PPROM","shield","#7a1d45"],["f-preterm","Πρόωρος τοκετός","clock","#3b4cca"],["g-NG133","Υπέρταση & εκλαμψία","gauge","#a15c07"],["g-NG255","Σήψη","thermo","#b42318"],["f-vte","Θρομβοπροφύλαξη","bolt","#0f766e"]];
+  const SC=[["algorithmoi","Αλγόριθμοι",F.length,"flow"],["odigies","Οδηγίες ΕΜΓΕ",CUR.length,"list"],["diethneis","NICE · ASCCP",INTL.length,"globe"],["doseis","Δόσεις",doses.reduce((a,x)=>a+x.l.length,0),"pill"],["ergaleia","Εργαλεία",3,"calc"],["agapimena","Αγαπημένες",favs.size,"star"]];
+  return `<div class="hx">
+  <section class="hx-top">
+    <p class="hx-hi">${greet} 👋</p>
+    <h1 class="hx-h">Τι χρειάζεστε σήμερα;</h1>
+    <div class="hx-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="hq" placeholder="Πάθηση, φάρμακο ή αριθμός οδηγίας" autocomplete="off">${micAvail()?`<button class="hx-mic" data-homemic aria-label="Ερώτηση με φωνή">${svg("mic",20)}</button>`:""}</div>
+  </section>
+  <button class="hx-ai" data-go="rotiste"><span class="hx-ai-ic">${svg("spark",24)}</span><span class="hx-ai-t"><b>Ρωτήστε την ΑΙ</b><small>${micAvail()?"Μιλήστε ή γράψτε":"Γράψτε"} την ερώτηση· απάντηση από ΕΜΓΕ, NICE, ASCCP</small></span><span class="hx-go">${svg("chev",18)}</span></button>
+  <h2 class="hx-sec">Επείγοντα, με ένα πάτημα</h2>
+  <div class="hx-em">${EM.filter(e=>e[0].startsWith("f-")?byF[e[0].slice(2)]:bySlug[e[0].slice(2)]).map(([h,l,i,c])=>`<button class="hx-emt" data-go="${h}" style="--c:${c}"><span class="hx-emi">${svg(i,22)}</span><span>${l}</span></button>`).join("")}</div>
+  ${rec.length?`<h2 class="hx-sec">Συνεχίστε από εκεί που μείνατε</h2><div class="hx-row">${rec.slice(0,8).map(([t,x])=>`<button class="hx-chip" data-go="${t}-${t==="f"?x.id:slug(x.n)}">${t==="f"?svg("flow",16):`<b>${esc(x.n)}</b>`}<span>${esc(t==="f"?x.t:x.t.replace(/\s*\(.*\)$/,""))}</span></button>`).join("")}</div>`:""}
+  <h2 class="hx-sec">Όλα τα εργαλεία</h2>
+  <div class="hx-grid">${SC.map(([h,l,n,i])=>`<button class="hx-sc" data-go="${h}"><span class="hx-sci">${svg(i,22)}</span><b>${l}</b><small>${n}</small></button>`).join("")}</div>
+  ${favs.size?`<h2 class="hx-sec">Αγαπημένες <a data-go="agapimena" href="#agapimena">Όλες →</a></h2><div class="list">${[...favs].map(n=>byN[n]).filter(Boolean).slice(0,5).map(g=>row(g,[])).join("")}</div>`:""}
+  <h2 class="hx-sec">Αλγόριθμοι <a data-go="algorithmoi" href="#algorithmoi">Όλοι →</a></h2>
+  <div class="hx-car">${F.map(f=>`<button class="hx-fc" data-go="f-${f.id}"><span class="hx-fci">${svg("flow",20)}</span><b>${esc(f.t)}</b><small>${esc(f.sub)}</small></button>`).join("")}</div>
+  <h2 class="hx-sec">Νεότερες οδηγίες ΕΜΓΕ <a data-go="odigies" href="#odigies">Όλες →</a></h2>
+  <div class="list">${latest.map(g=>row(g,[])).join("")}</div>
+  <p class="hx-disc">${svg("info",15)}<span>Ανεξάρτητο εργαλείο, όχι επίσημος ιστότοπος της ΕΜΓΕ. Οι συνόψεις είναι δικές μας· πριν από κλινική απόφαση επαληθεύστε στο επίσημο κείμενο (<a href="https://hsog.gr/katefthyntiries-odigies/" target="_blank" rel="noopener">hsog.gr</a>, <a href="https://www.nice.org.uk" target="_blank" rel="noopener">nice.org.uk</a>, <a href="https://www.asccp.org" target="_blank" rel="noopener">asccp.org</a>).</span></p>
+  </div>`;
 }
-function vList(favOnly){
+function vList(favOnly,intl){
   const ts=terms(state.q);
-  let L=G.filter(g=>(favOnly?favs.has(g.n):(state.old||!g.old))&&(favOnly||state.cat==="all"||g.c===state.cat)&&match(g.idx,ts));
-  L.sort(state.sort==="az"?(a,b)=>a.t.localeCompare(b.t,"el"):state.sort==="asc"?(a,b)=>a.s-b.s:(a,b)=>(a.old||0)-(b.old||0)||b.s-a.s);
-  const pool=G.filter(g=>state.old||!g.old);
-  return `<h1 style="margin:6px 0 4px;font-size:26px">${favOnly?"Αγαπημένες":"Κατευθυντήριες οδηγίες"}</h1>
-  <p style="margin:0 0 14px;color:var(--muted)">${favOnly?"Πατήστε το αστέρι σε οποιαδήποτε οδηγία για να τη βρίσκετε εδώ.":"Πατήστε μια οδηγία για τις βασικές συστάσεις και το επίσημο PDF."}</p>
+  let L=G.filter(g=>(favOnly||(intl?!!g.src:!g.src))&&(favOnly?favs.has(g.n):(state.old||!g.old))&&(favOnly||state.cat==="all"||g.c===state.cat)&&match(g.idx,ts));
+  L.sort(intl&&state.sort==="desc"?(a,b)=>a.s-b.s:state.sort==="az"?(a,b)=>a.t.localeCompare(b.t,"el"):state.sort==="asc"?(a,b)=>a.s-b.s:(a,b)=>(a.old||0)-(b.old||0)||b.s-a.s);
+  const pool=G.filter(g=>(intl?!!g.src:!g.src)&&(state.old||!g.old));
+  return `<h1 style="margin:6px 0 4px;font-size:26px">${favOnly?"Αγαπημένες":intl?"Διεθνείς οδηγίες":"Κατευθυντήριες οδηγίες"}</h1>
+  <p style="margin:0 0 14px;color:var(--muted)">${favOnly?"Πατήστε το αστέρι σε οποιαδήποτε οδηγία για να τη βρίσκετε εδώ.":intl?"Οι οδηγίες του NICE για μαιευτική-γυναικολογία και οι συστάσεις ASCCP για τον τράχηλο, με ελληνική σύνοψη και σύνδεσμο στο πρωτότυπο. Μπορεί να διαφέρουν από την ελληνική πράξη.":"Πατήστε μια οδηγία για τις βασικές συστάσεις και το επίσημο PDF."}</p>
+  ${favOnly?"":`<div class="vtog srcsw"><button class="${intl?"":"on"}" data-go="odigies">ΕΜΓΕ <span class="n">${CUR.length}</span></button><button class="${intl?"on":""}" data-go="diethneis">${svg("globe",15)} NICE · ASCCP <span class="n">${INTL.length}</span></button></div>`}
   ${favOnly?"":`<div class="chips">${[["all","Όλες",pool.length],...Object.entries(CATS).map(([k,v])=>[k,v,pool.filter(g=>g.c===k).length])].map(([k,v,n])=>`<button class="chip${state.cat===k?" on":""}" data-cat="${k}">${esc(v)} <span class="n">${n}</span></button>`).join("")}</div>`}
   <div class="tools"><input type="search" id="lq" placeholder="Φιλτράρισμα…" value="${esc(state.q)}">
    ${favOnly?"":`<select id="sort"><option value="desc">Νεότερες πρώτα</option><option value="asc">Κατά αριθμό</option><option value="az">Αλφαβητικά</option></select>
-   <label class="tgl"><input type="checkbox" id="old"${state.old?" checked":""}> Και αντικατασταθείσες</label>`}</div>
+   ${intl?"":`<label class="tgl"><input type="checkbox" id="old"${state.old?" checked":""}> Και αντικατασταθείσες</label>`}`}</div>
   <div class="list" id="rows">${L.length?L.map(g=>row(g,ts)).join(""):`<div class="empty">${favOnly?"Δεν έχετε αγαπημένες ακόμα.":"Δεν βρέθηκαν οδηγίες."}</div>`}</div>`;
 }
 function vGuide(g){
   const s=S[g.n];
   const rel=[];
+  if(g.src) rel.push(`Πηγή: <b>${SRCN[g.src]}</b>. Δεν είναι οδηγία της ΕΜΓΕ· όπου διαφέρει, ισχύει η ελληνική πράξη.`);
   if(g.by) rel.push(`Αντικαταστάθηκε από <a data-go="g-${slug(g.by)}">Νο ${esc(g.by)}: ${esc(byN[g.by].t)}</a>`);
   if(g.rep) rel.push(`Αντικαθιστά: ${g.rep.map(r=>`<a data-go="g-${slug(r)}">Νο ${esc(r)}</a>`).join(", ")}`);
   if(g.note) rel.push(esc(g.note));
   return `<button class="back" data-back>${svg("back",18)} Πίσω</button>
-  <div class="dhead"><div class="num">${esc(g.n)}</div><div style="flex:1;min-width:0">
+  <div class="dhead"><div class="num${g.n.length>3?" sm":""}">${esc(g.n)}</div><div style="flex:1;min-width:0">
     <h1>${esc(g.t)}</h1>
     <div class="meta">${g.old?`<span class="tag sup">${g.arch?"Αρχειοθετημένη":"Αντικαταστάθηκε"}</span>`:`<span class="tag cur">Σε ισχύ</span>`}<span class="tag">${esc(CATS[g.c])}</span>${s&&s.d?`<span class="tag">${esc(s.d)}</span>`:g.y?`<span class="tag">${g.y}</span>`:""}</div>
     ${rel.length?`<div class="rel">${rel.join("<br>")}</div>`:""}
-    <div class="acts">${g.p?`<a class="btn pri" href="${B+g.p}" target="_blank" rel="noopener">${svg("ext",16)} Επίσημο PDF</a>`:`<span class="btn" style="opacity:.6">Χωρίς διαθέσιμο PDF</span>`}
+    <div class="acts">${g.u?`<a class="btn pri" href="${g.u}" target="_blank" rel="noopener">${svg("ext",16)} ${g.src==="nice"?"NICE "+esc(g.n)+" (αγγλικά)":"ASCCP (αγγλικά)"}</a>`:g.p?`<a class="btn pri" href="${B+g.p}" target="_blank" rel="noopener">${svg("ext",16)} Επίσημο PDF</a>`:`<span class="btn" style="opacity:.6">Χωρίς διαθέσιμο PDF</span>`}
       ${g.flows.map(id=>`<button class="btn tl" data-go="f-${id}">${svg("flow",16)} ${esc(byF[id].t)}</button>`).join("")}
       <button class="btn" data-fav="${esc(g.n)}">${favs.has(g.n)?"★ Στις αγαπημένες":"☆ Αγαπημένη"}</button><button class="btn" data-share>${svg("share",16)} Κοινοποίηση</button></div></div></div>
   ${s?`<div class="secrow"><h2 class="sec" style="margin:0">Βασικές συστάσεις</h2><div class="vtog"><button class="${gView==="flow"?"on":""}" data-gview="flow">${svg("flow",15)} Διάγραμμα</button><button class="${gView==="list"?"on":""}" data-gview="list">${svg("list",15)} Λίστα</button></div></div>
   ${gView==="flow"?`<div class="flow gflow">${s.b.map(recNode).join('<div class="conn"></div>')}</div>`:`<div class="recs">${s.b.map(b=>`<div class="rec">${fmt(b)}</div>`).join("")}</div>`}
-  <p class="verify">${svg("info",16)}<span>Σύνοψη με δικά μας λόγια από το επίσημο κείμενο. Πριν από κλινική απόφαση επαληθεύστε στο PDF. Οι εμπορικές ονομασίες σε παρένθεση είναι ενδεικτικές, από τον <a href="https://www.galinos.gr" target="_blank" rel="noopener">Γαληνό</a>.</span></p>`:`<p class="verify">Δεν υπάρχει σύνοψη για αυτή την οδηγία.</p>`}`;
+  <p class="verify">${svg("info",16)}<span>${g.src?"Ελληνική σύνοψη με δικά μας λόγια από το πρωτότυπο (αγγλικά). Πριν από κλινική απόφαση επαληθεύστε στην πηγή και συγκρίνετε με τις οδηγίες της ΕΜΓΕ.":"Σύνοψη με δικά μας λόγια από το επίσημο κείμενο."} Πριν από κλινική απόφαση επαληθεύστε στο PDF. Οι εμπορικές ονομασίες σε παρένθεση είναι ενδεικτικές, από τον <a href="https://www.galinos.gr" target="_blank" rel="noopener">Γαληνό</a>.</span></p>`:`<p class="verify">Δεν υπάρχει σύνοψη για αυτή την οδηγία.</p>`}`;
 }
 function vFlows(){
   const ts=terms(state.q);
@@ -1236,7 +1546,7 @@ function vFlows(){
 }
 const KL={step:"Βήμα",dec:"Απόφαση",rx:"Αγωγή",warn:"Προσοχή",end:"Συνέχεια"};
 function vFlow(f){
-  const refl=r=>`<a data-go="g-${slug(r)}">Νο ${esc(r)}</a>`;
+  const refl=r=>`<a data-go="g-${slug(r)}">${esc(lab(r))}</a>`;
   const nodes=f.n.map(x=>{
     let body="";
     if(x.k==="dec") body=`<div class="branches">${x.b.map(b=>`<div class="br${b.tone?" "+b.tone:""}" data-pick role="button" tabindex="0"><b class="bl">${esc(b.l)}</b><ul>${b.x.map(t=>`<li>${fmt(t)}</li>`).join("")}</ul></div>`).join("")}</div>`;
@@ -1246,9 +1556,9 @@ function vFlow(f){
   }).join('<div class="conn"></div>');
   return `<button class="back" data-back>${svg("back",18)} Πίσω</button>
   <div class="fhead"><div class="ico">${svg("flow",26)}</div><div><h1>${esc(f.t)}</h1><p>${esc(f.sub)}</p>
-    <div class="acts" style="margin-top:10px"><button class="btn" data-share>${svg("share",16)} Κοινοποίηση</button>${f.refs.map(r=>`<button class="btn" data-go="g-${slug(r)}">Οδηγία Νο ${esc(r)}</button>`).join("")}${byN[f.refs[0]].p?`<a class="btn pri" href="${B+byN[f.refs[0]].p}" target="_blank" rel="noopener">${svg("ext",16)} PDF Νο ${esc(f.refs[0])}</a>`:""}</div></div></div>
+    <div class="acts" style="margin-top:10px"><button class="btn" data-share>${svg("share",16)} Κοινοποίηση</button>${f.refs.map(r=>`<button class="btn" data-go="g-${slug(r)}">${/^\d/.test(r)?"Οδηγία ":""}${esc(lab(r))}</button>`).join("")}${byN[f.refs[0]].p?`<a class="btn pri" href="${B+byN[f.refs[0]].p}" target="_blank" rel="noopener">${svg("ext",16)} PDF Νο ${esc(f.refs[0])}</a>`:""}</div></div></div>
   <div class="flow">${nodes}</div>
-  <p class="verify">${svg("info",16)}<span>Ο αλγόριθμος συντάχθηκε από τις οδηγίες Νο ${f.refs.join(", ")} της ΕΜΓΕ για γρήγορη αναφορά. Δεν υποκαθιστά το πλήρες κείμενο ή την κλινική κρίση. Οι εμπορικές ονομασίες σε παρένθεση είναι ενδεικτικές, από τον <a href="https://www.galinos.gr" target="_blank" rel="noopener">Γαληνό</a> (Νοέμβριος 2026).</span></p>`;
+  <p class="verify">${svg("info",16)}<span>Ο αλγόριθμος συντάχθηκε από τις οδηγίες ${f.refs.map(lab).join(", ")} για γρήγορη αναφορά. Δεν υποκαθιστά το πλήρες κείμενο ή την κλινική κρίση. Οι εμπορικές ονομασίες σε παρένθεση είναι ενδεικτικές, από τον <a href="https://www.galinos.gr" target="_blank" rel="noopener">Γαληνό</a> (Νοέμβριος 2026).</span></p>`;
 }
 function vDoses(){
   const ts=terms(state.q);
@@ -1317,7 +1627,7 @@ function qtok(q){let ws=norm(q).replace(/[^\p{L}\p{N}+ ]/gu," ").split(/\s+/).fi
   const extra=[];ws.forEach(w=>{for(const k in SYN){if(w.startsWith(k))extra.push(...SYN[k].split(" "))}});
   return [...new Set([...ws,...extra])].map(w=>w.length>6?w.slice(0,Math.max(5,w.length-2)):w)}
 let BIDX=null;
-function buildIdx(){BIDX=[];G.forEach(g=>{if(g.old||!S[g.n])return;const head=norm(g.n+" "+g.t+" "+(g.k||""));S[g.n].b.forEach(b=>BIDX.push({g,b,n:norm(b),head}))})}
+function buildIdx(){BIDX=[];G.forEach(g=>{if(g.old||!S[g.n])return;const head=norm(g.n+" "+g.t+" "+(g.k||"")+(g.src?" "+g.src:""));S[g.n].b.forEach(b=>BIDX.push({g,b,n:norm(b),head}))})}
 function idfOf(t){let df=0;for(const x of BIDX)if(x.n.includes(t)||x.head.includes(t))df++;return Math.log((BIDX.length+1)/(df+0.5))}
 function retrieve(q){
   if(!BIDX)buildIdx();
@@ -1335,81 +1645,115 @@ let AI=null,aiChecked=false,chat=[];
 if(window.claude&&claude.use){claude.use("sample").then(s=>{AI=s;aiChecked=true;if(route()==="rotiste")render()}).catch(()=>{aiChecked=true})}else aiChecked=true;
 function mdLite(s){
   let h=esc0(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>");
-  h=h.replace(/\(?Νο\s?(\d+[αβγ]?)\)?/g,(m,n)=>byN[n]?`<a class="gl" data-go="g-${slug(n)}">${m}</a>`:m);
+  h=h.replace(/\(?(?:Νο\s?(\d+[αβγ]?)|NICE\s?((?:NG|CG)\d+)|(ASCCP))\)?/g,(m,a,b,c)=>{const n=a||b||c;return byN[n]?`<a class="gl" data-go="g-${slug(n)}">${m}</a>`:m});
   const lines=h.split(/\n/);let out="",inl=false;
   lines.forEach(l=>{const m=l.match(/^\s*[-•*]\s+(.*)/);if(m){if(!inl){out+="<ul>";inl=true}out+=`<li>${m[1]}</li>`}else{if(inl){out+="</ul>";inl=false}if(l.trim())out+=`<p>${l}</p>`}});
   if(inl)out+="</ul>";return bn(hlNums(out));
 }
-function srcHTML(r){const items=[...r.fs.map(({f})=>`<a data-go="f-${f.id}">⟶ ${esc0(f.t)}</a>`),...r.gs.slice(0,5).map(({g})=>`<a data-go="g-${slug(g.n)}">Νο ${esc0(g.n)}</a>`)];return items.length?`<div class="src">Πηγές:${items.join("")}</div>`:""}
+function srcHTML(r){const items=[...r.fs.map(({f})=>`<a data-go="f-${f.id}">⟶ ${esc0(f.t)}</a>`),...r.gs.slice(0,5).map(({g})=>`<a data-go="g-${slug(g.n)}">${esc0(lab(g.n))}</a>`)];return items.length?`<div class="src">Πηγές:${items.join("")}</div>`:""}
 function localAnswer(q,r){
   if(!r.gs.length&&!r.fs.length) return `<p>Δεν βρήκα σχετική σύσταση στις οδηγίες της ΕΜΓΕ για «${esc0(q)}». Δοκιμάστε άλλες λέξεις (π.χ. όνομα φαρμάκου ή πάθησης).</p>`;
-  let h=`<p><b>Οι πιο σχετικές συστάσεις από τις οδηγίες:</b></p><ul>${r.bul.map(x=>`<li>${fmt(x.b)} <a class="gl" data-go="g-${slug(x.g.n)}">(Νο ${esc0(x.g.n)})</a></li>`).join("")}</ul>`;
+  let h=`<p><b>Οι πιο σχετικές συστάσεις από τις οδηγίες:</b></p><ul>${r.bul.map(x=>`<li>${fmt(x.b)} <a class="gl" data-go="g-${slug(x.g.n)}">(${esc0(lab(x.g.n))})</a></li>`).join("")}</ul>`;
   if(r.fs.length) h+=`<p>Δείτε και τον αλγόριθμο: ${r.fs.map(({f})=>`<a class="gl" data-go="f-${f.id}">${esc0(f.t)}</a>`).join(", ")}.</p>`;
   return h;
 }
 function contextFor(r){
-  let c="";r.gs.forEach(({g})=>{const s=S[g.n];c+=`\n### Οδηγία ΕΜΓΕ Νο ${g.n}: ${g.t}${s.d?" ("+s.d+")":""}\n`+s.b.map(b=>"- "+b.replace(/⟪/g,"(").replace(/⟫/g,")")).join("\n")+"\n"});
-  r.fs.forEach(({f})=>{c+=`\n### Αλγόριθμος: ${f.t} (από Νο ${f.refs.join(", ")})\n`+f.n.map(x=>"* "+x.h+": "+(x.x?x.x.join("; "):x.b.map(b=>b.l+" → "+b.x.join("; ")).join(" | "))).join("\n").replace(/⟪/g,"(").replace(/⟫/g,")")+"\n"});
+  let c="";r.gs.forEach(({g})=>{const s=S[g.n];c+=`\n### ${g.src==="nice"?"NICE "+g.n+" (Ηνωμένο Βασίλειο)":g.src==="asccp"?"ASCCP (ΗΠΑ)":"Οδηγία ΕΜΓΕ Νο "+g.n}: ${g.t}${s.d?" ("+s.d+")":""}\n`+s.b.map(b=>"- "+b.replace(/⟪/g,"(").replace(/⟫/g,")")).join("\n")+"\n"});
+  r.fs.forEach(({f})=>{c+=`\n### Αλγόριθμος: ${f.t} (από ${f.refs.map(lab).join(", ")})\n`+f.n.map(x=>"* "+x.h+": "+(x.x?x.x.join("; "):x.b.map(b=>b.l+" → "+b.x.join("; ")).join(" | "))).join("\n").replace(/⟪/g,"(").replace(/⟫/g,")")+"\n"});
   return c;
 }
+let hist=[];
+function mergeR(a,b){const gm=new Map();[...a.gs,...b.gs].forEach(x=>{if(!gm.has(x.g.n))gm.set(x.g.n,x)});const fm=new Map();[...a.fs,...b.fs].forEach(x=>{if(!fm.has(x.f.id))fm.set(x.f.id,x)});const bs=new Set();const bul=[...a.bul,...b.bul].filter(x=>!bs.has(x.b)&&bs.add(x.b)).slice(0,7);return{gs:[...gm.values()].slice(0,6),fs:[...fm.values()].slice(0,2),bul}}
 async function ask(q){
   q=q.trim();if(!q)return;
-  const r=retrieve(q);
+  const prev=hist.length?hist[hist.length-1].q:"";
+  let r=retrieve(q);
+  if(prev){const r2=retrieve(prev+" "+q);const short=qtok(q).length<=4||/^(και|αν|εάν|τι γίνεται|κι|μετά|ενώ|σε|στην|στο)\b/i.test(q);r=short?mergeR(r2,r):mergeR(r,r2)}
   chat.push({role:"u",html:esc0(q)});
   const m={role:"a",html:"",src:srcHTML(r)};chat.push(m);
   if(AI&&(r.gs.length||r.fs.length)){
     m.html='<p class="dots">Ψάχνω στις οδηγίες</p>';drawChat();
-    const prompt=`Είσαι βοηθός για μαιευτήρες-γυναικολόγους στην Ελλάδα. Απάντησε στην ερώτηση ΜΟΝΟ με βάση τα αποσπάσματα από τις κατευθυντήριες οδηγίες της ΕΜΓΕ που ακολουθούν.
+    const past=hist.slice(-3).map(h=>`Ερώτηση: ${h.q}\nΑπάντηση: ${h.a.slice(0,900)}`).join("\n\n");
+    const prompt=`Είσαι βοηθός για μαιευτήρες-γυναικολόγους στην Ελλάδα. Απάντησε ΜΟΝΟ με βάση τα αποσπάσματα κατευθυντήριων οδηγιών που ακολουθούν: ΕΜΓΕ (ελληνικές), NICE (Ηνωμένο Βασίλειο) και ASCCP (ΗΠΑ).
 Κανόνες:
-- Γράψε στα ελληνικά, σύντομα και πρακτικά (έως ~150 λέξεις), με κουκκίδες όπου βοηθά.
-- Μετά από κάθε σύσταση γράψε την πηγή σε παρένθεση, π.χ. (Νο 77).
+- Γράψε στα ελληνικά, σύντομα και πρακτικά (έως ~170 λέξεις), με κουκκίδες όπου βοηθά.
+- Μετά από κάθε σύσταση γράψε την πηγή σε παρένθεση ακριβώς έτσι: (Νο 77) για ΕΜΓΕ, (NICE NG25) για NICE, (ASCCP) για ASCCP.
+- Προτεραιότητα στην ΕΜΓΕ για την ελληνική πράξη. Αν NICE ή ASCCP λένε κάτι διαφορετικό ή επιπλέον, ανέφερέ το χωριστά και πες ότι διαφέρει.
 - Δόσεις, όρια και εβδομάδες ακριβώς όπως στα αποσπάσματα. Κράτα τις εμπορικές ονομασίες σε παρένθεση όπως δίνονται.
-- Αν τα αποσπάσματα δεν απαντούν στην ερώτηση ή μέρος της, πες το καθαρά («Οι οδηγίες της ΕΜΓΕ δεν καλύπτουν…») και ΜΗΝ συμπληρώσεις από γενικές γνώσεις.
+- Αν τα αποσπάσματα δεν απαντούν στην ερώτηση ή μέρος της, πες το καθαρά («Οι οδηγίες δεν καλύπτουν…») και ΜΗΝ συμπληρώσεις από γενικές γνώσεις.
+- Αν η ερώτηση είναι συνέχεια της προηγούμενης συζήτησης, απάντησε στο πλαίσιό της.
 - Μην κάνεις διάγνωση για συγκεκριμένο ασθενή· δώσε τι λένε οι οδηγίες.
-
+${past?"\nΠΡΟΗΓΟΥΜΕΝΗ ΣΥΖΗΤΗΣΗ:\n"+past+"\n":""}
 ΑΠΟΣΠΑΣΜΑΤΑ:${contextFor(r)}
 
-ΕΡΩΤΗΣΗ: ${q}`;
+ΝΕΑ ΕΡΩΤΗΣΗ: ${q}`;
+    let txt="";
     try{
-      await AI(prompt,{cache:false,onText:({text})=>{m.html=mdLite(text);drawChat(true)}});
-      m.html+=`<p style="font-size:12px;color:var(--muted);margin-top:8px">Απάντηση ΑΙ μόνο από τις οδηγίες της ΕΜΓΕ· επαληθεύστε στο PDF πριν από κλινική απόφαση.</p>`;
+      await AI(prompt,{cache:false,onText:({text})=>{txt=text;m.html=mdLite(text);drawChat(true)}});
+      m.html+=`<p style="font-size:12px;color:var(--muted);margin-top:8px">Απάντηση ΑΙ μόνο από τις οδηγίες· επαληθεύστε στην πηγή πριν από κλινική απόφαση.</p>`;
+      hist.push({q,a:txt});
     }catch(e){
       m.html=(e&&e.code==="rate_limited"?'<p>Πολλές ερωτήσεις σε λίγο χρόνο· δοκιμάστε ξανά σε λίγο. Μέχρι τότε:</p>':'')+localAnswer(q,r);
       if(e&&e.code==="not_granted"){AI=null}
+      hist.push({q,a:r.bul.map(x=>x.b).join(" ")});
     }
   }else{
-    m.html=localAnswer(q,r);
+    m.html=localAnswer(q,r);hist.push({q,a:r.bul.map(x=>x.b).join(" ")});
   }
   drawChat();
+}
+/* voice dictation */
+let DICT=null,micOn=false,micBase="",rec=null;
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+const micAvail=()=>!!(DICT||SR);
+function setMic(on){micOn=on;const b=$("#micb");if(b){b.classList.toggle("on",on);b.setAttribute("aria-label",on?"Διακοπή υπαγόρευσης":"Υπαγόρευση")}const h=$("#michint");if(h)h.style.display=on?"block":"none"}
+function micText(s){const ta=$("#askq");if(ta){ta.value=s;ta.style.height="auto";ta.style.height=ta.scrollHeight+"px"}}
+if(window.claude&&claude.use){claude.use("dictation").then(d=>{if(!d)return;DICT=d;
+  d.onPartial(({text})=>micText(micBase+text));
+  d.onFinal(({text})=>{micBase+=text.trim()+" ";micText(micBase)});
+  d.onState(({state})=>setMic(state==="listening"));
+  if(route()==="rotiste")render()}).catch(()=>{})}
+function micToggle(){
+  const ta=$("#askq");if(!ta)return;
+  if(micOn){if(DICT)DICT.stop().catch(()=>{});else if(rec)rec.stop();setMic(false);return}
+  micBase=ta.value.trim()?ta.value.trim()+" ":"";
+  if(DICT){DICT.start().catch(e=>{setMic(false);if(e&&e.code==="not_granted"){DICT=null;render()}});setMic(true);return}
+  if(!SR)return;
+  rec=new SR();rec.lang="el-GR";rec.interimResults=true;rec.continuous=true;
+  rec.onresult=e=>{let part="";for(let i=e.resultIndex;i<e.results.length;i++){const x=e.results[i];if(x.isFinal)micBase+=x[0].transcript.trim()+" ";else part+=x[0].transcript}micText(micBase+part)};
+  rec.onend=()=>setMic(false);rec.onerror=()=>setMic(false);
+  try{rec.start();setMic(true)}catch(_){setMic(false)}
 }
 function drawChat(stream){
   const box=$("#chat");if(!box)return;
   box.innerHTML=chat.map(x=>`<div class="msg ${x.role}"><div class="b">${x.html}${x.role==="a"&&x.src?x.src:""}</div></div>`).join("");
   if(!stream) box.lastElementChild&&box.lastElementChild.scrollIntoView({block:"nearest",behavior:"smooth"});
 }
-const EXQ=["Τι αντιβίωση δίνω σε PPROM;","Πότε σταματάω την ενοξαπαρίνη πριν την καισαρική;","Δόση θειικού μαγνησίου για νευροπροστασία;","Ποιες έγκυες παίρνουν ασπιρίνη και σε τι δόση;","Πώς αντιμετωπίζω την αιμορραγία μετά τον τοκετό;","Πότε κάνω OGTT και ποια είναι τα όρια;"];
+const EXQ=["Τι αντιβίωση δίνω σε PPROM;","Τι λέει το NICE για την πρόκληση τοκετού;","HPV 31 θετικό με NILM, τι κάνω κατά ASCCP;","Πότε σταματάω την ενοξαπαρίνη πριν την καισαρική;","Δόση θειικού μαγνησίου για νευροπροστασία;","Ποιες έγκυες παίρνουν ασπιρίνη και σε τι δόση;","Πώς αντιμετωπίζω την αιμορραγία μετά τον τοκετό;","Πότε κάνω OGTT και ποια είναι τα όρια;"];
 function vAsk(){
   return `<div class="ask"><h1 style="margin:6px 0 4px;font-size:26px">Ρωτήστε τις οδηγίες</h1>
-  <p style="margin:0 0 8px;color:var(--muted)">Γράψτε την ερώτησή σας όπως θα τη λέγατε σε συνάδελφο. Η απάντηση βασίζεται μόνο στις οδηγίες της ΕΜΓΕ, με την πηγή.</p>
+  <p style="margin:0 0 8px;color:var(--muted)">${micAvail()?"Πατήστε 🎙 και μιλήστε, ή γράψτε":"Γράψτε"} όπως σε συνάδελφο. Απάντηση μόνο από ΕΜΓΕ, NICE και ASCCP, με την πηγή· συνεχίστε με «κι αν…;».</p>
   <span class="aimode">${AI?"✦ Με τεχνητή νοημοσύνη (Claude)":aiChecked?"⚡ Γρήγορη απάντηση από τις οδηγίες":"…"}</span>
   ${chat.length?"":`<div class="exq">${EXQ.map(q=>`<button data-ask="${esc0(q)}">${esc0(q)}</button>`).join("")}</div>`}
   <div id="chat"></div>
-  <form class="askbox" id="askf"><textarea id="askq" rows="1" placeholder="π.χ. Τι αντιβίωση δίνω σε PPROM;"></textarea><button type="submit" id="asks">Ρώτα</button></form>
-  ${chat.length?`<p style="text-align:center"><button class="btn" data-newchat>Νέα ερώτηση</button></p>`:""}
+  <form class="askbox" id="askf">${micAvail()?`<button type="button" class="mic${micOn?" on":""}" id="micb" data-mic aria-label="Υπαγόρευση">${svg("mic",20)}</button>`:""}<textarea id="askq" rows="1" placeholder="${chat.length?"Συνεχίστε τη συζήτηση…":micAvail()?"Γράψτε ή πείτε την ερώτηση…":"Γράψτε την ερώτηση…"}"></textarea><button type="submit" id="asks">Ρώτα</button></form>
+  <p id="michint" class="michint" style="display:${micOn?"block":"none"}">● Ακούω… μιλήστε ελληνικά και πατήστε ξανά το μικρόφωνο όταν τελειώσετε.</p>
+  ${chat.length?`<p style="text-align:center"><button class="btn" data-newchat>Νέα συζήτηση</button></p>`:""}
   <p class="verify">${svg("info",16)}<span>Εργαλείο υποστήριξης, όχι υποκατάστατο της κλινικής κρίσης. ${AI?"Οι απαντήσεις ΑΙ περιορίζονται στα αποσπάσματα των οδηγιών που βρέθηκαν, αλλά μπορεί να περιέχουν λάθη.":"Στην έκδοση με ΑΙ, το Claude συνθέτει απάντηση από τα ίδια αποσπάσματα."}</span></p></div>`;
 }
-document.addEventListener("submit",e=>{if(e.target.id==="askf"){e.preventDefault();const q=$("#askq").value;$("#askq").value="";const btn=$("#asks");btn.disabled=true;ask(q).finally(()=>{const b=$("#asks");if(b)b.disabled=false})}});
+document.addEventListener("submit",e=>{if(e.target.id==="askf"){e.preventDefault();if(micOn)micToggle();const q=$("#askq").value;$("#askq").value="";const btn=$("#asks");btn.disabled=true;ask(q).finally(()=>{const b=$("#asks");if(b)b.disabled=false})}});
 document.addEventListener("keydown",e=>{if(e.target.id==="askq"&&e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("#askf").requestSubmit()}});
 /* render */
 let lastRoute="";
 function render(){
   const r=route();
-  if(r!==lastRoute&&!["odigies","algorithmoi","doseis","agapimena"].includes(r)) state.q="";
-  if(r!==lastRoute&&lastRoute&&["odigies","algorithmoi","doseis","agapimena"].includes(r)&&r!==lastRoute) state.q="";
+  if(r!==lastRoute&&!["odigies","diethneis","algorithmoi","doseis","agapimena"].includes(r)) state.q="";
+  if(r!==lastRoute&&lastRoute&&["odigies","diethneis","algorithmoi","doseis","agapimena"].includes(r)&&r!==lastRoute) state.q="";
   let html;
   if(r.startsWith("g-")&&bySlug[r.slice(2)]){html=vGuide(bySlug[r.slice(2)]);pushRecent(r)}
   else if(r.startsWith("f-")&&byF[r.slice(2)]){html=vFlow(byF[r.slice(2)]);pushRecent(r)}
   else if(r==="odigies") html=vList(false);
+  else if(r==="diethneis") html=vList(false,true);
   else if(r==="agapimena") html=vList(true);
   else if(r==="algorithmoi") html=vFlows();
   else if(r==="doseis") html=vDoses();
@@ -1417,6 +1761,9 @@ function render(){
   else if(r==="rotiste") html=vAsk();
   else html=vHome();
   $("#view").innerHTML=html;
+  if(r!==lastRoute){const v=$("#view");v.classList.remove("enter");void v.offsetWidth;v.classList.add("enter")}
+  document.body.dataset.r=r.startsWith("g-")?"g":r.startsWith("f-")?"f":r;
+  $("#fab").style.display=(r==="rotiste"||r==="home"||!micAvail())?"none":"";
   renderNav(r);
   if(r!==lastRoute) window.scrollTo(0,0);
   lastRoute=r;
@@ -1424,7 +1771,7 @@ function render(){
   const sort=$("#sort"); if(sort) sort.value=state.sort;
   const lq=$("#lq"); if(lq){lq.oninput=e=>{state.q=e.target.value;const pos=e.target.selectionStart;render();const n=$("#lq");n.focus();n.setSelectionRange(pos,pos)}}
   const hq=$("#hq"); if(hq){hq.onfocus=()=>{openPal("");hq.blur()};}
-  if(r==="ergaleia") document.title="Εργαλεία · Οδηγίες ΜΓ"; else if(r==="rotiste") document.title="Ρωτήστε · Οδηγίες ΜΓ"; else document.title=(r.startsWith("g-")&&bySlug[r.slice(2)]?"Νο "+bySlug[r.slice(2)].n+" · ":r.startsWith("f-")&&byF[r.slice(2)]?byF[r.slice(2)].t+" · ":"")+"Οδηγίες ΜΓ";
+  if(r==="ergaleia") document.title="Εργαλεία · Οδηγίες ΜΓ"; else if(r==="rotiste") document.title="Ρωτήστε · Οδηγίες ΜΓ"; else document.title=(r.startsWith("g-")&&bySlug[r.slice(2)]?lab(bySlug[r.slice(2)].n)+" · ":r.startsWith("f-")&&byF[r.slice(2)]?byF[r.slice(2)].t+" · ":"")+"Οδηγίες ΜΓ";
 }
 document.addEventListener("click",e=>{
   const sg=e.target.closest("[data-seg] button"); if(sg){const [o,k]=sg.parentElement.dataset.seg.split(".");calc[o][k]=Number(sg.dataset.v);store.set("mg-calc",calc);[...sg.parentElement.children].forEach(x=>x.classList.toggle("on",x===sg));if(o==="b")$("#r-b").innerHTML=bishopRes();else $("#r-q").innerHTML=puqeRes();return}
@@ -1433,7 +1780,9 @@ document.addEventListener("click",e=>{
   const sh=e.target.closest("[data-share]"); if(sh){const url=location.href,title=document.title;if(navigator.share){navigator.share({title,url}).catch(()=>{})}else{try{navigator.clipboard.writeText(url).then(()=>{sh.lastChild.textContent=" Ο σύνδεσμος αντιγράφηκε"})}catch(_){}}return}
   const gv=e.target.closest("[data-gview]"); if(gv){gView=gv.dataset.gview;store.set("mg-gview",gView);render();return}
   const ak=e.target.closest("[data-ask]"); if(ak){ask(ak.dataset.ask);return}
-  const nc=e.target.closest("[data-newchat]"); if(nc){chat=[];render();setTimeout(()=>$("#askq")&&$("#askq").focus(),30);return}
+  const mc=e.target.closest("[data-mic]"); if(mc){micToggle();return}
+  const hm=e.target.closest("[data-homemic]"); if(hm){e.stopPropagation();location.hash="rotiste";render();micToggle();return}
+  const nc=e.target.closest("[data-newchat]"); if(nc){chat=[];hist=[];render();setTimeout(()=>$("#askq")&&$("#askq").focus(),30);return}
   const hw=e.target.closest("[data-howto]"); if(hw){store.set("mg-howto",false);render();return}
   const f=e.target.closest("[data-fav]"); if(f){e.preventDefault();e.stopPropagation();toggleFav(f.dataset.fav);return}
   const c=e.target.closest("[data-cat]"); if(c){state.cat=c.dataset.cat;state.q="";go("odigies");render();return}
