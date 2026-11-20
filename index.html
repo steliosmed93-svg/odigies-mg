@@ -226,6 +226,28 @@ mark{background:#ffe27a;color:#1a1b2e;border-radius:3px;padding:0 1px}
 .res p{margin:6px 0 0;font-size:14px}
 .res a{font-weight:600;cursor:pointer}
 html.lg body{zoom:1.14}
+/* ask */
+.ask{max-width:860px}
+.askbox{position:sticky;bottom:12px;display:flex;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 10px 30px rgba(26,27,46,.12);margin-top:16px;z-index:5}
+.askbox textarea{flex:1;border:0;outline:0;resize:none;font:inherit;font-size:16px;background:transparent;color:var(--ink);padding:8px 10px;min-height:44px;max-height:160px}
+.askbox button{border:0;border-radius:12px;background:var(--acc);color:#fff;font-weight:700;padding:0 18px;cursor:pointer}
+.askbox button:disabled{opacity:.5}
+.msg{margin:14px 0;display:flex}
+.msg.u{justify-content:flex-end}
+.msg .b{max-width:88%;border-radius:16px;padding:12px 15px;font-size:15px;line-height:1.6}
+.msg.u .b{background:var(--acc);color:#fff;border-bottom-right-radius:5px}
+.msg.a .b{background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:5px;box-shadow:var(--sh)}
+.msg.a .b p{margin:0 0 8px}.msg.a .b p:last-child{margin:0}
+.msg.a .b ul{margin:4px 0 8px;padding-left:20px}
+.msg .src{margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.msg .src a{cursor:pointer;background:var(--accsoft);color:var(--acc);border-radius:7px;padding:2px 8px;font-weight:600}
+.msg .gl{cursor:pointer;color:var(--acc);font-weight:700}
+.exq{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.exq button{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:9px 13px;cursor:pointer;font-size:14px;text-align:left}
+.exq button:hover{border-color:var(--acc)}
+.aimode{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;border-radius:999px;padding:3px 10px;background:var(--tealsoft);color:var(--teal)}
+.dots:after{content:"…";animation:d 1s steps(3) infinite}
+@keyframes d{0%{content:"."}33%{content:".."}66%{content:"..."}}
 /* mobile */
 .tabbar{display:none}
 @media (max-width:900px){
@@ -302,7 +324,10 @@ S["77"]={d:"Νοέμβριος 2025",b:[
 "24+0–33+6: συντηρητική αντιμετώπιση με στενή παρακολούθηση· τοκετός μεταξύ 34+0 και 37+0 ή αναμονή έως 37+0 μετά από ενημέρωση.",
 "34+0–36+6: αναμονή ή περάτωση εξίσου λογικές· η αναμονή να μην ξεπερνά τις 37+0. ≥37+0: τοκετός εντός 24 ωρών (χημειοπροφύλαξη αν GBS θετική).",
 "22+0–23+6: εξατομίκευση με εμβρυομητρικό ειδικό και νεογνολόγο. Τοκολυτικά και κορτικοστεροειδή δεν συστήνονται πριν το όριο βιωσιμότητας.",
-"Φάρμακα: αντιβιοτικά ευρέος φάσματος· ένα σχήμα κορτικοστεροειδών στις 24+0–33+6· θειικό μαγνήσιο πριν τις 30 εβδομάδες (σχετική ένδειξη 30+0–33+6). Τοκόλυση μόνο σε ανεπίπλεκτη ΠΠΡΕΥ <34+0 για ≥48 ώρες. Προγεστερόνη και αμνιοέγχυση δεν συστήνονται.",
+"Αντιβίωση (σχήμα Α, τροποποιημένο ACOG): αζιθρομυκίνη 1 g po εφάπαξ + αμπικιλλίνη 2 g IV ανά 6 ώρες για 48 ώρες, μετά αμοξικιλλίνη 875 mg po ανά 12 ώρες ή 500 mg po ανά 8 ώρες για 5 ημέρες.",
+"Αντιβίωση (σχήμα Β): κεφτριαξόνη 1 g IV ημερησίως + κλαριθρομυκίνη 500 mg po ανά 12 ώρες από τη διάγνωση έως τον τοκετό, και μετρονιδαζόλη 500 mg IV ανά 8 ώρες για 4 εβδομάδες. Κανένα σχήμα δεν έχει αποδειχθεί ιδανικό.",
+"Αποφυγή αμοξικιλλίνης-κλαβουλανικού (νεκρωτική εντεροκολίτιδα). Σε αλλεργία στην πενικιλλίνη, επιλογή ανάλογα με τον τύπο αλλεργίας και την ευαισθησία.",
+"Ένα σχήμα κορτικοστεροειδών στις 24+0–33+6· θειικό μαγνήσιο πριν τις 30 εβδομάδες (σχετική ένδειξη 30+0–33+6). Τοκόλυση μόνο σε ανεπίπλεκτη ΠΠΡΕΥ <34+0 για ≥48 ώρες. Προγεστερόνη και αμνιοέγχυση δεν συστήνονται.",
 "Εξωνοσοκομειακή παρακολούθηση μετά τις πρώτες 48 ώρες υπό προϋποθέσεις, 1–2 φορές/εβδομάδα (γενική, CRP, ζωτικά, ΚΤΓ ή βιοφυσικό προφίλ)."]};
 S["66"]={d:"Ιούνιος 2024",b:[
 "Εκτίμηση κινδύνου ΦΘΕ σε όλες τις έγκυες στην αρχή της κύησης, σε κάθε κλινική αλλαγή και αμέσως μετά τον τοκετό.",
@@ -1037,6 +1062,7 @@ const IC={
  chev:'<path d="M9 18l6-6-6-6"/>',
  calc:'<rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18.5h2M14 18.5h2"/>',
  share:'<circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.4M8.2 13.2l7.6 4.4"/>',
+ spark:'<path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
  info:'<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/>'
 };
 const svg=(k,w=20)=>`<svg width="${w}" height="${w}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</svg>`;
@@ -1077,11 +1103,11 @@ $("#theme").onclick=()=>applyTheme(document.documentElement.dataset.theme==="dar
 if(store.get("mg-lg",false))document.documentElement.classList.add("lg");
 $("#fsz").onclick=()=>{const on=document.documentElement.classList.toggle("lg");store.set("mg-lg",on)};
 /* nav */
-const NAV=[["home","Αρχική","home"],["odigies","Οδηγίες","list"],["algorithmoi","Αλγόριθμοι","flow"],["doseis","Δόσεις","pill"],["ergaleia","Εργαλεία","calc"],["agapimena","Αγαπημένες","star"]];
+const NAV=[["home","Αρχική","home"],["rotiste","Ρωτήστε","spark"],["algorithmoi","Αλγόριθμοι","flow"],["odigies","Οδηγίες","list"],["doseis","Δόσεις","pill"],["ergaleia","Εργαλεία","calc"],["agapimena","Αγαπημένες","star"]];
 let state={cat:"all",q:"",old:false,sort:"desc"};
 function route(){const h=location.hash.replace("#","")||"home";return h}
 function go(h){if(location.hash.replace("#","")===h)render();else location.hash=h;}
-function navHTML(cur,cls){return NAV.filter(n=>cls==="nl"||n[0]!=="agapimena").map(([k,l,i])=>{const on=cur===k||(k==="odigies"&&cur.startsWith("g-"))||(k==="algorithmoi"&&cur.startsWith("f-"));
+function navHTML(cur,cls){return NAV.filter(n=>cls==="nl"||!["agapimena","doseis"].includes(n[0])).map(([k,l,i])=>{const on=cur===k||(k==="odigies"&&cur.startsWith("g-"))||(k==="algorithmoi"&&cur.startsWith("f-"));
   const ct=k==="odigies"?CUR.length:k==="algorithmoi"?F.length:k==="agapimena"?favs.size:"";
   return `<button class="${cls}${on?" on":""}" data-go="${k}">${svg(i)}<span>${l}</span>${cls==="nl"&&ct!==""?`<span class="ct">${ct}</span>`:""}</button>`}).join("")}
 function renderNav(cur){
@@ -1113,7 +1139,7 @@ function vHome(){
     <div><span class="st">3</span><span><b>Βάλτε το στο κινητό</b>«Προσθήκη στην αρχική οθόνη»: ανοίγει και χωρίς σήμα.</span></div></div>`:""}
   <section class="hero"><h1>Η απάντηση, σε δευτερόλεπτα.</h1><p>Όλες οι κατευθυντήριες οδηγίες της ΕΜΓΕ, με βασικές συστάσεις, αλγορίθμους και δόσεις. Γράψτε πάθηση, φάρμακο ή αριθμό οδηγίας.</p>
     <div class="hsearch">${svg("list").replace('<svg','<svg style="display:none"')}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="hq" placeholder="π.χ. PPROM, βηταμεθαζόνη, ΣΔΚ, 76" autocomplete="off"></div>
-    <div class="quick">${[["PPROM","f-pprom"],["Αιμορραγία μετά τον τοκετό","f-pph"],["ΣΔΚ","f-gdm"],["Θρομβοπροφύλαξη","f-vte"],["Πρόκληση τοκετού","f-iol"],["CTG","g-58"],["Κορτικοστεροειδή","g-52"],["Τεστ ΠΑΠ / HPV","f-cervix"]].map(([l,h])=>`<button class="qc" data-go="${h}">${l}</button>`).join("")}</div></section>
+    <div class="quick"><button class="qc" data-go="rotiste" style="background:#fff;color:#7a1d45;border-color:#fff;font-weight:700">✦ Κάντε ερώτηση στην ΑΙ</button>${[["PPROM","f-pprom"],["Αιμορραγία μετά τον τοκετό","f-pph"],["ΣΔΚ","f-gdm"],["Θρομβοπροφύλαξη","f-vte"],["Πρόκληση τοκετού","f-iol"],["CTG","g-58"],["Κορτικοστεροειδή","g-52"],["Τεστ ΠΑΠ / HPV","f-cervix"]].map(([l,h])=>`<button class="qc" data-go="${h}">${l}</button>`).join("")}</div></section>
   <div class="stats">
     <div class="stat" data-go="odigies"><b>${CUR.length}</b><span>οδηγίες σε ισχύ</span></div>
     <div class="stat" data-go="algorithmoi"><b>${F.length}</b><span>κλινικοί αλγόριθμοι</span></div>
@@ -1239,6 +1265,96 @@ function vTools(){
   <p class="verify">${svg("info",16)}<span>Βοηθητικοί υπολογισμοί· η ηλικία κύησης επιβεβαιώνεται με το CRL του 1ου τριμήνου (Νο 70).</span></p>`;
 }
 document.addEventListener("input",e=>{const k=e.target.dataset.c;if(!k)return;calc[k]=e.target.value;if(k==="lmp"&&e.target.value){calc.edd="";const o=document.querySelector('[data-c=edd]');if(o)o.value=""}if(k==="edd"&&e.target.value){calc.lmp="";const o=document.querySelector('[data-c=lmp]');if(o)o.value=""}store.set("mg-calc",calc);$("#r-ga").innerHTML=gaRes()});
+/* ---------- Ask ---------- */
+const STOP=new Set("και του της των τον την το τα οι η ο σε στο στη στην στον στα στις στους με για από απο που πως πότε ποτε ποια ποιο ποιες ποιοι τι να θα δεν μη είναι ειναι ή ενα ένα μια μία ως αν όταν οταν δίνω δινω κάνω κανω δόση δοση δοσεις δόσεις ποσο πόσο σταματαω σταματάω κανει κάνει παιρνουν παίρνουν πρέπει πρεπει χρειάζεται χρειαζεται ασθενή ασθενη ασθενής έγκυο εγκυο σε μια".split(" "));
+const SYN={"pprom":"ππρευ ρηξη υμενων","ρηξη":"ππρευ","pph":"αιμορραγια","αιμορραγει":"αιμορραγια","ενοξαπαρινη":"χμβη clexane","clexane":"χμβη","ηπαρινη":"χμβη","σακχαρο":"σδκ διαβητη","διαβητη":"σδκ","καισαρικη":"καισαρικη","ctg":"κτγ καρδιοτοκογραφ","κτγ":"καρδιοτοκογραφ εκρ","στεροειδη":"κορτικοστεροειδ βηταμεθαζονη","κορτιζονη":"κορτικοστεροειδ","μαγνησιο":"θειικο μαγνησιο","παπ":"παπανικολαου hpv","προκληση":"προκληση τοκετου"};
+function qtok(q){let ws=norm(q).replace(/[^\p{L}\p{N}+ ]/gu," ").split(/\s+/).filter(w=>w.length>=3&&!STOP.has(w));
+  const extra=[];ws.forEach(w=>{for(const k in SYN){if(w.startsWith(k))extra.push(...SYN[k].split(" "))}});
+  return [...new Set([...ws,...extra])].map(w=>w.length>6?w.slice(0,Math.max(5,w.length-2)):w)}
+let BIDX=null;
+function buildIdx(){BIDX=[];G.forEach(g=>{if(g.old||!S[g.n])return;const head=norm(g.n+" "+g.t+" "+(g.k||""));S[g.n].b.forEach(b=>BIDX.push({g,b,n:norm(b),head}))})}
+function idfOf(t){let df=0;for(const x of BIDX)if(x.n.includes(t)||x.head.includes(t))df++;return Math.log((BIDX.length+1)/(df+0.5))}
+function retrieve(q){
+  if(!BIDX)buildIdx();
+  const ts=qtok(q);if(!ts.length)return{gs:[],fs:[],bul:[]};
+  const W=Object.fromEntries(ts.map(t=>[t,idfOf(t)]));
+  const scored=BIDX.map(x=>{let s=0;ts.forEach(t=>{if(x.n.includes(t))s+=W[t];else if(x.head.includes(t))s+=W[t]*0.6});return{...x,s}}).filter(x=>x.s>0).sort((a,b)=>b.s-a.s);
+  const top=scored.length?scored[0].s:0;
+  const bul=scored.filter(x=>x.s>=top*0.55).slice(0,6);
+  const gm=new Map();scored.slice(0,25).forEach(x=>gm.set(x.g.n,(gm.get(x.g.n)||0)+x.s));
+  const gs=[...gm.entries()].sort((a,b)=>b[1]-a[1]).slice(0,5).map(([n,s])=>({g:byN[n],s}));
+  const fs=F.map(f=>{const fi=norm(f.t+" "+f.sub);let s=0;ts.forEach(t=>{if(fi.includes(t))s+=W[t]*1.5;else if(f.idx.includes(t))s+=W[t]*0.5});return{f,s}}).filter(x=>x.s>top*0.6&&x.s>0).sort((a,b)=>b.s-a.s).slice(0,2);
+  return{gs,fs,bul};
+}
+let AI=null,aiChecked=false,chat=[];
+if(window.claude&&claude.use){claude.use("sample").then(s=>{AI=s;aiChecked=true;if(route()==="rotiste")render()}).catch(()=>{aiChecked=true})}else aiChecked=true;
+function mdLite(s){
+  let h=esc0(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>");
+  h=h.replace(/\(?Νο\s?(\d+[αβγ]?)\)?/g,(m,n)=>byN[n]?`<a class="gl" data-go="g-${slug(n)}">${m}</a>`:m);
+  const lines=h.split(/\n/);let out="",inl=false;
+  lines.forEach(l=>{const m=l.match(/^\s*[-•*]\s+(.*)/);if(m){if(!inl){out+="<ul>";inl=true}out+=`<li>${m[1]}</li>`}else{if(inl){out+="</ul>";inl=false}if(l.trim())out+=`<p>${l}</p>`}});
+  if(inl)out+="</ul>";return bn(out);
+}
+function srcHTML(r){const items=[...r.fs.map(({f})=>`<a data-go="f-${f.id}">⟶ ${esc0(f.t)}</a>`),...r.gs.slice(0,5).map(({g})=>`<a data-go="g-${slug(g.n)}">Νο ${esc0(g.n)}</a>`)];return items.length?`<div class="src">Πηγές:${items.join("")}</div>`:""}
+function localAnswer(q,r){
+  if(!r.gs.length&&!r.fs.length) return `<p>Δεν βρήκα σχετική σύσταση στις οδηγίες της ΕΜΓΕ για «${esc0(q)}». Δοκιμάστε άλλες λέξεις (π.χ. όνομα φαρμάκου ή πάθησης).</p>`;
+  let h=`<p><b>Οι πιο σχετικές συστάσεις από τις οδηγίες:</b></p><ul>${r.bul.map(x=>`<li>${esc(x.b)} <a class="gl" data-go="g-${slug(x.g.n)}">(Νο ${esc0(x.g.n)})</a></li>`).join("")}</ul>`;
+  if(r.fs.length) h+=`<p>Δείτε και τον αλγόριθμο: ${r.fs.map(({f})=>`<a class="gl" data-go="f-${f.id}">${esc0(f.t)}</a>`).join(", ")}.</p>`;
+  return h;
+}
+function contextFor(r){
+  let c="";r.gs.forEach(({g})=>{const s=S[g.n];c+=`\n### Οδηγία ΕΜΓΕ Νο ${g.n}: ${g.t}${s.d?" ("+s.d+")":""}\n`+s.b.map(b=>"- "+b.replace(/⟪/g,"(").replace(/⟫/g,")")).join("\n")+"\n"});
+  r.fs.forEach(({f})=>{c+=`\n### Αλγόριθμος: ${f.t} (από Νο ${f.refs.join(", ")})\n`+f.n.map(x=>"* "+x.h+": "+(x.x?x.x.join("; "):x.b.map(b=>b.l+" → "+b.x.join("; ")).join(" | "))).join("\n").replace(/⟪/g,"(").replace(/⟫/g,")")+"\n"});
+  return c;
+}
+async function ask(q){
+  q=q.trim();if(!q)return;
+  const r=retrieve(q);
+  chat.push({role:"u",html:esc0(q)});
+  const m={role:"a",html:"",src:srcHTML(r)};chat.push(m);
+  if(AI&&(r.gs.length||r.fs.length)){
+    m.html='<p class="dots">Ψάχνω στις οδηγίες</p>';drawChat();
+    const prompt=`Είσαι βοηθός για μαιευτήρες-γυναικολόγους στην Ελλάδα. Απάντησε στην ερώτηση ΜΟΝΟ με βάση τα αποσπάσματα από τις κατευθυντήριες οδηγίες της ΕΜΓΕ που ακολουθούν.
+Κανόνες:
+- Γράψε στα ελληνικά, σύντομα και πρακτικά (έως ~150 λέξεις), με κουκκίδες όπου βοηθά.
+- Μετά από κάθε σύσταση γράψε την πηγή σε παρένθεση, π.χ. (Νο 77).
+- Δόσεις, όρια και εβδομάδες ακριβώς όπως στα αποσπάσματα. Κράτα τις εμπορικές ονομασίες σε παρένθεση όπως δίνονται.
+- Αν τα αποσπάσματα δεν απαντούν στην ερώτηση ή μέρος της, πες το καθαρά («Οι οδηγίες της ΕΜΓΕ δεν καλύπτουν…») και ΜΗΝ συμπληρώσεις από γενικές γνώσεις.
+- Μην κάνεις διάγνωση για συγκεκριμένο ασθενή· δώσε τι λένε οι οδηγίες.
+
+ΑΠΟΣΠΑΣΜΑΤΑ:${contextFor(r)}
+
+ΕΡΩΤΗΣΗ: ${q}`;
+    try{
+      await AI(prompt,{cache:false,onText:({text})=>{m.html=mdLite(text);drawChat(true)}});
+      m.html+=`<p style="font-size:12px;color:var(--muted);margin-top:8px">Απάντηση ΑΙ μόνο από τις οδηγίες της ΕΜΓΕ· επαληθεύστε στο PDF πριν από κλινική απόφαση.</p>`;
+    }catch(e){
+      m.html=(e&&e.code==="rate_limited"?'<p>Πολλές ερωτήσεις σε λίγο χρόνο· δοκιμάστε ξανά σε λίγο. Μέχρι τότε:</p>':'')+localAnswer(q,r);
+      if(e&&e.code==="not_granted"){AI=null}
+    }
+  }else{
+    m.html=localAnswer(q,r);
+  }
+  drawChat();
+}
+function drawChat(stream){
+  const box=$("#chat");if(!box)return;
+  box.innerHTML=chat.map(x=>`<div class="msg ${x.role}"><div class="b">${x.html}${x.role==="a"&&x.src?x.src:""}</div></div>`).join("");
+  if(!stream) box.lastElementChild&&box.lastElementChild.scrollIntoView({block:"nearest",behavior:"smooth"});
+}
+const EXQ=["Τι αντιβίωση δίνω σε PPROM;","Πότε σταματάω την ενοξαπαρίνη πριν την καισαρική;","Δόση θειικού μαγνησίου για νευροπροστασία;","Ποιες έγκυες παίρνουν ασπιρίνη και σε τι δόση;","Πώς αντιμετωπίζω την αιμορραγία μετά τον τοκετό;","Πότε κάνω OGTT και ποια είναι τα όρια;"];
+function vAsk(){
+  return `<div class="ask"><h1 style="margin:6px 0 4px;font-size:26px">Ρωτήστε τις οδηγίες</h1>
+  <p style="margin:0 0 8px;color:var(--muted)">Γράψτε την ερώτησή σας όπως θα τη λέγατε σε συνάδελφο. Η απάντηση βασίζεται μόνο στις οδηγίες της ΕΜΓΕ, με την πηγή.</p>
+  <span class="aimode">${AI?"✦ Με τεχνητή νοημοσύνη (Claude)":aiChecked?"⚡ Γρήγορη απάντηση από τις οδηγίες":"…"}</span>
+  ${chat.length?"":`<div class="exq">${EXQ.map(q=>`<button data-ask="${esc0(q)}">${esc0(q)}</button>`).join("")}</div>`}
+  <div id="chat"></div>
+  <form class="askbox" id="askf"><textarea id="askq" rows="1" placeholder="π.χ. Τι αντιβίωση δίνω σε PPROM;"></textarea><button type="submit" id="asks">Ρώτα</button></form>
+  ${chat.length?`<p style="text-align:center"><button class="btn" data-newchat>Νέα ερώτηση</button></p>`:""}
+  <p class="verify">${svg("info",16)}<span>Εργαλείο υποστήριξης, όχι υποκατάστατο της κλινικής κρίσης. ${AI?"Οι απαντήσεις ΑΙ περιορίζονται στα αποσπάσματα των οδηγιών που βρέθηκαν, αλλά μπορεί να περιέχουν λάθη.":"Στην έκδοση με ΑΙ, το Claude συνθέτει απάντηση από τα ίδια αποσπάσματα."}</span></p></div>`;
+}
+document.addEventListener("submit",e=>{if(e.target.id==="askf"){e.preventDefault();const q=$("#askq").value;$("#askq").value="";const btn=$("#asks");btn.disabled=true;ask(q).finally(()=>{const b=$("#asks");if(b)b.disabled=false})}});
+document.addEventListener("keydown",e=>{if(e.target.id==="askq"&&e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("#askf").requestSubmit()}});
 /* render */
 let lastRoute="";
 function render(){
@@ -1253,21 +1369,25 @@ function render(){
   else if(r==="algorithmoi") html=vFlows();
   else if(r==="doseis") html=vDoses();
   else if(r==="ergaleia") html=vTools();
+  else if(r==="rotiste") html=vAsk();
   else html=vHome();
   $("#view").innerHTML=html;
   renderNav(r);
   if(r!==lastRoute) window.scrollTo(0,0);
   lastRoute=r;
+  if(r==="rotiste"){drawChat();const aq=$("#askq");if(aq&&!("ontouchstart" in window))aq.focus()}
   const sort=$("#sort"); if(sort) sort.value=state.sort;
   const lq=$("#lq"); if(lq){lq.oninput=e=>{state.q=e.target.value;const pos=e.target.selectionStart;render();const n=$("#lq");n.focus();n.setSelectionRange(pos,pos)}}
   const hq=$("#hq"); if(hq){hq.onfocus=()=>{openPal("");hq.blur()};}
-  if(r==="ergaleia") document.title="Εργαλεία · Οδηγίες ΜΓ"; else document.title=(r.startsWith("g-")&&bySlug[r.slice(2)]?"Νο "+bySlug[r.slice(2)].n+" · ":r.startsWith("f-")&&byF[r.slice(2)]?byF[r.slice(2)].t+" · ":"")+"Οδηγίες ΜΓ";
+  if(r==="ergaleia") document.title="Εργαλεία · Οδηγίες ΜΓ"; else if(r==="rotiste") document.title="Ρωτήστε · Οδηγίες ΜΓ"; else document.title=(r.startsWith("g-")&&bySlug[r.slice(2)]?"Νο "+bySlug[r.slice(2)].n+" · ":r.startsWith("f-")&&byF[r.slice(2)]?byF[r.slice(2)].t+" · ":"")+"Οδηγίες ΜΓ";
 }
 document.addEventListener("click",e=>{
   const sg=e.target.closest("[data-seg] button"); if(sg){const [o,k]=sg.parentElement.dataset.seg.split(".");calc[o][k]=Number(sg.dataset.v);store.set("mg-calc",calc);[...sg.parentElement.children].forEach(x=>x.classList.toggle("on",x===sg));if(o==="b")$("#r-b").innerHTML=bishopRes();else $("#r-q").innerHTML=puqeRes();return}
   const pk=e.target.closest("[data-pick]"); if(pk&&!e.target.closest("a")){const dec=pk.closest(".dec");const was=pk.classList.contains("pick");dec.querySelectorAll(".br").forEach(x=>x.classList.remove("pick"));if(was)dec.classList.remove("picked");else{pk.classList.add("pick");dec.classList.add("picked")}return}
   const cp=e.target.closest("[data-copy]"); if(cp){const n=cp.closest(".node");const txt=n.querySelector("h3").childNodes[1].textContent+"\n"+[...n.querySelectorAll("li")].map(l=>"• "+l.textContent).join("\n");const done=()=>{cp.textContent="Αντιγράφηκε ✓";setTimeout(()=>cp.textContent="Αντιγραφή",1500)};try{navigator.clipboard.writeText(txt).then(done,()=>{cp.textContent="Μη διαθέσιμο"})}catch(_){cp.textContent="Μη διαθέσιμο"}return}
   const sh=e.target.closest("[data-share]"); if(sh){const url=location.href,title=document.title;if(navigator.share){navigator.share({title,url}).catch(()=>{})}else{try{navigator.clipboard.writeText(url).then(()=>{sh.lastChild.textContent=" Ο σύνδεσμος αντιγράφηκε"})}catch(_){}}return}
+  const ak=e.target.closest("[data-ask]"); if(ak){ask(ak.dataset.ask);return}
+  const nc=e.target.closest("[data-newchat]"); if(nc){chat=[];render();setTimeout(()=>$("#askq")&&$("#askq").focus(),30);return}
   const hw=e.target.closest("[data-howto]"); if(hw){store.set("mg-howto",false);render();return}
   const f=e.target.closest("[data-fav]"); if(f){e.preventDefault();e.stopPropagation();toggleFav(f.dataset.fav);return}
   const c=e.target.closest("[data-cat]"); if(c){state.cat=c.dataset.cat;state.q="";go("odigies");render();return}
