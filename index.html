@@ -9,7 +9,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%237a1d45'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='white' text-anchor='middle'%3E%CE%9C%CE%93%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f5f3f7;--surface:#ffffff;--surface2:#faf8fc;--ink:#1a1b2e;--muted:#646779;--line:#e6e2ec;
@@ -378,6 +378,94 @@ button{-webkit-tap-highlight-color:transparent}
   .tabbar button svg{padding:3px 14px;width:52px;height:30px;box-sizing:border-box}
   .fab{display:grid;place-items:center;width:56px;height:56px;position:fixed;right:16px;bottom:calc(80px + env(safe-area-inset-bottom));z-index:31;border:0;border-radius:50%;padding:0;color:#fff;font-weight:700;font-size:15px;background:linear-gradient(135deg,#7a1d45,#5b2a86);box-shadow:0 12px 28px -10px rgba(91,42,134,.7);cursor:pointer}
 }
+
+/* ===== v10 calm ===== */
+.hx-em>*,.hx-grid>*{min-width:0}
+.hx-emt span:nth-child(2){min-width:0;overflow-wrap:anywhere;line-height:1.3}
+@media (max-width:900px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:-14px;padding-right:14px}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}.hx-emt{font-size:14px;gap:10px;padding:10px 12px}.hx-arr{display:none}}
+:root{
+  --bg:#f6f6f4;--surface:#ffffff;--surface2:#f3f3f1;--ink:#17181c;--muted:#6e717a;--line:#e8e8e5;
+  --acc:#8a2552;--acc2:#a3305f;--accsoft:#f5ecf0;--teal:#2f6f68;--tealsoft:#eaf2f0;
+  --ok:#2f7a4b;--oksoft:#ecf5ef;--bad:#b4372c;--badsoft:#fbefed;--warn:#9a6212;--warnsoft:#faf3e6;
+  --rx:#3f4fb8;--rxsoft:#eff1fb;--r:16px;--sh:none}
+[data-theme="dark"]{--bg:#121316;--surface:#1a1b1f;--surface2:#202126;--ink:#ececee;--muted:#9b9da6;--line:#2a2b31;--accsoft:#33202a;--sh:none}
+html,body{font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;letter-spacing:-.005em;font-feature-settings:"cv11","ss01"}
+h1,h2,h3{letter-spacing:-.02em}
+aside{background:var(--bg);border-right:1px solid var(--line)}
+.mark{background:var(--ink);border-radius:10px}
+[data-theme=dark] .mark{background:var(--acc)}
+.nl{font-weight:500;color:var(--muted)}
+.nl:hover{background:var(--surface)}
+.nl.on{background:var(--surface);color:var(--ink);font-weight:600;box-shadow:0 0 0 1px var(--line)}
+.nl.on svg{color:var(--acc)}
+.sbtn{border-radius:12px;background:var(--surface);box-shadow:none}
+.ibtn{border-radius:12px}
+.row,.ftile,.stat,.dhead,.node,.rec,.dgrp,.hx-sc,.hx-fc,.hx-emt,.calc,.askbox{box-shadow:none!important}
+.row{border-radius:14px;padding:14px 16px}
+.row:hover{border-color:#d5d5d1}
+.num{background:var(--surface2);color:var(--ink);border-radius:12px;font-weight:700}
+.tag{background:transparent;border:0;padding:0;color:var(--muted);font-size:12.5px}
+.tag+.tag:before{content:"·";margin-right:6px;color:#c4c4c0}
+.tag.cur,.tag.alg,.tag.intl{background:transparent;color:var(--teal);font-weight:600}
+.tag.intl{color:#3b5f9a}.tag.sup{background:transparent;color:var(--warn);font-weight:600}
+.meta{gap:6px}
+.chip{background:transparent;border-color:var(--line)}
+.chip.on{background:var(--ink);border-color:var(--ink)}
+[data-theme=dark] .chip.on{background:var(--ink);color:var(--bg)}
+.btn{border-radius:12px;font-weight:600}
+.btn.pri{background:var(--ink);border-color:var(--ink)}
+[data-theme=dark] .btn.pri{background:var(--acc);border-color:var(--acc)}
+.btn.tl{background:var(--surface2);color:var(--ink)}
+/* calmer flow nodes */
+.node{border-radius:16px;border:1px solid var(--line)!important;background:var(--surface)!important;padding:16px 18px}
+.node.rx,.node.warn,.node.end,.node.step{border-left:1px solid var(--line)!important}
+.node:before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:3px;border-radius:0 3px 3px 0;background:var(--line)}
+.node.rx:before{background:var(--rx)}.node.warn:before{background:var(--warn)}.node.end:before{background:var(--ok)}.node.step:before{background:#c9c9c4}.node.dec:before{background:var(--teal)}
+.node h3 .k{background:transparent!important;padding:0;font-size:10.5px;letter-spacing:.09em;color:var(--muted)!important;font-weight:600}
+.node.rx h3 .k{color:var(--rx)!important}.node.warn h3 .k{color:var(--warn)!important}.node.dec h3 .k{color:var(--teal)!important}
+.node.dec>h3{color:var(--ink)}
+.node.warn{background:color-mix(in srgb,var(--warnsoft) 55%,var(--surface))!important}
+.gnode li:before{width:5px;height:5px;top:17px;background:#b9b9b4}
+.gnode.rx li:before{background:var(--rx)}.gnode.warn li:before{background:var(--warn)}
+.gnode li,.node.rx li{border-top-style:solid;border-color:#f0f0ed}
+[data-theme=dark] .gnode li,[data-theme=dark] .node.rx li{border-color:var(--line)}
+.gidx{background:transparent!important;color:#b0b0ab!important;border:0!important}
+.br{background:var(--surface2);border:1px solid transparent;border-radius:12px}
+.br.ok{background:var(--oksoft)}.br.bad{background:var(--badsoft)}
+.conn{background:#dcdcd8;height:18px;width:1px}
+.conn:after{display:none}
+.nm{background:transparent!important;color:inherit!important;font-weight:700;padding:0}
+.node.rx .nm{color:var(--rx)!important}
+.verify{color:var(--muted)}
+/* home calm */
+.hx-h{font-size:34px;font-weight:700}
+.hx-search{border-radius:16px;box-shadow:0 1px 0 rgba(0,0,0,.02),0 8px 24px -16px rgba(0,0,0,.18)}
+.hx-mic{background:var(--ink);box-shadow:none}
+[data-theme=dark] .hx-mic{background:var(--acc)}
+.hx-ai{background:var(--ink);box-shadow:none;border-radius:18px}
+.hx-ai:after{display:none}
+[data-theme=dark] .hx-ai{background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+.hx-ai-ic{background:rgba(255,255,255,.1);color:#f3c6da}
+.hx-sec{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;margin:32px 2px 12px}
+.hx-sec a{text-transform:none;letter-spacing:0;font-size:13.5px}
+.hx-emt{background:var(--surface)!important;border:1px solid var(--line)!important;border-radius:14px;min-height:60px;font-weight:600;font-size:15px;padding:12px 14px}
+.hx-emi{background:var(--accsoft);color:var(--acc);width:36px;height:36px;border-radius:10px}
+.hx-arr{margin-left:auto;color:#b9b9b4;display:flex}
+.hx-sci{background:var(--surface2)!important;color:var(--ink)!important;border-radius:12px}
+.hx-sc{border-radius:16px}
+.hx-fci{background:var(--surface2);color:var(--ink)}
+.hx-fc{border-radius:16px}
+.hx-chip b{color:var(--muted)}.hx-chip svg{color:var(--muted)}
+.fab{background:var(--ink)!important;box-shadow:0 10px 24px -10px rgba(0,0,0,.5)!important}
+[data-theme=dark] .fab{background:var(--acc)!important}
+@media (hover:hover){.hx-sc:hover,.hx-fc:hover,.hx-emt:hover,.row:hover{transform:none;box-shadow:none;border-color:#cfcfca!important}}
+@media (max-width:900px){
+  .hx-h{font-size:28px}
+  .tabbar{background:color-mix(in srgb,var(--bg) 90%,transparent)}
+  .tabbar button.on{color:var(--ink)}
+  .tabbar button.on svg{background:var(--surface);box-shadow:0 0 0 1px var(--line);color:var(--acc)}
+  .hx-em{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
@@ -391,7 +479,7 @@ button{-webkit-tap-highlight-color:transparent}
   <main>
     <div class="topbar" id="topbar">
       <div class="brand mobrand" data-go="home"><div class="mark">ΜΓ</div></div>
-      <button class="sbtn" id="openPal" aria-label="Αναζήτηση"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Αναζήτηση: οδηγία, ουσία ή σκεύασμα (π.χ. Clexane)…</span><kbd>Ctrl K</kbd></button>
+      <button class="sbtn" id="openPal" aria-label="Αναζήτηση"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Αναζήτηση οδηγίας, φαρμάκου, σκευάσματος…</span><kbd>Ctrl K</kbd></button>
       <button class="ibtn" id="fsz" aria-label="Μέγεθος γραμμάτων" title="Μέγεθος γραμμάτων" style="font-weight:800;font-size:14px">A+</button>
       <button class="ibtn" id="theme" aria-label="Αλλαγή θέματος"></button>
     </div>
@@ -1492,7 +1580,7 @@ function vHome(){
   </section>
   <button class="hx-ai" data-go="rotiste"><span class="hx-ai-ic">${svg("spark",24)}</span><span class="hx-ai-t"><b>Ρωτήστε την ΑΙ</b><small>${micAvail()?"Μιλήστε ή γράψτε":"Γράψτε"} την ερώτηση· απάντηση από ΕΜΓΕ, NICE, ASCCP</small></span><span class="hx-go">${svg("chev",18)}</span></button>
   <h2 class="hx-sec">Επείγοντα, με ένα πάτημα</h2>
-  <div class="hx-em">${EM.filter(e=>e[0].startsWith("f-")?byF[e[0].slice(2)]:bySlug[e[0].slice(2)]).map(([h,l,i,c])=>`<button class="hx-emt" data-go="${h}" style="--c:${c}"><span class="hx-emi">${svg(i,22)}</span><span>${l}</span></button>`).join("")}</div>
+  <div class="hx-em">${EM.filter(e=>e[0].startsWith("f-")?byF[e[0].slice(2)]:bySlug[e[0].slice(2)]).map(([h,l,i,c])=>`<button class="hx-emt" data-go="${h}"><span class="hx-emi">${svg(i,20)}</span><span>${l}</span><span class="hx-arr">${svg("chev",16)}</span></button>`).join("")}</div>
   ${rec.length?`<h2 class="hx-sec">Συνεχίστε από εκεί που μείνατε</h2><div class="hx-row">${rec.slice(0,8).map(([t,x])=>`<button class="hx-chip" data-go="${t}-${t==="f"?x.id:slug(x.n)}">${t==="f"?svg("flow",16):`<b>${esc(x.n)}</b>`}<span>${esc(t==="f"?x.t:x.t.replace(/\s*\(.*\)$/,""))}</span></button>`).join("")}</div>`:""}
   <h2 class="hx-sec">Όλα τα εργαλεία</h2>
   <div class="hx-grid">${SC.map(([h,l,n,i])=>`<button class="hx-sc" data-go="${h}"><span class="hx-sci">${svg(i,22)}</span><b>${l}</b><small>${n}</small></button>`).join("")}</div>
