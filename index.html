@@ -751,6 +751,41 @@ aside{background:var(--bg);border-right:1px solid var(--line)}
   .mobrand .mark{width:34px;height:34px}
 }
 .mm-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.mm-opt{display:flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:13.5px;font-weight:600;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:11px 8px;cursor:pointer}
+
+/* ===== easier pregnancy UX ===== */
+.sheet{position:fixed;inset:0;z-index:110}
+.sh-back{position:absolute;inset:0;background:rgba(15,15,20,.4);opacity:0;transition:opacity .2s}
+.sh-panel{position:absolute;left:50%;bottom:0;width:min(100%,560px);max-height:92vh;overflow:auto;background:var(--bg);border-radius:24px 24px 0 0;padding:10px 18px calc(22px + env(safe-area-inset-bottom));transform:translate(-50%,105%);transition:transform .25s cubic-bezier(.2,.7,.2,1);box-shadow:0 -10px 40px rgba(0,0,0,.2)}
+.sheet.show .sh-back{opacity:1}.sheet.show .sh-panel{transform:translate(-50%,0)}
+@media (min-width:901px){.sh-panel{bottom:auto;top:50%;border-radius:24px;transform:translate(-50%,-40%);opacity:0;transition:all .2s}.sheet.show .sh-panel{transform:translate(-50%,-50%);opacity:1}}
+.sh-grip{width:40px;height:5px;border-radius:9px;background:var(--line);margin:0 auto 12px}
+.sh-panel h2{margin:4px 0 4px;font-size:22px}.sh-sub{margin:0 0 14px;color:var(--muted);font-size:14px}
+.btn.wide{width:100%;justify-content:center;margin-top:8px}
+.seg2{display:flex;gap:4px;padding:4px;border-radius:14px;background:color-mix(in srgb,var(--ink) 6%,transparent);margin:4px 0 12px}
+.seg2 button{flex:1;font:inherit;font-size:14px;font-weight:600;border:0;background:none;padding:10px 6px;border-radius:10px;color:var(--muted);cursor:pointer}
+.seg2 button.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.np-ga{display:grid;grid-template-columns:1fr 1fr;gap:10px}.np-ga[hidden],#np_lmpw[hidden]{display:none}
+.sh-it{display:flex;align-items:center;gap:14px;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;margin-top:8px;cursor:pointer}
+.sh-it>svg{flex:0 0 auto;color:var(--acc)}.sh-it span{display:flex;flex-direction:column}.sh-it b{font-size:16px}.sh-it small{color:var(--muted);font-size:13px;margin-top:2px}
+.sh-it.danger>svg,.sh-it.danger b{color:var(--bad)}
+.sh-reasons{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.sh-r{text-align:left;font:inherit;font-size:15.5px;font-weight:600;padding:13px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.sh-r.on{border-color:var(--acc);background:var(--accsoft)}
+.pg-quick{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin:0 0 12px}
+.pg-quick .btn{justify-content:center}.pg-dots{letter-spacing:2px;padding:12px 16px}
+.pg-next{border-radius:20px;padding:18px;margin-bottom:12px;background:linear-gradient(135deg,color-mix(in srgb,var(--accsoft) 80%,var(--surface)),var(--surface));border:1px solid color-mix(in srgb,var(--acc) 25%,var(--line))}
+.pg-next small{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--acc)}
+.pg-next b{display:block;font-size:20px;line-height:1.3;margin:4px 0}.pg-next>span{display:block;color:var(--muted);font-size:14.5px}
+.pg-next .acts{margin-top:12px}
+.pg-next.late{background:linear-gradient(135deg,var(--badsoft),var(--surface));border-color:color-mix(in srgb,var(--bad) 30%,var(--line))}.pg-next.late small{color:var(--bad)}
+.pg-next.ok{background:var(--oksoft);border-color:transparent}.pg-next.ok small{color:var(--ok)}
+.pg-more{margin-top:14px}.pg-more>summary{cursor:pointer;font-weight:700;font-size:15px;padding:12px 14px;border-radius:14px;background:var(--surface);border:1px solid var(--line);list-style:none}
+.pg-more>summary::-webkit-details-marker{display:none}.pg-more>summary:after{content:" ▾";color:var(--muted)}.pg-more[open]>summary:after{content:" ▴"}
+.pg-more .pg-sched{margin-top:10px}
+.pg-seg{margin:0 0 12px}.pg-seg .n{opacity:.6;margin-left:4px}
+.pg-card.closed{opacity:.75}
+.pg-closed{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:16px;border-radius:18px;background:var(--oksoft)}.pg-closed>svg{color:var(--ok)}.pg-closed span{flex:1;min-width:200px}
+@media (max-width:900px){.pg-quick .btn.big{padding:12px 10px;font-size:14.5px}}
 </style>
 </head>
 <body>
@@ -768,6 +803,7 @@ aside{background:var(--bg);border-right:1px solid var(--line)}
       <button class="ibtn" id="fsz" aria-label="Μέγεθος γραμμάτων" title="Μέγεθος γραμμάτων" style="font-weight:800;font-size:14px">A+</button>
       <button class="ibtn" id="theme" aria-label="Αλλαγή θέματος"></button><button class="accb" id="accb" data-go="logariasmos" aria-label="Λογαριασμός"></button>
     </div>
+    <div class="sheet" id="sheet" hidden><div class="sh-back" data-shclose></div><div class="sh-panel" id="shpanel"></div></div>
     <div class="mmenu" id="mmenu" hidden><div class="mm-back" data-mclose></div><div class="mm-panel" id="mmpanel"></div></div>
     <div class="wrap" id="view"></div>
   </main>
@@ -2091,7 +2127,7 @@ function vAsk(){
   <p class="verify">${svg("info",16)}<span>Εργαλείο υποστήριξης, όχι υποκατάστατο της κλινικής κρίσης. ${AI?"Οι απαντήσεις ΑΙ περιορίζονται στα αποσπάσματα των οδηγιών που βρέθηκαν, αλλά μπορεί να περιέχουν λάθη.":"Στην έκδοση με ΑΙ, το Claude συνθέτει απάντηση από τα ίδια αποσπάσματα."}</span></p></div>`;
 }
 document.addEventListener("submit",e=>{if(e.target.id==="askf"){e.preventDefault();if(micOn)micToggle();const q=$("#askq").value;$("#askq").value="";micBase="";micMute=Date.now()+1500;const btn=$("#asks");btn.disabled=true;ask(q).finally(()=>{const b=$("#asks");if(b)b.disabled=false})}});
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#mmenu").hidden){mmOpen(false);return}if(e.key==="Enter"&&e.target.id&&/^c_(em|pw|k1|k2)$/.test(e.target.id)){e.preventDefault();const b=$(e.target.id.startsWith("c_k")?"[data-cunlock]":"[data-csin]");if(b)b.click();return}if(e.target.id==="askq"&&e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("#askf").requestSubmit()}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#sheet").hidden){sheetClose();return}if(e.key==="Escape"&&!$("#mmenu").hidden){mmOpen(false);return}if(e.key==="Enter"&&e.target.id&&/^c_(em|pw|k1|k2)$/.test(e.target.id)){e.preventDefault();const b=$(e.target.id.startsWith("c_k")?"[data-cunlock]":"[data-csin]");if(b)b.click();return}if(e.target.id==="askq"&&e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("#askf").requestSubmit()}});
 /* render */
 let lastRoute="";
 /* ===== Καρτέλες εγκύων (τοπική αποθήκευση) ===== */
@@ -2162,15 +2198,17 @@ function pFlags(p){
   const lv=(p.visits||[]).slice(-1)[0];if(lv){const m=String(lv.bp||"").match(/(\d{2,3})\s*\/\s*(\d{2,3})/);if(m){const s=+m[1],d=+m[2];if(s>=160||d>=110)f.push(["bad",`Τελευταία ΑΠ ${s}/${d}: σοβαρή υπέρταση`,""]);else if(s>=140||d>=90)f.push(["warn",`Τελευταία ΑΠ ${s}/${d}: υπέρταση, έλεγχος για προεκλαμψία`,""])}}
   return f;
 }
+let pArch=false;
 function vPregList(){
-  const q=norm(state.q||"");
-  const L=PREG.map(p=>({p,ga:gaToday(p)})).filter(x=>!q||norm((x.p.info.name||"")+" "+(x.p.info.amka||"")+" "+(x.p.info.phone||"")).includes(q)).sort((a,b)=>(b.ga??-1)-(a.ga??-1));
+  const q=norm(state.q||"");const nA=PREG.filter(p=>!p.closed).length,nC=PREG.length-nA;
+  const L=PREG.filter(p=>pArch?!!p.closed:!p.closed).map(p=>({p,ga:gaToday(p)})).filter(x=>!q||norm((x.p.info.name||"")+" "+(x.p.info.amka||"")+" "+(x.p.info.phone||"")).includes(q)).sort((a,b)=>(b.ga??-1)-(a.ga??-1));
   return `<div class="pg-head"><div><h1>Καρτέλες εγκύων</h1><p>Παρακολούθηση κύησης με το χρονοδιάγραμμα των οδηγιών της ΕΜΓΕ.</p></div><button class="btn pri big" data-pnew>${svg("plus",18)} Νέα έγκυος</button></div>
-  ${cloud.st==="ok"?`<div class="pg-priv">${svg("shield",16)}<span>Οι καρτέλες συγχρονίζονται <b>κρυπτογραφημένες</b> με τον δικό σας κωδικό. Ούτε η Google ούτε κανείς άλλος δεν μπορεί να τις διαβάσει. Δεν στέλνονται ποτέ στην ΑΙ.</span></div>`:`<div class="pg-priv">${svg("shield",16)}<span>Τα στοιχεία αποθηκεύονται <b>μόνο σε αυτή τη συσκευή</b>${cloud.st==="na"?"":", εκτός αν ενεργοποιήσετε τον κρυπτογραφημένο συγχρονισμό παρακάτω"}. Δεν στέλνονται ποτέ στην ΑΙ.</span></div>`}
-  ${cloudCard()}
+  ${cloud.st==="ok"?`<div class="pg-priv">${svg("shield",16)}<span>Οι καρτέλες συγχρονίζονται <b>κρυπτογραφημένες</b> με τον δικό σας κωδικό. Ούτε η Google ούτε κανείς άλλος δεν μπορεί να τις διαβάσει. Δεν στέλνονται ποτέ στην ΑΙ.</span></div>`:`<div class="pg-priv">${svg("shield",16)}<span>Αποθηκεύονται <b>μόνο σε αυτή τη συσκευή</b>${cloud.st==="na"?"":" (για όλες τις συσκευές: «Σύνδεση» πάνω δεξιά)"}. Δεν στέλνονται ποτέ στην ΑΙ.</span></div>`}
+  ${cloud.st==="ok"?"":cloudCard()}
+  ${nC?`<div class="vtog pg-seg"><button class="${pArch?"":"on"}" data-parch="0">Ενεργές <span class="n">${nA}</span></button><button class="${pArch?"on":""}" data-parch="1">Αρχείο <span class="n">${nC}</span></button></div>`:""}
   ${PREG.length?`<div class="tools"><input type="search" id="lq" placeholder="Αναζήτηση με όνομα, ΑΜΚΑ ή τηλέφωνο…" value="${esc(state.q)}"></div>`:""}
   <div class="pg-list">${L.map(({p,ga})=>{const d=pDating(p),nx=PSCH.find(it=>{const s=pStatus(p,it,ga);return s==="now"||s==="late"});const fl=pFlags(p);
-    return `<button class="pg-card" data-go="k-${p.id}"><span class="pg-av">${esc((p.info.name||"?").trim().slice(0,1).toUpperCase())}</span><span class="pg-m"><b>${esc(p.info.name||"Χωρίς όνομα")}</b><small>${ga!=null&&ga>=0&&ga<300?`<span class="pg-ga">${gaTxt(ga)} εβδ.</span> · ΠΗΤ ${fmtD2(d&&d.edd)}`:"Συμπληρώστε ΤΕΡ ή υπερηχογράφημα χρονολόγησης"}</small>${nx?`<small class="pg-nx">→ ${esc(nx[1])}</small>`:""}</span>${fl.length?`<span class="pg-fl ${fl.some(x=>x[0]==="bad")?"bad":"warn"}">${fl.length}</span>`:""}${svg("chev",18)}</button>`}).join("")||`<div class="pg-empty">${svg("baby",40)}<b>Δεν υπάρχουν καρτέλες ακόμα</b><span>Πατήστε «Νέα έγκυος» για να ξεκινήσετε.</span></div>`}</div>
+    return `<button class="pg-card${p.closed?" closed":""}" data-go="k-${p.id}"><span class="pg-av">${esc((p.info.name||"?").trim().slice(0,1).toUpperCase())}</span><span class="pg-m"><b>${esc(p.info.name||"Χωρίς όνομα")}</b><small>${p.closed?`${esc(p.closed.r)} · ${fmtD2(D0(p.closed.d))}`:ga!=null&&ga>=0&&ga<300?`<span class="pg-ga">${gaTxt(ga)} εβδ.</span> · ΠΗΤ ${fmtD2(d&&d.edd)}`:"Συμπληρώστε ΤΕΡ ή υπερηχογράφημα χρονολόγησης"}</small>${nx&&!p.closed?`<small class="pg-nx">→ ${esc(nx[1])}</small>`:""}</span>${fl.length?`<span class="pg-fl ${fl.some(x=>x[0]==="bad")?"bad":"warn"}">${fl.length}</span>`:""}${svg("chev",18)}</button>`}).join("")||`<div class="pg-empty">${svg("baby",40)}<b>${pArch?"Το αρχείο είναι άδειο":nC?"Καμία ενεργή καρτέλα":"Δεν υπάρχουν καρτέλες ακόμα"}</b><span>${pArch?"Εδώ μπαίνουν οι κυήσεις που ολοκληρώθηκαν.":"Πατήστε «Νέα έγκυος» για να ξεκινήσετε."}</span></div>`}</div>
   <div class="acts pg-io"><button class="btn" data-pexp>${svg("download",16)} Εξαγωγή όλων (αρχείο)</button><label class="btn">${svg("upload",16)} Εισαγωγή<input type="file" accept=".json,application/json" id="pimp" hidden></label></div>`;
 }
 function vPreg(p){
@@ -2181,10 +2219,15 @@ function vPreg(p){
     const fl=pFlags(p);
     const items=PSCH.map(it=>({it,s:pStatus(p,it,ga)}));
     const order={late:0,now:1,wait:2,done:3};
-    body=`${fl.length?`<div class="pg-flags">${fl.map(([t,x,g])=>`<${g?`button data-go="${g}"`:"div"} class="pg-flag ${t}">${svg("alert",16)}<span>${esc(x)}</span>${g?svg("chev",14):""}</${g?"button":"div"}>`).join("")}</div>`:""}
-    <h2 class="pg-sec">Χρονοδιάγραμμα παρακολούθησης <small>(οδηγίες ΕΜΓΕ)</small></h2>
+    const act=items.filter(x=>x.s==="late"||x.s==="now").sort((a,b)=>order[a.s]-order[b.s]||a.it[3]-b.it[3]);const nx=act[0];
+    const itm=({it,s})=>`<label class="pg-it ${s}"><input type="checkbox" data-pdone="${it[0]}"${p.done[it[0]]?" checked":""}><span class="pg-ck">${svg("check",14)}</span><span class="pg-it-t"><b>${esc(it[1])}</b>${it[2]?`<small>${fmt(it[2])}</small>`:""}<small class="pg-win">${it[3]}–${(x=>x%7?Math.floor(x/7)+"+"+x%7:x/7)(Math.round(it[4]*7))} εβδ. ${it[5]?`· <a data-go="g-${slug(it[5])}">Νο ${it[5]}</a>`:""}</small></span><span class="pg-st">${{done:"Έγινε",now:"Τώρα",late:"Εκπρόθεσμο",wait:"Αργότερα"}[s]}</span></label>`;
+    if(p.closed){body=`<div class="pg-closed">${svg("check",18)}<span><b>Ολοκληρώθηκε: ${esc(p.closed.r)}</b> · ${fmtD2(D0(p.closed.d))}${p.closed.n?"<br>"+esc(p.closed.n):""}</span><button class="btn" data-preopen>Επαναφορά στις ενεργές</button></div>`}else
+    body=`${nx?`<div class="pg-next ${nx.s}"><small>${nx.s==="late"?"Εκπρόθεσμο":"Επόμενο βήμα"}</small><b>${esc(nx.it[1])}</b>${nx.it[2]?`<span>${fmt(nx.it[2])}</span>`:""}<div class="acts"><button class="btn pri big" data-pdoneb="${nx.it[0]}">${svg("check",16)} Έγινε</button>${nx.it[5]?`<button class="btn big" data-go="g-${slug(nx.it[5])}">Οδηγία Νο ${nx.it[5]}</button>`:""}</div></div>`:`<div class="pg-next ok"><small>Όλα εντάξει</small><b>Δεν εκκρεμεί κάτι αυτή τη στιγμή</b></div>`}
+    ${fl.length?`<div class="pg-flags">${fl.map(([t,x,g])=>`<${g?`button data-go="${g}"`:"div"} class="pg-flag ${t}">${svg("alert",16)}<span>${esc(x)}</span>${g?svg("chev",14):""}</${g?"button":"div"}>`).join("")}</div>`:""}
+    ${act.length>1?`<h2 class="pg-sec">Εκκρεμούν τώρα</h2><div class="pg-sched">${act.slice(1).map(itm).join("")}</div>`:""}
+    <details class="pg-more"><summary>Όλο το χρονοδιάγραμμα (οδηγίες ΕΜΓΕ)</summary>
     <div class="pg-sched" id="psched">${items.sort((a,b)=>order[a.s]-order[b.s]||a.it[3]-b.it[3]).map(({it,s})=>`<label class="pg-it ${s}"><input type="checkbox" data-pdone="${it[0]}"${p.done[it[0]]?" checked":""}><span class="pg-ck">${svg("check",14)}</span><span class="pg-it-t"><b>${esc(it[1])}</b>${it[2]?`<small>${fmt(it[2])}</small>`:""}<small class="pg-win">${it[3]}–${(x=>x%7?Math.floor(x/7)+"+"+x%7:x/7)(Math.round(it[4]*7))} εβδ. ${it[5]?`· <a data-go="g-${slug(it[5])}">Νο ${it[5]}</a>`:""}</small></span><span class="pg-st">${{done:"Έγινε",now:"Τώρα",late:"Εκπρόθεσμο",wait:"Αργότερα"}[s]}</span></label>`).join("")}</div>
-    <p class="pg-hint">${svg("info",14)}<span>Επισκέψεις στο υπόδειγμά σας: μηνιαία έως τις 32 εβδομάδες, ανά 2 εβδομάδες έως τις 38, μετά εβδομαδιαία. Κατά την ΕΜΓΕ (Νο 87), 8 επισκέψεις επαρκούν σε ανεπίπλεκτη κύηση.</span></p>`;
+    <p class="pg-hint">${svg("info",14)}<span>Επισκέψεις στο υπόδειγμά σας: μηνιαία έως τις 32 εβδομάδες, ανά 2 εβδομάδες έως τις 38, μετά εβδομαδιαία. Κατά την ΕΜΓΕ (Νο 87), 8 επισκέψεις επαρκούν σε ανεπίπλεκτη κύηση.</span></p></details>`;
   }else if(pTab==="info"){
     const b=bmiOf(p),gr=b?gainRange(b):null;
     body=`<div class="pg-grid">
@@ -2194,7 +2237,7 @@ function vPreg(p){
     <div class="pg-box wide"><h3>Ιστορικό</h3><div class="pg-2c">${HIST.map(([k,l])=>fld(p,"hist."+k,l,["pmh","fh","meds","risk"].includes(k)?"area":"text")).join("")}</div></div>
     <div class="pg-box wide"><h3>Σημειώσεις</h3>${fld(p,"notes","Ελεύθερο κείμενο","area")}</div></div>`;
   }else if(pTab==="labs"){
-    body=LABS.map(([h,rows])=>`<div class="pg-box"><h3>${esc(h)}</h3><div class="pg-tbl">${rows.map(([k,l])=>`<div class="pg-tr"><span class="pg-tl">${esc(l)}</span><input data-pf="labs.${k}.d" type="date" value="${esc(pv(p,"labs."+k+".d")||"")}" aria-label="Ημερομηνία"><input data-pf="labs.${k}.v" placeholder="Αποτέλεσμα" value="${esc(pv(p,"labs."+k+".v")||"")}"></div>`).join("")}</div></div>`).join("");
+    body=LABS.map(([h,rows])=>`<div class="pg-box"><h3>${esc(h)}</h3><div class="pg-tbl">${rows.map(([k,l])=>`<div class="pg-tr"><span class="pg-tl">${esc(l)}</span><input data-pf="labs.${k}.v" placeholder="Αποτέλεσμα" value="${esc(pv(p,"labs."+k+".v")||"")}"><input data-pf="labs.${k}.d" type="date" value="${esc(pv(p,"labs."+k+".d")||"")}" aria-label="Ημερομηνία"></div>`).join("")}</div></div>`).join("");
   }else if(pTab==="us"){
     const ua=parseFloat(String(pv(p,"us.t3_ua")||"").replace(",",".")),mca=parseFloat(String(pv(p,"us.t3_mca")||"").replace(",","."));
     body=USS.map(([h,rows])=>`<div class="pg-box"><h3>${esc(h)}</h3><div class="pg-2c">${rows.map(([k,l,t])=>fld(p,"us."+k,l,t)).join("")}</div>${h.startsWith("Υπερηχογράφημα 3ου")?`<div class="pg-calc" id="pcpr">${ua&&mca?`CPR (MCA/UA) = <b>${(mca/ua).toFixed(2)}</b>`:"Το CPR υπολογίζεται αυτόματα από τα PI."}</div>`:""}</div>`).join("");
@@ -2219,9 +2262,10 @@ function vPreg(p){
     <div class="pg-kpi" id="pkpi"><div><small>Ηλικία κύησης</small><b>${ga!=null&&ga>=0&&ga<300?gaTxt(ga):"–"}</b></div><div><small>Πιθανή ημ. τοκετού</small><b>${fmtD2(d&&d.edd)}</b></div><div><small>Τρίμηνο</small><b>${ga==null||ga<0?"–":ga<98?"1ο":ga<196?"2ο":"3ο"}</b></div></div>
     ${d?`<div class="pg-bar"><span style="width:${Math.max(0,Math.min(100,(ga||0)/280*100))}%"></span><i style="left:${13.86/40*100}%"></i><i style="left:${28/40*100}%"></i></div><small class="pg-src">Χρονολόγηση από ${esc(d.src)}</small>`:""}
   </div>
+  ${p.closed?"":`<div class="pg-quick"><button class="btn pri big" data-pvsheet>${svg("plus",18)} Επίσκεψη</button><button class="btn big" data-ptab="info">${svg("user",18)} Στοιχεία</button><button class="btn big pg-dots" data-pmore aria-label="Περισσότερα">•••</button></div>`}
   <div class="pg-tabs">${tabs.map(([k,l])=>`<button class="${pTab===k?"on":""}" data-ptab="${k}">${l}</button>`).join("")}</div>
   <div class="pg-body">${body}</div>
-  <div class="acts pg-foot"><button class="btn" data-pprint>${svg("print",16)} Εκτύπωση</button><button class="btn" data-pexp="${p.id}">${svg("download",16)} Εξαγωγή</button><button class="btn danger" data-pdel="${p.id}">${pDel===p.id?"Πατήστε ξανά για οριστική διαγραφή":"Διαγραφή καρτέλας"}</button></div>`;
+  <div class="acts pg-foot">${p.closed?`<button class="btn" data-preopen>Επαναφορά στις ενεργές</button>`:""}<button class="btn" data-pmore>••• Περισσότερα</button></div>`;
 }
 function pSetPath(p,path,val){const ks=path.split(".");let o=p;for(let k=0;k<ks.length-1;k++){o[ks[k]]=o[ks[k]]||{};o=o[ks[k]]}o[ks[ks.length-1]]=val}
 function pRefresh(p){
@@ -2238,15 +2282,58 @@ document.addEventListener("change",e=>{
 });
 function toast(m){let t=$("#toast");if(!t){t=document.createElement("div");t.id="toast";document.body.appendChild(t)}t.textContent=m;t.className="show";clearTimeout(t._h);t._h=setTimeout(()=>t.className="",2200)}
 function pDownload(data,name){const b=new Blob([JSON.stringify(data,null,1)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+function sheetOpen(h){$("#shpanel").innerHTML=`<div class="sh-grip"></div>`+h;const s=$("#sheet");s.hidden=false;requestAnimationFrame(()=>s.classList.add("show"));document.body.style.overflow="hidden";setTimeout(()=>{const f=$("#shpanel input:not([type=date]):not([type=hidden])");if(f&&!("ontouchstart" in window))f.focus()},250)}
+function sheetClose(){const s=$("#sheet");s.classList.remove("show");document.body.style.overflow="";setTimeout(()=>{if(!s.classList.contains("show"))s.hidden=true},220)}
+function shNew(){sheetOpen(`<h2>Νέα έγκυος</h2><p class="sh-sub">Μόνο τα βασικά· τα υπόλοιπα συμπληρώνονται όποτε θέλετε.</p>
+  <label class="pf"><span>Ονοματεπώνυμο</span><input id="np_n" autocomplete="off" placeholder="π.χ. Μαρία Παπαδοπούλου"></label>
+  <div class="seg2" id="np_m"><button class="on" data-npm="ga">Ηλικία κύησης σήμερα</button><button data-npm="lmp">Ημερομηνία ΤΕΡ</button></div>
+  <div id="np_ga" class="np-ga"><label class="pf"><span>Εβδομάδες</span><input id="np_w" type="number" inputmode="numeric" min="0" max="43" placeholder="π.χ. 12"></label><label class="pf"><span>Ημέρες</span><input id="np_d" type="number" inputmode="numeric" min="0" max="6" placeholder="0–6"></label></div>
+  <label class="pf" id="np_lmpw" hidden><span>Τελευταία έμμηνος ρύση</span><input id="np_lmp" type="date"></label>
+  <label class="pf"><span>Κινητό (προαιρετικό)</span><input id="np_t" type="tel"></label>
+  <button class="btn pri big wide" data-npsave>${svg("plus",18)} Δημιουργία καρτέλας</button>`)}
+function shVisit(){sheetOpen(`<h2>Νέα επίσκεψη</h2><div class="pg-vform">
+  <label class="pf"><span>Ημερομηνία</span><input type="date" id="nv_d" value="${new Date().toISOString().slice(0,10)}"></label>
+  <label class="pf"><span>ΑΠ (π.χ. 120/80)</span><input id="nv_bp" inputmode="numeric"></label>
+  <label class="pf"><span>Βάρος (kg)</span><input id="nv_wt" inputmode="decimal"></label>
+  <label class="pf"><span>Ούρα (λεύκωμα)</span><input id="nv_ur"></label>
+  <label class="pf"><span>ΚΕΠ / κινήσεις</span><input id="nv_fh"></label>
+  <label class="pf"><span>Υπερηχογράφημα</span><input id="nv_us"></label>
+  <label class="pf"><span>Ht / Hb / PLT / WBC</span><input id="nv_lab"></label>
+  <label class="pf wide"><span>Σημειώσεις / σχέδιο</span><textarea id="nv_n" rows="2"></textarea></label></div>
+  <button class="btn pri big wide" data-pvisit>${svg("check",18)} Αποθήκευση επίσκεψης</button>`)}
+function shMore(p){sheetOpen(`<h2>${esc(p.info.name||"Καρτέλα")}</h2>
+  ${p.closed?`<button class="sh-it" data-preopen>${svg("back",20)}<span><b>Επαναφορά στις ενεργές</b><small>Η κύηση συνεχίζεται</small></span></button>`:`<button class="sh-it" data-pclose>${svg("check",20)}<span><b>Ολοκλήρωση / Αρχειοθέτηση</b><small>Τοκετός, απώλεια ή διακοπή παρακολούθησης· η καρτέλα κρατιέται στο Αρχείο</small></span></button>`}
+  <button class="sh-it" data-pprint data-shclose>${svg("print",20)}<span><b>Εκτύπωση</b></span></button>
+  <button class="sh-it" data-pexp="${p.id}">${svg("download",20)}<span><b>Εξαγωγή (αρχείο)</b><small>Αντίγραφο ασφαλείας</small></span></button>
+  <button class="sh-it danger" data-pdel="${p.id}">${svg("x",20)}<span><b>${pDel===p.id?"Πατήστε ξανά για οριστική διαγραφή":"Διαγραφή καρτέλας"}</b><small>Δεν αναιρείται</small></span></button>`)}
+function shClose(){sheetOpen(`<h2>Ολοκλήρωση παρακολούθησης</h2><p class="sh-sub">Η καρτέλα μεταφέρεται στο «Αρχείο» και μπορεί να επανέλθει.</p>
+  <div class="sh-reasons">${["Τοκετός · φυσιολογικός","Τοκετός · καισαρική","Απώλεια κύησης","Διακοπή κύησης","Μεταφορά / διακοπή παρακολούθησης"].map((r,k)=>`<button class="sh-r${k?"":" on"}" data-pcr="${esc(r)}">${esc(r)}</button>`).join("")}</div>
+  <label class="pf"><span>Ημερομηνία</span><input type="date" id="pc_d" value="${new Date().toISOString().slice(0,10)}"></label>
+  <label class="pf"><span>Σημείωση (π.χ. βάρος νεογνού, εβδομάδες)</span><input id="pc_n"></label>
+  <button class="btn pri big wide" data-pcsave>${svg("check",18)} Ολοκλήρωση</button>`)}
 function pClick(e){
+  if(e.target.closest("[data-shclose]")&&!e.target.closest("[data-pprint]")){sheetClose();return true}
+  if(e.target.closest("[data-pnew]")){shNew();return true}
+  const npm=e.target.closest("[data-npm]");if(npm){[...npm.parentElement.children].forEach(b=>b.classList.toggle("on",b===npm));$("#np_ga").hidden=npm.dataset.npm!=="ga";$("#np_lmpw").hidden=npm.dataset.npm!=="lmp";return true}
+  if(e.target.closest("[data-npsave]")){const n=$("#np_n").value.trim();if(!n){toast("Γράψτε το ονοματεπώνυμο");$("#np_n").focus();return true}
+    const p=newPreg();p.info.name=n;p.info.phone=$("#np_t").value.trim();p.info.first=new Date().toISOString().slice(0,10);
+    if(!$("#np_ga").hidden){const w=parseInt($("#np_w").value),d=parseInt($("#np_d").value)||0;if(w>=0){const l=new Date();l.setHours(12,0,0,0);l.setDate(l.getDate()-(w*7+d));p.info.lmp=l.toISOString().slice(0,10)}}else p.info.lmp=$("#np_lmp").value;
+    PREG.unshift(p);savePreg();sheetClose();pTab="ov";go("k-"+p.id);toast("Η καρτέλα δημιουργήθηκε");return true}
+  if(e.target.closest("[data-pvsheet]")){shVisit();return true}
+  if(e.target.closest("[data-pmore]")){shMore(pById(route().slice(2)));return true}
+  if(e.target.closest("[data-pclose]")){shClose();return true}
+  const cr=e.target.closest("[data-pcr]");if(cr){[...cr.parentElement.children].forEach(b=>b.classList.toggle("on",b===cr));return true}
+  if(e.target.closest("[data-pcsave]")){const p=pById(route().slice(2));const r=($(".sh-r.on")||{}).dataset;p.closed={r:r?r.pcr:"Ολοκληρώθηκε",d:$("#pc_d").value,n:$("#pc_n").value.trim()};savePreg();sheetClose();pArch=false;go("kartela");toast("Η καρτέλα μεταφέρθηκε στο Αρχείο");return true}
+  if(e.target.closest("[data-preopen]")){const p=pById(route().slice(2));delete p.closed;savePreg();sheetClose();render();toast("Η καρτέλα είναι ξανά ενεργή");return true}
+  const pa=e.target.closest("[data-parch]");if(pa){pArch=pa.dataset.parch==="1";render();return true}
+  const db=e.target.closest("[data-pdoneb]");if(db){const p=pById(route().slice(2));p.done[db.dataset.pdoneb]=true;savePreg();render();toast("Σημειώθηκε ως έγινε");return true}
   if(cloudClick(e))return true;
-  const nw=e.target.closest("[data-pnew]");if(nw){const p=newPreg();PREG.unshift(p);savePreg();pTab="info";go("k-"+p.id);return true}
   const tb=e.target.closest("[data-ptab]");if(tb){pTab=tb.dataset.ptab;render();return true}
-  const vs=e.target.closest("[data-pvisit]");if(vs){const p=pById(route().slice(2));const g=id=>($("#"+id)||{}).value||"";const v={d:g("nv_d"),bp:g("nv_bp"),wt:g("nv_wt"),ur:g("nv_ur"),fh:g("nv_fh"),lab:g("nv_lab"),us:g("nv_us"),n:g("nv_n")};if(!Object.values(v).slice(1).some(Boolean)){toast("Συμπληρώστε τουλάχιστον ένα πεδίο");return true}p.visits=(p.visits||[]).concat([v]).sort((a,b)=>(a.d||"").localeCompare(b.d||""));savePreg();render();toast("Η επίσκεψη αποθηκεύτηκε");return true}
+  const vs=e.target.closest("[data-pvisit]");if(vs){const p=pById(route().slice(2));const g=id=>($("#"+id)||{}).value||"";const v={d:g("nv_d"),bp:g("nv_bp"),wt:g("nv_wt"),ur:g("nv_ur"),fh:g("nv_fh"),lab:g("nv_lab"),us:g("nv_us"),n:g("nv_n")};if(!Object.values(v).slice(1).some(Boolean)){toast("Συμπληρώστε τουλάχιστον ένα πεδίο");return true}p.visits=(p.visits||[]).concat([v]).sort((a,b)=>(a.d||"").localeCompare(b.d||""));savePreg();sheetClose();render();toast("Η επίσκεψη αποθηκεύτηκε");return true}
   const vd=e.target.closest("[data-pvdel]");if(vd){const p=pById(route().slice(2));p.visits.splice(+vd.dataset.pvdel,1);savePreg();render();return true}
   const ex=e.target.closest("[data-pexp]");if(ex){const id=ex.dataset.pexp;if(id){const p=pById(id);pDownload(p,`kartela-${(p.info.name||"egkyos").replace(/\s+/g,"_")}.json`)}else pDownload(PREG,`karteles-egkyon-${new Date().toISOString().slice(0,10)}.json`);return true}
   const pr=e.target.closest("[data-pprint]");if(pr){window.print();return true}
-  const dl=e.target.closest("[data-pdel]");if(dl){const id=dl.dataset.pdel;if(pDel===id){cloudDelete(id);PREG=PREG.filter(p=>p.id!==id);pDel=null;savePreg();go("kartela");toast("Η καρτέλα διαγράφηκε")}else{pDel=id;render();setTimeout(()=>{if(pDel===id){pDel=null;if(route()==="k-"+id)render()}},4000)}return true}
+  const dl=e.target.closest("[data-pdel]");if(dl){const id=dl.dataset.pdel;if(pDel===id){sheetClose();cloudDelete(id);PREG=PREG.filter(p=>p.id!==id);pDel=null;savePreg();go("kartela");toast("Η καρτέλα διαγράφηκε")}else{pDel=id;if(!$("#sheet").hidden)shMore(pById(id));else render();setTimeout(()=>{if(pDel===id){pDel=null;if(route()==="k-"+id)render()}},4000)}return true}
   return false;
 }
 
