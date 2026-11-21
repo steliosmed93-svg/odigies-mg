@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#7a1d45">
+<meta name="theme-color" content="#7a2e5c">
 <meta name="description" content="Ανεξάρτητο ευρετήριο των κατευθυντήριων οδηγιών ΕΜΓΕ με σύνοψη συστάσεων, αλγορίθμους και δόσεις.">
 <title>Οδηγίες ΜΓ: Ευρετήριο κατευθυντήριων οδηγιών ΕΜΓΕ</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%23c2407a%22/%3E%3Cstop offset=%22.5%22 stop-color=%22%238a2552%22/%3E%3Cstop offset=%221%22 stop-color=%22%234b2a7a%22/%3E%3C/linearGradient%3E%3CradialGradient id=%22s%22 cx=%22.25%22 cy=%22.15%22 r=%22.8%22%3E%3Cstop offset=%220%22 stop-color=%22%23fff%22 stop-opacity=%22.25%22/%3E%3Cstop offset=%22.7%22 stop-color=%22%23fff%22 stop-opacity=%220%22/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width=%22512%22 height=%22512%22 rx=%22116%22 fill=%22url%28%23g%29%22/%3E%3Crect width=%22512%22 height=%22512%22 rx=%22116%22 fill=%22url%28%23s%29%22/%3E%3Cpath d=%22M352 388A160 160 0 1 1 404 316%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%2230%22 stroke-linecap=%22round%22/%3E%3Ccircle cx=%22236%22 cy=%22200%22 r=%2250%22 fill=%22%23fff%22/%3E%3Cpath d=%22M196 276c-8 58 26 100 80 100 50 0 80-34 76-74-3-32-28-52-58-50%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%2240%22 stroke-linecap=%22round%22/%3E%3Ccircle cx=%22398%22 cy=%22388%22 r=%2224%22 fill=%22%23ffc8de%22/%3E%3C/svg%3E" type="image/svg+xml"><link rel="apple-touch-icon" href="icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Literata:opsz,wght@7..72,500;7..72,650&display=swap&subset=greek" rel="stylesheet">
 <style>
 :root{
   --bg:#f5f3f7;--surface:#ffffff;--surface2:#faf8fc;--ink:#1a1b2e;--muted:#646779;--line:#e6e2ec;
@@ -875,19 +876,114 @@ input.pg-tl{font:inherit;font-size:15px;padding:10px 12px;border-radius:12px;bor
 .list .row{box-shadow:none}
 @media (max-width:900px){.list .row{padding:10px 12px;gap:10px}.list .row .num{min-width:42px;width:42px;height:42px;font-size:15px;border-radius:12px}.list .row .meta .tag:not(.alg):not(.sup){display:none}.list .row .meta:empty{display:none}.list .row .rt{font-size:15px}}
 @media (max-width:900px){.gh{padding:14px}.gh h1{font-size:19px}.gc{padding:12px 13px;gap:10px}.gc-b{font-size:15.5px}.gtoc{top:58px}}
+
+/* ================= THEME v13: editorial (όπως Πρωτόκολλα Εξωσωματικής) ================= */
+:root{--bg:#f6f7f8;--surface:#ffffff;--surface2:#eef2f4;--ink:#16222e;--muted:#6c7884;--ink2:#44525f;--line:#dde2e7;
+ --acc:#7a2e5c;--acc2:#93406f;--accsoft:#f4e8ef;--teal:#1f6f78;--tealsoft:#e3f1f2;
+ --ok:#2d7a46;--oksoft:#e5f3e9;--warn:#a46200;--warnsoft:#fbf0dc;--bad:#b3261e;--badsoft:#fbe7e5;--rx:#1f6f78;--rxsoft:#e3f1f2;
+ --r:8px;--sh:none;--fd:"Literata",Georgia,"Times New Roman",serif;--fb:"Commissioner","Segoe UI",system-ui,sans-serif}
+[data-theme="dark"]{--bg:#11171d;--surface:#18212a;--surface2:#1e2832;--ink:#e6ebef;--muted:#8b96a1;--ink2:#b5bfc8;--line:#2b3741;
+ --acc:#e59ac4;--acc2:#eeb0d2;--accsoft:#3a2231;--teal:#6cc3cb;--tealsoft:#183338;--ok:#73c48d;--oksoft:#183324;--warn:#f0b35a;--warnsoft:#3a2c14;--bad:#ff8a80;--badsoft:#3d1c1a;--rx:#6cc3cb;--rxsoft:#183338}
+html,body{font-family:var(--fb);font-size:15.5px;line-height:1.6;background:var(--bg)}
+h1,h2,h3,.gt,.hm h1,.pg-head h1,.dhead h1,.gh h1{font-family:var(--fd);font-weight:650;letter-spacing:0;text-wrap:balance}
+main h1{font-size:30px;line-height:1.25}
+*{box-shadow:none}
+.card,.row,.list .row,.pg-box,.pg-top,.pg-card,.ftile,.cl-card,.node,.gc,.rec,.stg,.gh,.pg-sum,.hx-sc,.hx-emt,.sh-it,.pg-next,.pg-it{border-radius:var(--r)!important;box-shadow:none!important;background-image:none!important}
+.btn,.gq,.chip,.pg-tabs,.pg-tabs button,.seg2,.vtog,.tools input,.tools select,.pf input,.pf textarea,.pf select,.pg-tr input{border-radius:6px!important}
+/* sidebar */
+aside{background:var(--surface);padding:20px 14px;gap:6px;border-right:1px solid var(--line)}
+aside .brand{gap:11px;padding:0 6px}aside .mark{width:46px;height:46px;border-radius:12px;background:none!important}
+aside .brand .bt,.mobrand .bt{font-family:var(--fd);font-weight:650;font-size:21px;line-height:1.1;display:block}
+.brand-kicker{display:block;font:600 10.5px/1.4 var(--fb);letter-spacing:.22em;color:var(--teal);margin-top:2px}
+.brand-sub{color:var(--muted);font-size:12.5px;margin:6px 6px 8px;line-height:1.45}
+.navgrp{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:14px 8px 4px;font-weight:500}
+nav.side{display:flex;flex-direction:column;gap:1px}
+nav.side .nl{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:0;background:none;padding:7px 10px!important;border-radius:6px;color:var(--ink2);font-size:14.5px!important;font-weight:400;cursor:pointer}
+nav.side .nl svg{display:none}
+nav.side .nl:hover{background:var(--surface2);color:var(--ink)}
+nav.side .nl.on{background:var(--accsoft);color:var(--acc);font-weight:600}
+nav.side .nl .ct{margin-left:auto;font-size:12px;color:var(--muted);background:none;font-weight:400}
+.sidehead{display:none}.sidefoot{font-size:12px;color:var(--muted);margin-top:auto;padding:12px 6px 0}
+/* topbar */
+.topbar{background:color-mix(in srgb,var(--bg) 92%,transparent)!important;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.sbtn{border-radius:8px!important;background:var(--surface)!important;border:1px solid var(--line)!important}
+.ibtn{border-radius:8px!important}
+#accb{border-radius:8px!important;background:var(--acc)!important;color:#fff!important}
+/* main column */
+main{max-width:1180px}
+.lede{color:var(--ink2);max-width:72ch;margin:0 0 18px;font-size:16px}
+.muted{color:var(--muted)}.small{font-size:13px}
+.grid{display:grid;gap:14px}.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);padding:16px 18px;color:inherit;text-decoration:none;display:block}
+a.card.lk{transition:border-color .15s;cursor:pointer}a.card.lk:hover{border-color:var(--acc)}
+.card h3{margin:0 0 6px;font-size:17.5px}.card p{margin:0}
+.card.sm{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 16px}.card.sm b{font-weight:600;font-size:15px}.card.sm .chev{color:var(--muted)}
+.hm h1{margin:6px 0 6px}.hm h2{font-size:22px;margin:34px 0 12px}
+.hm-search{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:0 12px;margin:0 0 22px;color:var(--muted)}
+.hm-search:focus-within{border-color:var(--acc)}
+.hm-search input{flex:1;border:0;background:none;font:inherit;font-size:16px;padding:13px 0;color:var(--ink);outline:none;min-width:0}
+.hm-search .hx-mic{border:0;background:var(--accsoft);color:var(--acc);border-radius:6px;width:34px;height:34px;display:grid;place-items:center;cursor:pointer}
+.plist{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden}
+.pl{display:flex;gap:12px;align-items:baseline;padding:11px 16px;border-top:1px solid var(--line);color:var(--ink);cursor:pointer}.pl:first-child{border-top:0}.pl:hover{background:var(--surface2)}
+.pl-n{font-size:12.5px;color:var(--acc);font-weight:600;min-width:52px}
+.callout{border-left:3px solid var(--acc);background:var(--accsoft);padding:12px 16px;margin:14px 0;border-radius:0 8px 8px 0;font-size:15px;max-width:none}
+.callout.warn{border-color:var(--warn);background:var(--warnsoft)}
+/* list rows */
+.list{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden}
+.list .row,.row{border:0!important;border-top:1px solid var(--line)!important;border-radius:0!important;background:none!important;padding:12px 16px!important}
+.list .row:first-child,.list .lgrp+.row{border-top:0!important}
+.row:hover{background:var(--surface2)!important}
+.row .num{background:none!important;color:var(--acc)!important;font-weight:700;min-width:44px!important;width:auto!important;height:auto!important;font-size:15px!important;border:0!important;justify-content:flex-start}
+.rt{font-weight:500}
+.lgrp{margin:0!important;padding:14px 16px 6px;border-top:1px solid var(--line);background:var(--surface2);font-size:11.5px!important}
+.list .lgrp:first-child{border-top:0}
+.tag{border-radius:99px;background:var(--surface2);color:var(--ink2);font-weight:500}
+.chip{background:var(--surface)!important;border:1px solid var(--line)!important;color:var(--ink2)!important;font-weight:500}
+.chip.on{background:var(--accsoft)!important;color:var(--acc)!important;border-color:transparent!important}
+/* guideline */
+.crumb{font-size:14px;color:var(--muted);margin:2px 0 10px}.crumb a{color:var(--teal);text-decoration:underline;text-underline-offset:2px}
+.gt{font-size:30px;line-height:1.25;margin:0 0 10px}
+.chips2{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 14px}
+.pill{font-size:12.5px;padding:3px 10px;border-radius:99px;font-weight:500}
+.pill.acc{background:var(--accsoft);color:var(--acc)}.pill.ok{background:var(--oksoft);color:var(--ok)}.pill.warn{background:var(--warnsoft);color:var(--warn)}.pill.teal{background:var(--tealsoft);color:var(--teal)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:0 0 14px}
+.kv>div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}.kv small{display:block;font-size:13px;color:var(--muted)}.kv b{font-weight:600;font-size:15px}
+.gq{border-radius:6px!important;font-weight:500}.gq.pri{background:var(--acc);border-color:var(--acc);color:#fff}.gq.tl{background:var(--tealsoft);color:var(--teal)}
+.sec2{font-size:22px;margin:30px 0 12px}
+.gtoc{top:60px}.gtoc a{border-radius:99px;font-weight:500;color:var(--ink2)}
+.gc{padding:14px 18px}.gc-ic{border-radius:6px}.gc.rx .gc-ic{background:var(--tealsoft);color:var(--teal)}
+.gc-b{font-size:15.5px}.gc-b h3{font-family:var(--fb);font-size:15.5px;font-weight:600}
+.verify{border-left:3px solid var(--warn);background:var(--warnsoft);border-radius:0 8px 8px 0;padding:12px 16px}
+/* tabbar & misc */
+.tabbar{background:var(--surface)!important;border-top:1px solid var(--line);box-shadow:none!important}
+.tabbar button.on{color:var(--acc)!important}
+.tabbar button.on::before,.tabbar button.on .pill-bg{background:var(--accsoft)!important}
+.fab{background:var(--acc)!important;box-shadow:none!important}
+.btn.pri,.btn.pri.big{background:var(--acc)!important;border-color:var(--acc)!important;color:#fff!important}
+[data-theme=dark] .btn.pri,[data-theme=dark] #accb,[data-theme=dark] .gq.pri{color:#1a0f16!important}
+.pg-tabs button.on{background:var(--surface)!important;color:var(--acc)!important}
+.hx,.hx-top,.hx-ai{display:none}
+.pill.mob{display:none}
+@media (max-width:900px){.kv{display:none}.pill.mob{display:inline-block;background:var(--surface2);color:var(--ink2)}.mobrand{display:flex!important;align-items:center;gap:8px}.mobrand .mark{width:32px;height:32px}main h1,.gt{font-size:25px}.hm h2,.sec2{font-size:20px}.kv{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr}.em{grid-template-columns:1fr 1fr!important}
+ .card.sm{padding:11px 12px}.card.sm b{font-size:14px}.mobrand .bt{font-size:17px;white-space:nowrap}}
+.fx-hero,.wz-card,.ftile,.fx-mode,.pg-next{background:var(--surface)!important;background-image:none!important;box-shadow:none!important;border:1px solid var(--line)!important;border-radius:8px!important}
+.fx-hero h1{font-family:var(--fd)}.fx-badge{border-radius:8px!important;background:var(--accsoft)!important;color:var(--acc)!important}
+.wz-bar{border-radius:99px}
+.pg-next.late{background:var(--badsoft)!important}.pg-next.ok{background:var(--oksoft)!important}
+.hx-ai,.hx-pg{box-shadow:none!important}
 </style>
 </head>
 <body>
 <div class="app">
   <aside>
-    <div class="brand" data-go="home"><div class="mark"><svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c2407a"/><stop offset=".5" stop-color="#8a2552"/><stop offset="1" stop-color="#4b2a7a"/></linearGradient><radialGradient id="ls1" cx=".25" cy=".15" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".7" stop-color="#fff" stop-opacity="0"/></radialGradient></defs><rect width="512" height="512" rx="116" fill="url(#lg1)"/><rect width="512" height="512" rx="116" fill="url(#ls1)"/><path d="M352 388A160 160 0 1 1 404 316" fill="none" stroke="#fff" stroke-width="30" stroke-linecap="round"/><circle cx="236" cy="200" r="50" fill="#fff"/><path d="M196 276c-8 58 26 100 80 100 50 0 80-34 76-74-3-32-28-52-58-50" fill="none" stroke="#fff" stroke-width="40" stroke-linecap="round"/><circle cx="398" cy="388" r="24" fill="#ffc8de"/></svg></div><div><b>Οδηγίες ΜΓ</b><small>Οδηγίες ΕΜΓΕ στο χέρι σας</small></div></div>
+    <div class="brand" data-go="home"><div class="mark"><svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c2407a"/><stop offset=".5" stop-color="#8a2552"/><stop offset="1" stop-color="#4b2a7a"/></linearGradient><radialGradient id="ls1" cx=".25" cy=".15" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".7" stop-color="#fff" stop-opacity="0"/></radialGradient></defs><rect width="512" height="512" rx="116" fill="url(#lg1)"/><rect width="512" height="512" rx="116" fill="url(#ls1)"/><path d="M352 388A160 160 0 1 1 404 316" fill="none" stroke="#fff" stroke-width="30" stroke-linecap="round"/><circle cx="236" cy="200" r="50" fill="#fff"/><path d="M196 276c-8 58 26 100 80 100 50 0 80-34 76-74-3-32-28-52-58-50" fill="none" stroke="#fff" stroke-width="40" stroke-linecap="round"/><circle cx="398" cy="388" r="24" fill="#ffc8de"/></svg></div><div><b class="bt">Οδηγίες ΜΓ</b><span class="brand-kicker">ΕΜΓΕ</span></div></div><p class="brand-sub">Ευρετήριο κατευθυντήριων οδηγιών ΕΜΓΕ και καρτέλες εγκύων για γυναικολόγους</p>
         <nav class="side" id="sidenav"></nav>
-    <div><div class="sidehead">Κατηγορίες</div><nav class="side" id="sidecats"></nav></div>
+    <div><div class="navgrp">Κατηγορίες οδηγιών</div><nav class="side" id="sidecats"></nav></div>
     <div class="sidefoot">Ανεξάρτητο εργαλείο, όχι επίσημος ιστότοπος της ΕΜΓΕ. Επίσημο κείμενο: <a href="https://hsog.gr/katefthyntiries-odigies/" target="_blank" rel="noopener">hsog.gr</a>.<br>Τελευταίος έλεγχος καταλόγου: 20/11/2026.</div>
   </aside>
   <main>
     <div class="topbar" id="topbar">
-      <button class="ibtn mbtn" id="mbtn" aria-label="Μενού" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><button class="ibtn gback" id="gback" aria-label="Πίσω" title="Πίσω"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button><div class="brand mobrand" data-go="home"><div class="mark"><svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c2407a"/><stop offset=".5" stop-color="#8a2552"/><stop offset="1" stop-color="#4b2a7a"/></linearGradient><radialGradient id="ls2" cx=".25" cy=".15" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".7" stop-color="#fff" stop-opacity="0"/></radialGradient></defs><rect width="512" height="512" rx="116" fill="url(#lg2)"/><rect width="512" height="512" rx="116" fill="url(#ls2)"/><path d="M352 388A160 160 0 1 1 404 316" fill="none" stroke="#fff" stroke-width="30" stroke-linecap="round"/><circle cx="236" cy="200" r="50" fill="#fff"/><path d="M196 276c-8 58 26 100 80 100 50 0 80-34 76-74-3-32-28-52-58-50" fill="none" stroke="#fff" stroke-width="40" stroke-linecap="round"/><circle cx="398" cy="388" r="24" fill="#ffc8de"/></svg></div></div>
+      <button class="ibtn mbtn" id="mbtn" aria-label="Μενού" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><button class="ibtn gback" id="gback" aria-label="Πίσω" title="Πίσω"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button><div class="brand mobrand" data-go="home"><div class="mark"><svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c2407a"/><stop offset=".5" stop-color="#8a2552"/><stop offset="1" stop-color="#4b2a7a"/></linearGradient><radialGradient id="ls2" cx=".25" cy=".15" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".7" stop-color="#fff" stop-opacity="0"/></radialGradient></defs><rect width="512" height="512" rx="116" fill="url(#lg2)"/><rect width="512" height="512" rx="116" fill="url(#ls2)"/><path d="M352 388A160 160 0 1 1 404 316" fill="none" stroke="#fff" stroke-width="30" stroke-linecap="round"/><circle cx="236" cy="200" r="50" fill="#fff"/><path d="M196 276c-8 58 26 100 80 100 50 0 80-34 76-74-3-32-28-52-58-50" fill="none" stroke="#fff" stroke-width="40" stroke-linecap="round"/><circle cx="398" cy="388" r="24" fill="#ffc8de"/></svg></div><b class="bt">Οδηγίες ΜΓ</b></div>
       <button class="sbtn" id="openPal" aria-label="Αναζήτηση"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Αναζήτηση οδηγίας, φαρμάκου, σκευάσματος…</span><kbd>Ctrl K</kbd></button>
       <button class="ibtn" id="fsz" aria-label="Μέγεθος γραμμάτων" title="Μέγεθος γραμμάτων" style="font-weight:800;font-size:14px">A+</button>
       <button class="ibtn" id="theme" aria-label="Αλλαγή θέματος"></button><button class="accb" id="accb" data-go="logariasmos" aria-label="Λογαριασμός"></button>
@@ -1783,6 +1879,7 @@ F.forEach(f=>f.n.forEach(x=>{if(x.k==="rx")x.h=brandify(x.h);if(x.x)x.x=x.x.map(
 const B="https://hsog.gr/wp-content/uploads/";
 const CATS={preg:"Κύηση & προγεννητικός έλεγχος",labour:"Τοκετός & λοχεία",thromb:"Θρόμβωση & αιμόσταση",inf:"Λοιμώξεις & εμβόλια",gyn:"Γυναικολογία",onc:"Ογκολογία & προσυμπτωματικός",rep:"Αναπαραγωγή & υπογονιμότητα"};
 const IC={
+ search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
  flask:'<path d="M9 3h6M10 3v6L4.5 18.5A2 2 0 0 0 6.2 21.5h11.6a2 2 0 0 0 1.7-3L14 9V3"/><path d="M7 15h10"/>',
  scan:'<path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="4"/>',
  cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/>',
@@ -1891,11 +1988,12 @@ const NAV=[["home","Αρχική","home"],["kartela","Έγκυες","baby"],["al
 let state={cat:"all",q:"",old:false,sort:"desc"};
 function route(){const h=location.hash.replace("#","")||"home";return h}
 function go(h){if(location.hash.replace("#","")===h)render();else location.hash=h;}
-function navHTML(cur,cls){return NAV.filter(n=>cls==="nl"||!["agapimena","doseis","diethneis","ergaleia","logariasmos"].includes(n[0])).map(([k,l,i])=>{const on=cur===k||(k==="odigies"&&((cur.startsWith("g-")&&!(bySlug[cur.slice(2)]||{}).src)||(cls!=="nl"&&cur==="diethneis")))||(k==="diethneis"&&cur.startsWith("g-")&&(bySlug[cur.slice(2)]||{}).src)||(k==="algorithmoi"&&cur.startsWith("f-"))||(k==="kartela"&&cur.startsWith("k-"));
+function navHTML(cur,cls,keys){return (keys?keys.map(k=>NAV.find(n=>n[0]===k)).filter(Boolean):NAV).filter(n=>keys||cls==="nl"||!["agapimena","doseis","diethneis","ergaleia","logariasmos"].includes(n[0])).map(([k,l,i])=>{const on=cur===k||(k==="odigies"&&((cur.startsWith("g-")&&!(bySlug[cur.slice(2)]||{}).src)||(cls!=="nl"&&cur==="diethneis")))||(k==="diethneis"&&cur.startsWith("g-")&&(bySlug[cur.slice(2)]||{}).src)||(k==="algorithmoi"&&cur.startsWith("f-"))||(k==="kartela"&&cur.startsWith("k-"));
   const ct=k==="kartela"?PREG.length:k==="odigies"?CUR.length:k==="diethneis"?INTL.length:k==="algorithmoi"?F.length:k==="agapimena"?favs.size:"";
   return `<button class="${cls}${on?" on":""}" data-go="${k}">${svg(i)}<span>${l}</span>${cls==="nl"&&ct!==""?`<span class="ct">${ct}</span>`:""}</button>`}).join("")}
 function renderNav(cur){
-  $("#sidenav").innerHTML=navHTML(cur,"nl");
+  const grp=(h,keys)=>`<div class="navgrp">${h}</div>`+navHTML(cur,"nl",keys);
+  $("#sidenav").innerHTML=grp("Οδηγός",["home","odigies","algorithmoi","doseis","ergaleia","agapimena"])+grp("Κλινική",["kartela","rotiste"]);
   $("#tabbar").innerHTML=navHTML(cur,"");
   $("#sidecats").innerHTML=Object.entries(CATS).map(([k,v])=>`<button class="nl${cur==="odigies"&&state.cat===k?" on":""}" data-cat="${k}" style="font-size:14px;padding:8px 12px"><span>${v}</span><span class="ct">${CUR.filter(g=>g.c===k).length}</span></button>`).join("");
 }
@@ -1917,29 +2015,26 @@ function ftile(f){return `<button class="ftile" data-go="f-${f.id}" style="--cc:
 function vHome(){
   const latest=CUR.slice().sort((a,b)=>b.s-a.s).slice(0,5);
   const rec=recent.map(k=>k.startsWith("f-")?["f",byF[k.slice(2)]]:["g",bySlug[k.slice(2)]]).filter(x=>x[1]);
-  const hr=new Date().getHours(),greet=hr<12?"Καλημέρα":hr<18?"Καλησπέρα":"Καλό βράδυ";
-  let EM=[["f-pph","Αιμορραγία μετά τον τοκετό","drop","#c0262d"],["f-pprom","PPROM","shield","#7a1d45"],["f-preterm","Πρόωρος τοκετός","clock","#3b4cca"],["g-NG133","Υπέρταση & εκλαμψία","gauge","#a15c07"],["g-NG255","Σήψη","thermo","#b42318"],["f-vte","Θρομβοπροφύλαξη","bolt","#0f766e"]];
-  if(PUB)EM=EM.map(e=>e[0]==="g-NG133"?["f-iol","Πρόκληση τοκετού","clock","#000"]:e[0]==="g-NG255"?["g-58","CTG","gauge","#000"]:e);
-  const SC=[["kartela","Καρτέλες εγκύων",PREG.length,"baby"],["algorithmoi","Αλγόριθμοι",F.length,"flow"],["odigies","Οδηγίες ΕΜΓΕ",CUR.length,"list"],["doseis","Δόσεις",doses.reduce((a,x)=>a+x.l.length,0),"pill"],["ergaleia","Εργαλεία",3,"calc"],["agapimena","Αγαπημένες",favs.size,"star"]];
-  return `<div class="hx">
-  <section class="hx-top">
-    <p class="hx-hi">${greet} 👋</p>
-    <h1 class="hx-h">Τι χρειάζεστε σήμερα;</h1>
-    <div class="hx-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="hq" placeholder="Πάθηση, φάρμακο ή αριθμός οδηγίας" autocomplete="off">${micAvail()?`<button class="hx-mic" data-homemic aria-label="Ερώτηση με φωνή">${svg("mic",20)}</button>`:""}</div>
-  </section>
-  <button class="hx-ai" data-go="rotiste"><span class="hx-ai-ic">${svg("spark",24)}</span><span class="hx-ai-t"><b>Ρωτήστε την ΑΙ</b><small>${micAvail()?"Μιλήστε ή γράψτε":"Γράψτε"} την ερώτηση· απάντηση από τις οδηγίες ΕΜΓΕ</small></span><span class="hx-go">${svg("chev",18)}</span></button>
-  <div class="hx-duo"><button class="hx-pg" data-go="kartela"><span class="hx-pgi">${svg("baby",24)}</span><span class="hx-ai-t"><b>Καρτέλες εγκύων</b><small>${PREG.length?PREG.length+" ενεργές καρτέλες · χρονοδιάγραμμα ΕΜΓΕ":"Παρακολούθηση κύησης βήμα-βήμα κατά ΕΜΓΕ"}</small></span><span class="hx-go">${svg("chev",18)}</span></button><button class="hx-new" data-pnew>${svg("plus",20)}<span>Νέα έγκυος</span></button></div>
-  <h2 class="hx-sec">Επείγοντα, με ένα πάτημα</h2>
-  <div class="hx-em">${EM.filter(e=>e[0].startsWith("f-")?byF[e[0].slice(2)]:bySlug[e[0].slice(2)]).map(([h,l,i,c])=>`<button class="hx-emt" data-go="${h}"><span class="hx-emi">${svg(i,20)}</span><span>${l}</span><span class="hx-arr">${svg("chev",16)}</span></button>`).join("")}</div>
-  ${rec.length?`<h2 class="hx-sec">Συνεχίστε από εκεί που μείνατε</h2><div class="hx-row">${rec.slice(0,8).map(([t,x])=>`<button class="hx-chip" data-go="${t}-${t==="f"?x.id:slug(x.n)}">${t==="f"?svg("flow",16):`<b>${esc(x.n)}</b>`}<span>${esc(t==="f"?x.t:x.t.replace(/\s*\(.*\)$/,""))}</span></button>`).join("")}</div>`:""}
-  <h2 class="hx-sec">Όλα τα εργαλεία</h2>
-  <div class="hx-grid">${SC.map(([h,l,n,i])=>`<button class="hx-sc" data-go="${h}"><span class="hx-sci">${svg(i,22)}</span><b>${l}</b><small>${n}</small></button>`).join("")}</div>
-  ${favs.size?`<h2 class="hx-sec">Αγαπημένες <a data-go="agapimena" href="#agapimena">Όλες →</a></h2><div class="list">${[...favs].map(n=>byN[n]).filter(Boolean).slice(0,5).map(g=>row(g,[])).join("")}</div>`:""}
-  <h2 class="hx-sec">Αλγόριθμοι <a data-go="algorithmoi" href="#algorithmoi">Όλοι →</a></h2>
-  <div class="hx-car">${F.map(f=>`<button class="hx-fc" data-go="f-${f.id}" style="--cc:${CATC[f.c]||"#7c5cd6"}"><span class="hx-fci">${svg("flow",20)}</span><b>${esc(f.t)}</b><small>${esc(f.sub)}</small></button>`).join("")}</div>
-  <h2 class="hx-sec">Νεότερες οδηγίες ΕΜΓΕ <a data-go="odigies" href="#odigies">Όλες →</a></h2>
+  let EM=[["f-pph","Αιμορραγία μετά τον τοκετό"],["f-pprom","PPROM"],["f-preterm","Πρόωρος τοκετός"],["f-iol","Πρόκληση τοκετού"],["g-58","Καρδιοτοκογράφημα"],["f-vte","Θρομβοπροφύλαξη"]].filter(e=>e[0].startsWith("f-")?byF[e[0].slice(2)]:bySlug[e[0].slice(2)]);
+  const C=[["odigies","Κατευθυντήριες οδηγίες",`${CUR.length} οδηγίες ΕΜΓΕ με σύνοψη συστάσεων, σταδιοποίηση και σύνδεσμο στο επίσημο PDF.`],
+    ["algorithmoi","Αλγόριθμοι",`${F.length} αλγόριθμοι βήμα-βήμα για επείγοντα και συχνά κλινικά σενάρια.`],
+    ["kartela","Καρτέλες εγκύων",PREG.length?`${PREG.length} καρτέλες. Χρονοδιάγραμμα παρακολούθησης κατά ΕΜΓΕ, εξετάσεις, επισκέψεις και σύνοψη για εκτύπωση.`:"Καρτέλα ανά έγκυο με χρονοδιάγραμμα κατά ΕΜΓΕ, εξετάσεις, επισκέψεις και σύνοψη για εκτύπωση."],
+    ["doseis","Δόσεις φαρμάκων","Δόσεις ανά πάθηση από τις οδηγίες, με τα ελληνικά σκευάσματα."],
+    ["ergaleia","Εργαλεία","Υπολογιστές ηλικίας κύησης, Bishop και άλλα."],
+    ["rotiste","Ρωτήστε","Γράψτε ή πείτε μια κλινική ερώτηση· απάντηση μόνο από τις οδηγίες ΕΜΓΕ."]];
+  return `<div class="hm">
+  <h1>Οδηγίες ΕΜΓΕ</h1>
+  <p class="lede">Οδηγός για γυναικολόγους: οι κατευθυντήριες οδηγίες της Ελληνικής Μαιευτικής και Γυναικολογικής Εταιρείας σε σύνοψη, με αλγορίθμους, δόσεις και καρτέλα παρακολούθησης εγκύου.</p>
+  <label class="hm-search">${svg("search",18)}<input id="hq" placeholder="Αναζήτηση: πάθηση, φάρμακο ή αριθμός οδηγίας" autocomplete="off">${micAvail()?`<button class="hx-mic" data-homemic aria-label="Ερώτηση με φωνή">${svg("mic",18)}</button>`:""}</label>
+  <div class="grid g3">${C.map(([h,ti,d])=>`<a class="card lk" data-go="${h}" href="#${h}"><h3>${ti}</h3><p class="muted small">${d}</p></a>`).join("")}</div>
+  <h2>Επείγοντα</h2>
+  <div class="grid g3 em">${EM.map(([h,l])=>`<a class="card lk sm" data-go="${h}" href="#${h}"><b>${l}</b><span class="chev">${svg("chev",16)}</span></a>`).join("")}</div>
+  ${rec.length?`<h2>Πρόσφατα</h2><div class="plist">${rec.slice(0,6).map(([tp,x])=>`<a class="pl" data-go="${tp}-${tp==="f"?x.id:slug(x.n)}" href="#${tp}-${tp==="f"?x.id:slug(x.n)}"><span class="pl-n">${tp==="f"?"Αλγ.":"Νο "+esc(x.n)}</span><span>${esc(tp==="f"?x.t:x.t.replace(/\s*\(.*\)$/,""))}</span></a>`).join("")}</div>`:""}
+  ${favs.size?`<h2>Αγαπημένες</h2><div class="list">${[...favs].map(n=>byN[n]).filter(Boolean).slice(0,5).map(g=>row(g,[])).join("")}</div>`:""}
+  <h2>Νεότερες οδηγίες</h2>
   <div class="list">${latest.map(g=>row(g,[])).join("")}</div>
-  <p class="hx-disc">${svg("info",15)}<span>Ανεξάρτητο εργαλείο, όχι επίσημος ιστότοπος της ΕΜΓΕ. Οι συνόψεις είναι δικές μας· πριν από κλινική απόφαση επαληθεύστε στο επίσημο κείμενο (<a href="https://hsog.gr/katefthyntiries-odigies/" target="_blank" rel="noopener">hsog.gr</a>).</span></p>
+  <div class="callout acc"><b>Τελευταίος έλεγχος καταλόγου:</b> 20 Νοεμβρίου 2026, από τον επίσημο κατάλογο της ΕΜΓΕ (<a href="https://hsog.gr/katefthyntiries-odigies/" target="_blank" rel="noopener">hsog.gr</a>).</div>
+  <div class="callout warn">Ανεξάρτητο εκπαιδευτικό εργαλείο, όχι επίσημος ιστότοπος της ΕΜΓΕ. Οι συνόψεις είναι δικές μας· πριν από κλινική απόφαση επαληθεύστε στο επίσημο κείμενο.</div>
   </div>`;
 }
 function vList(favOnly,intl){
@@ -1975,12 +2070,14 @@ function vGuide(g){
   if(g.note) rel.push(esc(g.note));
   const toc=s?s.b.map((b,i)=>[recTitle(b),i]).filter(x=>x[0]):[];
   const pdf=g.u?`<a class="gq pri" href="${g.u}" target="_blank" rel="noopener">${svg("ext",16)} Πρωτότυπο</a>`:g.p?`<a class="gq pri" href="${B+g.p}" target="_blank" rel="noopener">${svg("ext",16)} Επίσημο PDF</a>`:"";
-  return `<button class="back" data-back>${svg("back",18)} Πίσω</button>
-  <header class="gh"><div class="gh-t"><span class="gh-n">Νο ${esc(g.n)}</span>${g.old?`<span class="tag sup">${g.arch?"Αρχειοθετημένη":"Αντικαταστάθηκε"}</span>`:`<span class="tag cur">Σε ισχύ</span>`}<span class="gh-d">${esc(CATS[g.c])} · ${s&&s.d?esc(s.d):g.y||""}</span></div>
-    <h1>${esc(g.t)}</h1>
-    ${rel.length?`<div class="rel">${rel.join("<br>")}</div>`:""}
-    <div class="gq-row">${pdf}${g.flows.map(id=>`<button class="gq tl" data-go="f-${id}">${svg("flow",16)} ${esc(byF[id].t)}</button>`).join("")}<button class="gq" data-fav="${esc(g.n)}" aria-label="Αγαπημένη">${favs.has(g.n)?"★":"☆"}</button><button class="gq" data-share aria-label="Κοινοποίηση">${svg("share",16)}</button></div>
-  </header>
+  const st=g.old?(g.arch?"Αρχειοθετημένη":"Αντικαταστάθηκε"):"Σε ισχύ";
+  return `<div class="crumb"><a data-go="odigies" href="#odigies">Οδηγίες</a> / ${esc(CATS[g.c])}</div>
+  <h1 class="gt">${esc(g.t)}</h1>
+  <div class="chips2"><span class="pill acc">Νο ${esc(g.n)}</span><span class="pill ${g.old?"warn":"ok"}">${st}</span>${s&&s.d?`<span class="pill mob">${esc(s.d)}</span>`:""}${g.flows.length?`<span class="pill teal">Με αλγόριθμο</span>`:""}</div>
+  ${rel.length?`<div class="callout acc">${rel.join("<br>")}</div>`:""}
+  <div class="kv"><div><small>Έκδοση</small><b>${s&&s.d?esc(s.d):g.y||"–"}</b></div><div><small>Κατηγορία</small><b>${esc(CATS[g.c])}</b></div><div><small>Συστάσεις</small><b>${s?s.b.length:"–"}</b></div><div><small>Πηγή</small><b>${g.p||g.u?"Επίσημο PDF ΕΜΓΕ":"–"}</b></div></div>
+  <div class="gq-row">${pdf}${g.flows.map(id=>`<button class="gq tl" data-go="f-${id}">${svg("flow",16)} ${esc(byF[id].t)}</button>`).join("")}<button class="gq" data-fav="${esc(g.n)}">${favs.has(g.n)?"★ Αγαπημένη":"☆ Αγαπημένη"}</button><button class="gq" data-share>${svg("share",16)} Κοινοποίηση</button></div>
+  <h2 class="sec2">Βασικές συστάσεις</h2>
   ${STG[g.n]?`<div class="gmob"><button class="${gTab==="rec"?"on":""}" data-gtab="rec">${svg("list",15)} Συστάσεις</button><button class="${gTab==="stg"?"on":""}" data-gtab="stg">${svg("stairs",15)} Σταδιοποίηση</button></div><div class="gwrap t-${gTab}"><div class="gmain">`:""}
   ${s?`${toc.length>2?`<nav class="gtoc">${toc.map(([x,i])=>`<a data-jump="r${i+1}">${esc(x)}</a>`).join("")}</nav>`:""}
   <div class="gcs">${s.b.map(recCard).join("")}</div>
