@@ -561,6 +561,38 @@ aside{background:var(--bg);border-right:1px solid var(--line)}
 .bnx{font-weight:inherit}
 .mark{background:none!important;padding:0;overflow:hidden;border-radius:11px}.mark svg{display:block}
 [data-theme=dark] .mark{background:none!important}
+
+/* ===== staging ===== */
+.gmob{display:none}
+.gwrap{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:22px;align-items:start}
+.gmain{min-width:0}
+.stg{position:sticky;top:84px;max-height:calc(100vh - 100px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:0 18px 40px -30px rgba(30,20,60,.35);scrollbar-width:thin}
+.stg-h{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.stg-h b{display:block;font-size:16px}.stg-h small{display:block;color:var(--muted);font-size:12px;line-height:1.35}
+.stg-ic{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#3b78d8,#5b2a86);flex:0 0 auto}
+.stg-tabs{display:flex;gap:4px;padding:3px;border-radius:12px;background:color-mix(in srgb,var(--ink) 6%,transparent);margin-bottom:10px}
+.stg-tabs button{flex:1;font:inherit;font-size:13px;font-weight:600;border:0;background:none;padding:7px 8px;border-radius:9px;cursor:pointer;color:var(--muted)}
+.stg-tabs button.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.stg-g{margin-top:10px}
+.stg-gh{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:0 0 6px;line-height:1.35}
+.stg-r{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-top:1px solid color-mix(in srgb,var(--line) 70%,transparent);font-size:14px;line-height:1.45}
+.stg-g .stg-r:first-of-type{border-top:0}
+.stg-c{flex:0 0 auto;min-width:52px;text-align:center;font-weight:800;font-size:12.5px;padding:3px 7px;border-radius:8px;background:var(--surface2);color:var(--ink);white-space:nowrap}
+.stg-c.s0{background:#eef2f7;color:#425066}
+.stg-c.s1{background:#e5f4ea;color:#256b3f}.stg-c.s2{background:#fdf3d8;color:#8a5a00}.stg-c.s3{background:#fde6d6;color:#a3470e}.stg-c.s4{background:#fbe1e1;color:#a52626}
+.stg-c.tnm{background:#e8f0fb;color:#1d4f91}
+[data-theme=dark] .stg-c.s1{background:#1d3326;color:#8fd3a8}[data-theme=dark] .stg-c.s2{background:#3a3018;color:#f0cf7a}[data-theme=dark] .stg-c.s3{background:#3d2618;color:#f4ad7f}[data-theme=dark] .stg-c.s4{background:#3d1d1d;color:#f29a9a}[data-theme=dark] .stg-c.tnm{background:#1d2c44;color:#9cc0f2}[data-theme=dark] .stg-c.s0{background:#252a33;color:#b8c2d1}
+.stg-d{flex:1;min-width:0}
+.stg-note{display:flex;gap:6px;font-size:12px;color:var(--muted);margin:12px 0 0;line-height:1.45}.stg-note svg{flex:0 0 auto;margin-top:2px}
+@media (max-width:1180px){
+  .gwrap{display:block}
+  .stg{position:static;max-height:none;overflow:visible}
+  .gmob{display:flex;gap:4px;padding:4px;border-radius:14px;background:color-mix(in srgb,var(--ink) 6%,transparent);margin:18px 0 6px}
+  .gmob button{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:14px;font-weight:600;border:0;background:none;padding:9px;border-radius:10px;cursor:pointer;color:var(--muted)}
+  .gmob button.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  .gwrap.t-rec .stg{display:none}
+  .gwrap.t-stg .gmain{display:none}
+}
 </style>
 </head>
 <body>
@@ -1137,7 +1169,133 @@ const G=[
  {n:"56",s:56,y:"2021",old:1,t:"Σύνδρομο υπερδιέγερσης ωοθηκών",c:"rep",by:"84",k:"OHSS"},
  {n:"60",s:60,y:"2021",old:1,t:"Προγεννητικός έλεγχος: παρακολούθηση ομαλά εξελισσόμενης, ανεπίπλεκτης κύησης",c:"preg",by:"87"}
 ];
-const GX=[];
+const GX=[];const STG_END=[
+ {name:"FIGO 2023",src:"FIGO 2023 (Berek et al., Int J Gynecol Obstet 2023)· χρησιμοποιείται στην ESGO-ESTRO-ESP 2025",note:"Επιθετικοί ιστολογικοί τύποι: ενδομητριοειδές υψηλού βαθμού (G3), ορώδες, διαυγοκυτταρικό, καρκινοσάρκωμα, αδιαφοροποίητο, μικτό, mesonephric-like, γαστρεντερικού τύπου βλεννώδες. Μη επιθετικοί: ενδομητριοειδές χαμηλού βαθμού (G1–G2).",groups:[
+  {h:"Στάδιο I · περιορισμένο στο σώμα της μήτρας και την ωοθήκη",rows:[
+   ["IA","Μη επιθετικός τύπος: περιορισμένος στο ενδομήτριο, ή διήθηση < 50% του μυομητρίου χωρίς ή με εστιακή LVSI, ή νόσος καλής πρόγνωσης"],
+   ["IA1","Μη επιθετικός τύπος περιορισμένος σε πολύποδα ή στο ενδομήτριο"],
+   ["IA2","Μη επιθετικός τύπος με διήθηση < 50% του μυομητρίου, χωρίς ή με εστιακή LVSI"],
+   ["IA3","Ενδομητριοειδές χαμηλού βαθμού περιορισμένο στη μήτρα και την ωοθήκη (μονόπλευρη, χωρίς διήθηση/ρήξη κάψας, διήθηση μυομητρίου < 50%, χωρίς εκτεταμένη LVSI, χωρίς άλλες μεταστάσεις)"],
+   ["IB","Μη επιθετικός τύπος με διήθηση ≥ 50% του μυομητρίου, χωρίς ή με εστιακή LVSI"],
+   ["IC","Επιθετικός τύπος περιορισμένος σε πολύποδα ή στο ενδομήτριο"]]},
+  {h:"Στάδιο II · διήθηση στρώματος τραχήλου ή εκτεταμένη LVSI ή επιθετικός τύπος με διήθηση μυομητρίου",rows:[
+   ["IIA","Διήθηση του στρώματος του τραχήλου (μη επιθετικός τύπος)"],
+   ["IIB","Εκτεταμένη (substantial) LVSI (μη επιθετικός τύπος)"],
+   ["IIC","Επιθετικός τύπος με οποιαδήποτε διήθηση του μυομητρίου"]]},
+  {h:"Στάδιο III · τοπική ή/και περιοχική επέκταση (κάθε ιστολογικού τύπου)",rows:[
+   ["IIIA1","Επέκταση σε ωοθήκη ή σάλπιγγα (εκτός αν πληροί τα κριτήρια IA3)"],
+   ["IIIA2","Διήθηση του υποορογόνου ή διά μέσου του ορογόνου της μήτρας"],
+   ["IIIB1","Μετάσταση ή άμεση επέκταση σε κόλπο ή/και παραμήτρια"],
+   ["IIIB2","Μετάσταση στο πυελικό περιτόναιο"],
+   ["IIIC1","Πυελικοί λεμφαδένες: i μικρομετάσταση, ii μακρομετάσταση"],
+   ["IIIC2","Παραορτικοί λεμφαδένες έως τα νεφρικά αγγεία, με ή χωρίς πυελικούς: i μικρομετάσταση, ii μακρομετάσταση"]]},
+  {h:"Στάδιο IV · κύστη ή/και έντερο ή απομακρυσμένη νόσος",rows:[
+   ["IVA","Διήθηση του βλεννογόνου της κύστης ή/και του εντέρου"],
+   ["IVB","Περιτοναϊκή μετάσταση πέρα από την πύελο"],
+   ["IVC","Απομακρυσμένη μετάσταση: λεμφαδένες πάνω από τα νεφρικά αγγεία ή εκτός κοιλίας, πνεύμονας, ήπαρ, εγκέφαλος, οστά"]]},
+  {h:"Μοριακή τροποποίηση (όταν είναι γνωστή η μοριακή ταξινόμηση)",rows:[
+   ["IAm POLEmut","Στάδιο I–II με παθογόνο μετάλλαξη POLE, ανεξαρτήτως LVSI ή ιστολογικού τύπου"],
+   ["IICm p53abn","Στάδιο I–II με p53abn και οποιαδήποτε διήθηση μυομητρίου"],
+   ["MMRd / NSMP","Δεν αλλάζουν το στάδιο· καταγράφονται (π.χ. IIIC1m MMRd)"]]}]},
+ {name:"FIGO 2009",src:"FIGO 2009· παλαιότερο σύστημα, ακόμη σε χρήση σε παλαιότερες εκθέσεις",groups:[
+  {h:"Στάδιο I · περιορισμένο στο σώμα της μήτρας",rows:[["IA","Χωρίς ή με διήθηση < 50% του μυομητρίου"],["IB","Διήθηση ≥ 50% του μυομητρίου"]]},
+  {h:"Στάδιο II",rows:[["II","Διήθηση του στρώματος του τραχήλου, χωρίς επέκταση έξω από τη μήτρα"]]},
+  {h:"Στάδιο III",rows:[["IIIA","Ορογόνος ή/και εξαρτήματα"],["IIIB","Κόλπος ή/και παραμήτρια"],["IIIC1","Πυελικοί λεμφαδένες"],["IIIC2","Παραορτικοί λεμφαδένες, με ή χωρίς πυελικούς"]]},
+  {h:"Στάδιο IV",rows:[["IVA","Βλεννογόνος κύστης ή/και εντέρου"],["IVB","Απομακρυσμένες μεταστάσεις, ενδοκοιλιακές ή/και βουβωνικοί λεμφαδένες"]]}]}
+];
+const STG_VUL=[
+ {name:"TNM 8",src:"UICC/AJCC TNM 8η έκδοση· το σύστημα που αναφέρει η οδηγία Νο 82",groups:[
+  {h:"T · πρωτοπαθής όγκος",rows:[
+   ["T1a","Όγκος ≤ 2 cm, περιορισμένος σε αιδοίο ή περίνεο, με διήθηση στρώματος ≤ 1,0 mm"],
+   ["T1b","Όγκος > 2 cm ή διήθηση στρώματος > 1,0 mm, περιορισμένος σε αιδοίο ή περίνεο"],
+   ["T2","Επέκταση σε γειτονικές δομές του περινέου: κατώτερο 1/3 ουρήθρας, κατώτερο 1/3 κόλπου, πρωκτός"],
+   ["T3","Επέκταση σε ανώτερα 2/3 ουρήθρας ή κόλπου, βλεννογόνο κύστης ή ορθού, ή καθήλωση σε πυελικό οστό"]]},
+  {h:"N · περιοχικοί (βουβωνομηριαίοι) λεμφαδένες",rows:[
+   ["N1a","1–2 λεμφαδένες, ο καθένας με μετάσταση < 5 mm"],
+   ["N1b","1 λεμφαδένας με μετάσταση ≥ 5 mm"],
+   ["N2a","≥ 3 λεμφαδένες, ο καθένας με μετάσταση < 5 mm"],
+   ["N2b","≥ 2 λεμφαδένες με μετάσταση ≥ 5 mm"],
+   ["N2c","Λεμφαδένας με εξωκαψική επέκταση"],
+   ["N3","Καθηλωμένοι ή εξελκωμένοι λεμφαδένες"]]},
+  {h:"M · απομακρυσμένες μεταστάσεις",rows:[["M1","Απομακρυσμένες μεταστάσεις, περιλαμβανομένων των πυελικών λεμφαδένων"]]},
+  {h:"Στάδια (αντιστοιχούν στο FIGO 2009)",rows:[
+   ["IA","T1a N0 M0"],["IB","T1b N0 M0"],["II","T2 N0 M0"],["IIIA","T1–T2 N1a/N1b M0"],["IIIB","T1–T2 N2a/N2b M0"],["IIIC","T1–T2 N2c M0"],["IVA","T1–T2 N3 ή T3 κάθε N, M0"],["IVB","Κάθε T, κάθε N, M1"]]}]},
+ {name:"FIGO 2021",src:"FIGO 2021 (Olawaiye et al., Int J Gynecol Obstet 2021)",note:"Το βάθος διήθησης μετριέται από τη βασική μεμβράνη της βαθύτερης γειτονικής δυσπλαστικής θηλής (rete ridge) χωρίς όγκο, έως το βαθύτερο σημείο διήθησης.",groups:[
+  {h:"Στάδιο I · περιορισμένο στο αιδοίο",rows:[["IA","Όγκος ≤ 2 cm και διήθηση στρώματος ≤ 1,0 mm"],["IB","Όγκος > 2 cm ή διήθηση στρώματος > 1,0 mm"]]},
+  {h:"Στάδιο II",rows:[["II","Κάθε μεγέθους, με επέκταση στο κατώτερο 1/3 ουρήθρας, κόλπου ή πρωκτού, με αρνητικούς λεμφαδένες"]]},
+  {h:"Στάδιο III · επέκταση σε ανώτερες δομές ή μη καθηλωμένοι λεμφαδένες",rows:[
+   ["IIIA","Επέκταση σε ανώτερα 2/3 ουρήθρας ή κόλπου, βλεννογόνο κύστης ή ορθού, ή μεταστάσεις σε περιοχικούς λεμφαδένες ≤ 5 mm"],
+   ["IIIB","Μεταστάσεις σε περιοχικούς λεμφαδένες > 5 mm"],
+   ["IIIC","Μεταστάσεις σε περιοχικούς λεμφαδένες με εξωκαψική επέκταση"]]},
+  {h:"Στάδιο IV · καθήλωση σε οστό, καθηλωμένοι/εξελκωμένοι λεμφαδένες ή απομακρυσμένη νόσος",rows:[
+   ["IVA","Καθήλωση σε πυελικό οστό ή καθηλωμένοι/εξελκωμένοι περιοχικοί λεμφαδένες"],
+   ["IVB","Απομακρυσμένες μεταστάσεις"]]}]}
+];
+const STG_BR=[
+ {name:"TNM 8 (AJCC)",src:"AJCC 8η έκδοση· ανατομική σταδιοποίηση",note:"Στην κλινική πράξη το AJCC 8 χρησιμοποιεί την προγνωστική σταδιοποίηση, που προσθέτει βαθμό κακοήθειας, ER, PR και HER2 (και Oncotype DX όπου ισχύει). Ο πίνακας δείχνει την ανατομική.",groups:[
+  {h:"T · πρωτοπαθής όγκος",rows:[
+   ["Tis","Καρκίνωμα in situ (DCIS) ή νόσος Paget χωρίς διηθητικό καρκίνωμα"],
+   ["T1mi","≤ 1 mm"],["T1a","> 1 έως 5 mm"],["T1b","> 5 έως 10 mm"],["T1c","> 10 έως 20 mm"],
+   ["T2","> 20 έως 50 mm"],["T3","> 50 mm"],
+   ["T4a","Επέκταση στο θωρακικό τοίχωμα (όχι μόνο στον θωρακικό μυ)"],
+   ["T4b","Εξέλκωση, δορυφόρα οζίδια ή οίδημα δέρματος (peau d'orange) που δεν πληρούν κριτήρια φλεγμονώδους"],
+   ["T4c","T4a και T4b"],["T4d","Φλεγμονώδες καρκίνωμα"]]},
+  {h:"cN · κλινική εκτίμηση λεμφαδένων",rows:[
+   ["cN1","Κινητοί ομόπλευροι μασχαλιαίοι επιπέδου I–II (cN1mi: μικρομεταστάσεις)"],
+   ["cN2a","Καθηλωμένοι ή συμφυόμενοι μασχαλιαίοι επιπέδου I–II"],
+   ["cN2b","Μόνο ομόπλευροι έσω μαστικοί, χωρίς μασχαλιαίους"],
+   ["cN3a","Υποκλείδιοι (επίπεδο III)"],["cN3b","Έσω μαστικοί και μασχαλιαίοι"],["cN3c","Υπερκλείδιοι"]]},
+  {h:"pN · παθολογοανατομική εκτίμηση (κύρια)",rows:[
+   ["pN1mi","Μικρομεταστάσεις (> 0,2 έως 2 mm)"],["pN1a","1–3 μασχαλιαίοι, τουλάχιστον μία μετάσταση > 2 mm"],
+   ["pN2a","4–9 μασχαλιαίοι"],["pN3a","≥ 10 μασχαλιαίοι ή υποκλείδιοι"]]},
+  {h:"M",rows:[["M0","Χωρίς απομακρυσμένες μεταστάσεις"],["M1","Απομακρυσμένες μεταστάσεις (> 0,2 mm, ιστολογικά ή κλινικά/απεικονιστικά)"]]},
+  {h:"Ανατομικά στάδια",rows:[
+   ["0","Tis N0 M0"],["IA","T1 N0 M0"],["IB","T0–T1 N1mi M0"],["IIA","T0–T1 N1 M0 · T2 N0 M0"],["IIB","T2 N1 M0 · T3 N0 M0"],
+   ["IIIA","T0–T2 N2 M0 · T3 N1–N2 M0"],["IIIB","T4 N0–N2 M0"],["IIIC","Κάθε T, N3, M0"],["IV","Κάθε T, κάθε N, M1"]]}]}
+];
+const STG_OV=[
+ {name:"FIGO 2014",src:"FIGO 2014· καρκίνος ωοθήκης, σάλπιγγας και περιτοναίου",note:"Για μόρφωμα ύποπτο για κακοήθεια. Η σταδιοποίηση είναι χειρουργική-παθολογοανατομική.",groups:[
+  {h:"Στάδιο I · περιορισμένο σε ωοθήκες ή σάλπιγγες",rows:[
+   ["IA","Μία ωοθήκη ή σάλπιγγα, ακέραια κάψα, χωρίς όγκο στην επιφάνεια, αρνητικές εκπλύσεις"],
+   ["IB","Και οι δύο ωοθήκες ή σάλπιγγες, κατά τα άλλα όπως στο IA"],
+   ["IC1","Χειρουργική διασπορά (spill)"],
+   ["IC2","Ρήξη κάψας πριν το χειρουργείο ή όγκος στην επιφάνεια"],
+   ["IC3","Κακοήθη κύτταρα σε ασκιτικό υγρό ή εκπλύσεις"]]},
+  {h:"Στάδιο II · επέκταση στην πύελο (κάτω από το χείλος της πυέλου) ή πρωτοπαθής περιτοναϊκός",rows:[
+   ["IIA","Επέκταση ή εμφυτεύσεις σε μήτρα ή/και σάλπιγγες ή/και ωοθήκες"],
+   ["IIB","Επέκταση σε άλλους ενδοπεριτοναϊκούς ιστούς της πυέλου"]]},
+  {h:"Στάδιο III · περιτόναιο έξω από την πύελο ή/και οπισθοπεριτοναϊκοί λεμφαδένες",rows:[
+   ["IIIA1","Μόνο θετικοί οπισθοπεριτοναϊκοί λεμφαδένες: i ≤ 10 mm, ii > 10 mm"],
+   ["IIIA2","Μικροσκοπική εξωπυελική περιτοναϊκή νόσος, με ή χωρίς θετικούς λεμφαδένες"],
+   ["IIIB","Μακροσκοπικές εξωπυελικές περιτοναϊκές μεταστάσεις ≤ 2 cm"],
+   ["IIIC","Μακροσκοπικές περιτοναϊκές μεταστάσεις > 2 cm (και επέκταση στην κάψα ήπατος ή σπληνός χωρίς διήθηση παρεγχύματος)"]]},
+  {h:"Στάδιο IV · απομακρυσμένες μεταστάσεις (εκτός περιτοναϊκών)",rows:[
+   ["IVA","Υπεζωκοτική συλλογή με θετική κυτταρολογία"],
+   ["IVB","Μεταστάσεις στο παρέγχυμα (ήπαρ, σπλήνας) και σε όργανα εκτός κοιλίας (και βουβωνικοί λεμφαδένες ή λεμφαδένες εκτός κοιλίας)"]]}]}
+];
+const STG_CX=[
+ {name:"FIGO 2018",src:"FIGO 2018 (Bhatla et al., Int J Gynecol Obstet 2019)",note:"Για την ανάθεση σταδίου επιτρέπονται απεικόνιση (r) και παθολογοανατομική επιβεβαίωση (p), π.χ. IIIC1r. Η LVSI και η οριζόντια επέκταση δεν αλλάζουν το στάδιο.",groups:[
+  {h:"Στάδιο I · περιορισμένο στον τράχηλο (η επέκταση στο σώμα δεν λαμβάνεται υπόψη)",rows:[
+   ["IA1","Μικροσκοπική διάγνωση, διήθηση στρώματος ≤ 3 mm"],
+   ["IA2","Μικροσκοπική διάγνωση, διήθηση στρώματος > 3 mm και ≤ 5 mm"],
+   ["IB1","Διήθηση > 5 mm και μέγιστη διάμετρος ≤ 2 cm"],
+   ["IB2","Μέγιστη διάμετρος > 2 cm και ≤ 4 cm"],
+   ["IB3","Μέγιστη διάμετρος > 4 cm"]]},
+  {h:"Στάδιο II · πέρα από τη μήτρα, όχι στο κατώτερο 1/3 του κόλπου ή στο πυελικό τοίχωμα",rows:[
+   ["IIA1","Ανώτερα 2/3 του κόλπου χωρίς παραμήτρια, όγκος ≤ 4 cm"],
+   ["IIA2","Ανώτερα 2/3 του κόλπου χωρίς παραμήτρια, όγκος > 4 cm"],
+   ["IIB","Διήθηση παραμητρίων, όχι έως το πυελικό τοίχωμα"]]},
+  {h:"Στάδιο III · κατώτερο 1/3 κόλπου, πυελικό τοίχωμα, υδρονέφρωση ή λεμφαδένες",rows:[
+   ["IIIA","Κατώτερο 1/3 του κόλπου, χωρίς επέκταση στο πυελικό τοίχωμα"],
+   ["IIIB","Πυελικό τοίχωμα ή/και υδρονέφρωση ή μη λειτουργικός νεφρός (εκτός αν οφείλεται σε άλλη αιτία)"],
+   ["IIIC1","Μεταστάσεις μόνο σε πυελικούς λεμφαδένες, ανεξαρτήτως μεγέθους"],
+   ["IIIC2","Μεταστάσεις σε παραορτικούς λεμφαδένες"]]},
+  {h:"Στάδιο IV · πέρα από την ελάσσονα πύελο ή βλεννογόνος κύστης/ορθού (με βιοψία)",rows:[
+   ["IVA","Επέκταση σε γειτονικά όργανα της πυέλου (το φυσαλιδώδες οίδημα δεν αρκεί)"],
+   ["IVB","Απομακρυσμένες μεταστάσεις"]]}]}
+];
+const STG={"39":STG_CX,"40":STG_OV,"83":STG_END,"41":STG_END,"82":STG_VUL,"38":STG_VUL,"62":STG_BR,"17":STG_BR,"86":STG_OV};
+
 const F=[
 {id:"pprom",t:"ΠΠΡΕΥ (PPROM)",sub:"Διάγνωση, αντιβίωση, στεροειδή, μαγνήσιο, χρονισμός τοκετού",c:"labour",refs:["77","52","53"],n:[
  {k:"step",h:"Διάγνωση και αρχικός έλεγχος",x:["Ιστορικό απώλειας υγρών και θετική εξέταση με κολποδιαστολέα υπό άσηπτες συνθήκες.","Ο αμνιακός δείκτης μόνος του δεν επιβεβαιώνει ούτε αποκλείει.","Λευκά, CRP, κολπική καλλιέργεια για GBS, καλλιέργεια ούρων.","Η αμνιοπαρακέντηση δεν συστήνεται."]},
@@ -1364,6 +1522,7 @@ const IC={
  shield:'<path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/>',
  check:'<path d="M5 12.5l4.5 4.5L19 7"/>',
  copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>',
+ stairs:'<path d="M4 20h4v-5h4v-5h4V5h4"/>',
  info:'<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/>'
 };
 const svg=(k,w=20)=>`<svg width="${w}" height="${w}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</svg>`;
@@ -1488,6 +1647,16 @@ function vList(favOnly,intl){
    ${intl?"":`<label class="tgl"><input type="checkbox" id="old"${state.old?" checked":""}> Και αντικατασταθείσες</label>`}`}</div>
   <div class="list" id="rows">${L.length?L.map(g=>row(g,ts)).join(""):`<div class="empty">${favOnly?"Δεν έχετε αγαπημένες ακόμα.":"Δεν βρέθηκαν οδηγίες."}</div>`}</div>`;
 }
+let gTab="rec";const stgSel={};
+const stgCls=c=>/^0/.test(c)?"s0":/^IV/.test(c)?"s4":/^III/.test(c)?"s3":/^II/.test(c)?"s2":/^I/.test(c)?"s1":"tnm";
+function stgPanel(g){
+  const sys=STG[g.n],i=Math.min(stgSel[g.n]||0,sys.length-1),S0=sys[i];
+  return `<section class="stg"><div class="stg-h"><span class="stg-ic">${svg("stairs",18)}</span><div><b>Σταδιοποίηση</b><small>${esc(S0.src)}</small></div></div>
+  ${sys.length>1?`<div class="stg-tabs">${sys.map((x,j)=>`<button class="${j===i?"on":""}" data-stg="${esc(g.n)}:${j}">${esc(x.name)}</button>`).join("")}</div>`:""}
+  ${S0.groups.map(gr=>`<div class="stg-g"><div class="stg-gh">${esc(gr.h)}</div>${gr.rows.map(([c,d])=>`<div class="stg-r"><span class="stg-c ${stgCls(c)}">${esc(c)}</span><span class="stg-d">${fmt(d)}</span></div>`).join("")}</div>`).join("")}
+  ${S0.note?`<p class="stg-note">${svg("info",14)}<span>${esc(S0.note)}</span></p>`:""}
+  <p class="stg-note">${svg("info",14)}<span>Ο πίνακας είναι περίληψη για γρήγορη αναφορά· για ακριβή σταδιοποίηση ανατρέξτε στο πλήρες σύστημα.</span></p></section>`;
+}
 function vGuide(g){
   const s=S[g.n];
   const rel=[];
@@ -1503,8 +1672,10 @@ function vGuide(g){
     <div class="acts">${g.u?`<a class="btn pri" href="${g.u}" target="_blank" rel="noopener">${svg("ext",16)} ${g.src==="nice"?"NICE "+esc(g.n)+" (αγγλικά)":"ASCCP (αγγλικά)"}</a>`:g.p?`<a class="btn pri" href="${B+g.p}" target="_blank" rel="noopener">${svg("ext",16)} Επίσημο PDF</a>`:`<span class="btn" style="opacity:.6">Χωρίς διαθέσιμο PDF</span>`}
       ${g.flows.map(id=>`<button class="btn tl" data-go="f-${id}">${svg("flow",16)} ${esc(byF[id].t)}</button>`).join("")}
       <button class="btn" data-fav="${esc(g.n)}">${favs.has(g.n)?"★ Στις αγαπημένες":"☆ Αγαπημένη"}</button><button class="btn" data-share>${svg("share",16)} Κοινοποίηση</button></div></div></div>
+  ${STG[g.n]?`<div class="gmob"><button class="${gTab==="rec"?"on":""}" data-gtab="rec">${svg("list",15)} Συστάσεις</button><button class="${gTab==="stg"?"on":""}" data-gtab="stg">${svg("stairs",15)} Σταδιοποίηση</button></div><div class="gwrap t-${gTab}"><div class="gmain">`:""}
   ${s?`<div class="secrow"><h2 class="sec" style="margin:0">Βασικές συστάσεις</h2><div class="vtog"><button class="${gView==="flow"?"on":""}" data-gview="flow">${svg("flow",15)} Διάγραμμα</button><button class="${gView==="list"?"on":""}" data-gview="list">${svg("list",15)} Λίστα</button></div></div>
   ${gView==="flow"?`<div class="flow gflow">${s.b.map(recNode).join('<div class="conn"></div>')}</div>`:`<div class="recs">${s.b.map(b=>`<div class="rec">${fmt(b)}</div>`).join("")}</div>`}
+  ${STG[g.n]?`</div>${stgPanel(g)}</div>`:""}
   <p class="verify">${svg("info",16)}<span>${g.src?"Ελληνική σύνοψη με δικά μας λόγια από το πρωτότυπο (αγγλικά). Πριν από κλινική απόφαση επαληθεύστε στην πηγή και συγκρίνετε με τις οδηγίες της ΕΜΓΕ.":"Σύνοψη με δικά μας λόγια από το επίσημο κείμενο."} Πριν από κλινική απόφαση επαληθεύστε στο PDF. Οι εμπορικές ονομασίες σε παρένθεση είναι ενδεικτικές, από τον <a href="https://www.galinos.gr" target="_blank" rel="noopener">Γαληνό</a>.</span></p>`:`<p class="verify">${g.src?"Η ελληνική σύνοψη θα προστεθεί όταν δοθεί άδεια χρήσης από τον εκδότη. Ανοίξτε την επίσημη οδηγία με το κουμπί παραπάνω.":"Δεν υπάρχει σύνοψη για αυτή την οδηγία."}</p>`}`;
 }
 function vFlows(){
@@ -1667,6 +1838,7 @@ function localAnswer(q,r){
 }
 function contextFor(r){
   let c="";r.gs.forEach(({g})=>{const s=S[g.n];c+=`\n### ${g.src==="nice"?"NICE "+g.n+" (Ηνωμένο Βασίλειο)":g.src==="asccp"?"ASCCP (ΗΠΑ)":"Οδηγία ΕΜΓΕ Νο "+g.n}: ${g.t}${s.d?" ("+s.d+")":""}\n`+s.b.map(b=>"- "+bshort(b)).join("\n")+"\n"});
+  r.gs.forEach(({g})=>{if(STG[g.n]){c+=`\n### Σταδιοποίηση για Νο ${g.n}\n`+STG[g.n].map(x=>x.name+": "+x.groups.map(gr=>gr.rows.map(([a,b])=>a+" = "+b).join("; ")).join("; ")).join("\n")+"\n"}});
   r.fs.forEach(({f})=>{c+=`\n### Αλγόριθμος: ${f.t} (από ${f.refs.map(lab).join(", ")})\n`+f.n.map(x=>"* "+x.h+": "+(x.x?x.x.join("; "):x.b.map(b=>b.l+" → "+b.x.join("; ")).join(" | "))).join("\n").replace(/⟪([^⟫]*)⟫/g,m=>bshort(m))+"\n"});
   return c;
 }
@@ -1783,6 +1955,8 @@ function render(){
 document.addEventListener("click",e=>{
   const sg=e.target.closest("[data-seg] button"); if(sg){const [o,k]=sg.parentElement.dataset.seg.split(".");calc[o][k]=Number(sg.dataset.v);store.set("mg-calc",calc);[...sg.parentElement.children].forEach(x=>x.classList.toggle("on",x===sg));if(o==="b")$("#r-b").innerHTML=bishopRes();else $("#r-q").innerHTML=puqeRes();return}
   const bm=e.target.closest("[data-bnm]"); if(bm){e.preventDefault();e.stopPropagation();const x=bm.previousElementSibling;x.hidden=!x.hidden;bm.textContent=x.hidden?bm.dataset.n:"λιγότερα";return}
+  const gt=e.target.closest("[data-gtab]"); if(gt){gTab=gt.dataset.gtab;render();return}
+  const st=e.target.closest("[data-stg]"); if(st){const [n,j]=st.dataset.stg.split(":");stgSel[n]=+j;render();return}
   const fm=e.target.closest("[data-fmode]"); if(fm){fMode=fm.dataset.fmode;store.set("mg-fmode",fMode);render();return}
   const curF=()=>byF[route().slice(2)];
   const fp=e.target.closest("[data-fpick]"); if(fp){const f=curF(),s=fsOf(f);const [i,bi]=fp.dataset.fpick.split(":").map(Number);s.p[i]=bi;for(const k in s.p)if(+k>i)delete s.p[k];render();setTimeout(()=>{const a=$(".wz-ans");if(a)a.scrollIntoView({behavior:"smooth",block:"nearest"})},30);return}
