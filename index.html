@@ -789,6 +789,38 @@ aside{background:var(--bg);border-right:1px solid var(--line)}
 
 .gbtn{width:100%;justify-content:center;gap:10px;background:var(--surface);border:1.5px solid var(--line);color:var(--ink);font-weight:600}
 .cl-or{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;margin:4px 0}.cl-or:before,.cl-or:after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* textareas never overlap neighbours */
+.pf textarea{resize:vertical;max-width:100%;min-height:46px;overflow:hidden;line-height:1.45}
+.pf{min-width:0}.pg-2c>*{min-width:0}
+/* summary */
+.sm-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:space-between;margin-bottom:12px;color:var(--muted);font-size:14px}
+.pg-sum{background:#fff;color:#111;border:1px solid var(--line);border-radius:18px;padding:22px;font-size:13.5px;line-height:1.45}
+.pg-sum h2{margin:0;font-size:19px}.pg-sum h3{font-size:14.5px;margin:16px 0 6px;padding-bottom:4px;border-bottom:2px solid #c2185b33;color:#8e1b4c}.pg-sum h4{margin:10px 0 4px;font-size:13px;color:#555}
+.sm-h{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;border-bottom:2px solid #111;padding-bottom:8px}.sm-h b{font-size:18px}.sm-dt{font-size:12px;color:#666}
+.sm-kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.sm-kpi>div{border:1px solid #ddd;border-radius:10px;padding:8px}.sm-kpi small{display:block;color:#666;font-size:11px}.sm-kpi b{font-size:15px}
+.sm-cl{padding:8px 10px;border-radius:10px;background:#eef7ee;margin-bottom:6px}
+.sm-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.sm-t{width:100%;border-collapse:collapse}.sm-t th,.sm-t td{text-align:left;vertical-align:top;padding:4px 6px;border-bottom:1px solid #eee}.sm-t th{font-weight:600;color:#444;width:46%}.sm-d{color:#777;white-space:nowrap;width:1%}
+.sm-v{width:100%;border-collapse:collapse;font-size:12px}.sm-v th,.sm-v td{border:1px solid #ccc;padding:4px 5px;text-align:left;vertical-align:top}.sm-v th{background:#f6eef2}
+.pg-sum ul{margin:0;padding-left:18px}.sm-n{white-space:pre-wrap;margin:0}
+.sm-sig{display:flex;justify-content:space-between;gap:30px;margin-top:40px}.sm-sig span{flex:1;border-top:1px solid #111;padding-top:4px;font-size:12px;color:#444;text-align:center}
+@media (max-width:700px){.sm-2{grid-template-columns:1fr}.sm-kpi{grid-template-columns:1fr 1fr}.pg-sum{padding:14px;overflow-x:auto}}
+@media print{
+  html,body,.app{background:#fff!important}.app{display:block!important;min-height:0!important}main,.wrap{margin:0!important;padding:0!important;max-width:none!important;width:auto!important}
+  body:has(.pg-sum) .pg-top,body:has(.pg-sum) .pg-quick,.sm-bar{display:none!important}
+  .pg-sum{border:0;padding:0;border-radius:0}.sm-2{grid-template-columns:1fr 1fr}.sm-kpi{grid-template-columns:repeat(4,1fr)}
+  .pg-sum section,.sm-t tr,.sm-v tr{break-inside:avoid}
+  @page{size:A4;margin:12mm}
+}
+
+.pg-tr{grid-template-columns:minmax(140px,1.2fr) minmax(110px,1fr) 150px 40px}
+.pg-tr.rep{border-top:0;padding-top:0}.pg-tr.rep .pg-tl{color:var(--muted);font-size:13px;padding-left:10px}
+input.pg-tl{font:inherit;font-size:15px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-width:0}
+.pg-add{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--acc);display:grid;place-items:center;cursor:pointer}
+.pg-add.del{color:var(--muted)}
+.pg-box>.btn{margin-top:10px}
+@media (max-width:900px){.pg-tr{grid-template-columns:1fr 1fr 40px}.pg-tr .pg-tl{grid-column:1/-1}.pg-tr input[type=date]{grid-column:2}.pg-tr>input:not([type=date]):not(.pg-tl){grid-column:1}.pg-tr .pg-add{grid-column:3;grid-row:2}}
 </style>
 </head>
 <body>
@@ -2216,8 +2248,8 @@ function vPregList(){
 }
 function vPreg(p){
   const d=pDating(p),ga=gaToday(p),i=p.info;
-  const tabs=[["ov","Επισκόπηση"],["info","Στοιχεία & ιστορικό"],["labs","Εξετάσεις"],["us","Υπερηχογραφήματα"],["vis","Επισκέψεις"]];
-  let body="";
+  const tabs=[["ov","Επισκόπηση"],["info","Στοιχεία & ιστορικό"],["labs","Εξετάσεις"],["us","Υπερηχογραφήματα"],["vis","Επισκέψεις"],["sum","Σύνοψη"]];
+  let body="";requestAnimationFrame(autoTA);
   if(pTab==="ov"){
     const fl=pFlags(p);
     const items=PSCH.map(it=>({it,s:pStatus(p,it,ga)}));
@@ -2240,7 +2272,10 @@ function vPreg(p){
     <div class="pg-box wide"><h3>Ιστορικό</h3><div class="pg-2c">${HIST.map(([k,l])=>fld(p,"hist."+k,l,["pmh","fh","meds","risk"].includes(k)?"area":"text")).join("")}</div></div>
     <div class="pg-box wide"><h3>Σημειώσεις</h3>${fld(p,"notes","Ελεύθερο κείμενο","area")}</div></div>`;
   }else if(pTab==="labs"){
-    body=LABS.map(([h,rows])=>`<div class="pg-box"><h3>${esc(h)}</h3><div class="pg-tbl">${rows.map(([k,l])=>`<div class="pg-tr"><span class="pg-tl">${esc(l)}</span><input data-pf="labs.${k}.v" placeholder="Αποτέλεσμα" value="${esc(pv(p,"labs."+k+".v")||"")}"><input data-pf="labs.${k}.d" type="date" value="${esc(pv(p,"labs."+k+".d")||"")}" aria-label="Ημερομηνία"></div>`).join("")}</div></div>`).join("");
+    const lrow=(k,l)=>{const R=pv(p,"labs."+k+".r")||[];return `<div class="pg-tr"><span class="pg-tl">${esc(l)}</span><input data-pf="labs.${k}.v" placeholder="Αποτέλεσμα" value="${esc(pv(p,"labs."+k+".v")||"")}"><input data-pf="labs.${k}.d" type="date" value="${esc(pv(p,"labs."+k+".d")||"")}" aria-label="Ημερομηνία"><button class="pg-add" data-lrep="${k}" title="Προσθήκη επανάληψης" aria-label="Προσθήκη επανάληψης για ${esc(l)}">${svg("plus",16)}</button></div>${R.map((x,n)=>`<div class="pg-tr rep"><span class="pg-tl">↳ ${n+2}η μέτρηση</span><input data-pf="labs.${k}.r.${n}.v" placeholder="Αποτέλεσμα" value="${esc(x.v||"")}"><input data-pf="labs.${k}.r.${n}.d" type="date" value="${esc(x.d||"")}" aria-label="Ημερομηνία"><button class="pg-add del" data-lrdel="${k}.${n}" aria-label="Διαγραφή μέτρησης">${svg("x",14)}</button></div>`).join("")}`};
+    const X=p.labx||[];
+    body=`<p class="pg-hint">${svg("info",14)}<span>Για εξέταση που επαναλαμβάνεται (π.χ. γενική ούρων, ιολογικός), πατήστε <b>+</b> δίπλα της για νέα μέτρηση με δική της ημερομηνία.</span></p>`+LABS.map(([h,rows])=>`<div class="pg-box"><h3>${esc(h)}</h3><div class="pg-tbl">${rows.map(([k,l])=>lrow(k,l)).join("")}</div></div>`).join("")+
+    `<div class="pg-box"><h3>Άλλες εξετάσεις</h3><div class="pg-tbl">${X.map((x,n)=>`<div class="pg-tr"><input class="pg-tl" data-pf="labx.${n}.n" placeholder="Όνομα εξέτασης" value="${esc(x.n||"")}"><input data-pf="labx.${n}.v" placeholder="Αποτέλεσμα" value="${esc(x.v||"")}"><input data-pf="labx.${n}.d" type="date" value="${esc(x.d||"")}" aria-label="Ημερομηνία"><button class="pg-add del" data-lxdel="${n}" aria-label="Διαγραφή">${svg("x",14)}</button></div>`).join("")}</div><button class="btn" data-lxadd>${svg("plus",16)} Προσθήκη εξέτασης</button></div>`;
   }else if(pTab==="us"){
     const ua=parseFloat(String(pv(p,"us.t3_ua")||"").replace(",",".")),mca=parseFloat(String(pv(p,"us.t3_mca")||"").replace(",","."));
     body=USS.map(([h,rows])=>`<div class="pg-box"><h3>${esc(h)}</h3><div class="pg-2c">${rows.map(([k,l,t])=>fld(p,"us."+k,l,t)).join("")}</div>${h.startsWith("Υπερηχογράφημα 3ου")?`<div class="pg-calc" id="pcpr">${ua&&mca?`CPR (MCA/UA) = <b>${(mca/ua).toFixed(2)}</b>`:"Το CPR υπολογίζεται αυτόματα από τα PI."}</div>`:""}</div>`).join("");
@@ -2259,7 +2294,7 @@ function vPreg(p){
     <div class="pg-vis">${V.map((v,k)=>({v,k})).reverse().map(({v,k})=>{const g=gaAt(p,D0(v.d));const m=String(v.bp||"").match(/(\d{2,3})\s*\/\s*(\d{2,3})/);const bpc=m?(+m[1]>=160||+m[2]>=110?"bad":+m[1]>=140||+m[2]>=90?"warn":""):"";const wt=parseFloat(String(v.wt||"").replace(",","."));
       return `<div class="pg-v"><div class="pg-vh"><b>${fmtD2(D0(v.d))}</b><span class="pg-ga">${g!=null&&g>=0?gaTxt(g)+" εβδ.":""}</span><button class="pg-x" data-pvdel="${k}" aria-label="Διαγραφή επίσκεψης">${svg("x",14)}</button></div>
       <div class="pg-vb">${v.bp?`<span class="pg-chip ${bpc}">ΑΠ ${esc(v.bp)}</span>`:""}${v.wt?`<span class="pg-chip">${esc(v.wt)} kg${wpre&&wt?` (${wt-wpre>=0?"+":""}${(wt-wpre).toFixed(1)})`:""}</span>`:""}${v.ur?`<span class="pg-chip">Ούρα: ${esc(v.ur)}</span>`:""}${v.fh?`<span class="pg-chip">ΚΕΠ: ${esc(v.fh)}</span>`:""}${v.lab?`<span class="pg-chip">${esc(v.lab)}</span>`:""}${v.us?`<span class="pg-chip">U/S: ${esc(v.us)}</span>`:""}</div>${v.n?`<p>${esc(v.n)}</p>`:""}</div>`}).join("")||`<p class="pg-note">Δεν υπάρχουν επισκέψεις ακόμα.</p>`}</div>`;
-  }
+  }else if(pTab==="sum"){body=vSum(p)}
   return `<div class="pg-top">
     <div class="pg-id"><span class="pg-av lg">${esc((i.name||"?").trim().slice(0,1).toUpperCase())}</span><div><h1>${esc(i.name||"Νέα έγκυος")}</h1><small>${i.amka?"ΑΜΚΑ "+esc(i.amka)+" · ":""}${i.phone?esc(i.phone):""}</small></div></div>
     <div class="pg-kpi" id="pkpi"><div><small>Ηλικία κύησης</small><b>${ga!=null&&ga>=0&&ga<300?gaTxt(ga):"–"}</b></div><div><small>Πιθανή ημ. τοκετού</small><b>${fmtD2(d&&d.edd)}</b></div><div><small>Τρίμηνο</small><b>${ga==null||ga<0?"–":ga<98?"1ο":ga<196?"2ο":"3ο"}</b></div></div>
@@ -2269,6 +2304,41 @@ function vPreg(p){
   <div class="pg-tabs">${tabs.map(([k,l])=>`<button class="${pTab===k?"on":""}" data-ptab="${k}">${l}</button>`).join("")}</div>
   <div class="pg-body">${body}</div>
   <div class="acts pg-foot">${p.closed?`<button class="btn" data-preopen>Επαναφορά στις ενεργές</button>`:""}<button class="btn" data-pmore>••• Περισσότερα</button></div>`;
+}
+function autoTA(){document.querySelectorAll(".pg-body textarea").forEach(a=>{a.style.height="auto";a.style.height=(a.scrollHeight+2)+"px"})}
+document.addEventListener("input",e=>{if(e.target.matches&&e.target.matches(".pg-body textarea")){e.target.style.height="auto";e.target.style.height=(e.target.scrollHeight+2)+"px"}});
+function vSum(p){
+  const i=p.info,d=pDating(p),ga=gaToday(p),b=bmiOf(p),V=p.visits||[];
+  const row=(l,v)=>v?`<tr><th>${esc(l)}</th><td>${esc(v)}</td></tr>`:"";
+  const dd=s=>s?fmtD2(D0(s)):"";
+  const hist=HIST.map(([k,l])=>row(l,(p.hist||{})[k])).join("");
+  const labs=LABS.map(([h,rows])=>{const r=rows.filter(([k])=>pv(p,"labs."+k+".v")||(pv(p,"labs."+k+".r")||[]).some(x=>x.v)).map(([k,l])=>{const all=[{v:pv(p,"labs."+k+".v"),d:pv(p,"labs."+k+".d")}].concat(pv(p,"labs."+k+".r")||[]).filter(x=>x.v);return all.map((x,n)=>`<tr><th>${n?"":esc(l)}</th><td>${esc(x.v)}</td><td class="sm-d">${dd(x.d)}</td></tr>`).join("")}).join("");return r?`<h4>${esc(h)}</h4><table class="sm-t">${r}</table>`:""}).join("");
+  const lx=(p.labx||[]).filter(x=>x.n||x.v);
+  const labsAll=labs+(lx.length?`<h4>Άλλες εξετάσεις</h4><table class="sm-t">${lx.map(x=>`<tr><th>${esc(x.n||"")}</th><td>${esc(x.v||"")}</td><td class="sm-d">${dd(x.d)}</td></tr>`).join("")}</table>`:"");
+  const us=USS.map(([h,rows])=>{const r=rows.filter(([k])=>pv(p,"us."+k)).map(([k,l,tp])=>row(l,tp==="date"?dd(pv(p,"us."+k)):pv(p,"us."+k))).join("");return r?`<h4>${esc(h)}</h4><table class="sm-t">${r}</table>`:""}).join("");
+  const done=PSCH.filter(it=>p.done[it[0]]).map(it=>esc(it[1])),pend=PSCH.filter(it=>!p.done[it[0]]&&pStatus(p,it,ga)!=="wait").map(it=>esc(it[1]));
+  const vis=V.length?`<table class="sm-v"><thead><tr><th>Ημερ.</th><th>Εβδ.</th><th>ΑΠ</th><th>Βάρος</th><th>Ούρα</th><th>ΚΕΠ</th><th>Ht/Hb/PLT/WBC</th><th>U/S</th><th>Σημειώσεις</th></tr></thead><tbody>${V.map(v=>{const g=gaAt(p,D0(v.d));return `<tr><td>${dd(v.d)}</td><td>${g!=null&&g>=0?gaTxt(g):""}</td><td>${esc(v.bp||"")}</td><td>${esc(v.wt||"")}</td><td>${esc(v.ur||"")}</td><td>${esc(v.fh||"")}</td><td>${esc(v.lab||"")}</td><td>${esc(v.us||"")}</td><td>${esc(v.n||"")}</td></tr>`}).join("")}</tbody></table>`:`<p class="pg-note">Δεν υπάρχουν επισκέψεις.</p>`;
+  return `<div class="sm-bar"><span>Συγκεντρωτική καρτέλα για τον φάκελο της ασθενούς, πριν τον τοκετό.</span><button class="btn pri big" data-pprint>${svg("print",18)} Εκτύπωση σύνοψης</button></div>
+  <div class="pg-sum">
+   <div class="sm-h"><div><h2>Συγκεντρωτική καρτέλα κύησης</h2><b>${esc(i.name||"")}</b></div><div class="sm-dt">Εκτύπωση: ${fmtD2(new Date())}</div></div>
+   <div class="sm-kpi"><div><small>ΤΕΡ</small><b>${dd(i.lmp)||"–"}</b></div><div><small>Πιθανή ημ. τοκετού</small><b>${fmtD2(d&&d.edd)}</b></div><div><small>Ηλικία κύησης σήμερα</small><b>${ga!=null&&ga>=0&&ga<300?gaTxt(ga):"–"}</b></div><div><small>Χρονολόγηση από</small><b>${d?esc(d.src):"–"}</b></div></div>
+   ${p.closed?`<div class="sm-cl"><b>Έκβαση:</b> ${esc(p.closed.r)} · ${dd(p.closed.d)}${p.closed.n?" · "+esc(p.closed.n):""}</div>`:""}
+   <div class="sm-2">
+    <section><h3>Στοιχεία</h3><table class="sm-t">${row("ΑΜΚΑ",i.amka)}${row("Ημερομηνία γέννησης",dd(i.dob))}${row("Τηλέφωνο",i.phone)}${row("Πρώτη επίσκεψη",dd(i.first))}${row("Υπερηχογράφημα χρονολόγησης",i.usDate?dd(i.usDate)+(i.usGA?" ("+i.usGA+")":""):"")}${row("Ύψος",i.height?i.height+" cm":"")}${row("Βάρος πριν την κύηση",i.wpre?i.wpre+" kg":"")}${row("ΔΜΣ",b?b.toFixed(1)+" kg/m² ("+gainRange(b)[2]+", στόχος αύξησης "+gainRange(b)[0]+"–"+gainRange(b)[1]+" kg)":"")}</table></section>
+    <section><h3>Ιστορικό</h3>${hist?`<table class="sm-t">${hist}</table>`:`<p class="pg-note">–</p>`}</section>
+   </div>
+   <div class="sm-2">
+    <section><h3>Εξετάσεις</h3>${labsAll||`<p class="pg-note">–</p>`}</section>
+    <section><h3>Υπερηχογραφήματα</h3>${us||`<p class="pg-note">–</p>`}</section>
+   </div>
+   <section><h3>Επισκέψεις (${V.length})</h3>${vis}</section>
+   <div class="sm-2">
+    <section><h3>Ολοκληρώθηκαν</h3>${done.length?`<ul>${done.map(x=>`<li>${x}</li>`).join("")}</ul>`:`<p class="pg-note">–</p>`}</section>
+    <section><h3>Εκκρεμούν</h3>${pend.length?`<ul>${pend.map(x=>`<li>${x}</li>`).join("")}</ul>`:`<p class="pg-note">Καμία εκκρεμότητα.</p>`}</section>
+   </div>
+   ${p.notes?`<section><h3>Σημειώσεις</h3><p class="sm-n">${esc(p.notes)}</p></section>`:""}
+   <div class="sm-sig"><span>Θεράπων ιατρός</span><span>Υπογραφή / σφραγίδα</span></div>
+  </div>`;
 }
 function pSetPath(p,path,val){const ks=path.split(".");let o=p;for(let k=0;k<ks.length-1;k++){o[ks[k]]=o[ks[k]]||{};o=o[ks[k]]}o[ks[ks.length-1]]=val}
 function pRefresh(p){
@@ -2306,7 +2376,7 @@ function shVisit(){sheetOpen(`<h2>Νέα επίσκεψη</h2><div class="pg-vfo
   <button class="btn pri big wide" data-pvisit>${svg("check",18)} Αποθήκευση επίσκεψης</button>`)}
 function shMore(p){sheetOpen(`<h2>${esc(p.info.name||"Καρτέλα")}</h2>
   ${p.closed?`<button class="sh-it" data-preopen>${svg("back",20)}<span><b>Επαναφορά στις ενεργές</b><small>Η κύηση συνεχίζεται</small></span></button>`:`<button class="sh-it" data-pclose>${svg("check",20)}<span><b>Ολοκλήρωση / Αρχειοθέτηση</b><small>Τοκετός, απώλεια ή διακοπή παρακολούθησης· η καρτέλα κρατιέται στο Αρχείο</small></span></button>`}
-  <button class="sh-it" data-pprint data-shclose>${svg("print",20)}<span><b>Εκτύπωση</b></span></button>
+  <button class="sh-it" data-pprint data-shclose>${svg("print",20)}<span><b>Εκτύπωση σύνοψης</b><small>Συγκεντρωτική καρτέλα για τον φάκελο</small></span></button>
   <button class="sh-it" data-pexp="${p.id}">${svg("download",20)}<span><b>Εξαγωγή (αρχείο)</b><small>Αντίγραφο ασφαλείας</small></span></button>
   <button class="sh-it danger" data-pdel="${p.id}">${svg("x",20)}<span><b>${pDel===p.id?"Πατήστε ξανά για οριστική διαγραφή":"Διαγραφή καρτέλας"}</b><small>Δεν αναιρείται</small></span></button>`)}
 function shClose(){sheetOpen(`<h2>Ολοκλήρωση παρακολούθησης</h2><p class="sh-sub">Η καρτέλα μεταφέρεται στο «Αρχείο» και μπορεί να επανέλθει.</p>
@@ -2328,6 +2398,10 @@ function pClick(e){
   const cr=e.target.closest("[data-pcr]");if(cr){[...cr.parentElement.children].forEach(b=>b.classList.toggle("on",b===cr));return true}
   if(e.target.closest("[data-pcsave]")){const p=pById(route().slice(2));const r=($(".sh-r.on")||{}).dataset;p.closed={r:r?r.pcr:"Ολοκληρώθηκε",d:$("#pc_d").value,n:$("#pc_n").value.trim()};savePreg();sheetClose();pArch=false;go("kartela");toast("Η καρτέλα μεταφέρθηκε στο Αρχείο");return true}
   if(e.target.closest("[data-preopen]")){const p=pById(route().slice(2));delete p.closed;savePreg();sheetClose();render();toast("Η καρτέλα είναι ξανά ενεργή");return true}
+  const lr=e.target.closest("[data-lrep]");if(lr){const p=pById(route().slice(2));const k=lr.dataset.lrep;p.labs[k]=p.labs[k]||{};p.labs[k].r=(p.labs[k].r||[]).concat([{v:"",d:new Date().toISOString().slice(0,10)}]);savePreg();render();setTimeout(()=>{const n=p.labs[k].r.length-1;const el=document.querySelector(`[data-pf="labs.${k}.r.${n}.v"]`);if(el)el.focus()},60);return true}
+  const ld=e.target.closest("[data-lrdel]");if(ld){const p=pById(route().slice(2));const [k,n]=ld.dataset.lrdel.split(".");p.labs[k].r.splice(+n,1);savePreg();render();return true}
+  if(e.target.closest("[data-lxadd]")){const p=pById(route().slice(2));p.labx=(p.labx||[]).concat([{n:"",v:"",d:new Date().toISOString().slice(0,10)}]);savePreg();render();setTimeout(()=>{const el=document.querySelector(`[data-pf="labx.${p.labx.length-1}.n"]`);if(el)el.focus()},60);return true}
+  const lx=e.target.closest("[data-lxdel]");if(lx){const p=pById(route().slice(2));p.labx.splice(+lx.dataset.lxdel,1);savePreg();render();return true}
   const pa=e.target.closest("[data-parch]");if(pa){pArch=pa.dataset.parch==="1";render();return true}
   const db=e.target.closest("[data-pdoneb]");if(db){const p=pById(route().slice(2));p.done[db.dataset.pdoneb]=true;savePreg();render();toast("Σημειώθηκε ως έγινε");return true}
   if(cloudClick(e))return true;
@@ -2335,7 +2409,7 @@ function pClick(e){
   const vs=e.target.closest("[data-pvisit]");if(vs){const p=pById(route().slice(2));const g=id=>($("#"+id)||{}).value||"";const v={d:g("nv_d"),bp:g("nv_bp"),wt:g("nv_wt"),ur:g("nv_ur"),fh:g("nv_fh"),lab:g("nv_lab"),us:g("nv_us"),n:g("nv_n")};if(!Object.values(v).slice(1).some(Boolean)){toast("Συμπληρώστε τουλάχιστον ένα πεδίο");return true}p.visits=(p.visits||[]).concat([v]).sort((a,b)=>(a.d||"").localeCompare(b.d||""));savePreg();sheetClose();render();toast("Η επίσκεψη αποθηκεύτηκε");return true}
   const vd=e.target.closest("[data-pvdel]");if(vd){const p=pById(route().slice(2));p.visits.splice(+vd.dataset.pvdel,1);savePreg();render();return true}
   const ex=e.target.closest("[data-pexp]");if(ex){const id=ex.dataset.pexp;if(id){const p=pById(id);pDownload(p,`kartela-${(p.info.name||"egkyos").replace(/\s+/g,"_")}.json`)}else pDownload(PREG,`karteles-egkyon-${new Date().toISOString().slice(0,10)}.json`);return true}
-  const pr=e.target.closest("[data-pprint]");if(pr){window.print();return true}
+  const pr=e.target.closest("[data-pprint]");if(pr){if(route().startsWith("k-")&&pTab!=="sum"){pTab="sum";sheetClose();render();setTimeout(()=>window.print(),350)}else{sheetClose();window.print()}return true}
   const dl=e.target.closest("[data-pdel]");if(dl){const id=dl.dataset.pdel;if(pDel===id){sheetClose();cloudDelete(id);PREG=PREG.filter(p=>p.id!==id);pDel=null;savePreg();go("kartela");toast("Η καρτέλα διαγράφηκε")}else{pDel=id;if(!$("#sheet").hidden)shMore(pById(id));else render();setTimeout(()=>{if(pDel===id){pDel=null;if(route()==="k-"+id)render()}},4000)}return true}
   return false;
 }
