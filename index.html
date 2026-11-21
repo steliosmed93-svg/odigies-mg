@@ -466,6 +466,99 @@ aside{background:var(--bg);border-right:1px solid var(--line)}
   .tabbar button.on svg{background:var(--surface);box-shadow:0 0 0 1px var(--line);color:var(--acc)}
   .hx-em{grid-template-columns:1fr 1fr}
 }
+
+/* ===== v11 interactive flows + livelier ===== */
+.fx-hero{position:relative;overflow:hidden;border-radius:24px;padding:22px 22px 16px;margin:4px 0 16px;color:var(--ink);
+  background:radial-gradient(120% 140% at 100% 0%,color-mix(in srgb,var(--cc) 22%,transparent) 0%,transparent 55%),radial-gradient(90% 120% at 0% 100%,color-mix(in srgb,var(--cc) 12%,transparent) 0%,transparent 60%),var(--surface);border:1px solid color-mix(in srgb,var(--cc) 18%,var(--line))}
+.fx-badge{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--cc),color-mix(in srgb,var(--cc) 60%,#000));box-shadow:0 10px 22px -10px var(--cc);margin-bottom:12px}
+.fx-hero h1{margin:0;font-size:26px;line-height:1.15;letter-spacing:-.02em}
+.fx-hero p{margin:6px 0 0;color:var(--muted)}
+.fx-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.fx-ref{display:inline-flex;align-items:center;gap:5px;font:inherit;font-size:13px;font-weight:600;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 80%,transparent);color:var(--ink);cursor:pointer;text-decoration:none}
+.fx-mode{display:flex;gap:4px;margin-top:16px;padding:4px;border-radius:14px;background:color-mix(in srgb,var(--ink) 6%,transparent);width:max-content;max-width:100%}
+.fx-mode button{display:flex;align-items:center;gap:6px;font:inherit;font-size:14px;font-weight:600;border:0;background:none;padding:8px 14px;border-radius:10px;cursor:pointer;color:var(--muted)}
+.fx-mode button.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+/* wizard */
+.wz{max-width:760px}
+.wz-prog{display:flex;align-items:center;gap:12px;margin:2px 0 14px}
+.wz-bar{flex:1;height:8px;border-radius:99px;background:color-mix(in srgb,var(--ink) 8%,transparent);overflow:hidden}
+.wz-bar span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--acc),#c2457d,#7c5cd6);transition:width .4s cubic-bezier(.2,.7,.2,1)}
+.wz-pc{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.wz-trail{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.wz-tr{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font:inherit;font-size:14px;padding:9px 12px;border-radius:12px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 70%,transparent);cursor:pointer;color:var(--muted)}
+.wz-ck{width:22px;height:22px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;flex:0 0 auto}
+.wz-th{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wz-tv{font-weight:700;color:var(--ink);background:var(--surface2);padding:2px 9px;border-radius:99px;font-size:13px;max-width:45%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wz-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:22px;animation:wzin .35s cubic-bezier(.2,.7,.2,1);box-shadow:0 18px 40px -28px rgba(30,20,60,.35)}
+@keyframes wzin{from{opacity:0;transform:translateY(10px) scale(.99)}to{opacity:1;transform:none}}
+.wz-k{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.wz-k a{text-transform:none;letter-spacing:0}
+.wz-k .cpy{margin-left:auto}
+.wz-card.rx .wz-k{color:var(--rx)}.wz-card.warn .wz-k{color:var(--warn)}.wz-card.dec .wz-k{color:var(--teal)}.wz-card.end .wz-k{color:var(--ok)}
+.wz-card.rx{border-color:color-mix(in srgb,var(--rx) 30%,var(--line));background:linear-gradient(180deg,color-mix(in srgb,var(--rxsoft) 70%,var(--surface)),var(--surface) 60%)}
+.wz-card.warn{border-color:color-mix(in srgb,var(--warn) 30%,var(--line));background:linear-gradient(180deg,var(--warnsoft),var(--surface) 70%)}
+.wz-card h2{margin:0 0 12px;font-size:22px;line-height:1.25;letter-spacing:-.02em}
+.wz-card ul{margin:0;padding:0;list-style:none}
+.wz-card li{position:relative;padding:9px 0 9px 26px;border-top:1px solid color-mix(in srgb,var(--line) 70%,transparent);font-size:16px;line-height:1.55}
+.wz-card li:first-child{border-top:0}
+.wz-card li:before{content:"";position:absolute;left:6px;top:18px;width:8px;height:8px;border-radius:50%;background:var(--acc);opacity:.75}
+.wz-card.rx li:before{background:var(--rx);opacity:1}.wz-card.warn li:before{background:var(--warn);opacity:1}
+.wz-card.rx .nm{color:var(--rx)!important}
+.wz-opts{display:flex;flex-direction:column;gap:8px}
+.wz-opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;font:inherit;font-size:16px;font-weight:600;padding:14px 14px;border-radius:16px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:all .15s}
+.wz-opt:hover{border-color:color-mix(in srgb,var(--acc) 45%,var(--line));transform:translateX(2px)}
+.wz-l{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;font-size:13px;font-weight:800;background:var(--surface2);color:var(--muted);flex:0 0 auto}
+.wz-ot{flex:1}
+.wz-ar{color:#b9b9b4;display:flex}
+.wz-opt.on{border-color:var(--acc);background:color-mix(in srgb,var(--accsoft) 70%,var(--surface))}
+.wz-opt.on .wz-l{background:var(--acc);color:#fff}.wz-opt.on .wz-ar{color:var(--acc)}
+.wz-opt.bad.on{border-color:var(--bad);background:var(--badsoft)}.wz-opt.bad.on .wz-l{background:var(--bad)}.wz-opt.bad.on .wz-ar{color:var(--bad)}
+.wz-opt.ok.on{border-color:var(--ok);background:var(--oksoft)}.wz-opt.ok.on .wz-l{background:var(--ok)}.wz-opt.ok.on .wz-ar{color:var(--ok)}
+.wz-ans{margin-top:14px;padding:14px 16px;border-radius:16px;background:color-mix(in srgb,var(--accsoft) 60%,var(--surface));animation:wzin .3s ease}
+.wz-ans.bad{background:var(--badsoft)}.wz-ans.ok{background:var(--oksoft)}
+.wz-al{font-size:12.5px;font-weight:700;color:var(--muted);margin-bottom:2px}
+.wz-ans li{border-color:rgba(0,0,0,.06)}
+.wz-nav{display:flex;justify-content:space-between;gap:10px;margin-top:14px;position:sticky;bottom:calc(72px + env(safe-area-inset-bottom));z-index:5}
+.wz-nav .btn{padding:13px 18px;font-size:15px;border-radius:14px;box-shadow:0 8px 20px -12px rgba(0,0,0,.35)}
+.wz-nav .btn[disabled]{opacity:.4;cursor:default}
+.wz-next{flex:1;justify-content:center}
+.wz-card.fin{text-align:center}
+.wz-fic{width:58px;height:58px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--ok),#46b07a);box-shadow:0 12px 26px -12px var(--ok)}
+.wz-sum{text-align:left;white-space:pre-wrap;font:14px/1.55 "Inter",system-ui,sans-serif;background:var(--surface2);border-radius:14px;padding:14px;margin:10px 0 14px;max-height:340px;overflow:auto}
+.wz-card.fin .acts{justify-content:center}
+/* diagram */
+.dg{position:relative;max-width:820px;padding-left:4px}
+.dg:before{content:"";position:absolute;left:21px;top:20px;bottom:20px;width:2px;background:linear-gradient(var(--acc),#7c5cd6);opacity:.25;border-radius:2px}
+.dg-n{position:relative;display:flex;gap:14px;margin-bottom:14px}
+.dg-dot{flex:0 0 auto;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px;background:var(--surface);border:2px solid var(--line);color:var(--muted);z-index:1;margin-top:10px}
+.dg-n.dec .dg-dot{border-color:var(--teal);color:var(--teal)}.dg-n.rx .dg-dot{border-color:var(--rx);color:var(--rx)}.dg-n.warn .dg-dot{border-color:var(--warn);color:var(--warn)}.dg-n.end .dg-dot{border-color:var(--ok);color:var(--ok)}
+.dg-card{flex:1;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px 16px}
+.dg-n.rx .dg-card{background:linear-gradient(180deg,color-mix(in srgb,var(--rxsoft) 60%,var(--surface)),var(--surface))}
+.dg-n.warn .dg-card{background:var(--warnsoft)}
+.dg-k{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.dg-k a{text-transform:none;letter-spacing:0}.dg-k .cpy{margin-left:auto}
+.dg-card h3{margin:4px 0 8px;font-size:17px;line-height:1.3}
+.dg-card ul{margin:0;padding-left:18px;font-size:15px;line-height:1.6}
+.dg-opts{display:flex;flex-wrap:wrap;gap:6px}
+.dg-opt{font:inherit;font-size:14px;font-weight:600;padding:8px 13px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);cursor:pointer;color:var(--ink)}
+.dg-opt.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.dg-opt.bad.on{background:var(--bad);border-color:var(--bad)}.dg-opt.ok.on{background:var(--ok);border-color:var(--ok)}
+[data-theme=dark] .dg-opt.on{color:var(--bg)}
+.dg-ans{margin-top:10px;padding:10px 14px;border-radius:14px;background:var(--surface2);animation:wzin .25s ease}
+.dg-ans.bad{background:var(--badsoft)}.dg-ans.ok{background:var(--oksoft)}
+.dg-hint{margin-top:8px;font-size:13px;color:var(--muted)}
+/* livelier: algorithm tiles + home */
+.ftile{position:relative;overflow:hidden;border-radius:20px!important;padding:18px!important}
+.ftile .ico{width:42px!important;height:42px!important;border-radius:13px!important;color:#fff!important;background:linear-gradient(135deg,var(--cc,#7c5cd6),color-mix(in srgb,var(--cc,#7c5cd6) 60%,#000))!important;box-shadow:0 8px 18px -10px var(--cc,#7c5cd6)}
+.ftile:after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:color-mix(in srgb,var(--cc,#7c5cd6) 10%,transparent)}
+.ftile:hover{border-color:color-mix(in srgb,var(--cc,#7c5cd6) 50%,var(--line))!important}
+.hx-top{position:relative;padding:22px 18px 20px!important;margin:4px 0 0;border-radius:26px;background:radial-gradient(90% 130% at 100% 0%,rgba(194,69,125,.20),transparent 60%),radial-gradient(80% 120% at 0% 100%,rgba(124,92,214,.16),transparent 60%),var(--surface);border:1px solid var(--line)}
+.hx-fci{background:linear-gradient(135deg,var(--cc,#7c5cd6),color-mix(in srgb,var(--cc,#7c5cd6) 60%,#000))!important;color:#fff!important}
+.hx-ai{background:linear-gradient(120deg,#1d1b2a,#3a2346 60%,#5a2a5e)!important}
+.hx-emi{background:linear-gradient(135deg,#c2457d,#8a2552)!important;color:#fff!important}
+@media (max-width:900px){.fx-hero{padding:18px 16px 14px;border-radius:20px}.fx-hero h1{font-size:22px}.wz-card{padding:18px 16px;border-radius:20px}.wz-card h2{font-size:20px}.fx-mode{width:100%}.fx-mode button{flex:1;justify-content:center;padding:9px 8px;font-size:13.5px}}
+.bnm{font:inherit;font-size:11.5px;font-weight:700;border:0;border-radius:99px;padding:1px 7px;margin-left:2px;background:color-mix(in srgb,var(--acc) 12%,transparent);color:var(--acc);cursor:pointer;vertical-align:1px}
+.bnx{font-weight:inherit}
 </style>
 </head>
 <body>
@@ -498,6 +591,7 @@ aside{background:var(--bg);border-right:1px solid var(--line)}
 </div>
 
 <script>
+const PUB=true;
 const S={};
 S["76"]={d:"Σεπτέμβριος 2025",b:[
 "Ορισμός: απώλεια >500 ml· ελάσσων 500–1.000 ml, μείζων >1.000 ml. Πρωτοπαθής στις πρώτες 24 ώρες, δευτεροπαθής από 24 ώρες έως 12 εβδομάδες.",
@@ -1041,216 +1135,7 @@ const G=[
  {n:"56",s:56,y:"2021",old:1,t:"Σύνδρομο υπερδιέγερσης ωοθηκών",c:"rep",by:"84",k:"OHSS"},
  {n:"60",s:60,y:"2021",old:1,t:"Προγεννητικός έλεγχος: παρακολούθηση ομαλά εξελισσόμενης, ανεπίπλεκτης κύησης",c:"preg",by:"87"}
 ];
-const NU="https://www.nice.org.uk/guidance/";
-const GX=[
- {src:"nice",n:"NG201",s:2001,t:"Προγεννητική φροντίδα (Antenatal care)",c:"preg",u:NU+"ng201",k:"antenatal care booking scan anti-D fetal movements"},
- {src:"nice",n:"NG235",s:2002,t:"Φροντίδα κατά τον τοκετό (Intrapartum care)",c:"labour",u:NU+"ng235",k:"intrapartum labour stages delay second stage epidural remifentanil"},
- {src:"nice",n:"NG229",s:2003,t:"Παρακολούθηση εμβρύου στον τοκετό (Fetal monitoring in labour)",c:"labour",u:NU+"ng229",k:"CTG καρδιοτοκογράφημα intermittent auscultation"},
- {src:"nice",n:"NG194",s:2004,t:"Φροντίδα λοχείας (Postnatal care)",c:"labour",u:NU+"ng194",k:"postnatal λοχεία"},
- {src:"nice",n:"NG133",s:2005,t:"Υπέρταση στην κύηση (Hypertension in pregnancy)",c:"preg",u:NU+"ng133",k:"προεκλαμψία pre-eclampsia λαμπεταλόλη νιφεδιπίνη μαγνήσιο υπέρταση"},
- {src:"nice",n:"NG3",s:2006,t:"Διαβήτης στην κύηση (Diabetes in pregnancy)",c:"preg",u:NU+"ng3",k:"ΣΔΚ GDM OGTT μετφορμίνη ινσουλίνη διαβήτης"},
- {src:"nice",n:"NG25",s:2007,t:"Πρόωρος τοκετός (Preterm labour and birth)",c:"labour",u:NU+"ng25",k:"preterm PPROM ερυθρομυκίνη cerclage προγεστερόνη"},
- {src:"nice",n:"NG207",s:2008,t:"Πρόκληση τοκετού (Inducing labour)",c:"labour",u:NU+"ng207",k:"induction Bishop δινοπροστόνη μισοπροστόλη"},
- {src:"nice",n:"NG192",s:2009,t:"Καισαρική τομή (Caesarean birth)",c:"labour",u:NU+"ng192",k:"caesarean καισαρική"},
- {src:"nice",n:"NG137",s:2010,t:"Δίδυμη και τρίδυμη κύηση (Twin and triplet pregnancy)",c:"preg",u:NU+"ng137",k:"twins δίδυμα TTTS χοριονικότητα"},
- {src:"nice",n:"NG126",s:2011,t:"Έκτοπη κύηση και αποβολή (Ectopic pregnancy and miscarriage)",c:"gyn",u:NU+"ng126",k:"ectopic εξωμήτριος miscarriage αποβολή μεθοτρεξάτη hCG PUL"},
- {src:"nice",n:"NG121",s:2012,t:"Τοκετός σε γυναίκες με νοσήματα ή επιπλοκές (Intrapartum care: existing conditions)",c:"labour",u:NU+"ng121",k:"heart disease asthma breech SGA previous caesarean"},
- {src:"nice",n:"NG255",s:2013,t:"Σήψη στην κύηση και τη λοχεία (Suspected sepsis in pregnancy)",c:"inf",u:NU+"ng255",k:"sepsis σήψη λοχειακή"},
- {src:"nice",n:"NG140",s:2014,t:"Διακοπή κύησης (Abortion care)",c:"gyn",u:NU+"ng140",k:"abortion άμβλωση μιφεπριστόνη μισοπροστόλη"},
- {src:"nice",n:"NG73",s:2015,t:"Ενδομητρίωση (Endometriosis)",c:"gyn",u:NU+"ng73",k:"endometriosis ενδομητρίωση"},
- {src:"nice",n:"NG88",s:2016,t:"Βαριά εμμηνορρυσία (Heavy menstrual bleeding)",c:"gyn",u:NU+"ng88",k:"HMB μηνορραγία ινομυώματα fibroids LNG-IUS τρανεξαμικό"},
- {src:"nice",n:"NG23",s:2017,t:"Εμμηνόπαυση (Menopause)",c:"gyn",u:NU+"ng23",k:"menopause HRT ΟΘΠ POI fezolinetant"},
- {src:"nice",n:"NG257",s:2018,t:"Υπογονιμότητα (Fertility problems)",c:"rep",u:NU+"ng257",k:"fertility IVF IUI σπερμοδιάγραμμα υπογονιμότητα"},
- {src:"nice",n:"NG123",s:2019,t:"Ακράτεια ούρων και πρόπτωση (Urinary incontinence and pelvic organ prolapse)",c:"gyn",u:NU+"ng123",k:"incontinence ακράτεια πρόπτωση pessary πεσσός"},
- {src:"nice",n:"CG192",s:2020,t:"Ψυχική υγεία στην κύηση και τη λοχεία (Antenatal and postnatal mental health)",c:"preg",u:NU+"cg192",k:"depression κατάθλιψη ψύχωση λίθιο SSRI EPDS"},
- {src:"asccp",n:"ASCCP",s:3001,t:"Μη φυσιολογικός έλεγχος τραχήλου: διαχείριση βάσει κινδύνου (ASCCP 2019 και Enduring Guidelines 2024–2025)",c:"onc",u:"https://www.asccp.org/management-guidelines",k:"HPV colposcopy κολποσκόπηση CIN genotyping dual stain p16 Ki67 self-collection αυτολήψη"}
-];
-const SX={
-"NG201":{d:"2021, ενημ. 2025",b:[
-"Πρώτη (booking) επίσκεψη έως τις 10+0 εβδομάδες· αν η γυναίκα έρθει μετά τις 9+0, εντός 2 εβδομάδων.",
-"Υπερηχογράφημα στις 11+2–14+1 εβδομάδες και ανατομικό στις 18+0–20+6 εβδομάδες.",
-"Anti-D προφύλαξη στις 28 εβδομάδες σε Rh αρνητικές μη ευαισθητοποιημένες· anti-D και σε κολπική αιμορραγία μετά τις 13 εβδομάδες.",
-"Σοβαρή υπέρταση (≥ 160/110 mmHg): παραπομπή την ίδια ημέρα.",
-"Εκτίμηση κινδύνου ενδομήτριας καθυστέρησης ανάπτυξης στην πρώτη επίσκεψη και ξανά στο 2ο τρίμηνο.",
-"Όχι ρουτίνα υπερηχογραφήματα μετά τις 28 εβδομάδες σε ανεπίπλεκτη μονήρη κύηση.",
-"Μειωμένες κινήσεις μετά τις 24+0 εβδομάδες: επικοινωνία με το μαιευτήριο οποιαδήποτε ώρα. Μετά τις 28 εβδομάδες αποφυγή ύπνου σε ύπτια θέση."]},
-"NG235":{d:"2023, ενημ. 2025",b:[
-"Λανθάνουσα φάση: συσπάσεις με τραχηλικές αλλαγές έως 4 cm. Εγκατεστημένη φάση: τακτικές συσπάσεις και προοδευτική διαστολή από 4 cm.",
-"Υποψία καθυστέρησης στο 1ο στάδιο: διαστολή < 2 cm σε 4 ώρες (πρωτοτόκες), ή < 2 cm σε 4 ώρες ή επιβράδυνση (πολυτόκες).",
-"2ο στάδιο: ο τοκετός αναμένεται εντός 3 ωρών από την έναρξη του ενεργού 2ου σταδίου στις πρωτοτόκες και εντός 2 ωρών στις πολυτόκες.",
-"Με επισκληρίδιο: η ώθηση μπορεί να καθυστερήσει έως 1 ώρα (πολυτόκες) ή έως 2 ώρες (πρωτοτόκες) μετά την πλήρη διαστολή. Όχι ρουτίνα ωκυτοκίνη στο 2ο στάδιο με επισκληρίδιο.",
-"Ωκυτοκίνη στο 2ο στάδιο: αυξήσεις όχι συχνότερα από κάθε 30 λεπτά.",
-"Επισκληρίδιος: χαμηλής συγκέντρωσης τοπικό αναισθητικό με οπιοειδές (0,0625–0,1% βουπιβακαΐνη με φεντανύλη 2 μg/ml)· όχι ρουτίνα ≥ 0,25%. ΑΠ κάθε 5 λεπτά για 15 λεπτά μετά από bolus ≥ 10 ml, και συνεχές ΚΤΓ για ≥ 30 λεπτά.",
-"Ρεμιφεντανίλη PCA 40 μg ανά bolus με lockout 2 λεπτών, μόνο σε μαιευτική μονάδα.",
-"Ρήξη υμένων στο τελειόμηνο: αναμονή έως 24 ώρες ή πρόκληση· αν δεν αρχίσει τοκετός σε 24 ώρες, τοκετός με πρόσβαση σε νεογνολογική μονάδα και παραμονή ≥ 12 ώρες μετά.",
-"Κριτήρια μεταφοράς σε μαιευτική μονάδα: σφύξεις > 120/λεπτό, ΑΠ ≥ 140/90 mmHg σε 2 μετρήσεις με διαφορά 15–30 λεπτά, ρήξη υμένων > 24 ώρες, μειωμένες κινήσεις κ.ά."]},
-"NG229":{d:"2022, ενημ. 2025",b:[
-"Εκτίμηση κινδύνου στην έναρξη του τοκετού για επιλογή διαλείπουσας ακρόασης ή ΚΤΓ· επανεκτίμηση σε όλη τη διάρκεια.",
-"Διαλείπουσα ακρόαση 1ο στάδιο: αμέσως μετά από συστολή, για ≥ 1 λεπτό, τουλάχιστον κάθε 15 λεπτά.",
-"Διαλείπουσα ακρόαση 2ο στάδιο: τουλάχιστον κάθε 5 λεπτά, με ψηλάφηση του μητρικού σφυγμού.",
-"Συνεχές ΚΤΓ σε προγεννητικούς ή ενδοτοκετικούς παράγοντες κινδύνου (π.χ. πυρετός, επισκληρίδιος, ωκυτοκίνη, παρατεταμένος τοκετός).",
-"Καθησυχαστικά: βασική γραμμή 110–160 bpm και μεταβλητότητα 5–25 bpm.",
-"Ταξινόμηση ΚΤΓ: φυσιολογικό, ύποπτο ή παθολογικό· στο παθολογικό άμεση εκτίμηση, αποκλεισμός οξέων συμβαμάτων και συντηρητικά μέτρα.",
-"Ερεθισμός κεφαλής εμβρύου σε ύποπτο ΚΤΓ· απουσία επιτάχυνσης είναι ανησυχητική.",
-"Δειγματοληψία αίματος εμβρύου: καμία σύσταση λόγω ανεπαρκών δεδομένων."]},
-"NG194":{d:"2021, ενημ. 2026",b:[
-"Πρώτη επίσκεψη μαίας εντός 36 ωρών από το εξιτήριο ή τον κατ' οίκον τοκετό.",
-"Σε κάθε επαφή: λοίμωξη, πόνος, κολπική αιμορραγία, ούρηση και κένωση, μαστοί, θρομβοεμβολή, αναιμία, προεκλαμψία, ψυχική υγεία.",
-"Ενημέρωση για σημεία που χρειάζονται άμεση βοήθεια: έντονη αιμορραγία, πυρετός, σημεία ΦΘΕ, θωρακικό άλγος, επίμονη κεφαλαλγία, φλεγμονή μαστού > 24 ωρών.",
-"Δευτερογενής αιμορραγία: εκτίμηση βαρύτητας· προσοχή σε αναιμία και βάρος < 50 kg.",
-"Σήψη: ακολουθείται η οδηγία NICE για σήψη (Νο NG255)· εξέταση και του νεογνού.",
-"Εκτίμηση κινδύνου ΦΘΕ και πρόληψη σύμφωνα με NICE και RCOG.",
-"Έλεγχος 6–8 εβδομάδων από γενικό ιατρό, με συνολική αξιολόγηση."]},
-"NG133":{d:"2019, ενημ. 2023",b:[
-"Ασπιρίνη 75–150 mg ημερησίως από τις 12 εβδομάδες έως τον τοκετό σε 1 παράγοντα υψηλού κινδύνου (υπερτασική νόσος σε προηγούμενη κύηση, ΧΝΝ, αυτοάνοσο, ΣΔ τύπου 1/2, χρόνια υπέρταση).",
-"Το ίδιο σε > 1 μέτριο παράγοντα: πρώτη κύηση, ηλικία ≥ 40, μεσοδιάστημα > 10 ετών, ΔΜΣ ≥ 35 kg/m², οικογενειακό ιστορικό, πολύδυμη κύηση.",
-"Έναρξη αγωγής σε επίμονη ΑΠ ≥ 140/90 mmHg· στόχος 135/85 mmHg. Μείωση ή διακοπή αν < 110/70 mmHg.",
-"Φάρμακα: λαμπεταλόλη πρώτη επιλογή, μετά νιφεδιπίνη, μετά μεθυλντόπα.",
-"Σοβαρή υπέρταση: λαμπεταλόλη (po ή IV), νιφεδιπίνη po ή υδραλαζίνη IV.",
-"Θειικό μαγνήσιο σε εκλαμψία ή σοβαρή προεκλαμψία: 4 g IV σε 5–15 λεπτά, μετά 1 g/ώρα για 24 ώρες· νέοι σπασμοί 2–4 g IV.",
-"Χρόνια ή κυησιακή υπέρταση: όχι τοκετός πριν τις 37 εβδομάδες αν ΑΠ < 160/110 mmHg χωρίς άλλη ένδειξη.",
-"Προεκλαμψία: < 37 εβδομάδες παρακολούθηση εκτός ενδείξεων· από 37 εβδομάδες τοκετός εντός 24–48 ωρών."]},
-"NG3":{d:"2015, ενημ. 2020",b:[
-"Πριν τη σύλληψη: στόχος HbA1c < 48 mmol/mol (6,5%)· αποφυγή κύησης αν HbA1c > 86 mmol/mol (10%). Φυλλικό οξύ 5 mg ημερησίως έως τις 12 εβδομάδες.",
-"Έλεγχος ΣΔΚ μόνο με OGTT 75 g, 2 ωρών· όχι γλυκόζη νηστείας, HbA1c ή γενική ούρων για εκτίμηση κινδύνου.",
-"Προηγούμενος ΣΔΚ: OGTT (ή αυτοέλεγχος) το συντομότερο μετά την πρώτη επίσκεψη και ξανά στις 24–28 εβδομάδες. Άλλοι παράγοντες κινδύνου: OGTT στις 24–28 εβδομάδες.",
-"Διάγνωση ΣΔΚ: γλυκόζη νηστείας ≥ 5,6 mmol/l ή 2ωρη ≥ 7,8 mmol/l.",
-"Στόχοι: 1 ώρα μετά το γεύμα 7,8 mmol/l ή 2 ώρες 6,4 mmol/l· με ινσουλίνη πάνω από 4 mmol/l.",
-"ΣΔΚ με νηστεία < 7 mmol/l: δίαιτα-άσκηση· αν δεν επιτευχθούν στόχοι σε 1–2 εβδομάδες, μετφορμίνη, και μετά ινσουλίνη.",
-"ΣΔΚ με νηστεία ≥ 7,0 mmol/l: ινσουλίνη από τη διάγνωση.",
-"HbA1c στη διάγνωση ΣΔΚ για αναγνώριση προϋπάρχοντος ΣΔ τύπου 2· όχι ρουτίνα HbA1c στο 2ο–3ο τρίμηνο για έλεγχο ρύθμισης."]},
-"NG25":{d:"2015, ενημ. 2022",b:[
-"Ιστορικό πρόωρου τοκετού ≤ 34+0 ή απώλειας από 16+0 και τράχηλος ≤ 25 mm (16+0–24+0): επιλογή κολπικής προγεστερόνης ή προφυλακτικής περίδεσης· προγεστερόνη έως τουλάχιστον 34 εβδομάδες.",
-"PPROM: ερυθρομυκίνη 250 mg po 4 φορές ημερησίως έως 10 ημέρες ή έως τον τοκετό· αν δεν γίνεται ανεκτή, πενικιλλίνη po. Όχι αμοξικιλλίνη-κλαβουλανικό.",
-"Διάγνωση PPROM: όχι νιτραζίνη· θετικό IGFBP-1 ή PAMG-1 μόνο του δεν αρκεί.",
-"Ύποπτος πρόωρος τοκετός από 30+0: τράχηλος > 15 mm σημαίνει μάλλον όχι πρόωρο τοκετό. Fetal fibronectin θετικό > 50 ng/ml· τα δύο δεν συνδυάζονται.",
-"Τοκόλυση: νιφεδιπίνη στις 26+0–33+6 (εξέταση στις 24+0–25+6)· αν αντενδείκνυται, ανταγωνιστής ωκυτοκίνης. Όχι β-μιμητικά.",
-"Κορτικοστεροειδή στις 24+0–33+6 (εξέταση στις 34+0–35+6)· έως 2 σχήματα, επανάληψη αν > 7 ημέρες από το προηγούμενο.",
-"Θειικό μαγνήσιο για νευροπροστασία στις 24+0–29+6 (εξέταση στις 30+0–33+6): 4 g IV σε 15 λεπτά, μετά 1 g/ώρα έως τον τοκετό ή 24 ώρες.",
-"Επείγουσα περίδεση 16+0–27+6 με διαστολή και εκτεθειμένους υμένες, χωρίς λοίμωξη, αιμορραγία ή συσπάσεις. Καθυστερημένη απολίνωση λώρου ≥ 60 δευτερόλεπτα."]},
-"NG207":{d:"2021",b:[
-"Από 41+0 εβδομάδες συζήτηση πρόκλησης· σε άρνηση, πρόσθετη παρακολούθηση από τις 42 εβδομάδες.",
-"Αποκόλληση υμένων (membrane sweep) σε επισκέψεις μετά τις 39+0 εβδομάδες, με συναίνεση.",
-"PPROM: όχι πρόκληση πριν τις 34+0 χωρίς άλλη ένδειξη· αναμονή έως 37+0. Στις 34+0–37+0 συζήτηση αναμονής ή πρόκλησης.",
-"PROM στο τελειόμηνο: αναμονή έως 24 ώρες ή πρόκληση.",
-"Bishop ≤ 6: δινοπροστόνη κολπικά (δισκίο, γέλη ή σύστημα ελεγχόμενης αποδέσμευσης) ή μισοπροστόλη χαμηλής δόσης 25 μg po. Εξέταση μηχανικής μεθόδου (μπαλόνι ή οσμωτικός διαστολέας).",
-"Bishop > 6: αμνιορρηξία και ωκυτοκίνη IV.",
-"Οι μηχανικές μέθοδοι προκαλούν λιγότερη υπερδιέγερση από τις φαρμακευτικές.",
-"Εξωνοσοκομειακή πρόκληση με δινοπροστόνη ή μηχανικά μέσα σε γυναίκες χωρίς επιπλοκές."]},
-"NG192":{d:"2021, ενημ. 2024",b:[
-"Προγραμματισμένη καισαρική όχι ρουτίνα πριν τις 39 εβδομάδες.",
-"Αίτημα χωρίς ιατρική ένδειξη: συζήτηση, ενημέρωση, καταγραφή, και σεβασμός της απόφασης.",
-"Επείγουσες: κατηγορία 1 εντός 30 λεπτών από την απόφαση, κατηγορία 2 εντός 75 λεπτών στις περισσότερες περιπτώσεις.",
-"Αντιβιοτικά πριν την τομή του δέρματος· όχι αμοξικιλλίνη-κλαβουλανικό.",
-"Θρομβοπροφύλαξη σε όλες, με μέθοδο ανάλογα με τον κίνδυνο.",
-"Τεχνική: χαμηλή εγκάρσια τομή, όχι ρουτίνα εξωτερίκευση της μήτρας, μονή ή διπλή στιβάδα, χωρίς συρραφή περιτοναίου.",
-"Εξωτερική μεταστροφή σε ανεπίπλεκτη ισχιακή προβολή από 36+0 εβδομάδες.",
-"VBAC: συνεχές ΚΤΓ και τοκετός σε μονάδα με άμεση δυνατότητα καισαρικής και μετάγγισης."]},
-"NG137":{d:"2019, ενημ. 2024",b:[
-"Χοριονικότητα με υπερηχογράφημα (αριθμός πλακούντων, μεμβράνες, σημείο λάμδα ή T)· αν αβέβαιη, θεωρείται μονοχοριακή.",
-"Επισκέψεις: τουλάχιστον 8 (DCDA) ή 11 (MCDA)· τρίδυμες 9 ή 11.",
-"MC κυήσεις: υπερηχογράφημα για TTTS κάθε 14 ημέρες από τις 16 εβδομάδες. Διαφορά βάθους υγρού ≥ 4 cm → εβδομαδιαίος έλεγχος με Doppler ομφαλικής.",
-"TTTS: βαθύτερη δεξαμενή < 2 cm στο ένα και > 8 cm (πριν 20+0) ή > 10 cm (μετά) στο άλλο → παραπομπή σε τριτοβάθμιο κέντρο.",
-"Τοκετός: DCDA στις 37 εβδομάδες, MCDA στις 36 εβδομάδες (με εξέταση στεροειδών).",
-"MCMA: τοκετός στις 32+0–33+6 εβδομάδες. Τρίδυμες TCTA ή DCTA στις 35 εβδομάδες."]},
-"NG126":{d:"2019, ενημ. 2023",b:[
-"Παραπομπή σε μονάδα πρώιμης κύησης σε αιμορραγία με πόνο, κύηση ≥ 6 εβδομάδων ή αβέβαιη ηλικία κύησης.",
-"Διακολπικό: CRL < 7,0 mm χωρίς καρδιακή λειτουργία → επανάληψη σε ≥ 7 ημέρες· CRL ≥ 7,0 mm → δεύτερη γνώμη ή επανάληψη σε 7 ημέρες.",
-"MSD < 25,0 mm χωρίς έμβρυο → επανάληψη σε 7 ημέρες· ≥ 25,0 mm → δεύτερη γνώμη ή επανάληψη.",
-"Κύηση άγνωστης εντόπισης: αύξηση hCG > 63% σε 48 ώρες → υπερηχογράφημα σε 7–14 ημέρες· πτώση > 50% → τεστ ούρων σε 14 ημέρες· αλλιώς εκτίμηση εντός 24 ωρών.",
-"Αποβολή: αναμονή 7–14 ημέρες πρώτη επιλογή. Παλίνδρομη: μιφεπριστόνη 200 mg po και μετά 48 ώρες μισοπροστόλη 800 μg. Ατελής: μισοπροστόλη 600 μg (ή 800 μg).",
-"Έκτοπη, μεθοτρεξάτη: χωρίς σημαντικό πόνο, άρρηκτη, μάζα < 35 mm χωρίς καρδιακή λειτουργία, hCG < 1.500 IU/l. Χειρουργείο αν μάζα ≥ 35 mm, καρδιακή λειτουργία ή hCG ≥ 5.000 IU/l.",
-"Αναμονή στην έκτοπη: σταθερή, χωρίς πόνο, μάζα < 35 mm, hCG ≤ 1.000 IU/l (εξέταση έως 1.500 IU/l).",
-"Anti-D 250 IU σε Rh αρνητικές μόνο σε χειρουργική αντιμετώπιση έκτοπης ή αποβολής.",
-"Απειλούμενη αποβολή με προηγούμενη αποβολή: κολπική μικρονοποιημένη προγεστερόνη 400 mg × 2 έως τις 16 εβδομάδες."]},
-"NG121":{d:"2019",b:[
-"Καρδιοπάθεια: εκτίμηση από ομάδα με καρδιολόγο· σε μηχανική βαλβίδα προγραμματισμένος τοκετός και εξατομικευμένη αντιπηκτική αγωγή.",
-"Υψηλού κινδύνου αορτοπάθεια, πνευμονική υπέρταση ή NYHA III–IV: εξέταση προγραμματισμένης καισαρικής.",
-"Υποψία καρδιακής ανεπάρκειας: ΗΚΓ, ακτινογραφία θώρακα, NT-proBNP.",
-"Άσθμα: όχι καρβοπρόστη λόγω βρογχόσπασμου.",
-"Προηγούμενη καισαρική: η ωκυτοκίνη για καθυστέρηση αυξάνει τον κίνδυνο ρήξης· όχι ρουτίνα αμνιορρηξία.",
-"Σήψη: αντιβιοτικά πριν την περιοχική αναισθησία· επιτάχυνση τοκετού αν η πηγή είναι το γεννητικό σύστημα.",
-"SGA έμβρυο: συνεχές ΚΤΓ μετά από συζήτηση.",
-"Ισχιακή προβολή στον τοκετό: συζήτηση κολπικού τοκετού ή καισαρικής και απόφαση από τη γυναίκα."]},
-"NG255":{d:"Νοέμβριος 2025",b:[
-"Υψηλός κίνδυνος (ενδεικτικά): αναπνοές ≥ 25/λεπτό, ανάγκη O₂ ≥ 40% για SpO₂ > 92%, ΣΑΠ ≤ 90 mmHg ή > 40 mmHg κάτω από τη συνήθη, σφύξεις > 130/λεπτό, χωρίς ούρηση 18 ώρες.",
-"Μέτριος–υψηλός κίνδυνος: αναπνοές 21–24, ΣΑΠ 91–100 mmHg, σφύξεις 100–130 ή νέα αρρυθμία, χωρίς ούρηση 12–18 ώρες.",
-"Υψηλός κίνδυνος: άμεση εκτίμηση από έμπειρο ιατρό, αέρια με γαλακτικό, καλλιέργειες, γενική, CRP, πήξη.",
-"IV αντιβιοτικά εντός 1 ώρας σε κριτήριο υψηλού κινδύνου, κατά το τοπικό πρωτόκολλο.",
-"Γαλακτικό > 4 mmol/l ή ΣΑΠ < 90 mmHg: bolus κρυσταλλοειδούς εντός 1 ώρας και παραπομπή σε ΜΕΘ.",
-"Bolus 500 ml κρυσταλλοειδούς (Na 130–154 mmol/l) σε < 15 λεπτά· επανεκτίμηση και δεύτερο bolus αν δεν βελτιωθεί, μετά ειδοποίηση συμβούλου.",
-"Εκτός νοσοκομείου: άμεση μεταφορά σε κριτήριο υψηλού κινδύνου· αν η μεταφορά > 1 ώρα, αντιβιοτικά προνοσοκομειακά."]},
-"NG140":{d:"2019",b:[
-"Επιλογή φαρμακευτικής ή χειρουργικής μεθόδου έως 23+6 εβδομάδες.",
-"Έως 10+0 εβδομάδες: μεσοδιάστημα 24–48 ωρών μιφεπριστόνης–μισοπροστόλης· κατ' οίκον αποβολή έως 9+6.",
-"10+1–23+6: μιφεπριστόνη 200 mg, μετά μισοπροστόλη 800 μg κολπικά ή 600 μg υπογλώσσια, και 400 μg κάθε 3 ώρες.",
-"Μετά τις 23+6 μισοπροστόλη ανά ηλικία: 400 μg/3 ώρες (24+0–25+0), 200 μg/4 ώρες (25+1–28+0), 100 μg/6 ώρες (> 28+0).",
-"Προετοιμασία τραχήλου έως 13+6: μισοπροστόλη 400 μg υπογλώσσια 1 ώρα πριν ή κολπικά 3 ώρες πριν, ή μιφεπριστόνη 200 mg 24–48 ώρες πριν.",
-"Αντιβιοτική προφύλαξη στη χειρουργική (π.χ. δοξυκυκλίνη 100 mg × 2 για 3 ημέρες)· όχι ρουτίνα στη φαρμακευτική.",
-"Anti-D σε Rh αρνητικές μετά τις 10+0· όχι στη φαρμακευτική έως 10+0."]},
-"NG73":{d:"2017, ενημ. 2024",b:[
-"Υποψία σε χρόνιο πυελικό πόνο, δυσμηνόρροια που επηρεάζει την καθημερινότητα, εν τω βάθει δυσπαρευνία, κυκλικά γαστρεντερικά ή ουρολογικά συμπτώματα, υπογονιμότητα.",
-"Φυσιολογικό υπερηχογράφημα ή MRI δεν αποκλείει ενδομητρίωση. Όχι CA-125 για διάγνωση.",
-"Αναλγησία πρώτης γραμμής: δοκιμή π.χ. 3 μηνών με παρακεταμόλη ή ΜΣΑΦ.",
-"Ορμονική θεραπεία (συνδυασμένο αντισυλληπτικό ή προγεσταγόνο) χωρίς αρνητική επίδραση στη μελλοντική γονιμότητα.",
-"Χειρουργείο λαπαροσκοπικά· σε εν τω βάθει νόσο εντέρου, κύστης ή ουρητήρα εξέταση GnRH αγωνιστή για 3 μήνες πριν.",
-"Παρακολούθηση σε εν τω βάθει νόσο ή ενδομητρίωμα > 3 cm.",
-"Υπογονιμότητα: εκτομή ή καταστροφή εστιών με λύση συμφύσεων· όχι ορμονική θεραπεία σε όσες προσπαθούν να συλλάβουν."]},
-"NG88":{d:"2018, ενημ. 2021",b:[
-"Χωρίς άλλα συμπτώματα: φαρμακευτική αγωγή χωρίς κλινική εξέταση (εκτός από LNG-IUS)· κλινική εξέταση πριν από κάθε διερεύνηση ή τοποθέτηση LNG-IUS.",
-"Υστεροσκόπηση ή υπερηχογράφημα ως πρώτη διερεύνηση ανάλογα με το ιστορικό· βιοψία ενδομητρίου μόνο κατά την υστεροσκόπηση, όχι «τυφλή».",
-"Ινομυώματα < 3 cm χωρίς παραμόρφωση κοιλότητας ή αδενομύωση: LNG-IUS πρώτη επιλογή· εναλλακτικά τρανεξαμικό, ΜΣΑΦ, συνδυασμένη αντισύλληψη, κυκλικά προγεσταγόνα.",
-"Υποβλεννογόνια ινομυώματα: υστεροσκοπική αφαίρεση.",
-"Ινομυώματα ≥ 3 cm: παραπομπή και επιλογή ανάλογα με μέγεθος, θέση, αριθμό και συμπτώματα (φαρμακευτικά, εμβολισμός, μυομεκτομή, υστερεκτομή).",
-"Ουλιπριστάλη 5 mg (έως 4 κύκλοι) μόνο σε προεμμηνοπαυσιακές με ινομυώματα ≥ 3 cm, όταν χειρουργείο και εμβολισμός είναι ακατάλληλα, με έλεγχο ηπατικής λειτουργίας.",
-"Μετά από κατάλυση ενδομητρίου: αποφυγή κύησης και αποτελεσματική αντισύλληψη."]},
-"NG23":{d:"2015, ενημ. 2024",b:[
-"Ηλικία ≥ 45 με συμπτώματα: διάγνωση περι- ή εμμηνόπαυσης χωρίς εργαστηριακές εξετάσεις (όχι FSH).",
-"FSH μπορεί να βοηθήσει στις 40–45 ετών με συμπτώματα και αλλαγή κύκλου, και κάτω των 40 σε υποψία πρόωρης ωοθηκικής ανεπάρκειας.",
-"ΟΘ (HRT) για αγγειοκινητικά συμπτώματα· η fezolinetant είναι επιλογή όταν η ΟΘ είναι ακατάλληλη.",
-"Κολπικά οιστρογόνα για ουρογεννητικά συμπτώματα, και μαζί με συστηματική ΟΘ· σε ιστορικό καρκίνου μαστού πρώτα μη ορμονικά λιπαντικά.",
-"Γνωσιακή συμπεριφορική θεραπεία ως επιλογή για αγγειοκινητικά συμπτώματα, διαταραχές ύπνου και διάθεσης.",
-"Διαδερμική αντί για από του στόματος ΟΘ σε αυξημένο κίνδυνο ΦΘΕ, π.χ. ΔΜΣ > 30 kg/m².",
-"Τεστοστερόνη σε μειωμένη libido αν η ΟΘ δεν αρκεί.",
-"Πρώιμη εμμηνόπαυση (40–44 ετών): ψυχολογική υποστήριξη."]},
-"NG257":{d:"2026 (αντικατέστησε τη CG156)",b:[
-"Σπερμοδιάγραμμα (όρια WHO): όγκος ≥ 1,4 ml, συγκέντρωση ≥ 16 εκατ./ml, συνολικός αριθμός ≥ 39 εκατ., κινητικότητα ≥ 42%, προωθητική ≥ 30%, μορφολογία ≥ 4%.",
-"Παθολογικό σπερμοδιάγραμμα: επανάληψη ιδανικά σε 3 μήνες (άμεσα σε αζωοσπερμία). Όχι έλεγχος κατακερματισμού DNA σπέρματος.",
-"Υπογοναδοτροπικός υπογοναδισμός: γοναδοτροπίνες με δράση LH ή GnRH. Υπερπρολακτιναιμία: καβεργολίνη.",
-"Υδροσάλπιγγες πριν την εξωσωματική: λαπαροσκοπική σαλπιγγεκτομή ή απόφραξη σάλπιγγας.",
-"Ανεξήγητη υπογονιμότητα: προσπάθεια για 2 έτη· μετά έως 4 κύκλοι IUI με γοναδοτροπίνες ή εξωσωματική. Όχι διέγερση ωοθηκών μόνη της.",
-"Εξωσωματική σε < 42 ετών μετά από 2 έτη ή 12 κύκλους σπερματέγχυσης· < 40 ετών 3 πλήρεις κύκλοι (έως 3 ακόμη).",
-"Όχι endometrial scratch, υστεροσκόπηση ρουτίνας, έλεγχος υποδεκτικότητας ενδομητρίου ή ανοσολογικοί παράγοντες ως «add-ons».",
-"Για διέγερση ωοθηκών, trigger, ωχρινική φάση και πρόληψη OHSS η NICE παραπέμπει στην οδηγία ESHRE 2025."]},
-"NG123":{d:"2019",b:[
-"Ημερολόγιο ούρησης τουλάχιστον 3 ημερών (εργάσιμες και αργίες).",
-"Ακράτεια προσπάθειας ή μικτή: επιβλεπόμενη άσκηση πυελικού εδάφους για τουλάχιστον 3 μήνες.",
-"Επιτακτική ή μικτή: εκπαίδευση κύστης για τουλάχιστον 6 εβδομάδες.",
-"Αντιμουσκαρινικό με το χαμηλότερο κόστος, επανεκτίμηση σε 4 εβδομάδες.",
-"Βοτουλινική τοξίνη Α μετά από MDT: 100 μονάδες, επανεκτίμηση εντός 12 εβδομάδων, 200 μονάδες αν ανεπαρκής.",
-"Πλέγματα: άγνωστη μακροχρόνια επίπτωση, η πλήρης αφαίρεση μπορεί να μην είναι εφικτή· απόφαση σε περιφερειακή MDT.",
-"Πεσσός για συμπτωματική πρόπτωση, με αφαίρεση τουλάχιστον κάθε 6 μήνες."]},
-"CG192":{d:"2014, ενημ. 2020",b:[
-"Παρακολούθηση με EPDS, PHQ-9 ή GAD-7· ερωτήσεις GAD-2 για άγχος τις τελευταίες 2 εβδομάδες.",
-"Όχι βαλπροϊκό και όχι καρβαμαζεπίνη για ψυχιατρικά νοσήματα σε γυναίκες που σχεδιάζουν κύηση, κυοφορούν ή θηλάζουν.",
-"Λίθιο όχι εκτός αν τα αντιψυχωσικά απέτυχαν· αν συνεχιστεί, επίπεδα κάθε 4 εβδομάδες, εβδομαδιαία από την 36η, διακοπή στον τοκετό και επίπεδα 12 ώρες μετά.",
-"Βενζοδιαζεπίνες μόνο βραχυχρόνια για σοβαρό άγχος ή διέγερση.",
-"Ενημέρωση για σύνδρομο στέρησης και νεογνική προσαρμογή με SSRI, SNRI και τρικυκλικά, ιδίως παροξετίνη και βενλαφαξίνη.",
-"Ιστορικό σοβαρής ψυχικής νόσου ή οικογενειακό ιστορικό: επαγρύπνηση για λοχειακή ψύχωση τις πρώτες 2 εβδομάδες.",
-"Αιφνίδια συμπτώματα λοχειακής ψύχωσης: παραπομπή για εκτίμηση εντός 4 ωρών."]},
-"ASCCP":{d:"2019, ενημ. 2023· Enduring 2024–2025 (ΗΠΑ)",b:[
-"Αρχή «ίσος κίνδυνος, ίση διαχείριση»: απόφαση βάσει του άμεσου και του 5ετούς κινδύνου CIN3+ (εργαλείο app.asccp.org).",
-"Άμεσος κίνδυνος CIN3+ ≥ 60%: προτιμάται άμεση θεραπεία (expedited) χωρίς βιοψία σε μη έγκυες ≥ 25 ετών· 25–59%: θεραπεία ή κολποσκόπηση.",
-"Άμεσος κίνδυνος ≥ 4%: κολποσκόπηση με βιοψίες.",
-"Κίνδυνος < 4%, επανέλεγχος με βάση τον 5ετή κίνδυνο: ≥ 0,55% σε 1 έτος, 0,15–0,54% σε 3 έτη, < 0,15% σε 5 έτη.",
-"HPV 16 ή 18 θετικό: κολποσκόπηση ανεξαρτήτως κυτταρολογίας.",
-"Εκτεταμένη γονοτύπηση (2025): HPV 45, 33/58, 31, 52, 35/39/68 ή 51 → διαλογή με κυτταρολογία ή dual stain. HPV 56/59/66 μόνο → επανάληψη HPV σε 1 έτος.",
-"Dual stain p16/Ki67 (2024): θετικό → κολποσκόπηση· αρνητικό → επανέλεγχος με HPV σε 1 έτος (εκτός HPV 16/18 ή υψηλόβαθμης κυτταρολογίας).",
-"Αυτολήψη κολπικού δείγματος (2025): αποδεκτή για πρωτογενή HPV έλεγχο σε μέσο κίνδυνο· αν αρνητικό, επανάληψη σε 3 έτη (όχι 5). Θετικό για 16/18 → κολποσκόπηση.",
-"Μετά τη θεραπεία CIN2+: HPV-based έλεγχος στους 6 μήνες, μετά ετήσια έως 3 αρνητικά, μετά ανά 3 έτη για τουλάχιστον 25 έτη."]}
-};
-G.push(...GX);Object.assign(S,SX);
-
+const GX=[];
 const F=[
 {id:"pprom",t:"ΠΠΡΕΥ (PPROM)",sub:"Διάγνωση, αντιβίωση, στεροειδή, μαγνήσιο, χρονισμός τοκετού",c:"labour",refs:["77","52","53"],n:[
  {k:"step",h:"Διάγνωση και αρχικός έλεγχος",x:["Ιστορικό απώλειας υγρών και θετική εξέταση με κολποδιαστολέα υπό άσηπτες συνθήκες.","Ο αμνιακός δείκτης μόνος του δεν επιβεβαιώνει ούτε αποκλείει.","Λευκά, CRP, κολπική καλλιέργεια για GBS, καλλιέργεια ούρων.","Η αμνιοπαρακέντηση δεν συστήνεται."]},
@@ -1340,29 +1225,18 @@ const F=[
  {k:"warn",h:"Ορισμοί",x:["Ταχυσυστολία: > 5 συστολές/10 λεπτά (μέσος όρος 30 λεπτών).","Αποτυχία: χωρίς ρυθμικές συστολές και τραχηλικές αλλαγές μετά 12–18 ώρες ωκυτοκίνης με ρήξη υμένων, ή ≥ 24 ώρες χωρίς ρήξη."]},
  {k:"end",h:"Προηγούμενη καισαρική (VBAC)",x:["Ωκυτοκίνη αν Bishop > 6 (ρήξη ~0,63%).","Η μισοπροστόλη δεν συστήνεται."],ref:"44"}
 ]},
-{id:"cervix",t:"Προσυμπτωματικός έλεγχος τραχήλου & HPV",sub:"ΕΜΓΕ + ASCCP: ηλικίες, HPV γονοτύπηση, dual stain, κίνδυνος CIN3+",c:"onc",refs:["81","48","ASCCP"],n:[
- {k:"dec",h:"Ηλικία (ΕΜΓΕ)",ref:"81",b:[
+{id:"cervix",t:"Προσυμπτωματικός έλεγχος τραχήλου",sub:"Ηλικίες, HPV, Παπανικολάου, CIN",c:"onc",refs:["81","48"],n:[
+ {k:"dec",h:"Ηλικία",b:[
    {l:"< 21",x:["Χωρίς έλεγχο."]},
    {l:"21–29",x:["Τεστ Παπανικολάου κάθε 3 χρόνια."]},
    {l:"30–65",tone:"ok",x:["Πρωτογενές HPV DNA τεστ κάθε 5 χρόνια.","Κυτταρολογία ως reflex μόνο αν το HPV είναι θετικό.","Αυτολήψη HPV για όσες δεν προσέρχονται."]},
    {l:"> 65",x:["Διακοπή αν ≥ 3 αρνητικές εξετάσεις την τελευταία δεκαετία, η τελευταία εντός 5ετίας."]}]},
- {k:"step",h:"Ειδικές ομάδες (ΕΜΓΕ)",ref:"81",x:["Ολική υστερεκτομή χωρίς ιστορικό CIN2+: διακοπή.","Ιστορικό CIN2+: κολπική κυτταρολογία έως 20 έτη.","Εμβολιασμένες: ίδιο πρόγραμμα."]},
- {k:"dec",h:"HPV θετικό: διαλογή με γονοτύπηση (ASCCP)",ref:"ASCCP",b:[
-   {l:"HPV 16 ή 18",tone:"bad",x:["Κολποσκόπηση ανεξαρτήτως κυτταρολογίας.","HPV 16 με HSIL: προτιμάται άμεση θεραπεία (κίνδυνος CIN3+ ≥ 60%)."]},
-   {l:"HPV 45, 33/58, 31, 52, 35/39/68 ή 51",x:["Διαλογή με κυτταρολογία ή dual stain p16/Ki67.","Κυτταρολογία ≥ ASC-US ή dual stain θετικό → κολποσκόπηση.","NILM ή dual stain αρνητικό → HPV σε 1 έτος."]},
-   {l:"Μόνο HPV 56, 59 ή 66",tone:"ok",x:["Χαμηλός κίνδυνος: επανάληψη HPV σε 1 έτος."]}]},
- {k:"dec",h:"Απόφαση βάσει κινδύνου CIN3+ (ASCCP)",ref:"ASCCP",b:[
-   {l:"Άμεσος κίνδυνος ≥ 60%",tone:"bad",x:["Άμεση θεραπεία με εκτομή (LEEP) χωρίς βιοψία, σε μη έγκυες ≥ 25 ετών.","25–59%: θεραπεία ή κολποσκόπηση."]},
-   {l:"Άμεσος κίνδυνος ≥ 4%",x:["Κολποσκόπηση με βιοψίες."]},
-   {l:"< 4%, 5ετής ≥ 0,55%",x:["Επανέλεγχος σε 1 έτος."]},
-   {l:"5ετής 0,15–0,54%",x:["Επανέλεγχος σε 3 έτη."]},
-   {l:"5ετής < 0,15%",tone:"ok",x:["Επανέλεγχος σε 5 έτη."]}]},
- {k:"step",h:"Αυτολήψη κολπικού δείγματος (ASCCP 2025)",ref:"ASCCP",x:["Αποδεκτή για πρωτογενή HPV έλεγχο σε μέσο κίνδυνο· προτιμάται η λήψη από ιατρό.","Αρνητική: επανάληψη σε 3 έτη (όχι 5).","HPV 16/18: κολποσκόπηση. Άλλοι τύποι: δείγμα από ιατρό για κυτταρολογία ή dual stain."]},
- {k:"dec",h:"Ιστολογία (ΕΜΓΕ Νο 48)",ref:"48",b:[
+ {k:"step",h:"Ειδικές ομάδες",x:["Ολική υστερεκτομή χωρίς ιστορικό CIN2+: διακοπή.","Ιστορικό CIN2+: κολπική κυτταρολογία έως 20 έτη.","Εμβολιασμένες: ίδιο πρόγραμμα."]},
+ {k:"dec",h:"Ιστολογία (Νο 48)",b:[
    {l:"CIN1",x:["Συνήθως παρακολούθηση· θεραπεία αν επιμένει ≥ 2 έτη.","< 25 ετών: κυτταρολογία σε 1 έτος."]},
    {l:"CIN2",x:["Θεραπεία.","Νέες που επιθυμούν τεκνοποίηση: παρακολούθηση έως 2 έτη με co-testing ανά 6 μήνες."]},
    {l:"CIN3 / AIS",tone:"bad",x:["Θεραπεία· προτιμώνται οι εκτομές."]}]},
- {k:"end",h:"Μετά τη θεραπεία",x:["ΕΜΓΕ: co-testing στους 6 μήνες· αν αρνητικό, ετήσια για 3 έτη και μετά ανά 3 έτη για ≥ 25 έτη.","ASCCP: HPV-based έλεγχος στους 6 μήνες, ετήσια έως 3 αρνητικά, μετά ανά 3 έτη για ≥ 25 έτη."]}
+ {k:"end",h:"Μετά τη θεραπεία",x:["Co-testing στους 6 μήνες· αν αρνητικό, ετήσια για 3 έτη και μετά ανά 3 έτη για ≥ 25 έτη."]}
 ]},
 {id:"cmv",t:"CMV στην κύηση",sub:"Έλεγχος, avidity, βαλακυκλοβίρη, αμνιοπαρακέντηση",c:"inf",refs:["71","87"],n:[
  {k:"step",h:"Πρόληψη",x:["Συμβουλές υγιεινής σε όλες: αποφυγή σάλιου και ούρων μικρών παιδιών, πλύσιμο χεριών."]},
@@ -1413,46 +1287,48 @@ const F=[
 
 const BR=[
  ["σπείραμα λεβονοργεστρέλης","Mirena"],
- ["λεβονοργεστρέλη(?!ς)","Norlevo, Postinor"],
- ["ωκυτοκίνη\\p{L}*","Oxytocin/GAP"],
+ ["λεβονοργεστρέλη(?!ς)","Norlevo, Postinor 1500"],
+ ["ωκυτοκίνη\\p{L}*","Oxytocin/GAP, Oxytocin"],
  ["καρμπετοσίνη\\p{L}*|καρβετοσίνη\\p{L}*","Pabal"],
  ["μεθυλεργομετρίνη\\p{L}*","Methergin, Demergin"],
  ["καρβοπρόστη\\p{L}*","δεν κυκλοφορεί στην Ελλάδα"],
  ["μισοπροστόλη\\p{L}*","Cytotec, MisoOne"],
  ["τρανεξαμικό\\p{L}*(?: οξύ)?","Transamin"],
- ["αζιθρομυκίνη\\p{L}*","Zithromax, Zinfect"],
- ["αμπικιλλίνη\\p{L}*","Pentrexyl"],
- ["αμοξικιλλίνη(?!ς?-κλαβ)\\p{L}*","Amoxil, Aproxal"],
- ["κεφτριαξόνη\\p{L}*","Rocephin"],
- ["κλαριθρομυκίνη\\p{L}*","Klaricid"],
- ["μετρονιδαζόλη\\p{L}*","Flagyl, Metrogyl"],
+ ["αζιθρομυκίνη\\p{L}*","Zithromax, Zinfect, Zithrotel, Azibactron, Azitrolid, Azifarm, Azirox, Azirutec, Azithral, Azithrin, Azithromycin/Generics, Azithromycin/Vocate, Azithromycin Teva, Azithromycin/Syndesmos, Azithromycin/Kleva, Azivirus, ΑΖΥΤΑΝ, Bezanin, Binozyt, Disithrom, Figothrom, Flumax, Goldamycin, Gramokil, Novozithron, Razimax, Thoraxx, Zithrobest, Zithro-Due, Zithroplus, Zithroxyn, Zitrax/Genepharm, Zyramycin, Alzirax, Ciroz"],
+ ["αμπικιλλίνη\\p{L}*","Pentrexyl, Ampicillin/Cooper, Copercilex, Adefocin, Outcyst"],
+ ["αμοξικιλλίνη(?!ς?-κλαβ)\\p{L}*","Amoxil, Aproxal, Stevencillin"],
+ ["κεφτριαξόνη\\p{L}*","Rocephin, Antibacin, Azatyl, Bresec, Ceftrixon, Ceriaxon, Farcef, Glorixone, Infeflox, Labilex, Medaxone, Riaxon, Rolisporin, Travilan, Ugotrex, Veracol, Ceftriaxone/Italfarmaco, Ceftriaxone/Kabi, Ceftriaxone/Norma"],
+ ["κλαριθρομυκίνη\\p{L}*","Klaricid, Claribactron, Claripen, Claromycin, Egelif, Ezumycin, Geromycin, Glartin, Klarifar, Klarifect, Klarithrin, Klaroxin, Primocid, Riclemed, Rithroprol, Ritran, Thriamox, Zeclaren, Althromicin, Arecid, Claridus, Clarimex, Clarithrocin, Clarithromycin/Generics, Clarithromycin/Sandoz, Clarithromycin/Teva, Clarithromycin/Mylan, Eliben, Klaretop, Klarexyl, Klaribros, Klarimac, Klazidem, Larithro, Laromin, Lyoclar, Macladin, Maxigan, Maxilin, Mythrocin, Odycin, Pharicid, Sanicet, Sythro, Tromypen, Brevil, Viaclar, Metib, Mepires"],
+ ["μετρονιδαζόλη\\p{L}*","Flagyl, Metrogyl, Gnostol, Flagolin, Metrazol, Colpocin-T, Trichovagil, Metronidazole/B.braun, Metronidazole/Baxter, Metronidazole/Norma, Metronidazole/ΒΙΟΣΕΡ, Metronidazole/ΦΑΡΜ. ΣΥΝΔΕΣΜΟΣ, Metronidazole/Gener, Metronidazole/Cooper"],
  ["βηταμεθαζόνη\\p{L}*","Celestone Chronodose"],
- ["δεξαμεθαζόνη\\p{L}*","Oradexon, Dexaton"],
- ["θει[ιϊ]κό μαγνήσιο","Magnesium sulfate/Demo, /Cooper"],
- ["προγεστερόνη\\p{L}*","Utrogestan, Crinone, Cyclogest, Lutinus"],
- ["ΧΜΒΗ","Clexane, Innohep"],
- ["ασπιρίνη\\p{L}*","Salospir, Aspirin, Vasopirin"],
+ ["δεξαμεθαζόνη\\p{L}*","Dexaton, Oradexon, Soldesanil, Dexamethasone/GAP, Dexamethasone Phosphate/Demo, Dexamethasone/Kabi"],
+ ["θει[ιϊ]κό μαγνήσιο","Magnesium Sulfate/Demo, Magnesium Sulphate/Cooper, Magnesium Sulfate/Ariti"],
+ ["προγεστερόνη\\p{L}*","Utrogestan, Crinone, Cyclogest, Lutinus, Prolutex, Gestone, Vasclor, Promenorea, Gynalven, Mastopon-Treat"],
+ ["ΧΜΒΗ","Clexane, Havetra, Enoxaparin/Rovi, Innohep, Fragmin, Fraxiparine, Ivor, Ivormax"],
+ ["ενοξαπαρίνη\\p{L}*","Clexane, Havetra, Enoxaparin/Rovi"],
+ ["τινζαπαρίνη\\p{L}*","Innohep"],
+ ["ασπιρίνη\\p{L}*","Salospir, Aspirin, Aspirin EC, Vasopirin, Egicalm"],
  ["κεφαζολίνη\\p{L}*|κεφαλοσπορίνη 1ης γενιάς","Vifazolin"],
- ["κλινδαμυκίνη\\p{L}*","Dalacin C"],
- ["γενταμυκίνη\\p{L}*","Garamycin"],
- ["PGE2","Prostin E2, Propess"],
+ ["κλινδαμυκίνη\\p{L}*","Dalacin C, Veldom, Clidacin BA Free, Edason, Clindamycin/Kabi, Clindamycin/Cooper, Clindamycin/Demo, Clindamycin/Anfarm, Clindamycin/Alvia, Climycen, Clindagel, Fouch, Upderm, Vagiclin, Velkaderm, Ygielle, Esteria, Yenlip, Cleo-Fort"],
+ ["γενταμυκίνη\\p{L}*","Garamycin, Gentamicin Lek, Gentamicina Solfato Fisiopharma, Gentamicin Sopharma, Gentamicin Krka, Gentamicin DS, Diakarmon, Octoret, Gentomil, Gentalline, Gentamed, Genta-Gobens"],
+ ["PGE2|δινοπροστόνη\\p{L}*","Prostin E2, Propess"],
  ["μιφεπριστόνη\\p{L}*","Mifegyne"],
  ["δοξυλαμίνη\\p{L}*","Nuperal"],
- ["μετοκλοπραμίδη\\p{L}*","Primperan"],
- ["ονδανσετρόνη\\p{L}*","Zofron"],
- ["δομπεριδόνη\\p{L}*","Cilroton"],
- ["μεθυλπρεδνιζολόνη\\p{L}*","Medrol, Solu-Medrol"],
- ["βαλακυκλοβίρη\\p{L}*","Valtrex"],
- ["δοξυκυκλίνη\\p{L}*","Vibramycin"],
- ["νιτροφουραντοΐνη\\p{L}*","Furolin"],
+ ["μετοκλοπραμίδη\\p{L}*","Primperan, Veriligo, Vergomet, Pribekinet"],
+ ["ονδανσετρόνη\\p{L}*","Zofron, Biosetron, Cruzafen, Dentron, Onda, Ondameton, Ondaren, Vefron, Zophralen, Zodatron, Fedral, Jodol, Nofail, Odasen, Odnatron, Ondansetron/Generics, Ondansetron/Kabi, Ondansetron/B.braun, Ondansetron/Noridem, Ondansetron/Kalceks, Ondaseprol, Ondeton, Otredil, Setrodan, Trondamet, Zetron, Vametal"],
+ ["δομπεριδόνη\\p{L}*","Cilroton, Oroperidys"],
+ ["μεθυλπρεδνιζολόνη\\p{L}*","Medrol, Solu-Medrol, Depo-Medrol, Depo-Medrone, Provist, Lyo-Drol"],
+ ["βαλακυκλοβίρη\\p{L}*","Valtrex, Vociflon, Solvaprent, Valomed, Valaciclovir/Teva, Valaciclovir/Actavis, Valaciclovir/Pharmathen, Valaciclovir Aurobindo, Valaciclovir/Aristo, Valaciclovir/Bluefish, Valaciclovir/Milpharma, Valaciclovir/Sun Pharma"],
+ ["δοξυκυκλίνη\\p{L}*","Vibramycin, Vibravenosa, Impalamycin, Microvibrate, Novimax, Otosal, Smilitene, Combaforte, Doxycyclinum (N)"],
+ ["νιτροφουραντοΐνη\\p{L}*","Furolin, Nitrofurantoin/Iasis"],
  ["φωσφομυκίνη\\p{L}*","Fosfocin"],
- ["φλουκοναζόλη\\p{L}*","Fungustatin, Flucoran"],
- ["καβεργολίνη\\p{L}*","Dostinex"],
- ["λετροζόλη\\p{L}*","Femara"],
- ["κλομιφαίνη\\p{L}*","Serpafar"],
- ["διενογέστη\\p{L}*","Visannette"],
- ["σιπροφλοξασίνη\\p{L}*","Ciproxin"],
- ["λεβοφλοξασίνη\\p{L}*","Tavanic"],
+ ["φλουκοναζόλη\\p{L}*","Fungustatin, Flucoran, Figalol, Flucodrug, Flusenil, Fungusteril, Fuxilidin, Gynosant, Hadlinol, Mycazole, Rifagen, Stabilanol, Tierlite, Varmec, Zidonil, Flukatril, Azoflu, Azzol-S, Dalrich, Falipan, Farviron, Flucalit, Flucanid, Flucocaps-Therapy, Flucofin, Fluconapen, Flucovein, Fluzomic, Funadel, Fungo, Fungram, Medoflucon, Novoflon, Opumyk, Sadlos, Flucostatin, Dermaspor, Afloxol, Fungofort, Fluconazole/Teva, Fluconazole/Medicus, Fluconazole/Noridem, Fluconazole/Ranbaxy, Fluconazole/Actavis, Fluconazole/Kabi, Fluconazole/Pharmanel, Fluconazole/B.braun, Fluconazole Redibag/Baxter, Fluconazole/Syndesmos"],
+ ["καβεργολίνη\\p{L}*","Dostinex, Cabergolina Ratiopharm"],
+ ["λετροζόλη\\p{L}*","Femara, Femaplex, Leoncon, Letropen, Letrozin, Levinox, Linol, Mimor, Religan, Stefaplex, Trezor, Viobrest, Aromed, Letrafem, Lotestrol, Femazac, Ratroz, Feremazol, Letrozole/Actavis, Letrozole/Teva, Letrozole/Tecnimede, Letrozole/Generics, Letrozole/Sandoz, Letrozole/Mylan, Letrozole/Specifar"],
+ ["κλομιφαίνη\\p{L}*","Serpafar, Clomiphen Citrate/ΑΝΦΑΡΜ"],
+ ["διενογέστη\\p{L}*","Visannette, Diemono, Efilda"],
+ ["σιπροφλοξασίνη\\p{L}*","Ciproxin, Ciprobay, Cipro, Aristin-C, Afenoxin C, Balepton C, Biocipro, Bivorilan, Ciprofal, Cipromycin/Medichrom, Ciprospes, Citrovenot, Flociprin, Forterra, Ginorectol, Glossyfin, Grenis-Cipro, Infectina, Labentrol, Ladinin, Limox, Nafloxin, Ravalton, Remena, Revionorm, Topistin, Ufexil, Urodixin, Alciprocin, Cifloxacin, Ciprocton, Ciprovian, Edestis, Uritent, Utiminx, Thisbi, Unifloxin, Ciprofloxacin/Proel, Ciprofloxacin/Alvia, Ciprofloxacin Redibag/Baxter, Ciprofloxacin/Teva, Ciprofloxacin/Generics, Ciprofloxacin/Noridem, Ciprofloxacin/Kabi, Ciprofloxacin/Uni-Pharma, Ciprofloxacin/Vioser, Ciprofloxacin/Mylan"],
+ ["λεβοφλοξασίνη\\p{L}*","Tavanic, Floxator, Le-Vof, Levolacin, Levoprolin, Lexacin, Talerin, Zirotan, Zoclix, Evoxil, Flaxidel, Cinlevo, Floxitard, Vlofinox"],
  ["βενζαθινική πενικιλλίνη\\p{L}*(?: G)?","Moldamin, Tardocillin· μέσω ΙΦΕΤ"]
 ].map(([p,b])=>[new RegExp("(?<!\\p{L})("+p+")","iu"),b]);
 function brandify(s){let out=s;for(const [re,b] of BR){out=out.replace(re,(m)=>m+" ⟪"+b+"⟫")}return out}
@@ -1484,13 +1360,16 @@ const IC={
  thermo:'<path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z"/>',
  gauge:'<path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4-5"/>',
  shield:'<path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/>',
+ check:'<path d="M5 12.5l4.5 4.5L19 7"/>',
+ copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>',
  info:'<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/>'
 };
 const svg=(k,w=20)=>`<svg width="${w}" height="${w}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</svg>`;
 const $=s=>document.querySelector(s);
 const norm=s=>(s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/ς/g,"σ");
 const esc0=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const bn=h=>h.replace(/⟪/g,'<span class="bn">(').replace(/⟫/g,")</span>");
+const bn=h=>h.replace(/⟪([^⟫]*)⟫/g,(m,l)=>{const a=l.split(", ");if(a.length<=3)return `<span class="bn">(${l})</span>`;return `<span class="bn">(${a.slice(0,3).join(", ")}<span class="bnx" hidden>, ${a.slice(3).join(", ")}</span> <button class="bnm" data-bnm data-n="+${a.length-3}" aria-label="Όλα τα σκευάσματα">+${a.length-3}</button>)</span>`});
+const bshort=s=>s.replace(/⟪([^⟫]*)⟫/g,(m,l)=>"("+l.split(", ").slice(0,3).join(", ")+")");
 const esc=s=>bn(esc0(s));
 const NUMRE=/((?:≥|≤|&lt;|&gt;|~|×)\s?)?\d+(?:[.,]\d+)*(?:\+\d)?(?:\s?[–-]\s?\d+(?:[.,]\d+)*(?:\+\d)?)?(\s?(?:mg\/kg|mg\/dl|g\/dl|g\/l|mU\/min|IU\/kg|mg|mcg|μg|IU|mU|ml|kg|cm|mm|g|εβδομάδες|εβδομάδα|εβδ\.?|ώρες|ώρα|ημέρες|ημέρα|λεπτά|μήνες|έτη|δόσεις|%|\/μl))(?![\p{L}])/gu;
 const GARE=/(?<![\d\p{L}])(\d{2}\+\d(?:\s?[–-]\s?\d{2}\+\d)?)(?![\d])/gu;
@@ -1540,7 +1419,7 @@ $("#theme").onclick=()=>applyTheme(document.documentElement.dataset.theme==="dar
 if(store.get("mg-lg",false))document.documentElement.classList.add("lg");
 $("#fsz").onclick=()=>{const on=document.documentElement.classList.toggle("lg");store.set("mg-lg",on)};
 /* nav */
-const NAV=[["home","Αρχική","home"],["rotiste","Ρωτήστε","spark"],["algorithmoi","Αλγόριθμοι","flow"],["odigies","Οδηγίες","list"],["diethneis","NICE · ASCCP","globe"],["doseis","Δόσεις","pill"],["ergaleia","Εργαλεία","calc"],["agapimena","Αγαπημένες","star"]];
+const NAV=[["home","Αρχική","home"],["rotiste","Ρωτήστε","spark"],["algorithmoi","Αλγόριθμοι","flow"],["odigies","Οδηγίες","list"],["doseis","Δόσεις","pill"],["ergaleia","Εργαλεία","calc"],["agapimena","Αγαπημένες","star"]];
 let state={cat:"all",q:"",old:false,sort:"desc"};
 function route(){const h=location.hash.replace("#","")||"home";return h}
 function go(h){if(location.hash.replace("#","")===h)render();else location.hash=h;}
@@ -1563,22 +1442,23 @@ function row(g,ts){
     <button class="star${favs.has(g.n)?" on":""}" data-fav="${esc(g.n)}" aria-label="Αγαπημένη"><svg width="20" height="20" viewBox="0 0 24 24" fill="${favs.has(g.n)?"currentColor":"none"}" stroke="currentColor" stroke-width="1.8">${IC.star}</svg></button>
     <span class="chev">${svg("chev",18)}</span></div>`;
 }
-function ftile(f){return `<button class="ftile" data-go="f-${f.id}"><div class="ico">${svg("flow")}</div><b>${esc(f.t)}</b><span>${esc(f.sub)}</span><span class="nref" style="margin:0">${f.refs.map(lab).join(", ")}</span></button>`}
+function ftile(f){return `<button class="ftile" data-go="f-${f.id}" style="--cc:${CATC[f.c]||"#7c5cd6"}"><div class="ico">${svg("flow")}</div><b>${esc(f.t)}</b><span>${esc(f.sub)}</span><span class="nref" style="margin:0">${f.refs.map(lab).join(", ")}</span></button>`}
 
 /* views */
 function vHome(){
   const latest=CUR.slice().sort((a,b)=>b.s-a.s).slice(0,5);
   const rec=recent.map(k=>k.startsWith("f-")?["f",byF[k.slice(2)]]:["g",bySlug[k.slice(2)]]).filter(x=>x[1]);
   const hr=new Date().getHours(),greet=hr<12?"Καλημέρα":hr<18?"Καλησπέρα":"Καλό βράδυ";
-  const EM=[["f-pph","Αιμορραγία μετά τον τοκετό","drop","#c0262d"],["f-pprom","PPROM","shield","#7a1d45"],["f-preterm","Πρόωρος τοκετός","clock","#3b4cca"],["g-NG133","Υπέρταση & εκλαμψία","gauge","#a15c07"],["g-NG255","Σήψη","thermo","#b42318"],["f-vte","Θρομβοπροφύλαξη","bolt","#0f766e"]];
-  const SC=[["algorithmoi","Αλγόριθμοι",F.length,"flow"],["odigies","Οδηγίες ΕΜΓΕ",CUR.length,"list"],["diethneis","NICE · ASCCP",INTL.length,"globe"],["doseis","Δόσεις",doses.reduce((a,x)=>a+x.l.length,0),"pill"],["ergaleia","Εργαλεία",3,"calc"],["agapimena","Αγαπημένες",favs.size,"star"]];
+  let EM=[["f-pph","Αιμορραγία μετά τον τοκετό","drop","#c0262d"],["f-pprom","PPROM","shield","#7a1d45"],["f-preterm","Πρόωρος τοκετός","clock","#3b4cca"],["g-NG133","Υπέρταση & εκλαμψία","gauge","#a15c07"],["g-NG255","Σήψη","thermo","#b42318"],["f-vte","Θρομβοπροφύλαξη","bolt","#0f766e"]];
+  if(PUB)EM=EM.map(e=>e[0]==="g-NG133"?["f-iol","Πρόκληση τοκετού","clock","#000"]:e[0]==="g-NG255"?["g-58","CTG","gauge","#000"]:e);
+  const SC=[["algorithmoi","Αλγόριθμοι",F.length,"flow"],["odigies","Οδηγίες ΕΜΓΕ",CUR.length,"list"],["doseis","Δόσεις",doses.reduce((a,x)=>a+x.l.length,0),"pill"],["ergaleia","Εργαλεία",3,"calc"],["agapimena","Αγαπημένες",favs.size,"star"]];
   return `<div class="hx">
   <section class="hx-top">
     <p class="hx-hi">${greet} 👋</p>
     <h1 class="hx-h">Τι χρειάζεστε σήμερα;</h1>
     <div class="hx-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="hq" placeholder="Πάθηση, φάρμακο ή αριθμός οδηγίας" autocomplete="off">${micAvail()?`<button class="hx-mic" data-homemic aria-label="Ερώτηση με φωνή">${svg("mic",20)}</button>`:""}</div>
   </section>
-  <button class="hx-ai" data-go="rotiste"><span class="hx-ai-ic">${svg("spark",24)}</span><span class="hx-ai-t"><b>Ρωτήστε την ΑΙ</b><small>${micAvail()?"Μιλήστε ή γράψτε":"Γράψτε"} την ερώτηση· απάντηση από ΕΜΓΕ, NICE, ASCCP</small></span><span class="hx-go">${svg("chev",18)}</span></button>
+  <button class="hx-ai" data-go="rotiste"><span class="hx-ai-ic">${svg("spark",24)}</span><span class="hx-ai-t"><b>Ρωτήστε την ΑΙ</b><small>${micAvail()?"Μιλήστε ή γράψτε":"Γράψτε"} την ερώτηση· απάντηση από τις οδηγίες ΕΜΓΕ</small></span><span class="hx-go">${svg("chev",18)}</span></button>
   <h2 class="hx-sec">Επείγοντα, με ένα πάτημα</h2>
   <div class="hx-em">${EM.filter(e=>e[0].startsWith("f-")?byF[e[0].slice(2)]:bySlug[e[0].slice(2)]).map(([h,l,i,c])=>`<button class="hx-emt" data-go="${h}"><span class="hx-emi">${svg(i,20)}</span><span>${l}</span><span class="hx-arr">${svg("chev",16)}</span></button>`).join("")}</div>
   ${rec.length?`<h2 class="hx-sec">Συνεχίστε από εκεί που μείνατε</h2><div class="hx-row">${rec.slice(0,8).map(([t,x])=>`<button class="hx-chip" data-go="${t}-${t==="f"?x.id:slug(x.n)}">${t==="f"?svg("flow",16):`<b>${esc(x.n)}</b>`}<span>${esc(t==="f"?x.t:x.t.replace(/\s*\(.*\)$/,""))}</span></button>`).join("")}</div>`:""}
@@ -1586,10 +1466,10 @@ function vHome(){
   <div class="hx-grid">${SC.map(([h,l,n,i])=>`<button class="hx-sc" data-go="${h}"><span class="hx-sci">${svg(i,22)}</span><b>${l}</b><small>${n}</small></button>`).join("")}</div>
   ${favs.size?`<h2 class="hx-sec">Αγαπημένες <a data-go="agapimena" href="#agapimena">Όλες →</a></h2><div class="list">${[...favs].map(n=>byN[n]).filter(Boolean).slice(0,5).map(g=>row(g,[])).join("")}</div>`:""}
   <h2 class="hx-sec">Αλγόριθμοι <a data-go="algorithmoi" href="#algorithmoi">Όλοι →</a></h2>
-  <div class="hx-car">${F.map(f=>`<button class="hx-fc" data-go="f-${f.id}"><span class="hx-fci">${svg("flow",20)}</span><b>${esc(f.t)}</b><small>${esc(f.sub)}</small></button>`).join("")}</div>
+  <div class="hx-car">${F.map(f=>`<button class="hx-fc" data-go="f-${f.id}" style="--cc:${CATC[f.c]||"#7c5cd6"}"><span class="hx-fci">${svg("flow",20)}</span><b>${esc(f.t)}</b><small>${esc(f.sub)}</small></button>`).join("")}</div>
   <h2 class="hx-sec">Νεότερες οδηγίες ΕΜΓΕ <a data-go="odigies" href="#odigies">Όλες →</a></h2>
   <div class="list">${latest.map(g=>row(g,[])).join("")}</div>
-  <p class="hx-disc">${svg("info",15)}<span>Ανεξάρτητο εργαλείο, όχι επίσημος ιστότοπος της ΕΜΓΕ. Οι συνόψεις είναι δικές μας· πριν από κλινική απόφαση επαληθεύστε στο επίσημο κείμενο (<a href="https://hsog.gr/katefthyntiries-odigies/" target="_blank" rel="noopener">hsog.gr</a>, <a href="https://www.nice.org.uk" target="_blank" rel="noopener">nice.org.uk</a>, <a href="https://www.asccp.org" target="_blank" rel="noopener">asccp.org</a>).</span></p>
+  <p class="hx-disc">${svg("info",15)}<span>Ανεξάρτητο εργαλείο, όχι επίσημος ιστότοπος της ΕΜΓΕ. Οι συνόψεις είναι δικές μας· πριν από κλινική απόφαση επαληθεύστε στο επίσημο κείμενο (<a href="https://hsog.gr/katefthyntiries-odigies/" target="_blank" rel="noopener">hsog.gr</a>).</span></p>
   </div>`;
 }
 function vList(favOnly,intl){
@@ -1598,8 +1478,8 @@ function vList(favOnly,intl){
   L.sort(intl&&state.sort==="desc"?(a,b)=>a.s-b.s:state.sort==="az"?(a,b)=>a.t.localeCompare(b.t,"el"):state.sort==="asc"?(a,b)=>a.s-b.s:(a,b)=>(a.old||0)-(b.old||0)||b.s-a.s);
   const pool=G.filter(g=>(intl?!!g.src:!g.src)&&(state.old||!g.old));
   return `<h1 style="margin:6px 0 4px;font-size:26px">${favOnly?"Αγαπημένες":intl?"Διεθνείς οδηγίες":"Κατευθυντήριες οδηγίες"}</h1>
-  <p style="margin:0 0 14px;color:var(--muted)">${favOnly?"Πατήστε το αστέρι σε οποιαδήποτε οδηγία για να τη βρίσκετε εδώ.":intl?"Οι οδηγίες του NICE για μαιευτική-γυναικολογία και οι συστάσεις ASCCP για τον τράχηλο, με ελληνική σύνοψη και σύνδεσμο στο πρωτότυπο. Μπορεί να διαφέρουν από την ελληνική πράξη.":"Πατήστε μια οδηγία για τις βασικές συστάσεις και το επίσημο PDF."}</p>
-  ${favOnly?"":`<div class="vtog srcsw"><button class="${intl?"":"on"}" data-go="odigies">ΕΜΓΕ <span class="n">${CUR.length}</span></button><button class="${intl?"on":""}" data-go="diethneis">${svg("globe",15)} NICE · ASCCP <span class="n">${INTL.length}</span></button></div>`}
+  <p style="margin:0 0 14px;color:var(--muted)">${favOnly?"Πατήστε το αστέρι σε οποιαδήποτε οδηγία για να τη βρίσκετε εδώ.":intl?(PUB?"Σύνδεσμοι προς τις επίσημες οδηγίες του NICE και της ASCCP. Οι ελληνικές συνόψεις θα προστεθούν όταν δοθεί άδεια χρήσης από τους εκδότες.":"Οι οδηγίες του NICE για μαιευτική-γυναικολογία και οι συστάσεις ASCCP για τον τράχηλο, με ελληνική σύνοψη και σύνδεσμο στο πρωτότυπο. Μπορεί να διαφέρουν από την ελληνική πράξη."):"Πατήστε μια οδηγία για τις βασικές συστάσεις και το επίσημο PDF."}</p>
+  ${(favOnly||!INTL.length)?"":`<div class="vtog srcsw"><button class="${intl?"":"on"}" data-go="odigies">ΕΜΓΕ <span class="n">${CUR.length}</span></button><button class="${intl?"on":""}" data-go="diethneis">${svg("globe",15)} NICE · ASCCP <span class="n">${INTL.length}</span></button></div>`}
   ${favOnly?"":`<div class="chips">${[["all","Όλες",pool.length],...Object.entries(CATS).map(([k,v])=>[k,v,pool.filter(g=>g.c===k).length])].map(([k,v,n])=>`<button class="chip${state.cat===k?" on":""}" data-cat="${k}">${esc(v)} <span class="n">${n}</span></button>`).join("")}</div>`}
   <div class="tools"><input type="search" id="lq" placeholder="Φιλτράρισμα…" value="${esc(state.q)}">
    ${favOnly?"":`<select id="sort"><option value="desc">Νεότερες πρώτα</option><option value="asc">Κατά αριθμό</option><option value="az">Αλφαβητικά</option></select>
@@ -1623,7 +1503,7 @@ function vGuide(g){
       <button class="btn" data-fav="${esc(g.n)}">${favs.has(g.n)?"★ Στις αγαπημένες":"☆ Αγαπημένη"}</button><button class="btn" data-share>${svg("share",16)} Κοινοποίηση</button></div></div></div>
   ${s?`<div class="secrow"><h2 class="sec" style="margin:0">Βασικές συστάσεις</h2><div class="vtog"><button class="${gView==="flow"?"on":""}" data-gview="flow">${svg("flow",15)} Διάγραμμα</button><button class="${gView==="list"?"on":""}" data-gview="list">${svg("list",15)} Λίστα</button></div></div>
   ${gView==="flow"?`<div class="flow gflow">${s.b.map(recNode).join('<div class="conn"></div>')}</div>`:`<div class="recs">${s.b.map(b=>`<div class="rec">${fmt(b)}</div>`).join("")}</div>`}
-  <p class="verify">${svg("info",16)}<span>${g.src?"Ελληνική σύνοψη με δικά μας λόγια από το πρωτότυπο (αγγλικά). Πριν από κλινική απόφαση επαληθεύστε στην πηγή και συγκρίνετε με τις οδηγίες της ΕΜΓΕ.":"Σύνοψη με δικά μας λόγια από το επίσημο κείμενο."} Πριν από κλινική απόφαση επαληθεύστε στο PDF. Οι εμπορικές ονομασίες σε παρένθεση είναι ενδεικτικές, από τον <a href="https://www.galinos.gr" target="_blank" rel="noopener">Γαληνό</a>.</span></p>`:`<p class="verify">Δεν υπάρχει σύνοψη για αυτή την οδηγία.</p>`}`;
+  <p class="verify">${svg("info",16)}<span>${g.src?"Ελληνική σύνοψη με δικά μας λόγια από το πρωτότυπο (αγγλικά). Πριν από κλινική απόφαση επαληθεύστε στην πηγή και συγκρίνετε με τις οδηγίες της ΕΜΓΕ.":"Σύνοψη με δικά μας λόγια από το επίσημο κείμενο."} Πριν από κλινική απόφαση επαληθεύστε στο PDF. Οι εμπορικές ονομασίες σε παρένθεση είναι ενδεικτικές, από τον <a href="https://www.galinos.gr" target="_blank" rel="noopener">Γαληνό</a>.</span></p>`:`<p class="verify">${g.src?"Η ελληνική σύνοψη θα προστεθεί όταν δοθεί άδεια χρήσης από τον εκδότη. Ανοίξτε την επίσημη οδηγία με το κουμπί παραπάνω.":"Δεν υπάρχει σύνοψη για αυτή την οδηγία."}</p>`}`;
 }
 function vFlows(){
   const ts=terms(state.q);
@@ -1633,20 +1513,58 @@ function vFlows(){
   <div class="fgrid">${L.map(ftile).join("")||`<div class="empty">Δεν βρέθηκαν αλγόριθμοι.</div>`}</div>`;
 }
 const KL={step:"Βήμα",dec:"Απόφαση",rx:"Αγωγή",warn:"Προσοχή",end:"Συνέχεια"};
+const FS={};let fMode=store.get("mg-fmode","wz");
+const CATC={preg:"#d9487a",labour:"#7c5cd6",thromb:"#d0453b",inf:"#1f9d8a",gyn:"#e07a2f",onc:"#3b78d8",rep:"#0f9bc4"};
+const fsOf=f=>FS[f.id]||(FS[f.id]={i:0,p:{},d:{}});
+const nodeTxt=x=>x.k==="dec"?[]:x.x;
+function flowSummary(f){const s=fsOf(f);const L=[f.t,""];f.n.forEach((x,i)=>{if(x.k==="dec"){const bi=s.p[i];if(bi!=null){L.push("▸ "+x.h+": "+x.b[bi].l);x.b[bi].x.forEach(y=>L.push("   • "+y))}}else if(x.k==="rx"||x.k==="warn"){L.push("▸ "+x.h);x.x.forEach(y=>L.push("   • "+y))}});L.push("","Πηγή: οδηγίες ΕΜΓΕ "+f.refs.map(lab).join(", "));return L.join("\n")}
 function vFlow(f){
+  const s=fsOf(f),N=f.n.length,cc=CATC[f.c]||"var(--acc)";
   const refl=r=>`<a data-go="g-${slug(r)}">${esc(lab(r))}</a>`;
-  const nodes=f.n.map(x=>{
-    let body="";
-    if(x.k==="dec") body=`<div class="branches">${x.b.map(b=>`<div class="br${b.tone?" "+b.tone:""}" data-pick role="button" tabindex="0"><b class="bl">${esc(b.l)}</b><ul>${b.x.map(t=>`<li>${fmt(t)}</li>`).join("")}</ul></div>`).join("")}</div>`;
-    else body=`<ul>${x.x.map(t=>`<li>${fmt(t)}</li>`).join("")}</ul>`;
-    const extra=x.k==="rx"?`<button class="cpy" data-copy>Αντιγραφή</button>`:"";
-    return `<div class="node ${x.k}"><h3><span class="k">${KL[x.k]}</span>${esc(x.h)}${extra}</h3>${x.k==="dec"?`<span class="tapnote">Πατήστε την περίπτωση της ασθενούς σας</span>`:""}${body}${x.ref?`<div class="nref">Πηγή: ${refl(x.ref)}</div>`:""}</div>`;
-  }).join('<div class="conn"></div>');
-  return `<button class="back" data-back>${svg("back",18)} Πίσω</button>
-  <div class="fhead"><div class="ico">${svg("flow",26)}</div><div><h1>${esc(f.t)}</h1><p>${esc(f.sub)}</p>
-    <div class="acts" style="margin-top:10px"><button class="btn" data-share>${svg("share",16)} Κοινοποίηση</button>${f.refs.map(r=>`<button class="btn" data-go="g-${slug(r)}">${/^\d/.test(r)?"Οδηγία ":""}${esc(lab(r))}</button>`).join("")}${byN[f.refs[0]].p?`<a class="btn pri" href="${B+byN[f.refs[0]].p}" target="_blank" rel="noopener">${svg("ext",16)} PDF Νο ${esc(f.refs[0])}</a>`:""}</div></div></div>
-  <div class="flow">${nodes}</div>
-  <p class="verify">${svg("info",16)}<span>Ο αλγόριθμος συντάχθηκε από τις οδηγίες ${f.refs.map(lab).join(", ")} για γρήγορη αναφορά. Δεν υποκαθιστά το πλήρες κείμενο ή την κλινική κρίση. Οι εμπορικές ονομασίες σε παρένθεση είναι ενδεικτικές, από τον <a href="https://www.galinos.gr" target="_blank" rel="noopener">Γαληνό</a> (Νοέμβριος 2026).</span></p>`;
+  const head=`<button class="back" data-back>${svg("back",18)} Αλγόριθμοι</button>
+  <section class="fx-hero" style="--cc:${cc}">
+    <div class="fx-badge">${svg("flow",22)}</div>
+    <h1>${esc(f.t)}</h1><p>${esc(f.sub)}</p>
+    <div class="fx-meta">${f.refs.map(r=>`<button class="fx-ref" data-go="g-${slug(r)}">${esc(lab(r))}</button>`).join("")}${byN[f.refs[0]].p?`<a class="fx-ref" href="${B+byN[f.refs[0]].p}" target="_blank" rel="noopener">${svg("ext",14)} PDF</a>`:""}<button class="fx-ref" data-share>${svg("share",14)} Κοινοποίηση</button></div>
+    <div class="fx-mode" role="tablist"><button class="${fMode==="wz"?"on":""}" data-fmode="wz">${svg("spark",16)} Βήμα-βήμα</button><button class="${fMode==="dg"?"on":""}" data-fmode="dg">${svg("flow",16)} Όλο το διάγραμμα</button></div>
+  </section>`;
+  const foot=`<p class="verify">${svg("info",16)}<span>Ο αλγόριθμος συντάχθηκε από τις οδηγίες ${f.refs.map(lab).join(", ")} της ΕΜΓΕ για γρήγορη αναφορά. Δεν υποκαθιστά το πλήρες κείμενο ή την κλινική κρίση. Οι εμπορικές ονομασίες σε παρένθεση είναι ενδεικτικές, από τον <a href="https://www.galinos.gr" target="_blank" rel="noopener">Γαληνό</a>.</span></p>`;
+  const lst=a=>`<ul>${a.map(y=>`<li>${fmt(y)}</li>`).join("")}</ul>`;
+  if(fMode==="dg"){
+    const nodes=f.n.map((x,i)=>{
+      let body;
+      if(x.k==="dec"){const sel=s.d[i];body=`<div class="dg-opts">${x.b.map((b,bi)=>`<button class="dg-opt${b.tone?" "+b.tone:""}${sel===bi?" on":""}" data-dpick="${i}:${bi}">${esc(b.l)}</button>`).join("")}</div>${sel!=null?`<div class="dg-ans ${x.b[sel].tone||""}">${lst(x.b[sel].x)}</div>`:`<div class="dg-hint">Πατήστε μια επιλογή για να δείτε τι ισχύει</div>`}`}
+      else body=lst(x.x);
+      return `<div class="dg-n ${x.k}"><div class="dg-dot">${i+1}</div><div class="dg-card"><div class="dg-k">${KL[x.k]}${x.ref?` · ${refl(x.ref)}`:""}${x.k==="rx"?`<button class="cpy" data-copy>Αντιγραφή</button>`:""}</div><h3>${esc(x.h)}</h3>${body}</div></div>`}).join("");
+    return head+`<div class="dg">${nodes}</div>`+foot;
+  }
+  // wizard
+  const i=Math.min(s.i,N);
+  const done=i>=N;
+  const trail=f.n.slice(0,i).map((x,j)=>`<button class="wz-tr" data-fstep="${j}"><span class="wz-ck">${svg("check",13)}</span><span class="wz-th">${esc(x.h)}</span>${x.k==="dec"&&s.p[j]!=null?`<span class="wz-tv">${esc(x.b[s.p[j]].l)}</span>`:""}</button>`).join("");
+  let card="";
+  if(!done){
+    const x=f.n[i];
+    if(x.k==="dec"){
+      const pi=s.p[i];
+      card=`<div class="wz-card dec" key="${i}"><div class="wz-k">${KL.dec}${x.ref?` · ${refl(x.ref)}`:""}</div><h2>${esc(x.h)}</h2>
+      <div class="wz-opts">${x.b.map((b,bi)=>`<button class="wz-opt${b.tone?" "+b.tone:""}${pi===bi?" on":""}" data-fpick="${i}:${bi}"><span class="wz-l">${String.fromCharCode(65+bi)}</span><span class="wz-ot">${esc(b.l)}</span><span class="wz-ar">${svg(pi===bi?"check":"chev",16)}</span></button>`).join("")}</div>
+      ${pi!=null?`<div class="wz-ans ${x.b[pi].tone||""}"><div class="wz-al">Για «${esc(x.b[pi].l)}»</div>${lst(x.b[pi].x)}</div>`:""}</div>`;
+    }else{
+      card=`<div class="wz-card ${x.k}"><div class="wz-k">${KL[x.k]}${x.ref?` · ${refl(x.ref)}`:""}${x.k==="rx"?`<button class="cpy" data-copy>Αντιγραφή</button>`:""}</div><h2>${esc(x.h)}</h2>${lst(x.x)}</div>`;
+    }
+  }else{
+    card=`<div class="wz-card fin"><div class="wz-fic">${svg("check",26)}</div><h2>Ολοκληρώθηκε</h2><p>Σύνοψη της περίπτωσης:</p><pre class="wz-sum">${esc(flowSummary(f))}</pre>
+    <div class="acts"><button class="btn pri" data-fsum>${svg("copy",16)} Αντιγραφή σύνοψης</button><button class="btn" data-freset>Από την αρχή</button><button class="btn" data-fmode="dg">Όλο το διάγραμμα</button></div></div>`;
+  }
+  const canNext=!done&&(f.n[i].k!=="dec"||s.p[i]!=null);
+  const pct=Math.round(100*Math.min(i,N)/N);
+  return head+`<div class="wz">
+    <div class="wz-prog"><div class="wz-bar"><span style="width:${pct}%"></span></div><span class="wz-pc">${done?"Τέλος":`Βήμα ${i+1} από ${N}`}</span></div>
+    ${trail?`<div class="wz-trail">${trail}</div>`:""}
+    ${card}
+    ${done?"":`<div class="wz-nav"><button class="btn" data-fprev ${i===0?"disabled":""}>${svg("back",16)} Πίσω</button><button class="btn pri wz-next" data-fnext ${canNext?"":"disabled"}>${i===N-1?"Ολοκλήρωση":"Επόμενο"} ${svg("chev",16)}</button></div>`}
+  </div>`+foot;
 }
 function vDoses(){
   const ts=terms(state.q);
@@ -1746,8 +1664,8 @@ function localAnswer(q,r){
   return h;
 }
 function contextFor(r){
-  let c="";r.gs.forEach(({g})=>{const s=S[g.n];c+=`\n### ${g.src==="nice"?"NICE "+g.n+" (Ηνωμένο Βασίλειο)":g.src==="asccp"?"ASCCP (ΗΠΑ)":"Οδηγία ΕΜΓΕ Νο "+g.n}: ${g.t}${s.d?" ("+s.d+")":""}\n`+s.b.map(b=>"- "+b.replace(/⟪/g,"(").replace(/⟫/g,")")).join("\n")+"\n"});
-  r.fs.forEach(({f})=>{c+=`\n### Αλγόριθμος: ${f.t} (από ${f.refs.map(lab).join(", ")})\n`+f.n.map(x=>"* "+x.h+": "+(x.x?x.x.join("; "):x.b.map(b=>b.l+" → "+b.x.join("; ")).join(" | "))).join("\n").replace(/⟪/g,"(").replace(/⟫/g,")")+"\n"});
+  let c="";r.gs.forEach(({g})=>{const s=S[g.n];c+=`\n### ${g.src==="nice"?"NICE "+g.n+" (Ηνωμένο Βασίλειο)":g.src==="asccp"?"ASCCP (ΗΠΑ)":"Οδηγία ΕΜΓΕ Νο "+g.n}: ${g.t}${s.d?" ("+s.d+")":""}\n`+s.b.map(b=>"- "+bshort(b)).join("\n")+"\n"});
+  r.fs.forEach(({f})=>{c+=`\n### Αλγόριθμος: ${f.t} (από ${f.refs.map(lab).join(", ")})\n`+f.n.map(x=>"* "+x.h+": "+(x.x?x.x.join("; "):x.b.map(b=>b.l+" → "+b.x.join("; ")).join(" | "))).join("\n").replace(/⟪([^⟫]*)⟫/g,m=>bshort(m))+"\n"});
   return c;
 }
 let hist=[];
@@ -1762,11 +1680,10 @@ async function ask(q){
   if(AI&&(r.gs.length||r.fs.length)){
     m.html='<p class="dots">Ψάχνω στις οδηγίες</p>';drawChat();
     const past=hist.slice(-3).map(h=>`Ερώτηση: ${h.q}\nΑπάντηση: ${h.a.slice(0,900)}`).join("\n\n");
-    const prompt=`Είσαι βοηθός για μαιευτήρες-γυναικολόγους στην Ελλάδα. Απάντησε ΜΟΝΟ με βάση τα αποσπάσματα κατευθυντήριων οδηγιών που ακολουθούν: ΕΜΓΕ (ελληνικές), NICE (Ηνωμένο Βασίλειο) και ASCCP (ΗΠΑ).
+    const prompt=`Είσαι βοηθός για μαιευτήρες-γυναικολόγους στην Ελλάδα. Απάντησε ΜΟΝΟ με βάση τα αποσπάσματα από τις κατευθυντήριες οδηγίες της ΕΜΓΕ που ακολουθούν.
 Κανόνες:
 - Γράψε στα ελληνικά, σύντομα και πρακτικά (έως ~170 λέξεις), με κουκκίδες όπου βοηθά.
-- Μετά από κάθε σύσταση γράψε την πηγή σε παρένθεση ακριβώς έτσι: (Νο 77) για ΕΜΓΕ, (NICE NG25) για NICE, (ASCCP) για ASCCP.
-- Προτεραιότητα στην ΕΜΓΕ για την ελληνική πράξη. Αν NICE ή ASCCP λένε κάτι διαφορετικό ή επιπλέον, ανέφερέ το χωριστά και πες ότι διαφέρει.
+- Μετά από κάθε σύσταση γράψε την οδηγία σε παρένθεση ακριβώς έτσι: (Νο 77).
 - Δόσεις, όρια και εβδομάδες ακριβώς όπως στα αποσπάσματα. Κράτα τις εμπορικές ονομασίες σε παρένθεση όπως δίνονται.
 - Αν τα αποσπάσματα δεν απαντούν στην ερώτηση ή μέρος της, πες το καθαρά («Οι οδηγίες δεν καλύπτουν…») και ΜΗΝ συμπληρώσεις από γενικές γνώσεις.
 - Αν η ερώτηση είναι συνέχεια της προηγούμενης συζήτησης, απάντησε στο πλαίσιό της.
@@ -1817,10 +1734,10 @@ function drawChat(stream){
   box.innerHTML=chat.map(x=>`<div class="msg ${x.role}"><div class="b">${x.html}${x.role==="a"&&x.src?x.src:""}</div></div>`).join("");
   if(!stream) box.lastElementChild&&box.lastElementChild.scrollIntoView({block:"nearest",behavior:"smooth"});
 }
-const EXQ=["Τι αντιβίωση δίνω σε PPROM;","Τι λέει το NICE για την πρόκληση τοκετού;","HPV 31 θετικό με NILM, τι κάνω κατά ASCCP;","Πότε σταματάω την ενοξαπαρίνη πριν την καισαρική;","Δόση θειικού μαγνησίου για νευροπροστασία;","Ποιες έγκυες παίρνουν ασπιρίνη και σε τι δόση;","Πώς αντιμετωπίζω την αιμορραγία μετά τον τοκετό;","Πότε κάνω OGTT και ποια είναι τα όρια;"];
+const EXQ=["Τι αντιβίωση δίνω σε PPROM;","Πότε σταματάω την ενοξαπαρίνη πριν την καισαρική;","Δόση θειικού μαγνησίου για νευροπροστασία;","Ποιες έγκυες παίρνουν ασπιρίνη και σε τι δόση;","Πώς αντιμετωπίζω την αιμορραγία μετά τον τοκετό;","Πότε κάνω OGTT και ποια είναι τα όρια;"];
 function vAsk(){
   return `<div class="ask"><h1 style="margin:6px 0 4px;font-size:26px">Ρωτήστε τις οδηγίες</h1>
-  <p style="margin:0 0 8px;color:var(--muted)">${micAvail()?"Πατήστε 🎙 και μιλήστε, ή γράψτε":"Γράψτε"} όπως σε συνάδελφο. Απάντηση μόνο από ΕΜΓΕ, NICE και ASCCP, με την πηγή· συνεχίστε με «κι αν…;».</p>
+  <p style="margin:0 0 8px;color:var(--muted)">${micAvail()?"Πατήστε 🎙 και μιλήστε, ή γράψτε":"Γράψτε"} όπως σε συνάδελφο. Απάντηση μόνο από τις οδηγίες της ΕΜΓΕ, με την πηγή· συνεχίστε με «κι αν…;».</p>
   <span class="aimode">${AI?"✦ Με τεχνητή νοημοσύνη (Claude)":aiChecked?"⚡ Γρήγορη απάντηση από τις οδηγίες":"…"}</span>
   ${chat.length?"":`<div class="exq">${EXQ.map(q=>`<button data-ask="${esc0(q)}">${esc0(q)}</button>`).join("")}</div>`}
   <div id="chat"></div>
@@ -1841,7 +1758,7 @@ function render(){
   if(r.startsWith("g-")&&bySlug[r.slice(2)]){html=vGuide(bySlug[r.slice(2)]);pushRecent(r)}
   else if(r.startsWith("f-")&&byF[r.slice(2)]){html=vFlow(byF[r.slice(2)]);pushRecent(r)}
   else if(r==="odigies") html=vList(false);
-  else if(r==="diethneis") html=vList(false,true);
+  else if(r==="diethneis") html=vList(false,INTL.length>0);
   else if(r==="agapimena") html=vList(true);
   else if(r==="algorithmoi") html=vFlows();
   else if(r==="doseis") html=vDoses();
@@ -1851,7 +1768,7 @@ function render(){
   $("#view").innerHTML=html;
   if(r!==lastRoute){const v=$("#view");v.classList.remove("enter");void v.offsetWidth;v.classList.add("enter")}
   document.body.dataset.r=r.startsWith("g-")?"g":r.startsWith("f-")?"f":r;
-  $("#fab").style.display=(r==="rotiste"||r==="home"||!micAvail())?"none":"";
+  $("#fab").style.display=(r==="rotiste"||r==="home"||r.startsWith("f-")||!micAvail())?"none":"";
   renderNav(r);
   if(r!==lastRoute) window.scrollTo(0,0);
   lastRoute=r;
@@ -1863,8 +1780,18 @@ function render(){
 }
 document.addEventListener("click",e=>{
   const sg=e.target.closest("[data-seg] button"); if(sg){const [o,k]=sg.parentElement.dataset.seg.split(".");calc[o][k]=Number(sg.dataset.v);store.set("mg-calc",calc);[...sg.parentElement.children].forEach(x=>x.classList.toggle("on",x===sg));if(o==="b")$("#r-b").innerHTML=bishopRes();else $("#r-q").innerHTML=puqeRes();return}
+  const bm=e.target.closest("[data-bnm]"); if(bm){e.preventDefault();e.stopPropagation();const x=bm.previousElementSibling;x.hidden=!x.hidden;bm.textContent=x.hidden?bm.dataset.n:"λιγότερα";return}
+  const fm=e.target.closest("[data-fmode]"); if(fm){fMode=fm.dataset.fmode;store.set("mg-fmode",fMode);render();return}
+  const curF=()=>byF[route().slice(2)];
+  const fp=e.target.closest("[data-fpick]"); if(fp){const f=curF(),s=fsOf(f);const [i,bi]=fp.dataset.fpick.split(":").map(Number);s.p[i]=bi;for(const k in s.p)if(+k>i)delete s.p[k];render();setTimeout(()=>{const a=$(".wz-ans");if(a)a.scrollIntoView({behavior:"smooth",block:"nearest"})},30);return}
+  const dp=e.target.closest("[data-dpick]"); if(dp){const s=fsOf(curF());const [i,bi]=dp.dataset.dpick.split(":").map(Number);s.d[i]=s.d[i]===bi?null:bi;render();return}
+  const fn=e.target.closest("[data-fnext]"); if(fn){const s=fsOf(curF());s.i++;render();const w=$(".wz");if(w)w.scrollIntoView({behavior:"smooth",block:"start"});return}
+  const fv=e.target.closest("[data-fprev]"); if(fv){const s=fsOf(curF());s.i=Math.max(0,s.i-1);render();return}
+  const fst=e.target.closest("[data-fstep]"); if(fst){const s=fsOf(curF());s.i=+fst.dataset.fstep;render();return}
+  const fr=e.target.closest("[data-freset]"); if(fr){const f=curF();FS[f.id]={i:0,p:{},d:{}};render();return}
+  const fsu=e.target.closest("[data-fsum]"); if(fsu){const txt=flowSummary(curF());const ok=()=>{fsu.innerHTML="Αντιγράφηκε ✓"};try{navigator.clipboard.writeText(txt).then(ok,()=>{fsu.textContent="Μη διαθέσιμο"})}catch(_){fsu.textContent="Μη διαθέσιμο"}return}
   const pk=e.target.closest("[data-pick]"); if(pk&&!e.target.closest("a")){const dec=pk.closest(".dec");const was=pk.classList.contains("pick");dec.querySelectorAll(".br").forEach(x=>x.classList.remove("pick"));if(was)dec.classList.remove("picked");else{pk.classList.add("pick");dec.classList.add("picked")}return}
-  const cp=e.target.closest("[data-copy]"); if(cp){const n=cp.closest(".node");const txt=n.querySelector("h3").childNodes[1].textContent+"\n"+[...n.querySelectorAll("li")].map(l=>"• "+l.textContent).join("\n");const done=()=>{cp.textContent="Αντιγράφηκε ✓";setTimeout(()=>cp.textContent="Αντιγραφή",1500)};try{navigator.clipboard.writeText(txt).then(done,()=>{cp.textContent="Μη διαθέσιμο"})}catch(_){cp.textContent="Μη διαθέσιμο"}return}
+  const cp=e.target.closest("[data-copy]"); if(cp){const n=cp.closest(".node,.wz-card,.dg-card");const txt=n.querySelector("h2,h3").textContent+"\n"+[...n.querySelectorAll("li")].map(l=>"• "+l.textContent).join("\n");const done=()=>{cp.textContent="Αντιγράφηκε ✓";setTimeout(()=>cp.textContent="Αντιγραφή",1500)};try{navigator.clipboard.writeText(txt).then(done,()=>{cp.textContent="Μη διαθέσιμο"})}catch(_){cp.textContent="Μη διαθέσιμο"}return}
   const sh=e.target.closest("[data-share]"); if(sh){const url=location.href,title=document.title;if(navigator.share){navigator.share({title,url}).catch(()=>{})}else{try{navigator.clipboard.writeText(url).then(()=>{sh.lastChild.textContent=" Ο σύνδεσμος αντιγράφηκε"})}catch(_){}}return}
   const gv=e.target.closest("[data-gview]"); if(gv){gView=gv.dataset.gview;store.set("mg-gview",gView);render();return}
   const ak=e.target.closest("[data-ask]"); if(ak){ask(ak.dataset.ask);return}
