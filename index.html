@@ -786,6 +786,9 @@ aside{background:var(--bg);border-right:1px solid var(--line)}
 .pg-card.closed{opacity:.75}
 .pg-closed{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:16px;border-radius:18px;background:var(--oksoft)}.pg-closed>svg{color:var(--ok)}.pg-closed span{flex:1;min-width:200px}
 @media (max-width:900px){.pg-quick .btn.big{padding:12px 10px;font-size:14.5px}}
+
+.gbtn{width:100%;justify-content:center;gap:10px;background:var(--surface);border:1.5px solid var(--line);color:var(--ink);font-weight:600}
+.cl-or{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;margin:4px 0}.cl-or:before,.cl-or:after{content:"";flex:1;height:1px;background:var(--line)}
 </style>
 </head>
 <body>
@@ -2349,7 +2352,7 @@ async function deriveKey(pass,uid){const base=await crypto.subtle.importKey("raw
 async function encJ(obj){const iv=crypto.getRandomValues(new Uint8Array(12));const ct=await crypto.subtle.encrypt({name:"AES-GCM",iv},cloud.key,new TextEncoder().encode(JSON.stringify(obj)));return {iv:b64e(iv),ct:b64e(ct)}}
 async function decJ(d){const pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64d(d.iv)},cloud.key,b64d(d.ct));return JSON.parse(new TextDecoder().decode(pt))}
 const pHash=p=>JSON.stringify(Object.assign({},p,{upd:0}));
-const fbErr=e=>{const c=(e&&e.code)||"";return ({"auth/invalid-credential":"Λάθος email ή κωδικός.","auth/wrong-password":"Λάθος κωδικός.","auth/user-not-found":"Δεν υπάρχει λογαριασμός με αυτό το email.","auth/email-already-in-use":"Υπάρχει ήδη λογαριασμός με αυτό το email· πατήστε «Σύνδεση».","auth/weak-password":"Ο κωδικός πρέπει να έχει τουλάχιστον 6 χαρακτήρες.","auth/invalid-email":"Μη έγκυρο email.","auth/too-many-requests":"Πολλές προσπάθειες· δοκιμάστε σε λίγο.","auth/network-request-failed":"Δεν υπάρχει σύνδεση στο διαδίκτυο.","permission-denied":"Άρνηση πρόσβασης."})[c]||("Σφάλμα: "+(c||e&&e.message||e))};
+const fbErr=e=>{const c=(e&&e.code)||"";return ({"auth/invalid-credential":"Λάθος email ή κωδικός.","auth/wrong-password":"Λάθος κωδικός.","auth/user-not-found":"Δεν υπάρχει λογαριασμός με αυτό το email.","auth/email-already-in-use":"Υπάρχει ήδη λογαριασμός με αυτό το email· πατήστε «Σύνδεση».","auth/weak-password":"Ο κωδικός πρέπει να έχει τουλάχιστον 6 χαρακτήρες.","auth/invalid-email":"Μη έγκυρο email.","auth/too-many-requests":"Πολλές προσπάθειες· δοκιμάστε σε λίγο.","auth/network-request-failed":"Δεν υπάρχει σύνδεση στο διαδίκτυο.","auth/operation-not-allowed":"Η σύνδεση με Google δεν έχει ενεργοποιηθεί ακόμα.","auth/unauthorized-domain":"Ο τομέας δεν είναι εξουσιοδοτημένος για σύνδεση.","auth/account-exists-with-different-credential":"Υπάρχει ήδη λογαριασμός με αυτό το email· συνδεθείτε με email και κωδικό.","permission-denied":"Άρνηση πρόσβασης."})[c]||("Σφάλμα: "+(c||e&&e.message||e))};
 async function fbInit(){
   if(FB||!CLOUD_OK)return FB;
   try{
@@ -2374,6 +2377,13 @@ async function cloudSignIn(create){
   if(!em||!pw){cloud.msg="Συμπληρώστε email και κωδικό.";render();return}
   cloud.busy=true;cloud.msg="";render();
   try{await fbInit();if(create)await FB.U.createUserWithEmailAndPassword(FB.auth,em,pw);else await FB.U.signInWithEmailAndPassword(FB.auth,em,pw)}catch(e){cloud.msg=fbErr(e)}
+  cloud.busy=false;render();
+}
+async function cloudGoogle(){
+  cloud.busy=true;cloud.msg="";render();
+  try{await fbInit();const pr=new FB.U.GoogleAuthProvider();pr.setCustomParameters({prompt:"select_account"});
+    try{await FB.U.signInWithPopup(FB.auth,pr)}catch(e){const c=e&&e.code||"";if(c==="auth/popup-blocked"||c==="auth/operation-not-supported-in-this-environment"||c==="auth/cancelled-popup-request")await FB.U.signInWithRedirect(FB.auth,pr);else if(c!=="auth/popup-closed-by-user")throw e}
+  }catch(e){cloud.msg=fbErr(e)}
   cloud.busy=false;render();
 }
 async function cloudReset(){const em=($("#c_em")||{}).value||"";if(!em){cloud.msg="Γράψτε πρώτα το email σας.";render();return}try{await fbInit();await FB.U.sendPasswordResetEmail(FB.auth,em);cloud.msg="Στάλθηκε email επαναφοράς κωδικού σύνδεσης."}catch(e){cloud.msg=fbErr(e)}render()}
@@ -2427,14 +2437,17 @@ function cloudCard(){
   if(cloud.st==="init")return `<div class="cl-card">${svg("cloud",20)}<span>Φόρτωση συγχρονισμού…</span></div>`;
   if(cloud.st==="err")return `<div class="cl-card err">${svg("cloud",20)}<span>${esc(cloud.msg)}</span></div>`;
   if(!cloud.user)return `<div class="cl-card col"><div class="cl-h">${svg("cloud",22)}<div><b>Συγχρονισμός σε όλες τις συσκευές σας</b><small>Κρυπτογραφημένα από άκρο σε άκρο, server στην ΕΕ. Προαιρετικό.</small></div></div>
+    <button class="btn gbtn big" data-cgoogle${dis}><svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.7 6c4.5-4.2 6.9-10.3 6.9-17.7z"/><path fill="#FBBC05" d="M10.6 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.2 1.5-5 2.3-8.2 2.3-6.2 0-11.5-4.1-13.4-9.8l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg> Συνέχεια με Google</button>
+    <div class="cl-or"><span>ή με email</span></div>
     <div class="cl-form"><input id="c_em" type="email" placeholder="Email" autocomplete="username"><input id="c_pw" type="password" placeholder="Κωδικός σύνδεσης" autocomplete="current-password"></div>
     <div class="acts"><button class="btn pri" data-csin${dis}>Σύνδεση</button><button class="btn" data-csup${dis}>Νέος λογαριασμός</button><button class="btn ghost" data-creset>Ξέχασα τον κωδικό</button></div>${m}</div>`;
-  if(!cloud.key){const first=cloud.hasCheck===false;return `<div class="cl-card col"><div class="cl-h">${svg("shield",22)}<div><b>${first?"Ορίστε κωδικό κρυπτογράφησης":"Ξεκλείδωμα καρτελών"}</b><small>${first?"Με αυτόν κρυπτογραφούνται οι καρτέλες πριν φύγουν από τη συσκευή. Είναι διαφορετικός από τον κωδικό σύνδεσης και <b>δεν ανακτάται αν τον ξεχάσετε</b>· σημειώστε τον κάπου ασφαλές.":"Γράψτε τον κωδικό κρυπτογράφησης που ορίσατε. Θα ζητηθεί μία φορά σε κάθε συσκευή."}</small></div></div>
+  if(!cloud.key){const first=cloud.hasCheck===false;return `<div class="cl-card col"><div class="cl-h">${svg("shield",22)}<div><b>${first?"Ορίστε κωδικό κρυπτογράφησης":"Ξεκλείδωμα καρτελών"}</b><small>${first?"Με αυτόν κρυπτογραφούνται οι καρτέλες πριν φύγουν από τη συσκευή. Είναι διαφορετικός από τον κωδικό σύνδεσης (ή το Google) και <b>δεν ανακτάται αν τον ξεχάσετε</b>· σημειώστε τον κάπου ασφαλές.":"Γράψτε τον κωδικό κρυπτογράφησης που ορίσατε. Θα ζητηθεί μία φορά σε κάθε συσκευή."}</small></div></div>
     <div class="cl-form"><input id="c_k1" type="password" placeholder="Κωδικός κρυπτογράφησης (≥ 8 χαρακτήρες)" autocomplete="new-password">${first?`<input id="c_k2" type="password" placeholder="Επανάληψη κωδικού" autocomplete="new-password">`:""}</div>
     <div class="acts"><button class="btn pri" data-cunlock${dis}>${first?"Ορισμός και συγχρονισμός":"Ξεκλείδωμα"}</button><button class="btn ghost" data-csout>Αποσύνδεση (${esc(cloud.user.email||"")})</button></div>${m}</div>`}
   return `<div class="cl-card ok">${svg("cloud",20)}<span><b>Συγχρονισμός ενεργός</b> · ${esc(cloud.user.email||"")} · <span id="csync">${cloud.st==="ok"?"Ενημερωμένο":"Συγχρονισμός…"}</span></span><button class="btn ghost sm" data-csout>Αποσύνδεση</button></div>${m}`;
 }
 function cloudClick(e){
+  if(e.target.closest("[data-cgoogle]")){cloudGoogle();return true}
   if(e.target.closest("[data-csin]")){cloudSignIn(false);return true}
   if(e.target.closest("[data-csup]")){cloudSignIn(true);return true}
   if(e.target.closest("[data-creset]")){cloudReset();return true}
@@ -2449,7 +2462,7 @@ function vAccount(){
   return `<div class="pg-head"><div><h1>Λογαριασμός</h1><p>${ok?"Είστε συνδεδεμένος· οι καρτέλες εγκύων συγχρονίζονται σε όλες τις συσκευές σας.":"Δημιουργήστε λογαριασμό για να έχετε τις καρτέλες εγκύων σε υπολογιστή, κινητό και ιατρείο."}</p></div></div>
   ${cloud.st==="na"?`<div class="cl-card">${svg("cloud",20)}<span>Ο λογαριασμός λειτουργεί στο site: <a href="https://steliosmed93-svg.github.io/odigies-mg/#logariasmos" target="_blank" rel="noopener">steliosmed93-svg.github.io/odigies-mg</a></span></div>`:cloudCard()}
   <div class="acc-steps">
-    <div class="acc-st"><b>1</b><span><b>Νέος λογαριασμός</b> με email και κωδικό σύνδεσης.</span></div>
+    <div class="acc-st"><b>1</b><span><b>Σύνδεση</b> με τον λογαριασμό Google σας ή με email και κωδικό.</span></div>
     <div class="acc-st"><b>2</b><span><b>Κωδικός κρυπτογράφησης</b> (διαφορετικός, τουλάχιστον 8 χαρακτήρες). Με αυτόν κλειδώνονται οι καρτέλες πριν φύγουν από τη συσκευή· αν τον ξεχάσετε, δεν ανακτώνται.</span></div>
     <div class="acc-st"><b>3</b><span>Σε άλλη συσκευή: <b>Σύνδεση</b> και μία φορά ο κωδικός κρυπτογράφησης. Μετά όλα συγχρονίζονται μόνα τους.</span></div>
   </div>
