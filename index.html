@@ -847,6 +847,34 @@ input.pg-tl{font:inherit;font-size:15px;padding:10px 12px;border-radius:12px;bor
   .pg-quick{grid-template-columns:1fr 1fr auto}
   .pg-lbar .btn{flex:1;justify-content:center}.pg-lbar .seg2{flex:1 1 100%}
 }
+
+/* ===== guideline v2 ===== */
+.gh{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin-bottom:12px}
+.gh-t{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px}
+.gh-n{font-weight:800;color:var(--acc);font-size:14px}.gh-d{color:var(--muted)}
+.gh h1{font-size:22px;line-height:1.3;margin:8px 0 10px;letter-spacing:-.01em}
+.gq-row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.gq-row::-webkit-scrollbar{display:none}
+.gq{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14px;font-weight:600;padding:9px 13px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;text-decoration:none;white-space:nowrap}
+.gq.pri{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.gq.tl{background:var(--accsoft);border-color:transparent;color:var(--acc)}
+.gtoc{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 0 10px;padding:2px 0;position:sticky;top:64px;z-index:5;background:var(--bg)}.gtoc::-webkit-scrollbar{display:none}
+.gtoc a{flex:0 0 auto;font-size:13px;font-weight:600;padding:7px 11px;border-radius:99px;background:var(--surface);border:1px solid var(--line);color:var(--ink);cursor:pointer;white-space:nowrap}
+.gcs{display:flex;flex-direction:column;gap:8px}
+.gc{display:flex;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;scroll-margin-top:110px;transition:box-shadow .3s}
+.gc.flash{box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 35%,transparent)}
+.gc-ic{flex:0 0 auto;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:color-mix(in srgb,var(--ink) 6%,transparent);color:var(--muted);margin-top:1px}
+.gc.rx .gc-ic{background:var(--accsoft);color:var(--acc)}.gc.warn .gc-ic{background:var(--badsoft);color:var(--bad)}
+.gc.warn{border-color:color-mix(in srgb,var(--bad) 25%,var(--line))}
+.gc-b{flex:1;min-width:0;font-size:16px;line-height:1.55}
+.gc-b h3{margin:2px 0 4px;font-size:16px;font-weight:700}
+.gc-b p{margin:0}.gc-b ul{margin:0;padding-left:18px}.gc-b li{margin:3px 0}
+.glegend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:12px 2px 0}.glegend span{display:inline-flex;align-items:center;gap:4px}.glegend .rx svg{color:var(--acc)}.glegend .warn svg{color:var(--bad)}
+.snip{font-size:13.5px;line-height:1.45;color:var(--muted);margin-top:4px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.snip mark,.rt mark{background:color-mix(in srgb,#f5c542 45%,transparent);color:inherit;border-radius:3px;padding:0 1px}
+.lgrp{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:18px 2px 6px;font-weight:700}.lgrp span{opacity:.6}
+.list .row{box-shadow:none}
+@media (max-width:900px){.list .row{padding:10px 12px;gap:10px}.list .row .num{min-width:42px;width:42px;height:42px;font-size:15px;border-radius:12px}.list .row .meta .tag:not(.alg):not(.sup){display:none}.list .row .meta:empty{display:none}.list .row .rt{font-size:15px}}
+@media (max-width:900px){.gh{padding:14px}.gh h1{font-size:19px}.gc{padding:12px 13px;gap:10px}.gc-b{font-size:15.5px}.gtoc{top:58px}}
 </style>
 </head>
 <body>
@@ -1807,6 +1835,15 @@ const GARE=/(?<![\d\p{L}])(\d{2}\+\d(?:\s?[–-]\s?\d{2}\+\d)?)(?![\d])/gu;
 function hlNums(h){return h.replace(NUMRE,m=>`<b class="nm">${m}</b>`).replace(GARE,(m,a,off,str)=>{const pre=str.slice(Math.max(0,off-16),off);return /class="nm">[^<]*$/.test(pre)?m:`<b class="nm">${m}</b>`})}
 const fmt=s=>bn(hlNums(esc0(s)));
 const WARNRE=/(δεν συστήν|δεν συνιστ|όχι ως ρουτίνα|όχι ρουτίνα|αντενδείκν|αποφυγή|απαγορεύ|δεν πρέπει|δεν χρησιμοποιούνται|δεν αποτελ)/i;
+function recCard(b,i){
+  let title="",body=b;const ci=b.indexOf(":");
+  if(ci>0&&ci<70&&!/\d$/.test(b.slice(0,ci))){title=b.slice(0,ci);body=b.slice(ci+1).trim()}
+  const kind=WARNRE.test(b)?"warn":DOSE.test(b.replace(/\d[\d.,–-]*\s?(mg|g|mmol)\/(dl|l)\b/gi,""))?"rx":"step";
+  const parts=body.split(/·\s+|(?<=[^\d]\.)\s+(?=[Α-ΩΆΈΉΊΌΎΏA-Z])|;\s+/).map(x=>x.trim().replace(/\.$/,"")).filter(Boolean);
+  const ic={rx:"pill",warn:"alert",step:"check"}[kind];
+  return `<article class="gc ${kind}" id="r${i+1}"><span class="gc-ic">${svg(ic,16)}</span><div class="gc-b">${title?`<h3>${fmt(title)}</h3>`:""}${parts.length>1?`<ul>${parts.map(x=>`<li>${fmt(x)}</li>`).join("")}</ul>`:`<p>${fmt(parts[0]||body)}</p>`}</div></article>`;
+}
+function recTitle(b){const ci=b.indexOf(":");return ci>0&&ci<40&&!/\d$/.test(b.slice(0,ci))?b.slice(0,ci):""}
 function recNode(b,i){
   let title="",body=b;const ci=b.indexOf(":");
   if(ci>0&&ci<70&&!/\d$/.test(b.slice(0,ci))){title=b.slice(0,ci);body=b.slice(ci+1).trim()}
@@ -1864,11 +1901,12 @@ function renderNav(cur){
 }
 
 /* components */
+function snip(g,ts){if(!ts.length)return "";const s=S[g.n];if(!s)return "";const b=s.b.find(x=>ts.every(w=>norm(x).includes(w)))||s.b.find(x=>ts.some(w=>norm(x).includes(w)));if(!b)return "";const b2=bshort(b),c=b2.length>190?b2.slice(0,187)+"…":b2;return `<div class="snip">${hl(c,ts)}</div>`}
 function row(g,ts){
   const fl=g.flows.length?`<span class="tag alg">Αλγόριθμος</span>`:"";
   return `<div class="row${g.old?" old":""}" data-go="g-${slug(g.n)}" role="link" tabindex="0">
     <div class="num${g.n.length>3?" sm":""}">${esc(g.n)}</div>
-    <div class="rmain"><div class="rt">${hl(g.t,ts)}</div>
+    <div class="rmain"><div class="rt">${hl(g.t,ts)}</div>${ts&&ts.length?snip(g,ts):""}
       <div class="meta">${g.old?`<span class="tag sup">${g.arch?"Αρχειοθετημένη":"Αντικαταστάθηκε από Νο "+esc(g.by)}</span>`:""}${g.src?`<span class="tag intl">${SRCN[g.src]}</span>`:""}<span class="tag">${esc(CATS[g.c])}</span>${g.y?`<span class="tag">${g.y}</span>`:""}${fl}</div></div>
     <button class="star${favs.has(g.n)?" on":""}" data-fav="${esc(g.n)}" aria-label="Αγαπημένη"><svg width="20" height="20" viewBox="0 0 24 24" fill="${favs.has(g.n)?"currentColor":"none"}" stroke="currentColor" stroke-width="1.8">${IC.star}</svg></button>
     <span class="chev">${svg("chev",18)}</span></div>`;
@@ -1913,10 +1951,10 @@ function vList(favOnly,intl){
   <p style="margin:0 0 14px;color:var(--muted)">${favOnly?"Πατήστε το αστέρι σε οποιαδήποτε οδηγία για να τη βρίσκετε εδώ.":intl?(PUB?"Σύνδεσμοι προς τις επίσημες οδηγίες του NICE και της ASCCP. Οι ελληνικές συνόψεις θα προστεθούν όταν δοθεί άδεια χρήσης από τους εκδότες.":"Οι οδηγίες του NICE για μαιευτική-γυναικολογία και οι συστάσεις ASCCP για τον τράχηλο, με ελληνική σύνοψη και σύνδεσμο στο πρωτότυπο. Μπορεί να διαφέρουν από την ελληνική πράξη."):"Πατήστε μια οδηγία για τις βασικές συστάσεις και το επίσημο PDF."}</p>
   ${(favOnly||!INTL.length)?"":`<div class="vtog srcsw"><button class="${intl?"":"on"}" data-go="odigies">ΕΜΓΕ <span class="n">${CUR.length}</span></button><button class="${intl?"on":""}" data-go="diethneis">${svg("globe",15)} NICE · ASCCP <span class="n">${INTL.length}</span></button></div>`}
   ${favOnly?"":`<div class="chips">${[["all","Όλες",pool.length],...Object.entries(CATS).map(([k,v])=>[k,v,pool.filter(g=>g.c===k).length])].map(([k,v,n])=>`<button class="chip${state.cat===k?" on":""}" data-cat="${k}">${esc(v)} <span class="n">${n}</span></button>`).join("")}</div>`}
-  <div class="tools"><input type="search" id="lq" placeholder="Φιλτράρισμα…" value="${esc(state.q)}">
+  <div class="tools"><input type="search" id="lq" placeholder="Αναζήτηση: πάθηση, φάρμακο, ερώτηση (π.χ. μετφορμίνη)" value="${esc(state.q)}">
    ${favOnly?"":`<select id="sort"><option value="desc">Νεότερες πρώτα</option><option value="asc">Κατά αριθμό</option><option value="az">Αλφαβητικά</option></select>
    ${intl?"":`<label class="tgl"><input type="checkbox" id="old"${state.old?" checked":""}> Και αντικατασταθείσες</label>`}`}</div>
-  <div class="list" id="rows">${L.length?L.map(g=>row(g,ts)).join(""):`<div class="empty">${favOnly?"Δεν έχετε αγαπημένες ακόμα.":"Δεν βρέθηκαν οδηγίες."}</div>`}</div>`;
+  <div class="list" id="rows">${L.length?(!ts.length&&!favOnly&&state.cat==="all"&&state.sort!=="az"&&state.sort!=="asc"?Object.entries(CATS).map(([k,v])=>{const LL=L.filter(g=>g.c===k);return LL.length?`<h2 class="lgrp">${esc(v)} <span>${LL.length}</span></h2>`+LL.map(g=>row(g,ts)).join(""):""}).join(""):L.map(g=>row(g,ts)).join("")):`<div class="empty">${favOnly?"Δεν έχετε αγαπημένες ακόμα.":"Δεν βρέθηκαν οδηγίες."}</div>`}</div>`;
 }
 let gTab="rec";const stgSel={};
 const stgCls=c=>/^0/.test(c)?"s0":/^IV/.test(c)?"s4":/^III/.test(c)?"s3":/^II/.test(c)?"s2":/^I/.test(c)?"s1":"tnm";
@@ -1935,19 +1973,20 @@ function vGuide(g){
   if(g.by) rel.push(`Αντικαταστάθηκε από <a data-go="g-${slug(g.by)}">Νο ${esc(g.by)}: ${esc(byN[g.by].t)}</a>`);
   if(g.rep) rel.push(`Αντικαθιστά: ${g.rep.map(r=>`<a data-go="g-${slug(r)}">Νο ${esc(r)}</a>`).join(", ")}`);
   if(g.note) rel.push(esc(g.note));
+  const toc=s?s.b.map((b,i)=>[recTitle(b),i]).filter(x=>x[0]):[];
+  const pdf=g.u?`<a class="gq pri" href="${g.u}" target="_blank" rel="noopener">${svg("ext",16)} Πρωτότυπο</a>`:g.p?`<a class="gq pri" href="${B+g.p}" target="_blank" rel="noopener">${svg("ext",16)} Επίσημο PDF</a>`:"";
   return `<button class="back" data-back>${svg("back",18)} Πίσω</button>
-  <div class="dhead"><div class="num${g.n.length>3?" sm":""}">${esc(g.n)}</div><div style="flex:1;min-width:0">
+  <header class="gh"><div class="gh-t"><span class="gh-n">Νο ${esc(g.n)}</span>${g.old?`<span class="tag sup">${g.arch?"Αρχειοθετημένη":"Αντικαταστάθηκε"}</span>`:`<span class="tag cur">Σε ισχύ</span>`}<span class="gh-d">${esc(CATS[g.c])} · ${s&&s.d?esc(s.d):g.y||""}</span></div>
     <h1>${esc(g.t)}</h1>
-    <div class="meta">${g.old?`<span class="tag sup">${g.arch?"Αρχειοθετημένη":"Αντικαταστάθηκε"}</span>`:`<span class="tag cur">Σε ισχύ</span>`}<span class="tag">${esc(CATS[g.c])}</span>${s&&s.d?`<span class="tag">${esc(s.d)}</span>`:g.y?`<span class="tag">${g.y}</span>`:""}</div>
     ${rel.length?`<div class="rel">${rel.join("<br>")}</div>`:""}
-    <div class="acts">${g.u?`<a class="btn pri" href="${g.u}" target="_blank" rel="noopener">${svg("ext",16)} ${g.src==="nice"?"NICE "+esc(g.n)+" (αγγλικά)":"ASCCP (αγγλικά)"}</a>`:g.p?`<a class="btn pri" href="${B+g.p}" target="_blank" rel="noopener">${svg("ext",16)} Επίσημο PDF</a>`:`<span class="btn" style="opacity:.6">Χωρίς διαθέσιμο PDF</span>`}
-      ${g.flows.map(id=>`<button class="btn tl" data-go="f-${id}">${svg("flow",16)} ${esc(byF[id].t)}</button>`).join("")}
-      <button class="btn" data-fav="${esc(g.n)}">${favs.has(g.n)?"★ Στις αγαπημένες":"☆ Αγαπημένη"}</button><button class="btn" data-share>${svg("share",16)} Κοινοποίηση</button></div></div></div>
+    <div class="gq-row">${pdf}${g.flows.map(id=>`<button class="gq tl" data-go="f-${id}">${svg("flow",16)} ${esc(byF[id].t)}</button>`).join("")}<button class="gq" data-fav="${esc(g.n)}" aria-label="Αγαπημένη">${favs.has(g.n)?"★":"☆"}</button><button class="gq" data-share aria-label="Κοινοποίηση">${svg("share",16)}</button></div>
+  </header>
   ${STG[g.n]?`<div class="gmob"><button class="${gTab==="rec"?"on":""}" data-gtab="rec">${svg("list",15)} Συστάσεις</button><button class="${gTab==="stg"?"on":""}" data-gtab="stg">${svg("stairs",15)} Σταδιοποίηση</button></div><div class="gwrap t-${gTab}"><div class="gmain">`:""}
-  ${s?`<div class="secrow"><h2 class="sec" style="margin:0">Βασικές συστάσεις</h2><div class="vtog"><button class="${gView==="flow"?"on":""}" data-gview="flow">${svg("flow",15)} Διάγραμμα</button><button class="${gView==="list"?"on":""}" data-gview="list">${svg("list",15)} Λίστα</button></div></div>
-  ${gView==="flow"?`<div class="flow gflow">${s.b.map(recNode).join('<div class="conn"></div>')}</div>`:`<div class="recs">${s.b.map(b=>`<div class="rec">${fmt(b)}</div>`).join("")}</div>`}
+  ${s?`${toc.length>2?`<nav class="gtoc">${toc.map(([x,i])=>`<a data-jump="r${i+1}">${esc(x)}</a>`).join("")}</nav>`:""}
+  <div class="gcs">${s.b.map(recCard).join("")}</div>
   ${STG[g.n]?`</div>${stgPanel(g)}</div>`:""}
-  <p class="verify">${svg("info",16)}<span>${g.src?"Ελληνική σύνοψη με δικά μας λόγια από το πρωτότυπο (αγγλικά). Πριν από κλινική απόφαση επαληθεύστε στην πηγή και συγκρίνετε με τις οδηγίες της ΕΜΓΕ.":"Σύνοψη με δικά μας λόγια από το επίσημο κείμενο."} Πριν από κλινική απόφαση επαληθεύστε στο PDF. Οι εμπορικές ονομασίες σε παρένθεση είναι ενδεικτικές, από τον <a href="https://www.galinos.gr" target="_blank" rel="noopener">Γαληνό</a>.</span></p>`:`<p class="verify">${g.src?"Η ελληνική σύνοψη θα προστεθεί όταν δοθεί άδεια χρήσης από τον εκδότη. Ανοίξτε την επίσημη οδηγία με το κουμπί παραπάνω.":"Δεν υπάρχει σύνοψη για αυτή την οδηγία."}</p>`}`;
+  <div class="glegend"><span class="rx">${svg("pill",13)} Δόση / αγωγή</span><span class="warn">${svg("alert",13)} Προσοχή</span><span class="step">${svg("check",13)} Σύσταση</span></div>
+  <p class="verify">${svg("info",16)}<span>Σύνοψη με δικά μας λόγια από το επίσημο κείμενο. Πριν από κλινική απόφαση επαληθεύστε στο PDF. Οι εμπορικές ονομασίες σε παρένθεση είναι ενδεικτικές, από τον <a href="https://www.galinos.gr" target="_blank" rel="noopener">Γαληνό</a>.</span></p>`:`<p class="verify">Δεν υπάρχει σύνοψη για αυτή την οδηγία. Ανοίξτε το επίσημο PDF.</p>`}`;
 }
 function vFlows(){
   const ts=terms(state.q);
@@ -2653,6 +2692,7 @@ document.addEventListener("click",e=>{
   const pk=e.target.closest("[data-pick]"); if(pk&&!e.target.closest("a")){const dec=pk.closest(".dec");const was=pk.classList.contains("pick");dec.querySelectorAll(".br").forEach(x=>x.classList.remove("pick"));if(was)dec.classList.remove("picked");else{pk.classList.add("pick");dec.classList.add("picked")}return}
   const cp=e.target.closest("[data-copy]"); if(cp){const n=cp.closest(".node,.wz-card,.dg-card");const txt=n.querySelector("h2,h3").textContent+"\n"+[...n.querySelectorAll("li")].map(l=>"• "+l.textContent).join("\n");const done=()=>{cp.textContent="Αντιγράφηκε ✓";setTimeout(()=>cp.textContent="Αντιγραφή",1500)};try{navigator.clipboard.writeText(txt).then(done,()=>{cp.textContent="Μη διαθέσιμο"})}catch(_){cp.textContent="Μη διαθέσιμο"}return}
   const sh=e.target.closest("[data-share]"); if(sh){const url=location.href,title=document.title;if(navigator.share){navigator.share({title,url}).catch(()=>{})}else{try{navigator.clipboard.writeText(url).then(()=>{sh.lastChild.textContent=" Ο σύνδεσμος αντιγράφηκε"})}catch(_){}}return}
+  const jp=e.target.closest("[data-jump]");if(jp){const el=document.getElementById(jp.dataset.jump);if(el){const y=el.getBoundingClientRect().top+scrollY-90;scrollTo({top:y,behavior:"smooth"});el.classList.add("flash");setTimeout(()=>el.classList.remove("flash"),1200)}return}
   const gv=e.target.closest("[data-gview]"); if(gv){gView=gv.dataset.gview;store.set("mg-gview",gView);render();return}
   const ak=e.target.closest("[data-ask]"); if(ak){ask(ak.dataset.ask);return}
   const mc=e.target.closest("[data-mic]"); if(mc){micToggle();return}
